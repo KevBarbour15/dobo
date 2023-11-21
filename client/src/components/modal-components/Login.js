@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import axios from "../axiosConfig";
+import axios from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 
-const Login = () => {
+const Login = ({event, onClose}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setIsAuthenticated } = useContext(AuthContext);
@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Attempting to login... (client side)");
+
     try {
       const response = await axios.post("/auth/login", {
         username,
@@ -28,6 +28,7 @@ const Login = () => {
 
   return (
     <div>
+      <h1>Login</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>

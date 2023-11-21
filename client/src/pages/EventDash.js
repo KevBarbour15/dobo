@@ -46,12 +46,14 @@ const EventDash = () => {
       <div className="events-container">
         <div className="create-div">
           <CreateEvent onEventCreated={addNewEvent} />
+          <div className="logout-button">
+            <button onClick={handleLogout}>Logout</button>
+          </div>
         </div>
         <div className="events-div">
           <DisplayEvents events={events} />
         </div>
       </div>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };

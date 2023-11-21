@@ -1,26 +1,22 @@
 .events-container {
   display: flex;
-  height: 95vh; 
+  height: 100vh;
 }
 
-.create-div, .events-div {
-  flex: 1; 
-  height: 100%; 
-  overflow: hidden; 
-  margin: 10px;
-
-}
-
+.create-div,
 .events-div {
-  overflow-y: auto; 
+  flex: 1;
+  height: 95%;
+  overflow: hidden;
+  margin: 10px;
 }
 
 .event-form {
   max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
   background-color: #f4f4f4;
   border-radius: 8px;
+  border: .1px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -49,7 +45,11 @@
   font-size: 16px;
 }
 
-.event-form button {
+.logout-button {
+  text-align: center;
+}
+
+.event-form button, .logout-button button{
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
@@ -62,4 +62,31 @@
 
 .event-form button:hover {
   background-color: #0056b3;
+}
+
+.events-list{
+  overflow-y: auto;
+  max-height: calc(95vh - 60px);
+}
+
+.events-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-details, .event-options {
+  width: 45%;
+}
+
+.event-options{
+  text-align: right; 
+  display: flex;
+  flex-direction: column;
+}
+
+.event-options button {
+  display: block;
+  width: 55%;
+  margin: 5px auto;
 }

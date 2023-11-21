@@ -1,31 +1,24 @@
-import React, { useContext, useState } from "react";
-import AuthContext from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import Login from "./Login";
+import React, { useState } from "react";
+import Login from "./modal-components/Login";
+import Modal from "./Modal";
 
 const Footer = () => {
-  const { isAuthenticated } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
 
-  const handleLoginClick = () => {
-    if (isAuthenticated) {
-      navigate("/dashboard");
-    } else {
-      setShowLoginModal(true);
-    }
-  };
-
-  const handleCloseLoginModal = () => {
-    setShowLoginModal(false);
+  const handleOwnerLogin = () => {
+    setModalContent(<Login onClose={() => setModalOpen(false)} />);
+    setModalOpen(true);
   };
 
   return (
     <footer>
-      <button onClick={handleLoginClick}>
+      <button type="button" onClick={handleOwnerLogin}>
         owner
       </button>
-      {showLoginModal && <Login onClose={handleCloseLoginModal} />}
+      <Modal isVisible={isModalOpen} onClose={() => setModalOpen(false)}>
+        <div>{modalContent}</div>
+      </Modal>
     </footer>
   );
 };
