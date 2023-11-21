@@ -11,13 +11,13 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("Attempting to login... (client side)");
     try {
       const response = await axios.post("/auth/login", {
         username,
         password,
       });
-
+      console.log(response);
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
       setTimeout(() => {

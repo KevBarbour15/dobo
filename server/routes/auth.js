@@ -7,8 +7,9 @@ const USERNAME = process.env.DOBO_USERNAME;
 const PASSWORD = process.env.DOBO_PASSWORD;
 
 
-router.post("/Login", (req, res) => {
+router.post("/login", (req, res) => {
   const { username, password } = req.body;
+  console.log("Attemping to login... (server side)");
   if (username === USERNAME && password === PASSWORD) {
     const token = jwt.sign({ username }, SECRET_KEY, {
       expiresIn: "1h",
