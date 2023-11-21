@@ -1,4 +1,3 @@
-// EventDash.js
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
@@ -17,7 +16,8 @@ const EventDash = () => {
       navigate("/");
     }
 
-    axios.get("/events/get-all")
+    axios
+      .get("/events/get-all")
       .then((response) => {
         const sortedEvents = response.data.sort(
           (a, b) => new Date(a.date) - new Date(b.date)
@@ -30,7 +30,9 @@ const EventDash = () => {
   }, [isAuthenticated, navigate]);
 
   const addNewEvent = (newEvent) => {
-    setEvents([...events, newEvent].sort((a, b) => new Date(a.date) - new Date(b.date)));
+    setEvents(
+      [...events, newEvent].sort((a, b) => new Date(a.date) - new Date(b.date))
+    );
   };
 
   const handleLogout = () => {

@@ -14,9 +14,10 @@ router.post("/login", (req, res) => {
     const token = jwt.sign({ username }, SECRET_KEY, {
       expiresIn: "1h",
     });
-
+    console.log("Login successful");
     res.json({ token });
   } else {
+    console.log("Invalid username or password");
     res.status(401).json({ error: "Invalid username or password" });
   }
 });
