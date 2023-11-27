@@ -3,9 +3,9 @@ import axios from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
-const Login = ({event, onClose}) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Login = ({ onClose }) => {
+  const [username, setUsername] = useState("dobo"); // change these later to empty strings when done testing
+  const [password, setPassword] = useState("dobo"); // and add required to the inputs
   const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Login = ({event, onClose}) => {
         username,
         password,
       });
-      console.log(response);
+
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
       setTimeout(() => {
@@ -38,7 +38,7 @@ const Login = ({event, onClose}) => {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
             id="username"
-            required
+            
             autoComplete="username"
           />
           <input
@@ -47,11 +47,12 @@ const Login = ({event, onClose}) => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             id="password"
-            required
+            
             autoComplete="current-password"
           />
           <label htmlFor="password">Password:</label>
           <button type="submit">Login</button>
+          <button onClick={onClose}>Cancel</button>
         </form>
       </div>
     </div>

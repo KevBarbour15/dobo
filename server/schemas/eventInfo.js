@@ -6,10 +6,6 @@ const DoboEventSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  description: {
-    type: String,
-    required: false,
-  },
   seats: {
     type: Number,
     required: true,
@@ -30,6 +26,10 @@ const DoboEventSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  attendees: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Attendees'
+  }],
 });
 
 module.exports = mongoose.model('DoboEvent', DoboEventSchema);

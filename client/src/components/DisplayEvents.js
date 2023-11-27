@@ -3,7 +3,10 @@ import Modal from "./Modal.js";
 import EditEvent from "./modal-components/Edit.js";
 import Attendance from "./modal-components/Attendance.js";
 import Delete from "./modal-components/Delete.js";
-import { convertMilitaryTime, convertDateReadability } from "../helpers/formatting.js";
+import {
+  convertMilitaryTime,
+  convertDateReadability,
+} from "../helpers/formatting.js";
 
 const EventDetails = ({ event }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -17,7 +20,9 @@ const EventDetails = ({ event }) => {
   };
 
   const handleDelete = () => {
-    setModalContent(<Delete event={event} onClose={() => setModalOpen(false)} />);
+    setModalContent(
+      <Delete event={event} onClose={() => setModalOpen(false)} />
+    );
     setModalOpen(true);
   };
 
@@ -35,11 +40,9 @@ const EventDetails = ({ event }) => {
         <p>Seats: {event.seats}</p>
         <p>Seats Available: {event.seatsRemaining}</p>
         <p>Date: {convertDateReadability(event.date)}</p>
-        <p>Time: {convertMilitaryTime(event.time)}</p>
-        <p>Price: ${event.price}</p>
       </div>
       <div className="event-options">
-      <button type="button" onClick={handleViewAttendance}>
+        <button type="button" onClick={handleViewAttendance}>
           Attendance
         </button>
         <button type="button" onClick={handleEdit}>

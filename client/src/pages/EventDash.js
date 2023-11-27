@@ -15,7 +15,6 @@ const EventDash = () => {
     if (!isAuthenticated) {
       navigate("/");
     }
-
     axios
       .get("/events/get-all")
       .then((response) => {

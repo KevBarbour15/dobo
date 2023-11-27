@@ -11,9 +11,11 @@ app.use(express.json());
 
 const authRoutes = require("./routes/auth");
 const eventsRoutes = require("./routes/events");
+const attendeesRoutes = require("./routes/attendees");
 
 app.use("/auth", authRoutes);
 app.use("/events", eventsRoutes);
+app.use("/attendees", attendeesRoutes);
 
 connect();
 

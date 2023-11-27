@@ -3,6 +3,7 @@ import { convertDateReadability } from "../../helpers/formatting.js";
 
 const EditEvent = ({ event, onClose }) => {
   
+  
   return (
     <div>
       <h1>Edit Event:</h1>

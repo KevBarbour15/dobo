@@ -1,14 +1,21 @@
 .events-container {
   display: flex;
-  height: 100vh;
+  height: 98vh;
 }
 
 .create-div,
 .events-div {
   flex: 1;
-  height: 95%;
   overflow: hidden;
   margin: 10px;
+}
+
+.create-div{
+  min-height: 75%;
+}
+
+.events-div{
+  min-height: 100%;
 }
 
 .event-form {
@@ -66,7 +73,7 @@
 
 .events-list{
   overflow-y: auto;
-  max-height: calc(95vh - 60px);
+  max-height: calc(95vh - 80px);
 }
 
 .events-card {
