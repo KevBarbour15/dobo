@@ -30,18 +30,47 @@ router.post("/new", async (req, res) => {
 
 // gets all attendees by the eventId
 router.post("/get-by-ids", async (req, res) => {
-  console.log("Getting all attendees...");
-  console.log(req.body.attendeeIds );
-
   try {
     const attendeeIds = req.body.attendeeIds;
     const attendees = await Attendee.find({ _id: { $in: attendeeIds } });
     res.status(200).json(attendees);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching attendees", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error fetching attendees", error: error.message });
   }
 });
 
 // changes the status of an attendee (maybe use Mandrill for this when their spot is confirmed?)
 
+router.put("/update-status", async (req, res) => {
+  console.log(req.body.attendeeId);
+  console.log("new: " + req.body.status);
+  console.log("og " + req.body.ogStatus);
+  try {
+    const attendeeId = req.body.attendeeId;
+    const status = req.body.status;
+    const ogStatus = req.body.ogStatus;
+
+    await Attendee.findByIdAndUpdate(attendeeId, { status });
+    
+    if (status === "Confirmed" && ogStatus === "Inquired/Not Attending") {
+      // decrement spots remaining for event
+      // 
+    }
+
+    if (status === "Inquired/Not Attending" && ogStatus === "Confirmed") {
+        // increment spots remaining for event
+    }
+
+    res.status(200).json({ message: "Attendee status updated" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: "Error updating attendee status",
+        error: error.message,
+      });
+  }
+});
 module.exports = router;

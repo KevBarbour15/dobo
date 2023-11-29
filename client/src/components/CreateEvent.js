@@ -1,6 +1,7 @@
 // CreateEvent.js
 import React, { useState } from "react";
 import axios from "../axiosConfig";
+import { formatDate } from "../helpers/formatting";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -11,11 +12,11 @@ const CreateEvent = ({ onEventCreated }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(date);
     const eventData = {
       title,
       seats,
-      seatsRemaining: seats, 
+      seatsRemaining: seats,
       date,
       time,
       price,
@@ -24,8 +25,7 @@ const CreateEvent = ({ onEventCreated }) => {
     try {
       const response = await axios.post("/events/new", eventData);
       if (response.status === 200 || response.status === 201) {
-        onEventCreated(response.data); // Call the callback function with new event data
-        // Reset form fields
+        onEventCreated(response.data);
         setTitle("");
         setSeats(1);
         setDate("");
@@ -50,12 +50,17 @@ const CreateEvent = ({ onEventCreated }) => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Number of Seats:
-          <select value={seats} onChange={(e) => setSeats(e.target.value)}>
+          <select
+            value={seats}
+            onChange={(e) => setSeats(formatDate(e.target.value))}
+            required
+          >
             {[...Array(20)].map((_, i) => (
               <option key={i} value={i + 1}>
                 {i + 1}
@@ -70,6 +75,7 @@ const CreateEvent = ({ onEventCreated }) => {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            required
           />
         </label>
 
@@ -81,7 +87,7 @@ const CreateEvent = ({ onEventCreated }) => {
             onChange={(e) => setTime(e.target.value)}
           />
         </label>
-
+        {/*
         <label>
           Price:
           <input
@@ -90,6 +96,7 @@ const CreateEvent = ({ onEventCreated }) => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </label>
+            */}
         <button type="submit">Create Event</button>
       </form>
     </div>

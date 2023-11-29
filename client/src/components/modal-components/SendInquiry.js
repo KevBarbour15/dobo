@@ -17,7 +17,7 @@ const Inquiry = ({ events, onClose }) => {
       name,
       email,
       eventId: selectedEventId,
-      status: "Pending",
+      status: "Inquired/Not Attending",
     };
 
     try {

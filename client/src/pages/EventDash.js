@@ -11,10 +11,7 @@ const EventDash = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/");
-    }
+  const fetchEvents = () => {
     axios
       .get("/events/get-all")
       .then((response) => {
@@ -26,12 +23,32 @@ const EventDash = () => {
       .catch((error) => {
         console.error("Error fetching events: ", error);
       });
+  };
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/");
+    }
+    fetchEvents();
   }, [isAuthenticated, navigate]);
 
   const addNewEvent = (newEvent) => {
     setEvents(
       [...events, newEvent].sort((a, b) => new Date(a.date) - new Date(b.date))
     );
+  };
+
+  const updateEvent = (updatedEvent) => {
+    const updatedEvents = events.map((event) =>
+      event._id === updatedEvent._id ? { ...updatedEvent } : event
+    );
+    setEvents([...updatedEvents]);
+    fetchEvents();
+  };
+
+  const deleteEvent = (eventId) => {
+    console.log("deleteEvent: ", eventId);
+    setEvents(events.filter((event) => event._id !== eventId));
   };
 
   const handleLogout = () => {
@@ -50,7 +67,11 @@ const EventDash = () => {
           </div>
         </div>
         <div className="events-div">
-          <DisplayEvents events={events} />
+          <DisplayEvents
+            events={events}
+            onUpdateEvent={updateEvent}
+            onDeleteEvent={deleteEvent}
+          />
         </div>
       </div>
     </div>

@@ -21,6 +21,10 @@ function convertMilitaryTime(militaryTime) {
   return `${hours}:${minutes.toString().padStart(2, "0")} ${period}`;
 }
 
+function formatDate(date) {
+  return date ? date.split("T")[0] : new Date().toISOString().split("T")[0];
+}
+
 function convertDateReadability(dateString) {
   const date = new Date(dateString);
   const options = {
@@ -32,4 +36,4 @@ function convertDateReadability(dateString) {
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
-module.exports = { convertMilitaryTime, convertDateReadability };
+module.exports = { convertMilitaryTime, convertDateReadability, formatDate };

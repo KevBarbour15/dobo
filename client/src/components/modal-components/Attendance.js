@@ -25,11 +25,30 @@ const Attendance = ({ event, onClose }) => {
     }
   }, [event]);
 
+  const updateAttendeeStatus = async (attendeeId, newStatus, ogStatus) => {
+    if(newStatus === ogStatus) return;
+
+    console.log("updateAttendeeStatus: ", attendeeId," ", newStatus, " ", ogStatus);
+    try {
+      await axios.put("/attendees/update-status", {
+        attendeeId,
+        status: newStatus,
+        eventId: event._id,
+      });
+
+      setAttendees(attendees.map(attendee => 
+        attendee._id === attendeeId ? { ...attendee, status: newStatus } : attendee
+      ));
+    } catch (error) {
+      console.error("Error updating attendee status: ", error);
+    }
+  };
+
   return (
     <div>
       <h1>{convertDateReadability(event.date)}</h1>
       {attendees.map((attendee) => (
-        <Attendee key={attendee._id} attendee={attendee} />
+        <Attendee key={attendee._id} attendee={attendee} onStatusChange={updateAttendeeStatus} />
       ))}
       <button onClick={onClose}>Close</button>
     </div>

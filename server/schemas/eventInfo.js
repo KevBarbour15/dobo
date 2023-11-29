@@ -4,7 +4,6 @@ const DoboEventSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
   },
   seats: {
     type: Number,
@@ -24,7 +23,7 @@ const DoboEventSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true,
+    required: false,
   },
   attendees: [{
     type: mongoose.Schema.Types.ObjectId,

@@ -10,27 +10,21 @@ const Home = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
-
     const fetchEvents = async () => {
       try {
         const response = await axios.get("/events/get-all");
         const sortedEvents = response.data.sort(
           (a, b) => new Date(a.date) - new Date(b.date)
         );
-        if (isMounted) {
-          setEvents(sortedEvents);
-        }
+
+        setEvents(sortedEvents);
+        console.log("Events fetched successfully!");
       } catch (error) {
         console.error("Error fetching events: ", error);
       }
     };
 
     fetchEvents();
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   const handleSendInquiry = () => {
