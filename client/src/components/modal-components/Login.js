@@ -28,7 +28,7 @@ const Login = ({ onClose }) => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Admin Login</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>

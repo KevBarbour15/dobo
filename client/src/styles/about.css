@@ -1,0 +1,26 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+
+}
+
+.about-text {
+  width: 50%;
+  text-align: center;
+}
+
+.about-text h1 {
+  font-size: 2rem;
+  font-family: "Aboreto", sans-serif;
+  font-weight: 700;
+  color: #BD9C72;
+}
+
+.about-text p {
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}

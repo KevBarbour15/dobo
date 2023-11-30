@@ -23,7 +23,7 @@ const Attendee = ({ attendee, onStatusChange }) => {
       <h2>{attendee.email}</h2>
       <select value={status} onChange={handleStatusChange}>
         <option value="Confirmed">Confirmed</option>
-        <option value="Inquired/Not Attending">Inquired/Not Attending</option>
+        <option value="Inquired/Not Attending">Inquired / Not Attending</option>
       </select>
       <button onClick={handleSave}>Update</button>
     </div>

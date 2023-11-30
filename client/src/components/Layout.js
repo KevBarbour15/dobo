@@ -1,14 +1,17 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 
+import SlidingMenu from "./SlidingMenu";
+import "../styles/layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <Header />
+    <div className="layout-container">
+      <div className="header">
+        <header>
+          <SlidingMenu />
+        </header>
+      </div>
       <main>{children}</main>
-      <Footer />
     </div>
   );
 };

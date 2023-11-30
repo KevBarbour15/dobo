@@ -3,7 +3,10 @@ import Modal from "./Modal.js";
 import EditEvent from "./modal-components/Edit.js";
 import Attendance from "./modal-components/Attendance.js";
 import Delete from "./modal-components/Delete.js";
-import { convertDateReadability, convertMilitaryTime} from "../helpers/formatting.js";
+import {
+  convertDateReadability,
+  convertMilitaryTime,
+} from "../helpers/formatting.js";
 
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -33,7 +36,11 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
 
   const handleViewAttendance = () => {
     setModalContent(
-      <Attendance event={event} onClose={() => setModalOpen(false)} />
+      <Attendance
+        event={event}
+        onUpdateEvent={() => onUpdateEvent(event._id)}
+        onClose={() => setModalOpen(false)}
+      />
     );
     setModalOpen(true);
   };

@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const Attendee = require("../schemas/attendees");
@@ -44,33 +43,36 @@ router.post("/get-by-ids", async (req, res) => {
 // changes the status of an attendee (maybe use Mandrill for this when their spot is confirmed?)
 
 router.put("/update-status", async (req, res) => {
-  console.log(req.body.attendeeId);
-  console.log("new: " + req.body.status);
-  console.log("og " + req.body.ogStatus);
+  
   try {
     const attendeeId = req.body.attendeeId;
     const status = req.body.status;
     const ogStatus = req.body.ogStatus;
+    const eventId = req.body.eventId;
 
     await Attendee.findByIdAndUpdate(attendeeId, { status });
-    
+
     if (status === "Confirmed" && ogStatus === "Inquired/Not Attending") {
       // decrement spots remaining for event
-      // 
+      console.log("Here to decerement spots");
+      const event = await Event.findByIdAndUpdate(eventId, { $inc: { seatsRemaining: -1 } });
+      console.log(event);
     }
 
     if (status === "Inquired/Not Attending" && ogStatus === "Confirmed") {
-        // increment spots remaining for event
+      // increment spots remaining for event
+      console.log("Here to increment spots");
+      const event = await Event.findByIdAndUpdate(eventId, { $inc: { seatsRemaining: 1 } });
+      console.log(event);
     }
 
     res.status(200).json({ message: "Attendee status updated" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error updating attendee status",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error updating attendee status",
+      error: error.message,
+    });
   }
 });
+
 module.exports = router;

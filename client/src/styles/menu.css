@@ -1,0 +1,128 @@
+.menu-button button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.85rem;
+  padding: 10px 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.menu {
+  position: fixed;
+  width: 35%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  right: -35%;
+  transition: right 0.5s;
+}
+
+.menu.open {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    right: -100%;
+  }
+
+  .menu.open {
+    right: 0;
+  }
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-title h2 {
+  color: white;
+  font-family: "Aboreto", sans-serif;
+  letter-spacing: 0.15rem;
+  font-size: 1.15rem;
+  padding: 10px 20px
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: "Aboreto", sans-serif;
+  font-weight: 900;
+  font-size: 1.85rem;
+  padding: 10px 20px
+}
+
+.menu-list{
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; 
+  text-align: right;
+  padding: 10px 20px; 
+}
+
+.menu-list a {
+  color: #BD9C72;
+  font-family: "Aboreto", sans-serif;
+  font-size: 3rem;
+  padding-bottom:85px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu-footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-admin-btn {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  margin: 20px;
+}
+
+.footer-social a {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  margin: 20px;
+}
