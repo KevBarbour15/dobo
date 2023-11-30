@@ -43,27 +43,20 @@ router.post("/get-by-ids", async (req, res) => {
 // changes the status of an attendee (maybe use Mandrill for this when their spot is confirmed?)
 
 router.put("/update-status", async (req, res) => {
-  
   try {
-    const attendeeId = req.body.attendeeId;
-    const status = req.body.status;
-    const ogStatus = req.body.ogStatus;
-    const eventId = req.body.eventId;
-
     await Attendee.findByIdAndUpdate(attendeeId, { status });
 
     if (status === "Confirmed" && ogStatus === "Inquired/Not Attending") {
-      // decrement spots remaining for event
-      console.log("Here to decerement spots");
-      const event = await Event.findByIdAndUpdate(eventId, { $inc: { seatsRemaining: -1 } });
-      console.log(event);
+      const event = await Event.findByIdAndUpdate(eventId, {
+        $inc: { seatsRemaining: -1 },
+      });
+      
     }
 
     if (status === "Inquired/Not Attending" && ogStatus === "Confirmed") {
-      // increment spots remaining for event
-      console.log("Here to increment spots");
-      const event = await Event.findByIdAndUpdate(eventId, { $inc: { seatsRemaining: 1 } });
-      console.log(event);
+      const event = await Event.findByIdAndUpdate(eventId, {
+        $inc: { seatsRemaining: 1 },
+      });
     }
 
     res.status(200).json({ message: "Attendee status updated" });

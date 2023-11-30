@@ -35,7 +35,6 @@ const Attend = () => {
   return (
     <div>
       <Layout>
-        <p>This is the about page. What do we want it to say?</p>
         <button type="button" onClick={handleSendInquiry}>
           Want to attend?{" "}
         </button>

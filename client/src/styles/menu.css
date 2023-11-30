@@ -28,6 +28,7 @@
   .menu {
     width: 100%;
     right: -100%;
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .menu.open {
@@ -79,7 +80,7 @@
 }
 
 .menu-list a {
-  color: #BD9C72;
+  color: white;
   font-family: "Aboreto", sans-serif;
   font-size: 3rem;
   padding-bottom:85px;
