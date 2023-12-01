@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
+import "../styles/attend.css";
 import axios from "../axiosConfig";
-import Modal from "../components/Modal";
-import SendInquiry from "../components/modal-components/SendInquiry";
+import {
+  convertDateReadability,
+  convertMilitaryTime,
+} from "../helpers/formatting.js";
+
 const Attend = () => {
   const [events, setEvents] = useState([]);
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedEventId, setSelectedEventId] = useState("");
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -22,25 +27,80 @@ const Attend = () => {
         console.error("Error fetching events: ", error);
       }
     };
-
     fetchEvents();
   }, []);
 
-  const handleSendInquiry = () => {
-    setModalContent(
-      <SendInquiry events={events} onClose={() => setModalOpen(false)} />
-    );
-    setModalOpen(true);
+  useEffect(() => {
+    setSelectedEventId(events[0]?._id || "");
+  }, [events]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("selectedEventId: ", selectedEventId);
+    const attendeeData = {
+      name,
+      email,
+      eventId: selectedEventId,
+      status: "Inquired/Not Attending",
+    };
+
+    try {
+      const response = await axios.post("/attendees/new", attendeeData);
+      if (response.status === 200 || response.status === 201) {
+        console.log("Attendee created successfully!");
+      } else {
+        console.error("Error creating attendee:", response);
+      }
+    } catch (error) {
+      const errorData = error.response ? error.response.data : error.message;
+      console.error("There was an error sending the data:", errorData);
+    }
   };
   return (
     <div>
       <Layout>
-        <button type="button" onClick={handleSendInquiry}>
-          Want to attend?{" "}
-        </button>
-        <Modal isVisible={isModalOpen} onClose={() => setModalOpen(false)}>
-          <div>{modalContent}</div>
-        </Modal>
+        <div className="attend-container">
+          <div className="attend-left">
+            <div className="inquiry-form">
+              <form onSubmit={handleSubmit}>
+                <select
+                  value={selectedEventId}
+                  onChange={(e) => setSelectedEventId(e.target.value)}
+                >
+                  {events.map((event) => (
+                    <option key={event._id} value={event._id}>
+                      {convertDateReadability(event.date)} at{" "}
+                      {convertMilitaryTime(event.time)}
+                    </option>
+                  ))}
+                </select>
+                <label>
+                  Name:
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </label>
+                <label>
+                  Email:
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </label>
+                <button type="submit">Confirm</button>
+              </form>
+            </div>
+          </div>
+          <div className="attend-right">
+            <div className="attend-image-container">
+              {/* no image goes here */}
+            </div>
+          </div>
+        </div>
       </Layout>
     </div>
   );

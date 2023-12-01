@@ -5,7 +5,8 @@ import Login from "./modal-components/Login";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faLock, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import Menu from "../images/menu.png";
 
 const SlidingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const SlidingMenu = () => {
       <div className="menu-button">
         {!isOpen && (
           <button onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} />
+            <img src={Menu} alt="menu icon" className="menu-icon" />
           </button>
         )}
       </div>
