@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "./Modal.js";
 import EditEvent from "./modal-components/Edit.js";
 import Attendance from "./modal-components/Attendance.js";

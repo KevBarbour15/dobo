@@ -1,5 +1,5 @@
 // CreateEvent.js
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "../axiosConfig";
 import { formatDate } from "../helpers/formatting";
 

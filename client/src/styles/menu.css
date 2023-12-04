@@ -4,40 +4,41 @@
   color: white;
   cursor: pointer;
   font-size: 1.85rem;
-  padding: 10px 20px;
+  padding: 10px 10px;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 }
 
 .menu-icon {
-  width: 50px;
+  width: 45px;
+}
+
+@media (max-width: 768px) {
+  .menu-button button {
+    top: 0;
+    right: 0;
+    padding: 15px 15px;
+  }
+
+  .menu-icon {
+    width: 40px;
+  }
 }
 
 .menu {
   position: fixed;
-  width: 35%;
+  width: 50%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   top: 0;
-  right: -35%;
+  right: -50%;
   transition: right 0.5s;
+  z-index: 100;
 }
 
 .menu.open {
   right: 0;
-}
-
-@media (max-width: 768px) {
-  .menu {
-    width: 100%;
-    right: -100%;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  .menu.open {
-    right: 0;
-  }
 }
 
 .menu-container {
@@ -59,7 +60,7 @@
   font-family: "Aboreto", sans-serif;
   letter-spacing: 0.15rem;
   font-size: 1.15rem;
-  padding: 10px 20px
+  padding: 10px 20px;
 }
 
 .menu-header button {
@@ -70,24 +71,24 @@
   font-family: "Aboreto", sans-serif;
   font-weight: 900;
   font-size: 1.85rem;
-  padding: 10px 20px
+  padding: 10px 20px;
 }
 
-.menu-list{
-  flex-grow: 1; 
+.menu-list {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end; 
+  align-items: flex-end;
   text-align: right;
-  padding: 10px 20px; 
+  padding: 10px 20px;
 }
 
 .menu-list a {
   color: white;
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
-  padding-bottom:85px;
+  font-size: 3.5rem;
+  padding-bottom: 85px;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -98,13 +99,11 @@
   position: absolute;
 }
 
-
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 
 .footer-left,
 .footer-right {
@@ -117,7 +116,6 @@ footer {
   color: white;
   border: none;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
   font-size: 1.15rem;
   margin: 20px;
 }
@@ -130,4 +128,16 @@ footer {
   font-family: "Inter", sans-serif;
   font-size: 2rem;
   margin: 20px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    right: -100%;
+    padding-bottom: 50px;
+  }
+
+  .menu.open {
+    right: 0;
+  }
 }

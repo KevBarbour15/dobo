@@ -4,12 +4,10 @@
   overflow: hidden;
 }
 
-.header,
-.footer {
+.header {
   position: absolute;
   width: 100%;
   background-color: rgba(255, 255, 255, 0);
-  z-index: 10;
 }
 
 .header {

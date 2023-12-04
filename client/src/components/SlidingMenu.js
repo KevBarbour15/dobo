@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/menu.css";
 import { Link } from "react-router-dom";
 import Login from "./modal-components/Login";
@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import Menu from "../images/menu.png";
+import Menu from "../assets/menu.png";
 
 const SlidingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

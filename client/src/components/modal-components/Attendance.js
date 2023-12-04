@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { convertDateReadability } from "../../helpers/formatting.js";
 import axios from "../../axiosConfig";
 import Attendee from "../Attendee.js";

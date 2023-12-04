@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import "../styles/attend.css";
 import axios from "../axiosConfig";
@@ -60,39 +60,52 @@ const Attend = () => {
       <Layout>
         <div className="attend-container">
           <div className="attend-left">
-            <div className="inquiry-form">
-              <form onSubmit={handleSubmit}>
-                <select
-                  value={selectedEventId}
-                  onChange={(e) => setSelectedEventId(e.target.value)}
-                >
-                  {events.map((event) => (
-                    <option key={event._id} value={event._id}>
-                      {convertDateReadability(event.date)} at{" "}
-                      {convertMilitaryTime(event.time)}
-                    </option>
-                  ))}
-                </select>
-                <label>
-                  Name:
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </label>
-                <label>
-                  Email:
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </label>
-                <button type="submit">Confirm</button>
-              </form>
+            <div className="attend-info-container">
+              <div className="attend-title-container">
+                <h1 className="attend-title">Attend DOBO</h1>
+              </div>
+
+              <div className="attend-form-container">
+                <div className="attend-form-text">
+                  To learn how you can attend a DOBO event, please fill out the
+                  form below with the date you wish to attend. We will get back
+                  to you as soon as possible.
+                </div>
+                <div className="inquiry-form">
+                  <form onSubmit={handleSubmit}>
+                    <select
+                      value={selectedEventId}
+                      onChange={(e) => setSelectedEventId(e.target.value)}
+                    >
+                      {events.map((event) => (
+                        <option key={event._id} value={event._id}>
+                          {convertDateReadability(event.date)} at{" "}
+                          {convertMilitaryTime(event.time)}
+                        </option>
+                      ))}
+                    </select>
+                    <label>
+                      Name:
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <label>
+                      Email:
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <button type="submit">Confirm</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
           <div className="attend-right">

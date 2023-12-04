@@ -1,4 +1,3 @@
-import React from "react";
 import { convertDateReadability } from "../../helpers/formatting.js";
 import axios from "../../axiosConfig";
 

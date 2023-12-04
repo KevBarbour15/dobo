@@ -1,5 +1,3 @@
-import React from "react";
-
 import SlidingMenu from "./SlidingMenu";
 import "../styles/layout.css";
 
