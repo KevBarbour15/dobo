@@ -61,15 +61,10 @@ const Attend = () => {
         <div className="attend-container">
           <div className="attend-left">
             <div className="attend-info-container">
-              <div className="attend-title-container">
-                <h1 className="attend-title">Attend DOBO</h1>
-              </div>
-
               <div className="attend-form-container">
                 <div className="attend-form-text">
                   To learn how you can attend a DOBO event, please fill out the
-                  form below with the date you wish to attend. We will get back
-                  to you as soon as possible.
+                  form below with the date you wish to attend. We will reach out to with details on how to attend.
                 </div>
                 <div className="inquiry-form">
                   <form onSubmit={handleSubmit}>

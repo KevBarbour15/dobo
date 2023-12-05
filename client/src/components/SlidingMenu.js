@@ -6,10 +6,8 @@ import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import Menu from "../assets/menu.png";
 
-const SlidingMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const SlidingMenu = ({ isOpen, toggleMenu }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
@@ -17,24 +15,14 @@ const SlidingMenu = () => {
     setModalContent(<Login onClose={() => setModalOpen(false)} />);
     setModalOpen(true);
   };
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div>
-      <div className="menu-button">
-        {!isOpen && (
-          <button onClick={toggleMenu}>
-            <img src={Menu} alt="menu icon" className="menu-icon" />
-          </button>
-        )}
-      </div>
       <div className={`menu ${isOpen ? "open" : ""}`}>
         <div className="menu-container">
           <div className="menu-header">
             <div className="menu-title">
-              <h2>Brooklyn, NY</h2>
+              <h3>Brooklyn, NY</h3>
             </div>
             <div className="menu-close">
               <button onClick={toggleMenu}>X</button>

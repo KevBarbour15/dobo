@@ -15,8 +15,16 @@
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .attend-left {
+    background-image: url("../assets/left-1.png");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 .attend-info-container {
-  height: 95vh;
+  height: calc(100vh - 120px);
   width: 85%;
   position: absolute;
   overflow-y: auto;
@@ -27,13 +35,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .attend-title-container {
   width: 95%;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #bd9c72;
+  border-bottom: 2px solid #bd9c72;
 }
 
 .attend-title {
@@ -75,7 +84,7 @@
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 768px) {
   .attend-container {
     flex-direction: column;
   }
@@ -84,7 +93,6 @@
     height: 100%;
   }
   .attend-right {
-    border-left: 10px solid white;
     width: 100%;
     height: 100%;
   }
