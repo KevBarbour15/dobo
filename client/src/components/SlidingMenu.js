@@ -5,9 +5,9 @@ import Login from "./modal-components/Login";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faKey } from "@fortawesome/free-solid-svg-icons";
 
-const SlidingMenu = ({ isOpen, toggleMenu }) => {
+const SlidingMenu = ({ isOpen }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
@@ -20,18 +20,20 @@ const SlidingMenu = ({ isOpen, toggleMenu }) => {
     <div>
       <div className={`menu ${isOpen ? "open" : ""}`}>
         <div className="menu-container">
-          <div className="menu-header">
-            <div className="menu-title">
-              <h3>Brooklyn, NY</h3>
-            </div>
-            <div className="menu-close">
-              <button onClick={toggleMenu}>X</button>
-            </div>
+          <div className="menu-ig-link">
+            <button
+              className="ig-link"
+              href="https://www.instagram.com/dobonyc/"
+              type="button"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </button>
           </div>
           <div className="menu-list">
             <Link to="/">Home</Link>
-            <Link to="/About">About</Link>
             <Link to="/Attend">Attend</Link>
+            <Link to="/About">About</Link>
+            <Link to="/Contact">Contact</Link>
           </div>
           <div className="menu-footer">
             <footer>
@@ -41,7 +43,7 @@ const SlidingMenu = ({ isOpen, toggleMenu }) => {
                   type="button"
                   onClick={handleOwnerLogin}
                 >
-                  <FontAwesomeIcon icon={faLock} />
+                  <FontAwesomeIcon icon={faKey} />
                 </button>
                 <Modal
                   isVisible={isModalOpen}
@@ -49,13 +51,6 @@ const SlidingMenu = ({ isOpen, toggleMenu }) => {
                 >
                   <div>{modalContent}</div>
                 </Modal>
-              </div>
-              <div className="footer-right">
-                <div className="footer-social">
-                  <a href="https://www.instagram.com/dobonyc/">
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                </div>
               </div>
             </footer>
           </div>

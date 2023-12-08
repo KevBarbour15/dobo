@@ -1,7 +1,7 @@
 // CreateEvent.js
 import { useState } from "react";
 import axios from "../axiosConfig";
-import { formatDate } from "../helpers/formatting";
+import { formatDate } from "../util/formatting";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import SlidingMenu from "./SlidingMenu";
 import "../styles/layout.css";
-import { convertDateReadability } from "../helpers/formatting";
-import Menu from "../assets/menu.png";
+import { convertDateReadability } from "../util/formatting";
 
 const Layout = ({ children }) => {
   const [date, setDate] = useState("");
@@ -23,17 +22,20 @@ const Layout = ({ children }) => {
       <div className="header">
         <header>
           <div className="header-left">
+            <div className="header-location">
+              <span>Brooklyn</span>
+            </div>
+          </div>
+          <div className="header-center">
             <div className="header-title">
               <span>DOBO</span>
             </div>
           </div>
           <div className="header-right">
             <div className="menu-button">
-              {
-                <button onClick={toggleMenu}>
-                  <img src={Menu} alt="menu icon" className="menu-icon" />
-                </button>
-              }
+              <span className="material-symbols-outlined" onClick={toggleMenu}>
+                {isOpen ? "close" : "menu"}
+              </span>
             </div>
           </div>
 

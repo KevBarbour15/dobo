@@ -6,7 +6,7 @@ import Delete from "./modal-components/Delete.js";
 import {
   convertDateReadability,
   convertMilitaryTime,
-} from "../helpers/formatting.js";
+} from "../util/formatting.js";
 
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);

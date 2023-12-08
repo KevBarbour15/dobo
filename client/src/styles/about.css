@@ -32,7 +32,7 @@
 
 @media (min-width: 768px) {
   .about-left {
-    background-image: url("../assets/left-1.png");
+    background-image: url("../assets/images/left-1.png");
     background-size: cover;
     background-position: center;
   }
@@ -55,7 +55,7 @@
 }
 
 .about-image-container {
-  background-image: url("../assets/dobo-about-2.png");
+  background-image: url("../assets/images/dobo-vertical-2.png");
   background-size: cover;
   background-position: center;
   width: 100%;

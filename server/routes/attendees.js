@@ -5,8 +5,8 @@ const Event = require("../schemas/eventInfo");
 
 // creates a new attendee
 router.post("/new", async (req, res) => {
-  console.log("Adding new attendee...");
-  console.log(req.body);
+  // use NodeMailer to send an email to the Dobo notifying them of the new inquiry
+  // use Mandrill to send an email to the attendee notifying them of their inquiry (maybe???)
 
   try {
     const attendee = new Attendee(req.body);
@@ -16,7 +16,7 @@ router.post("/new", async (req, res) => {
     await Event.findByIdAndUpdate(eventId, {
       $push: { attendees: savedAttendee._id },
     });
-
+    
     res.status(201).json(savedAttendee);
     console.log("Attendee added");
   } catch (error) {
@@ -43,14 +43,18 @@ router.post("/get-by-ids", async (req, res) => {
 // changes the status of an attendee (maybe use Mandrill for this when their spot is confirmed?)
 
 router.put("/update-status", async (req, res) => {
+  let status = req.body.status;
+  let ogStatus = req.body.ogStatus;
+
   try {
     await Attendee.findByIdAndUpdate(attendeeId, { status });
 
     if (status === "Confirmed" && ogStatus === "Inquired/Not Attending") {
+      // notify user their spot is confirmed
+
       const event = await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: -1 },
       });
-      
     }
 
     if (status === "Inquired/Not Attending" && ogStatus === "Confirmed") {

@@ -5,13 +5,14 @@ import axios from "../axiosConfig";
 import {
   convertDateReadability,
   convertMilitaryTime,
-} from "../helpers/formatting.js";
+} from "../util/formatting.js";
 
 const Attend = () => {
   const [events, setEvents] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedEventId, setSelectedEventId] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -22,24 +23,37 @@ const Attend = () => {
         );
 
         setEvents(sortedEvents);
-        console.log("Events fetched successfully!");
       } catch (error) {
-        console.error("Error fetching events: ", error);
       }
     };
     fetchEvents();
   }, []);
 
   useEffect(() => {
-    setSelectedEventId(events[0]?._id || "");
+    if (events.length > 0) {
+      const firstEvent = events[0];
+      setSelectedEventId(firstEvent._id);
+      setDate(firstEvent.date);
+    }
   }, [events]);
+
+  const handleEventChange = (e) => {
+    const eventId = e.target.value;
+    setSelectedEventId(eventId);
+    const selectedEvent = events.find((event) => event._id === eventId);
+    if (selectedEvent) {
+      setDate(selectedEvent.date);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("selectedEventId: ", selectedEventId);
+    let convertedDate = convertDateReadability(date);
     const attendeeData = {
       name,
       email,
       eventId: selectedEventId,
+      date: convertedDate,
       status: "Inquired/Not Attending",
     };
 
@@ -55,6 +69,7 @@ const Attend = () => {
       console.error("There was an error sending the data:", errorData);
     }
   };
+
   return (
     <div>
       <Layout>
@@ -64,13 +79,14 @@ const Attend = () => {
               <div className="attend-form-container">
                 <div className="attend-form-text">
                   To learn how you can attend a DOBO event, please fill out the
-                  form below with the date you wish to attend. We will reach out to with details on how to attend.
+                  form below with the date you wish to attend. We will reach out
+                  to with details on how to attend.
                 </div>
                 <div className="inquiry-form">
                   <form onSubmit={handleSubmit}>
                     <select
                       value={selectedEventId}
-                      onChange={(e) => setSelectedEventId(e.target.value)}
+                      onChange={handleEventChange}
                     >
                       {events.map((event) => (
                         <option key={event._id} value={event._id}>

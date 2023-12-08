@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { convertDateReadability, formatDate } from "../../helpers/formatting.js";
+import { convertDateReadability, formatDate } from "../../util/formatting.js";
 import axios from "../../axiosConfig";
 
 const EditEvent = ({ event, onClose, onUpdateEvent }) => {

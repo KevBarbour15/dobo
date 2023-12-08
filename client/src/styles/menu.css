@@ -7,7 +7,7 @@
   right: calc(-50% - 1px);
   transition: right 0.5s;
   border-left: 1px solid white;
-  z-index: 100;
+  z-index: 90;
 }
 
 .menu.open {
@@ -28,14 +28,6 @@
   align-items: center;
 }
 
-.menu-title {
-  color: white;
-  font-family: "Aboreto", sans-serif;
-  letter-spacing: 0.15rem;
-  font-size: 1.15rem;
-  padding: 10px 20px;
-}
-
 .menu-header button {
   background: none;
   border: none;
@@ -51,8 +43,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  text-align: right;
+  align-items: center;
+  text-align: center;
   padding: 10px 20px;
 }
 
@@ -62,7 +54,7 @@
   font-size: 3.5rem;
   padding-bottom: 85px;
   text-decoration: none;
-  transition: color 0.3s;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .menu-footer {
@@ -97,7 +89,6 @@ footer {
   color: white;
   border: none;
   cursor: pointer;
-  
   font-size: 2rem;
   margin: 20px;
 }
@@ -111,5 +102,7 @@ footer {
 
   .menu.open {
     right: 0;
+    height: 100vh;
+
   }
 }

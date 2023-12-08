@@ -1,4 +1,4 @@
-import { convertDateReadability } from "../../helpers/formatting.js";
+import { convertDateReadability } from "../../util/formatting.js";
 import axios from "../../axiosConfig";
 
 const Delete = ({ event, onClose, onDeleteEvent }) => {
