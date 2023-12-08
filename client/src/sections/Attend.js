@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Layout from "../components/Layout";
 import "../styles/attend.css";
-import axios from "../axiosConfig";
+import axios from "../axiosConfig.js";
 import {
   convertDateReadability,
   convertMilitaryTime,
@@ -23,8 +22,7 @@ const Attend = () => {
         );
 
         setEvents(sortedEvents);
-      } catch (error) {
-      }
+      } catch (error) {}
     };
     fetchEvents();
   }, []);
@@ -72,7 +70,6 @@ const Attend = () => {
 
   return (
     <div>
-      <Layout>
         <div className="attend-container">
           <div className="attend-left">
             <div className="attend-info-container">
@@ -125,7 +122,6 @@ const Attend = () => {
             </div>
           </div>
         </div>
-      </Layout>
     </div>
   );
 };

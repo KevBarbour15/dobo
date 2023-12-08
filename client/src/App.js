@@ -1,8 +1,5 @@
 import { useState } from "react";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Attend from "./pages/Attend";
-import Contact from "./pages/Contact";
+import MainPage from "./pages/MainPage";
 import EventDash from "./pages/EventDash";
 import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,10 +20,8 @@ function App() {
       >
         <div>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Attend" element={<Attend />} />
-            <Route path="/Contact" element={<Contact />} />
+            <Route path="/" element={<MainPage />} />
+
             <Route path="/EventDash" element={<EventDash />} />
           </Routes>
         </div>

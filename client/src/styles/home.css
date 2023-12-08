@@ -1,28 +1,23 @@
 .home-container {
+  height: calc(100vh - 60px);
   display: flex;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-image-container {
-  flex-grow: 1;
-  background-image: url("../assets/images/dobo-horizontal-1.png");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
+  height: 95%;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (max-width: 900px) {
-  .home-image-container {
-    position:fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    
-    background-image: url("../assets/images/dobo-vertical-5.png");
-  }
+.home-image {
+  width: calc(100% - 100px); 
+  height: calc(100% - 100px); 
+  border: 15px solid white; 
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  object-fit: cover; 
 }
