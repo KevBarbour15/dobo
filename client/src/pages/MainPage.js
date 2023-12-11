@@ -1,18 +1,23 @@
-import Header from '../components/Header';
-import Home from '../sections/Home';
-import About from '../sections/About';
-import Attend from '../sections/Attend';
+import Header from "../components/Header";
+import Home from "../sections/Home";
+import About from "../sections/About";
+import Attend from "../sections/Attend";
+import Contact from "../sections/Contact";
+import Footer from "../components/Footer";
+import "../styles/main-page.css";
 
-function MainPage() {
+const MainPage = () => {
+
   return (
-    <div>
+    <div className="main-page-container">
       <Header />
       <Home />
       <About />
       <Attend />
-      {/* More sections as needed */}
+      <Contact />
+      <Footer />
     </div>
   );
-}
+};
 
 export default MainPage;

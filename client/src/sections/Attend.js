@@ -5,6 +5,7 @@ import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../util/formatting.js";
+import attendImage from "../assets/images/dobo-vertical-2.png";
 
 const Attend = () => {
   const [events, setEvents] = useState([]);
@@ -57,11 +58,8 @@ const Attend = () => {
 
     try {
       const response = await axios.post("/attendees/new", attendeeData);
-      if (response.status === 200 || response.status === 201) {
-        console.log("Attendee created successfully!");
-      } else {
-        console.error("Error creating attendee:", response);
-      }
+      
+      
     } catch (error) {
       const errorData = error.response ? error.response.data : error.message;
       console.error("There was an error sending the data:", errorData);
@@ -70,58 +68,53 @@ const Attend = () => {
 
   return (
     <div>
-        <div className="attend-container">
-          <div className="attend-left">
-            <div className="attend-info-container">
-              <div className="attend-form-container">
-                <div className="attend-form-text">
-                  To learn how you can attend a DOBO event, please fill out the
-                  form below with the date you wish to attend. We will reach out
-                  to with details on how to attend.
-                </div>
-                <div className="inquiry-form">
-                  <form onSubmit={handleSubmit}>
-                    <select
-                      value={selectedEventId}
-                      onChange={handleEventChange}
-                    >
-                      {events.map((event) => (
-                        <option key={event._id} value={event._id}>
-                          {convertDateReadability(event.date)} at{" "}
-                          {convertMilitaryTime(event.time)}
-                        </option>
-                      ))}
-                    </select>
-                    <label>
-                      Name:
-                      <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                      />
-                    </label>
-                    <label>
-                      Email:
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </label>
-                    <button type="submit">Confirm</button>
-                  </form>
-                </div>
+      <div className="attend-container">
+        <div className="attend-left">
+          <div className="attend-image-container">
+            <img className="attend-image" src={attendImage}></img>
+          </div>
+        </div>
+        <div className="attend-right">
+          <div className="attend-info-container">
+            <div className="attend-form-container">
+              <div className="attend-form-text">
+                To attend a DOBO event, please fill out the form below with the
+                date you wish to attend. We will reach out to with the details.
+              </div>
+              <div className="inquiry-form">
+                <form onSubmit={handleSubmit}>
+                  <select value={selectedEventId} onChange={handleEventChange}>
+                    {events.map((event) => (
+                      <option key={event._id} value={event._id}>
+                        {convertDateReadability(event.date)} at{" "}
+                        {convertMilitaryTime(event.time)}
+                      </option>
+                    ))}
+                  </select>
+
+                  <input
+                    type="text"
+                    value={name}
+                    placeholder="NAME"
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+
+                  <input
+                    type="email"
+                    value={email}
+                    placeholder="EMAIL"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+
+                  <button type="submit">Confirm</button>
+                </form>
               </div>
             </div>
           </div>
-          <div className="attend-right">
-            <div className="attend-image-container">
-              {/* no image goes here */}
-            </div>
-          </div>
         </div>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ const About = () => {
     <div className="about-container">
       <div className="about-left">
         <div className="about-info-text">
+          
           <p>
             ...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
             amet lacus ac magna efficitur suscipit. Vestibulum ante ipsum primis

@@ -1,9 +1,10 @@
 .home-container {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 62px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid #BD9C72;
 }
 
 .home-image-container {
