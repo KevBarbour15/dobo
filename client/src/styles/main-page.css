@@ -1,8 +1,18 @@
 .main-page-container {
-  height: 100%;
-  width: 85%;
   border-left: 2px solid #bd9c72;
   border-right: 2px solid #bd9c72;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1025px) {
+  .main-page-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-page-container {
+    width: calc(100% - 4px);
+  }
 }

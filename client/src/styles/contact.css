@@ -1,5 +1,5 @@
 .contact-container {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,4 +32,23 @@
   border: 15px solid white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .contact-left,
+  .contact-right {
+    min-height: calc(100vh- 124px);
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
+
+  .contact-left {
+    border-bottom: 2px solid #bd9c72;
+  }
 }
