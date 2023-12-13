@@ -10,11 +10,11 @@
   margin: 10px;
 }
 
-.create-div{
+.create-div {
   min-height: 75%;
 }
 
-.events-div{
+.events-div {
   min-height: 100%;
 }
 
@@ -23,7 +23,7 @@
   margin: 0 auto;
   background-color: #f4f4f4;
   border-radius: 8px;
-  border: .1px solid black;
+  border: 0.1px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,7 +56,8 @@
   text-align: center;
 }
 
-.event-form button, .logout-button button{
+.event-form button,
+.logout-button button {
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
@@ -71,7 +72,7 @@
   background-color: #0056b3;
 }
 
-.events-list{
+.events-list {
   overflow-y: auto;
   max-height: calc(95vh - 80px);
 }
@@ -82,12 +83,13 @@
   align-items: center;
 }
 
-.event-details, .event-options {
+.event-details,
+.event-options {
   width: 45%;
 }
 
-.event-options{
-  text-align: right; 
+.event-options {
+  text-align: right;
   display: flex;
   flex-direction: column;
 }

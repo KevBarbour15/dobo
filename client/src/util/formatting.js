@@ -28,7 +28,6 @@ function formatDate(date) {
 function convertDateReadability(dateString) {
   const date = new Date(dateString);
   const options = {
-    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
