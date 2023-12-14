@@ -3,10 +3,10 @@ import aboutImage from "../assets/images/dobo-vertical-3.png";
 
 const About = () => {
   return (
-    <div className="about-container">
+    <div id="about" className="about-container">
       <div className="about-left">
         <div className="about-info-text">
-          <h2>About Dobo</h2>
+          <h2>About</h2>
           <p>
             ...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
             amet lacus ac magna efficitur suscipit. Vestibulum ante ipsum primis

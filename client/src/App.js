@@ -21,7 +21,6 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<MainPage />} />
-
             <Route path="/EventDash" element={<EventDash />} />
           </Routes>
         </div>

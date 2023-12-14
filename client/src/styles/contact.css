@@ -1,17 +1,15 @@
 .contact-container {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 124px);
   display: flex;
-  justify-content: center;
-  align-items: center;
   border-bottom: 2px solid #bd9c72;
 }
 
 .contact-left,
 .contact-right {
+  height: calc(100vh - 124px);
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .contact-left {
@@ -21,16 +19,38 @@
   border-right: 2px solid #bd9c72;
 }
 
-.contact-image-container {
+.contact-info-text {
+  height: calc(100vh - 124px);
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+
+}
+
+.contact-info-text h2 {
+  font-family: "Aboreto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.contact-ig {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.contact-image-container {
+  height: calc(100vh - 124px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .contact-image {
-  width: calc(90% - 100px);
-  border: 15px solid white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  height: calc(100%);
+  width: calc(100%);
+  //border: 10px solid white;
   object-fit: cover;
 }
 
@@ -42,7 +62,6 @@
 
   .contact-left,
   .contact-right {
-    min-height: calc(100vh- 124px);
     width: 100%;
     border-left: none;
     border-right: none;

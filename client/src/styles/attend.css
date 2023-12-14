@@ -1,5 +1,5 @@
 .attend-container {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 124px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,9 +8,9 @@
 
 .attend-left,
 .attend-right {
+  height: calc(100vh - 124px);
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -23,36 +23,40 @@
 }
 
 .attend-image-container {
+  height: calc(100vh - 124px);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .attend-image {
-  width: calc(90% - 100px);
-  border: 15px solid white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  height: calc(100%);
+  width: calc(100%);
+  //border: 10px solid white;
   object-fit: cover;
 }
 
-.attend-text {
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5%;
+.attend-info-container {
+  height: calc(100vh - 124px);
+  width: 75%;
 }
 
-.attend-text p {
+.attend-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.attend-info-text h2 {
   font-family: "Aboreto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  line-height: 1.5;
-  color: white;
-  margin-bottom: 2.75rem;
-  text-align: center;
-  //font-family: "Inter", sans-serif;
+}
+
+.attend-info-text p {
+  line-height: 1.75;
+  font-size: 16px;
+  text-align: justify;
 }
 
 .inquiry-form {
@@ -65,7 +69,6 @@
 
 .inquiry-form form {
   height: 100%;
-  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +90,6 @@
 }
 
 .inquiry-form input {
-  //font-family: "Inter", sans-serif;
   font-weight: 600;
   width: 85%;
   height: 3rem;
@@ -103,7 +105,7 @@
 .inquiry-form button {
   font-family: "Aboreto", sans-serif;
   font-weight: 600;
-  width: 50%;
+  width: 60%;
   height: 3rem;
   border: 2px solid #bd9c72;
   border-radius: 50px;
@@ -134,7 +136,6 @@
 
   .attend-left,
   .attend-right {
-    min-height: calc(100vh - 124px);
     width: 100%;
     border-left: none;
     border-right: none;
@@ -158,13 +159,17 @@
   }
 
   .attend-text p {
-    font-family: "Aboreto", sans-serif;
     font-size: 1.25rem;
-    font-weight: 600;
     line-height: 1.25;
-    color: white;
-    margin-bottom: 1.75rem;
-    text-align: center;
-    //font-family: "Inter", sans-serif;
+  }
+  .inquiry-form select {
+    width: 95%;
+  }
+  .inquiry-form input {
+    width: 100%;
+  }
+
+  .inquiry-form button {
+    width: 75%;
   }
 }

@@ -65,21 +65,19 @@ const Attend = () => {
   };
 
   return (
-    <div>
-      <div className="attend-container">
-        <div className="attend-left">
-          <div className="attend-image-container">
-            <img className="attend-image" src={attendImage}></img>
-          </div>
+    <div id="attend" className="attend-container">
+      <div className="attend-left">
+        <div className="attend-image-container">
+          <img className="attend-image" src={attendImage}></img>
         </div>
-        <div className="attend-right">
-          <div className="attend-text">
+      </div>
+      <div className="attend-right">
+        <div className="attend-info-container">
+          <div className="attend-info-text">
+            <h2>Attend</h2>
             <p>
-              To attend a DOBO event, please fill out the form below with the
-              date you wish to attend.
-            </p>
-            <p>
-              We will reach out shortly with details.
+              To attend a DOBO event, please fill out the form below. We will
+              reach out shortly with details.
             </p>
           </div>
 
