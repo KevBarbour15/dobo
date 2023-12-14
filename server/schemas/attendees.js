@@ -17,11 +17,15 @@ const AttendeeSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ["Confirmed",  "Inquired/Not Attending"],
+    enum: ["Confirmed", "Inquired/Not Attending"],
   },
   inquiryDate: {
     type: Date,
     default: Date.now,
+  },
+  message: {
+    type: String,
+    required: false,
   },
 });
 

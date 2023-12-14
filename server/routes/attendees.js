@@ -5,8 +5,6 @@ const Event = require("../schemas/eventInfo");
 
 // creates a new attendee
 router.post("/new", async (req, res) => {
-  // use NodeMailer to send an email to the Dobo notifying them of the new inquiry
-  // use Mandrill to send an email to the attendee notifying them of their inquiry (maybe???)
 
   try {
     const attendee = new Attendee(req.body);

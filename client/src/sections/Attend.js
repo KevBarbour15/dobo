@@ -13,6 +13,7 @@ const Attend = () => {
   const [email, setEmail] = useState("");
   const [selectedEventId, setSelectedEventId] = useState("");
   const [date, setDate] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -54,6 +55,7 @@ const Attend = () => {
       eventId: selectedEventId,
       date: convertedDate,
       status: "Inquired/Not Attending",
+      message,
     };
 
     try {
@@ -106,6 +108,13 @@ const Attend = () => {
                 placeholder="EMAIL"
                 onChange={(e) => setEmail(e.target.value)}
                 required
+              />
+
+              <input
+                type="text"
+                value={message}
+                placeholder="MESSAGE"
+                onChange={(e) => setMessage(e.target.value)}
               />
 
               <button type="submit">Confirm</button>

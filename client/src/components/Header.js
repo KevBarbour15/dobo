@@ -39,9 +39,7 @@ const Header = () => {
         }
       }
 
-      
       setActiveSection(currentSection);
-      console.log(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -62,7 +60,7 @@ const Header = () => {
 
   const linkClass = (sectionId) => {
     return `link-container ${activeSection === sectionId ? "active-link" : ""}`;
-  }
+  };
 
   return (
     <header
@@ -79,17 +77,26 @@ const Header = () => {
       <div className="header-links-container">
         <div className="header-links">
           <nav>
-          <nav>
-            <div className={linkClass("about")} onClick={() => scrollToSection("about")}>
-              <a>About</a>
-            </div>
-            <div className={linkClass("attend")} onClick={() => scrollToSection("attend")}>
-              <a>Attend</a>
-            </div>
-            <div className={linkClass("contact")} onClick={() => scrollToSection("contact")}>
-              <a>Contact</a>
-            </div>
-          </nav>
+            <nav>
+              <div
+                className={linkClass("about")}
+                onClick={() => scrollToSection("about")}
+              >
+                <a>About</a>
+              </div>
+              <div
+                className={linkClass("attend")}
+                onClick={() => scrollToSection("attend")}
+              >
+                <a>Attend</a>
+              </div>
+              <div
+                className={linkClass("contact")}
+                onClick={() => scrollToSection("contact")}
+              >
+                <a>Contact</a>
+              </div>
+            </nav>
           </nav>
         </div>
       </div>
