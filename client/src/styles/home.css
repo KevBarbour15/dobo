@@ -1,33 +1,34 @@
 .home-container {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 94px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid #BD9C72;
+  border-bottom: 2px solid #bd9c72;
 }
 
 .home-image-container {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 94px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/images/dobo-horizontal-1.png");
+  background-image: url("../assets/images/dobo-home-horizontal.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 @media (max-width: 768px) {
   .home-container {
-    height: calc(100vh- 124px);
+    height: calc(100vh- 94px);
     width: 100%;
   }
 
   .home-image-container {
-    height: calc(100vh - 124px);
+    height: calc(100vh - 94px);
     width: 100%;
-    background-image: url("../assets/images/dobo-vertical-5.png");
+    background-image: url("../assets/images/dobo-home-vertical.jpg");
     background-repeat: no-repeat;
-    background-size: cover;}
+    background-size: cover;
+  }
 }

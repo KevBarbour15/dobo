@@ -1,12 +1,12 @@
 .contact-container {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 94px);
   display: flex;
   border-bottom: 2px solid #bd9c72;
 }
 
 .contact-left,
 .contact-right {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 94px);
   flex: 1;
   display: flex;
   justify-content: center;
@@ -17,30 +17,120 @@
   background-size: cover;
   height: 100%;
   border-right: 2px solid #bd9c72;
-}
-
-.contact-info-text {
-  height: calc(100vh - 124px);
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-
-}
-
-.contact-info-text h2 {
   font-family: "Aboreto", sans-serif;
-  font-size: 2.5rem;
   font-weight: 600;
 }
 
+.contact-info-container {
+  height: calc(100vh - 94px);
+  width: 80%;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
 .contact-ig {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+
+.contact-ig-logo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.contact-ig-logo a {
+  font-size: 6.5vh;
+  color: #bd9c72;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.contact-email {
+  font-size: 3vh;
+  margin-top: 2vh;
+}
+
+.contact-email-logo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+.contact-email-logo a {
+  font-size: 6.5vh;
+  color: #bd9c72;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-ig-logo a:hover,
+.contact-email-logo a:hover {
+  cursor: pointer;
+}
+
+.subscribe-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.subscribe-container p {
+  font-size: 3vh;
+  font-weight: 600;
+  margin-bottom: 1.5vh;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.subscribe-email {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subscribe-email input {
+  width: 250px;
+  font-weight: 600;
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1.5vh;
+  height: 40px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.subscribe-email button {
+  font-family: "Aboreto", sans-serif;
+  font-weight: 600;
+  width: 170px;
+  height: 40px;
+  border: 2px solid #bd9c72;
+  border-radius: 50px;
+  background-color: black;
+  color: #bd9c72;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.subscribe-email button:hover {
+  background-color: #bd9c72;
+  color: black;
 }
 
 .contact-image-container {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 94px);
   display: flex;
   justify-content: center;
   align-items: center;

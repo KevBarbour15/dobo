@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import "../../styles/login.css";
 
 const Login = ({ onClose }) => {
   const [username, setUsername] = useState("dobo"); // change these later to empty strings when done testing
@@ -27,34 +28,29 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <div>
-      <h1>Admin Login</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            id="username"
-            
-            autoComplete="username"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            id="password"
-            
-            autoComplete="current-password"
-          />
-          <label htmlFor="password">Password:</label>
-          <button type="submit">Login</button>
-          <button onClick={onClose}>Cancel</button>
-        </form>
-      </div>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="login-title">Owner Login</div>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="USERNAME"
+          id="username"
+          autoComplete="username"
+          required
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="PASSWORD"
+          id="password"
+          autoComplete="current-password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };

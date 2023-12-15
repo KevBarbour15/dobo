@@ -1,5 +1,6 @@
 import "../styles/about.css";
-import aboutImage from "../assets/images/dobo-vertical-3.png";
+import PhotoGallery from "../components/PhotoGallery";
+import { photoArray1 } from "../assets/images/photoArrays";
 
 const About = () => {
   return (
@@ -46,8 +47,8 @@ const About = () => {
         </div>
       </div>
       <div className="about-right">
-        <div className="about-image-container">
-          <img className="about-image" src={aboutImage}></img>
+        <div className="image-container">
+          <PhotoGallery photos={photoArray1} />
         </div>
       </div>
     </div>

@@ -1,6 +1,4 @@
 import "../styles/home.css";
-import homeImage from "../assets/images/dobo-horizontal-1.png";
-import homeImageVertical from "../assets/images/dobo-vertical-1.png";
 
 const Home = () => {
 

@@ -3,7 +3,7 @@
   top: 0;
   background-color: black;
   z-index: 1000;
-  height: 120px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,12 +26,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 55px;
 }
 
 .header-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: -10px;
   color: white;
 }
@@ -42,7 +42,7 @@
 }
 
 .header-links-container {
-  height: 50px;
+  height: 35px;
 }
 
 .header-links nav {
@@ -58,14 +58,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 35px;
 }
 
 .link-container a {
   font-family: "Aboreto", sans-serif;
   text-decoration: none;
   color: white;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -2.5px;
 }
@@ -88,25 +88,12 @@
 @media (max-width: 768px) {
   .header-container {
     width: 100%;
-    height: 80px;
   }
-  .header-title-container {
-    height: 50px;
-  }
-
   .header-title {
     font-size: 1.25rem;
   }
 
-  .header-links-container {
-    height: 30px;
-  }
-
-  .link-container {
-    height: 30px;
-  }
-
   .link-container a {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
