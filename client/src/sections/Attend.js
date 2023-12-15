@@ -5,7 +5,9 @@ import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../util/formatting.js";
-import attendImage from "../assets/images/dobo-vertical-2.png";
+
+import PhotoGallery from "../components/PhotoGallery.js";
+import { photoArray2 } from "../assets/images/photoArrays.js";
 
 const Attend = () => {
   const [events, setEvents] = useState([]);
@@ -69,18 +71,16 @@ const Attend = () => {
   return (
     <div id="attend" className="attend-container">
       <div className="attend-left">
-        <div className="attend-image-container">
-          <img className="attend-image" src={attendImage}></img>
+        <div className="image-container">
+          <PhotoGallery photos={photoArray2} />
         </div>
       </div>
       <div className="attend-right">
         <div className="attend-info-container">
-          <div className="attend-info-text">
-            <h2>Attend</h2>
-            <p>
-              To attend a DOBO event, please fill out the form below. We will
-              reach out shortly with details.
-            </p>
+          <div className="attend-title">Attend</div>
+          <div className="attend-text">
+            To attend a Dobo dinner, please fill out the form below. We will
+            reach out with details. Seating is limited.
           </div>
 
           <div className="inquiry-form">
@@ -110,14 +110,14 @@ const Attend = () => {
                 required
               />
 
-              <input
+              <textarea
                 type="text"
                 value={message}
-                placeholder="MESSAGE"
+                placeholder="MESSAGE (OPTIONAL)"
                 onChange={(e) => setMessage(e.target.value)}
               />
 
-              <button type="submit">Confirm</button>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </div>

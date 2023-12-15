@@ -5,6 +5,11 @@
   margin-right: auto;
 }
 
+.image-container {
+  height: calc(100vh - 94px);
+  width: 100%;
+}
+
 @media (min-width: 1025px) {
   .main-page-container {
     width: 95%;

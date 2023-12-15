@@ -9,16 +9,27 @@ const Footer = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
+  const handleOpenModal = () => {
+    setModalOpen(true);
+    setModalContent(<Login />); 
+  };
+
   return (
     <div className="footer-container">
       <div className="footer-location">
         <h3>Brooklyn, NY</h3>
       </div>
       <div className="footer-login">
-        <a>
+        <a onClick={handleOpenModal}>
           <FontAwesomeIcon icon={faKey} />
         </a>
       </div>
+      <Modal
+        isVisible={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      >
+        <div>{modalContent}</div>
+      </Modal>
     </div>
   );
 };
