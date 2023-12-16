@@ -18,25 +18,25 @@
   background-image: url(../assets/images/left-1.png);
   background-size: cover;
   border-right: 2px solid #bd9c72;
+  flex-direction: column;
   overflow-y: auto;
 }
 
-.about-info-text {
+.about-info-container {
+  width: 80%;
   height: calc(100vh - 94px);
-  width: 75%;
-  display: flex;
-  flex-direction: column;
 }
 
-.about-info-text h2 {
+.about-title {
   font-family: "Aboreto", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
+  margin-top: 2vh;
 }
 
-.about-info-text p {
-  line-height: 1.75;
-  font-size: 16px;
+.about-text {
+  line-height: 1.5;
+  font-size: 15px;
   text-align: justify;
   text-shadow: 1px 1px 2px #000000;
 }
@@ -69,22 +69,21 @@
   }
 
   .about-left {
-    min-height: calc(100vh - 84px);
     border-bottom: 2px solid #bd9c72;
+    min-height: calc(100vh - 94px);
+    height: auto;
+    overflow-y: hidden;
   }
 
-  .about-right {
-    height: calc(100vh - 84px);
-  }
-
-  .about-info-text {
-    margin: auto;
+  .about-info-container {
     width: 80%;
+    height: auto;
+  }
+
+  .about-text {
+    margin: auto;
     display: flex;
     flex-direction: column;
-  }
-
-  .about-info-text p {
     line-height: 1.5;
     text-align: justify;
   }

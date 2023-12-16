@@ -97,7 +97,7 @@ const Attend = () => {
               <input
                 type="text"
                 value={name}
-                placeholder="NAME"
+                placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
                 required
               />
@@ -105,7 +105,7 @@ const Attend = () => {
               <input
                 type="email"
                 value={email}
-                placeholder="EMAIL"
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -113,7 +113,7 @@ const Attend = () => {
               <textarea
                 type="text"
                 value={message}
-                placeholder="MESSAGE (OPTIONAL)"
+                placeholder="Message (Optional)"
                 onChange={(e) => setMessage(e.target.value)}
               />
 

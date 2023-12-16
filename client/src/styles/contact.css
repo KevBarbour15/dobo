@@ -27,21 +27,21 @@
 }
 
 .contact-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-top: 2vh;
   margin-bottom: 4vh;
 }
 
 .contact-ig {
-  font-size: 3vh;
+  font-size: 2vh;
   margin-bottom: 2vh;
 }
 
 .contact-ig-logo {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
 }
 
 .contact-ig-logo a {
@@ -52,7 +52,7 @@
 }
 
 .contact-email {
-  font-size: 3vh;
+  font-size: 2vh;
   margin-top: 2vh;
 }
 
@@ -60,6 +60,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 2vh;
+  margin-bottom: 4vh;
 }
 
 .contact-email-logo a {
@@ -83,7 +84,7 @@
 }
 
 .subscribe-container p {
-  font-size: 3vh;
+  font-size: 2vh;
   font-weight: 600;
   margin-bottom: 1.5vh;
   text-shadow: 1px 1px 2px #000000;
@@ -103,7 +104,7 @@
   color: white;
   font-size: 1rem;
   padding-left: 1rem;
-  margin-bottom: 1.5vh;
+  margin-bottom: 1vh;
   height: 40px;
   border-radius: 50px;
   box-shadow: 1px 1px 2px #000000;
@@ -120,7 +121,6 @@
   color: #bd9c72;
   font-size: 1.25rem;
   cursor: pointer;
-  margin-top: 0.75rem;
   box-shadow: 1px 1px 2px #000000;
 }
 

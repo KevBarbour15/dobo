@@ -39,11 +39,12 @@
 .attend-info-container {
   height: calc(100vh - 94px);
   width: 80%;
+
 }
 
 .attend-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-top: 2vh;
   margin-bottom: 2vh;
@@ -52,9 +53,8 @@
 .attend-text {
   font-family: "Aboreto", sans-serif;
   width: 70%;
-  font-size: 2.25vh;
+  font-size: 2vh;
   font-weight: 600;
-  line-height: 1.5;
   margin-bottom: 2vh;
 }
 
