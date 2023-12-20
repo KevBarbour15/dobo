@@ -1,7 +1,7 @@
-// CreateEvent.js
 import { useState } from "react";
 import axios from "../axiosConfig";
 import { formatDate } from "../util/formatting";
+import "../styles/create-event.css";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -41,63 +41,50 @@ const CreateEvent = ({ onEventCreated }) => {
   };
 
   return (
-    <div className="event-form">
-      <h1>Create New Event</h1>
+    <div className="create-event-form">
       <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </label>
+        <p>Event Name:</p>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <p>Date and Time:</p>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+        />
 
-        <label>
-          Number of Seats:
-          <select
-            value={seats}
-            onChange={(e) => setSeats(formatDate(e.target.value))}
-            required
-          >
-            {[...Array(20)].map((_, i) => (
-              <option key={i} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-        </label>
+        <p>Number of seats:</p>
+        <select
+          placeholder="Seats"
+          value={seats}
+          onChange={(e) => setSeats(formatDate(e.target.value))}
+          required
+        >
+          {[...Array(20)].map((_, i) => (
+            <option key={i} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
 
-        <label>
-          Date:
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </label>
-
-        <label>
-          Time:
-          <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-        </label>
-        {/*
-        <label>
-          Price:
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-        </label>
-            */}
-        <button type="submit">Create Event</button>
+        <p>Price:</p>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+        <button type="submit">Create</button>
       </form>
     </div>
   );

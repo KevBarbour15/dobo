@@ -19,12 +19,17 @@ const Attendee = ({ attendee, onStatusChange }) => {
 
   return (
     <div className="attendee-container">
-      <h1>{attendee.name}</h1>
-      <h2>{attendee.email}</h2>
-      <select value={status} onChange={handleStatusChange}>
-        <option value="Confirmed">Confirmed</option>
-        <option value="Inquired/Not Attending">Inquired / Not Attending</option>
-      </select>
+      <div className="attendee-info">
+        <p>{attendee.name}</p>
+        <p>{attendee.email}</p>
+        <p>Message: {attendee.message}</p>
+        <select value={status} onChange={handleStatusChange}>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Inquired/Not Attending">
+            Inquired / Not Attending
+          </option>
+        </select>
+      </div>
       <button onClick={handleSave}>Update</button>
     </div>
   );

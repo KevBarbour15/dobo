@@ -1,7 +1,8 @@
 import { convertDateReadability } from "../../util/formatting.js";
-import axios from "../../axiosConfig";
+import axios from "../../axiosConfig.js";
+import "../../styles/cancel-event.css";
 
-const Delete = ({ event, onClose, onDeleteEvent }) => {
+const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -27,13 +28,14 @@ const Delete = ({ event, onClose, onDeleteEvent }) => {
   };
 
   return (
-    <div>
-      <h1>{convertDateReadability(event.date)}</h1>
-      <h2>Are you sure you want to delete this event?</h2>
-      <button onClick={onClose}>Cancel</button>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="cancel-event-container">
+      <div className="cancel-event-date">
+        <h1>{convertDateReadability(event.date)}</h1>
+      </div>
+      <p>Are you sure you want to cancel this event?</p>
+      <button onClick={handleDelete}>Cancel Event</button>
     </div>
   );
 };
 
-export default Delete;
+export default CancelEvent;

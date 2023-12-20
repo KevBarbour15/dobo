@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { convertDateReadability } from "../../util/formatting.js";
 import axios from "../../axiosConfig";
 import Attendee from "../Attendee.js";
+import "../../styles/attendance.css";
 
-const Attendance = ({ event, onClose, onUpdateEvent }) => {
+const Attendance = ({ event, onUpdateEvent }) => {
   const [attendees, setAttendees] = useState([]);
 
   useEffect(() => {
@@ -55,16 +56,19 @@ const Attendance = ({ event, onClose, onUpdateEvent }) => {
   };
 
   return (
-    <div>
-      <h1>{convertDateReadability(event.date)}</h1>
-      {attendees.map((attendee) => (
-        <Attendee
-          key={attendee._id}
-          attendee={attendee}
-          onStatusChange={updateAttendeeStatus}
-        />
-      ))}
-      <button onClick={onClose}>Close</button>
+    <div className="attendance-container">
+      <div className="event-date">
+        <h1>{convertDateReadability(event.date)}</h1>
+      </div>
+      <div className="attendees-container">
+        {attendees.map((attendee) => (
+          <Attendee
+            key={attendee._id}
+            attendee={attendee}
+            onStatusChange={updateAttendeeStatus}
+          />
+        ))}
+      </div>
     </div>
   );
 };

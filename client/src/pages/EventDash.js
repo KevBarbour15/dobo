@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import axios from "../axiosConfig";
+
 import DashHeader from "../components/DashHeader";
-import DashFooter from "../components/DashFooter";
 import DisplayEvents from "../components/DisplayEvents";
 import CreateEvent from "../components/CreateEvent";
-import "../styles/eventDash.css";
-import axios from "../axiosConfig";
+import "../styles/event-dash.css";
 
 const EventDash = () => {
   const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
+  const [activeSection, setActiveSection] = useState("create");
 
   const fetchEvents = () => {
     axios
@@ -60,24 +61,28 @@ const EventDash = () => {
   };
 
   return (
-    <div>
-      <DashHeader />
+    <div className="dash-container">
+      <DashHeader
+        setActiveSection={setActiveSection}
+        onLogout={handleLogout}
+        activeSection={activeSection}
+      />
       <div className="events-container">
-        <div className="create-div">
-          <CreateEvent onEventCreated={addNewEvent} />
-          <div className="logout-button">
-            <button onClick={handleLogout}>Logout</button>
+        {activeSection === "create" && (
+          <div className="create-container">
+            <CreateEvent onEventCreated={addNewEvent} />
           </div>
-        </div>
-        <div className="events-div">
-          <DisplayEvents
-            events={events}
-            onUpdateEvent={updateEvent}
-            onDeleteEvent={deleteEvent}
-          />
-        </div>
+        )}
+        {activeSection === "view" && (
+          <div className="view-container">
+            <DisplayEvents
+              events={events}
+              onUpdateEvent={updateEvent}
+              onDeleteEvent={deleteEvent}
+            />
+          </div>
+        )}
       </div>
-      <DashFooter />
     </div>
   );
 };

@@ -77,26 +77,24 @@ const Header = () => {
       <div className="header-links-container">
         <div className="header-links">
           <nav>
-            <nav>
-              <div
-                className={linkClass("about")}
-                onClick={() => scrollToSection("about")}
-              >
-                <a>About</a>
-              </div>
-              <div
-                className={linkClass("attend")}
-                onClick={() => scrollToSection("attend")}
-              >
-                <a>Attend</a>
-              </div>
-              <div
-                className={linkClass("contact")}
-                onClick={() => scrollToSection("contact")}
-              >
-                <a>Contact</a>
-              </div>
-            </nav>
+            <div
+              className={linkClass("about")}
+              onClick={() => scrollToSection("about")}
+            >
+              <a>About</a>
+            </div>
+            <div
+              className={linkClass("attend")}
+              onClick={() => scrollToSection("attend")}
+            >
+              <a>Attend</a>
+            </div>
+            <div
+              className={linkClass("contact")}
+              onClick={() => scrollToSection("contact")}
+            >
+              <a>Contact</a>
+            </div>
           </nav>
         </div>
       </div>

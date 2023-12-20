@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal.js";
 import EditEvent from "./modal-components/Edit.js";
 import Attendance from "./modal-components/Attendance.js";
-import Delete from "./modal-components/Delete.js";
+import Delete from "./modal-components/CancelEvent.js";
 import {
   convertDateReadability,
   convertMilitaryTime,
@@ -49,20 +49,20 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
     <div className="events-card">
       <div className="event-details">
         <h2 className="event-title">{event.title}</h2>
+        <p>{convertDateReadability(event.date)}</p>
+        <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>
         <p>Seats Available: {event.seatsRemaining}</p>
-        <p>Date: {convertDateReadability(event.date)}</p>
-        <p>Time: {convertMilitaryTime(event.time)}</p>
       </div>
       <div className="event-options">
         <button type="button" onClick={handleViewAttendance}>
           Attendance
         </button>
         <button type="button" onClick={handleEdit}>
-          Edit Event
+          Edit
         </button>
         <button type="button" onClick={handleDelete}>
-          Delete Event
+          Cancel
         </button>
       </div>
       <Modal
@@ -77,14 +77,8 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   );
 };
 
-// TODO: Add a button to delete an event
-// TODO: Add a button to edit an event ** maybe a modal?
-// TODO: Email inquiry service
-// TODO: Add a seat incrementer/decrementer for available events
-
 const DisplayEvents = ({ events, onDeleteEvent, onUpdateEvent }) => (
   <div className="event-form">
-    <h1>Upcoming Events</h1>
     <div className="events-list">
       {events.map((event) => (
         <EventDetails

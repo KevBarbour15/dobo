@@ -1,0 +1,16 @@
+.attendance-container {
+  height: 55vh;
+  width: 35vw;
+}
+
+.event-date {
+  text-align: center;
+  font-family: "Aboreto", sans-serif;
+  font-weight: 600;
+}
+
+.attendees-container {
+  width: 100%;
+  border-top: 2px solid #bd9c72;
+}
+

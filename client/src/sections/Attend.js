@@ -62,11 +62,20 @@ const Attend = () => {
 
     try {
       const response = await axios.post("/attendees/new", attendeeData);
+      if (response.status === 200 || response.status === 201) {
+        setName("");
+        setEmail("");
+        setSelectedEventId("");
+        setDate("");
+        setMessage("");
+      }
     } catch (error) {
       const errorData = error.response ? error.response.data : error.message;
       console.error("There was an error sending the data:", errorData);
     }
   };
+
+  // add "select a date as a placeholder for the date input"
 
   return (
     <div id="attend" className="attend-container">

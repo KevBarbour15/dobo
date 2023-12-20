@@ -13,7 +13,6 @@
 
 .modal-content {
   background: black;
-  padding: 10px;
   border: 2px solid #bd9c72;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
@@ -33,6 +32,7 @@
   font-size: 20px;
   font-weight: bold;
   color: white;
+  padding-right: 1rem;
 }
 
 @media (max-width: 768px) {
