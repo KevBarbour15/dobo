@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import DashHeader from "../components/DashHeader";
+import DashFooter from "../components/DashFooter";
 import DisplayEvents from "../components/DisplayEvents";
 import CreateEvent from "../components/CreateEvent";
 import "../styles/eventDash.css";
@@ -59,6 +61,7 @@ const EventDash = () => {
 
   return (
     <div>
+      <DashHeader />
       <div className="events-container">
         <div className="create-div">
           <CreateEvent onEventCreated={addNewEvent} />
@@ -74,6 +77,7 @@ const EventDash = () => {
           />
         </div>
       </div>
+      <DashFooter />
     </div>
   );
 };
