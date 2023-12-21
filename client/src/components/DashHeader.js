@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/dash-header.css";
 
 const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
@@ -28,7 +27,13 @@ const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
               className={linkClass("view")}
               onClick={() => setActiveSection("view")}
             >
-              <a>Upcoming Events</a>
+              <a>Upcoming</a>
+            </div>
+            <div
+              className={linkClass("past")}
+              onClick={() => setActiveSection("past")}
+            >
+              <a>Past</a>
             </div>
             <div className="dash-link-container">
               <a onClick={onLogout}>Logout</a>

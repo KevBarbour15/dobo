@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import "../styles/attendee.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { convertDateReadability } from "../util/formatting.js";
 
-const Attendee = ({ attendee, onStatusChange }) => {
+const Attendee = ({ attendee, onStatusChange, date }) => {
   const [status, setStatus] = useState(attendee.status);
   const [ogStatus, setOgStatus] = useState("");
 
@@ -21,13 +24,20 @@ const Attendee = ({ attendee, onStatusChange }) => {
     <div className="attendee-container">
       <div className="attendee-info">
         <p>{attendee.name}</p>
-        <p>{attendee.email}</p>
+        <a
+          className="attendee-email"
+          href={`mailto:${attendee.email}?subject=Dobo ${convertDateReadability(
+            date
+          )}`}
+        >
+          <FontAwesomeIcon icon={faEnvelope} />
+        </a>
         <p>Message: {attendee.message}</p>
         <select value={status} onChange={handleStatusChange}>
           <option value="Confirmed">Confirmed</option>
-          <option value="Inquired/Not Attending">
-            Inquired / Not Attending
-          </option>
+          <option value="Inquired">Inquired</option>
+          <option value="Contacted">Contacted</option>
+          <option value="Not Attending">Not Attending</option>
         </select>
       </div>
       <button onClick={handleSave}>Update</button>

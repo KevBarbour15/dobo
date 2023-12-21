@@ -7,6 +7,7 @@ import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../util/formatting.js";
+import "../styles/view-events.css";
 
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -77,19 +78,25 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   );
 };
 
-const DisplayEvents = ({ events, onDeleteEvent, onUpdateEvent }) => (
-  <div className="event-form">
-    <div className="events-list">
-      {events.map((event) => (
-        <EventDetails
-          key={event._id}
-          event={event}
-          onDeleteEvent={onDeleteEvent}
-          onUpdateEvent={onUpdateEvent}
-        />
-      ))}
-    </div>
-  </div>
-);
+const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
+  const futureEvents = events.filter(
+    (event) => new Date(event.date) > new Date()
+  );
 
-export default DisplayEvents;
+  return (
+    <div className="event-form">
+      <div className="events-list">
+        {futureEvents.map((event) => (
+          <EventDetails
+            key={event._id}
+            event={event}
+            onDeleteEvent={onDeleteEvent}
+            onUpdateEvent={onUpdateEvent}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default UpcomingEvents;

@@ -4,7 +4,8 @@ import AuthContext from "../context/AuthContext";
 import axios from "../axiosConfig";
 
 import DashHeader from "../components/DashHeader";
-import DisplayEvents from "../components/DisplayEvents";
+import UpcomingEvents from "../components/UpcomingEvents";
+import PastEvents from "../components/PastEvents";
 import CreateEvent from "../components/CreateEvent";
 import "../styles/event-dash.css";
 
@@ -75,11 +76,16 @@ const EventDash = () => {
         )}
         {activeSection === "view" && (
           <div className="view-container">
-            <DisplayEvents
+            <UpcomingEvents
               events={events}
               onUpdateEvent={updateEvent}
               onDeleteEvent={deleteEvent}
             />
+          </div>
+        )}
+        {activeSection === "past" && (
+          <div className="view-container">
+            <PastEvents events={events} />
           </div>
         )}
       </div>

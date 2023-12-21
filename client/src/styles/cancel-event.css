@@ -40,3 +40,9 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .cancel-event-container {
+    height: 45vh;
+    width: 75vw;
+  }
+}

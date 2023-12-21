@@ -10,7 +10,7 @@ import PhotoGallery from "../components/PhotoGallery.js";
 import { photoArray2 } from "../assets/images/photoArrays.js";
 
 const Attend = () => {
-  const [events, setEvents] = useState([]);
+  const [futureEvents, setFutureEvents] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedEventId, setSelectedEventId] = useState("");
@@ -25,24 +25,27 @@ const Attend = () => {
           (a, b) => new Date(a.date) - new Date(b.date)
         );
 
-        setEvents(sortedEvents);
+        const futureEvents = sortedEvents.filter(
+          (event) => new Date(event.date) > new Date()
+        );
+        setFutureEvents(futureEvents);
       } catch (error) {}
     };
     fetchEvents();
   }, []);
 
   useEffect(() => {
-    if (events.length > 0) {
-      const firstEvent = events[0];
+    if (futureEvents.length > 0) {
+      const firstEvent = futureEvents[0];
       setSelectedEventId(firstEvent._id);
       setDate(firstEvent.date);
     }
-  }, [events]);
+  }, [futureEvents]);
 
   const handleEventChange = (e) => {
     const eventId = e.target.value;
     setSelectedEventId(eventId);
-    const selectedEvent = events.find((event) => event._id === eventId);
+    const selectedEvent = futureEvents.find((event) => event._id === eventId);
     if (selectedEvent) {
       setDate(selectedEvent.date);
     }
@@ -56,7 +59,7 @@ const Attend = () => {
       email,
       eventId: selectedEventId,
       date: convertedDate,
-      status: "Inquired/Not Attending",
+      status: "Inquired",
       message,
     };
 
@@ -95,7 +98,7 @@ const Attend = () => {
           <div className="inquiry-form">
             <form onSubmit={handleSubmit}>
               <select value={selectedEventId} onChange={handleEventChange}>
-                {events.map((event) => (
+                {futureEvents.map((event) => (
                   <option key={event._id} value={event._id}>
                     {convertDateReadability(event.date)} at{" "}
                     {convertMilitaryTime(event.time)}

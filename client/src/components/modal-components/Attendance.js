@@ -66,6 +66,7 @@ const Attendance = ({ event, onUpdateEvent }) => {
             key={attendee._id}
             attendee={attendee}
             onStatusChange={updateAttendeeStatus}
+            date={event.date}
           />
         ))}
       </div>

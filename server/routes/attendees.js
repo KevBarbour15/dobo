@@ -5,7 +5,6 @@ const Event = require("../schemas/eventInfo");
 
 // creates a new attendee
 router.post("/new", async (req, res) => {
-
   try {
     const attendee = new Attendee(req.body);
     const savedAttendee = await attendee.save();
@@ -14,7 +13,7 @@ router.post("/new", async (req, res) => {
     await Event.findByIdAndUpdate(eventId, {
       $push: { attendees: savedAttendee._id },
     });
-    
+
     res.status(201).json(savedAttendee);
     console.log("Attendee added");
   } catch (error) {
@@ -38,31 +37,39 @@ router.post("/get-by-ids", async (req, res) => {
   }
 });
 
-// changes the status of an attendee (maybe use Mandrill for this when their spot is confirmed?)
-
 router.put("/update-status", async (req, res) => {
   let status = req.body.status;
   let ogStatus = req.body.ogStatus;
-
+  let attendeeId = req.body.attendeeId;
+  let eventId = req.body.eventId;
   try {
     await Attendee.findByIdAndUpdate(attendeeId, { status });
 
-    if (status === "Confirmed" && ogStatus === "Inquired/Not Attending") {
-      // notify user their spot is confirmed
-
-      const event = await Event.findByIdAndUpdate(eventId, {
+    // If the status changes to "Confirmed" from either "Inquired", "Not Attending", or "Contacted"
+    if (
+      status === "Confirmed" &&
+      (ogStatus === "Inquired" ||
+        ogStatus === "Not Attending" ||
+        ogStatus === "Contacted")
+    ) {
+      // Decrement seats as the attendee is now confirmed
+      await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: -1 },
       });
     }
 
-    if (status === "Inquired/Not Attending" && ogStatus === "Confirmed") {
-      const event = await Event.findByIdAndUpdate(eventId, {
+    // If the status changes from "Confirmed" to either "Inquired", "Not Attending", or "Contacted"
+    if (status !== "Confirmed" && ogStatus === "Confirmed") {
+      await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: 1 },
       });
     }
 
+    console.log("Attendee status updated");
     res.status(200).json({ message: "Attendee status updated" });
   } catch (error) {
+    console.log("Error updating attendee status");
+    console.log(error);
     res.status(500).json({
       message: "Error updating attendee status",
       error: error.message,

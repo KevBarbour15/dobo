@@ -42,6 +42,14 @@
   background-color: #bd9c72;
   color: black;
 }
+
 .attendee-info p {
   font-weight: 600;
+}
+
+.attendee-email {
+  font-size: 3.5vh;
+  color: #bd9c72;
+  cursor: pointer;
+  text-decoration: none;
 }

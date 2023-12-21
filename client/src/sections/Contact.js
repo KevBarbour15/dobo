@@ -17,7 +17,7 @@ const Contact = () => {
               <p>Instagram:</p>
 
               <div className="contact-ig-logo">
-                <a>
+                <a href="https://www.instagram.com/dobonyc" target="_blank">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </div>
@@ -27,7 +27,7 @@ const Contact = () => {
               <p>All other inquiries:</p>
 
               <div className="contact-email-logo">
-                <a>
+                <a href="mailto:dobodinner@gmail.com">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </a>
               </div>
