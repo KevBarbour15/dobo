@@ -21,7 +21,7 @@ const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
               className={linkClass("create")}
               onClick={() => setActiveSection("create")}
             >
-              <a>Create Event</a>
+              <a>New</a>
             </div>
             <div
               className={linkClass("view")}

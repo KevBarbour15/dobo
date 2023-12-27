@@ -35,7 +35,7 @@ const Contact = () => {
             <div className="subscribe-container">
               <p>Be the first to know about Dobo's next dinner:</p>
               <div className="subscribe-email">
-                <input placeholder="EMAIL" required></input>
+                <input placeholder="Email" required></input>
                 <button>Submit</button>
               </div>
             </div>

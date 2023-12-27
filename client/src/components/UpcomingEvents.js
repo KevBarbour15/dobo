@@ -54,6 +54,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>
         <p>Seats Available: {event.seatsRemaining}</p>
+        <p>Price: ${event.price}</p>
       </div>
       <div className="event-options">
         <button type="button" onClick={handleViewAttendance}>

@@ -29,16 +29,6 @@ const About = () => {
               ullamcorper, lorem leo vehicula magna, eget hendrerit est tellus
               sit amet nunc.
             </p>
-            <p>
-              Mauris ullamcorper, massa non ullamcorper sagittis, leo massa
-              mollis lorem, id efficitur libero erat a diam. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada fames ac
-              turpis egestas. Vestibulum ante ipsum primis in faucibus orci
-              luctus et ultrices posuere cubilia curae; Proin vel urna sit amet
-              lorem vulputate aliquet. Quisque sodales, ex in mollis
-              ullamcorper, lorem leo vehicula magna, eget hendrerit est tellus
-              sit amet nunc.
-            </p>
           </div>
         </div>
       </div>

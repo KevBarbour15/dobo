@@ -1,6 +1,7 @@
 .edit-event-container {
-  height: 80vh;
-  width: 35vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 3vh;
 }
 
 .edit-event-date {
@@ -67,7 +68,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1rem;
 }
 
 .count-button {
@@ -81,9 +81,8 @@
 }
 
 @media (max-width: 768px) {
-  .edit-event-container {
-    height: 70vh;
-    width: 90vw;
+  .edit-event-date {
+    font-size: 0.75rem;
   }
 
   .edit-event-form input {
@@ -94,7 +93,9 @@
   .edit-event-form button {
     height: 35px;
     font-size: 1rem;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+  }
+
+  .edit-event-form p {
+    font-size: 1.85vh;
   }
 }

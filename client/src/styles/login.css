@@ -3,13 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 30vh;
-  width: 30vw;
+  margin-bottom: 2vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 
 .login-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  letter-spacing: -5px;
   font-weight: 600;
   margin-bottom: 2vh;
 }
@@ -65,9 +67,3 @@
   color: black;
 }
 
-@media (max-width: 768px) {
-  .login-container {
-    height: 30vh;
-    width: 75vw;
-  }
-}

@@ -28,7 +28,7 @@
 .dash-header-title {
   font-family: "Aboreto", sans-serif;
   font-size: 1.5rem;
-  letter-spacing: -3.5px;
+  letter-spacing: -5px;
   color: white;
 }
 
@@ -58,7 +58,7 @@
   color: white;
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: -1.5px;
+  letter-spacing: -2.5px;
 }
 
 .dash-link-container:hover {
@@ -81,12 +81,12 @@
   .dash-header-container {
     width: 100%;
   }
+  
   .dash-header-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .dash-link-container a {
-
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 }

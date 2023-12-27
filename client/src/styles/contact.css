@@ -29,6 +29,7 @@
 .contact-title {
   font-size: 2.5rem;
   font-weight: 600;
+  letter-spacing: -5px;
   margin-top: 2vh;
   margin-bottom: 4vh;
 }
@@ -45,7 +46,7 @@
 }
 
 .contact-ig-logo a {
-  font-size: 6.5vh;
+  font-size: 5vh;
   color: #bd9c72;
   cursor: pointer;
   text-decoration: none;
@@ -64,7 +65,7 @@
 }
 
 .contact-email-logo a {
-  font-size: 6.5vh;
+  font-size: 5vh;
   color: #bd9c72;
   cursor: pointer;
   text-decoration: none;
@@ -97,14 +98,14 @@
 }
 
 .subscribe-email input {
-  width: 250px;
   font-weight: 600;
+  width: 250px;
   border: 1px solid grey;
   background-color: black;
   color: white;
   font-size: 1rem;
   padding-left: 1rem;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
   box-shadow: 1px 1px 2px #000000;
@@ -140,7 +141,6 @@
 .contact-image {
   height: calc(100%);
   width: calc(100%);
-  //border: 10px solid white;
   object-fit: cover;
 }
 
@@ -159,5 +159,9 @@
 
   .contact-left {
     border-bottom: 2px solid #bd9c72;
+  }
+
+  .subscribe-email input {
+    height: 4vh;
   }
 }

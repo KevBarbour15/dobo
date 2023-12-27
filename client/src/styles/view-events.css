@@ -13,13 +13,15 @@
 .event-title {
   font-family: "Aboreto", sans-serif;
   font-weight: 600;
+  color: white;
 }
 
 .event-details,
 .event-options {
   width: 48%;
-  font-family: "Inter", sans-serif;
+  font-family: "Aboreto", sans-serif;
   font-weight: 600;
+  color: #bd9c72;
 }
 
 .event-details {
