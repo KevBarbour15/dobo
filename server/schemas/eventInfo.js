@@ -1,4 +1,4 @@
-const mongoose = require('mongoose'); 
+const mongoose = require("mongoose");
 
 const DoboEventSchema = new mongoose.Schema({
   title: {
@@ -25,10 +25,12 @@ const DoboEventSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  attendees: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Attendees'
-  }],
+  attendees: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Attendees",
+    },
+  ],
 });
 
-module.exports = mongoose.model('DoboEvent', DoboEventSchema);
+module.exports = mongoose.model("DoboEvent", DoboEventSchema);
