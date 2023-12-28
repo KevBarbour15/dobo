@@ -1,0 +1,91 @@
+.about-container {
+  height: calc(100vh - 94px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #bd9c72;
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-left {
+  background-image: url(../../assets/images/background.jpg);
+  background-size: cover;
+  border-right: 2px solid #bd9c72;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.about-info-container {
+  width: 80%;
+  height: calc(100vh - 94px);
+}
+
+.about-title {
+  font-family: "Aboreto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -5px;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.about-text {
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px #000000;
+  padding-bottom: 2vh;
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 94px);
+  width: 100%;
+}
+
+.about-image {
+  height: calc(100%);
+  width: calc(100%);
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
+
+  .about-left {
+    border-bottom: 2px solid #bd9c72;
+    min-height: calc(100vh - 94px);
+    height: auto;
+    overflow-y: hidden;
+  }
+
+  .about-info-container {
+    width: 80%;
+    height: auto;
+  }
+
+  .about-text {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
