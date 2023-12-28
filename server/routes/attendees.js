@@ -42,6 +42,8 @@ router.put("/update-status", async (req, res) => {
   let ogStatus = req.body.ogStatus;
   let attendeeId = req.body.attendeeId;
   let eventId = req.body.eventId;
+  let seats = req.body.seats;
+
   try {
     await Attendee.findByIdAndUpdate(attendeeId, { status });
 
@@ -54,14 +56,14 @@ router.put("/update-status", async (req, res) => {
     ) {
       // Decrement seats as the attendee is now confirmed
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: -1 },
+        $inc: { seatsRemaining: -seats },
       });
     }
 
     // If the status changes from "Confirmed" to either "Inquired", "Not Attending", or "Contacted"
     if (status !== "Confirmed" && ogStatus === "Confirmed") {
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: 1 },
+        $inc: { seatsRemaining: seats },
       });
     }
 

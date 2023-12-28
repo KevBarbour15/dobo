@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MainPage from "./pages/MainPage";
-import EventDash from "./pages/EventDash";
+import HomePage from "./pages/HomePage/HomePage";
+import EventDash from "./pages/EventDash/EventDash";
 import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -20,7 +20,7 @@ function App() {
       >
         <div>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/EventDash" element={<EventDash />} />
           </Routes>
         </div>
