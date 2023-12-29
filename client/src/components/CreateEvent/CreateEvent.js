@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "../../axiosConfig.js";
 import { formatDate } from "../../util/formatting.js";
 import "./create-event.css";
+import { useSnackbar } from "notistack";
+import { showSuccessNotification } from "../../util/notifications.js";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -9,6 +11,7 @@ const CreateEvent = ({ onEventCreated }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +34,7 @@ const CreateEvent = ({ onEventCreated }) => {
         setDate("");
         setTime("");
         setPrice(0);
+        showSuccessNotification(enqueueSnackbar, "Event created!");
       } else {
         console.error("Error creating event:", response);
       }
@@ -62,8 +66,15 @@ const CreateEvent = ({ onEventCreated }) => {
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-
-        <p>Number of seats:</p>
+        <p>Price:</p>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="$"
+          required
+        />
+        <p>Seats:</p>
         <select
           placeholder="Seats"
           value={seats}
@@ -77,13 +88,6 @@ const CreateEvent = ({ onEventCreated }) => {
           ))}
         </select>
 
-        <p>Price:</p>
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
         <button type="submit">Create</button>
       </form>
     </div>

@@ -38,40 +38,32 @@ router.post("/get-by-ids", async (req, res) => {
 });
 
 router.put("/update-status", async (req, res) => {
-  let status = req.body.status;
-  let ogStatus = req.body.ogStatus;
-  let attendeeId = req.body.attendeeId;
-  let eventId = req.body.eventId;
-  let seats = req.body.seats;
+  let { status, ogStatus, attendeeId, eventId, seats } = req.body;
+  seats = parseInt(seats, 10); // Ensure seats is an integer
 
+  console.log("Seats: " + seats);
   try {
-    await Attendee.findByIdAndUpdate(attendeeId, { status });
+    // Update attendee's status
+    await Attendee.findByIdAndUpdate(attendeeId, { status, seats });
 
-    // If the status changes to "Confirmed" from either "Inquired", "Not Attending", or "Contacted"
-    if (
-      status === "Confirmed" &&
-      (ogStatus === "Inquired" ||
-        ogStatus === "Not Attending" ||
-        ogStatus === "Contacted")
-    ) {
-      // Decrement seats as the attendee is now confirmed
+    // Handle seat allocation for "Confirmed" status
+    if (status === "Confirmed" && ogStatus !== "Confirmed") {
+      // Decrement event's available seats
       await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: -seats },
       });
     }
 
-    // If the status changes from "Confirmed" to either "Inquired", "Not Attending", or "Contacted"
+    // Handle returning seats when moving away from "Confirmed"
     if (status !== "Confirmed" && ogStatus === "Confirmed") {
+      // Increment event's available seats
       await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: seats },
       });
     }
 
-    console.log("Attendee status updated");
     res.status(200).json({ message: "Attendee status updated" });
   } catch (error) {
-    console.log("Error updating attendee status");
-    console.log(error);
     res.status(500).json({
       message: "Error updating attendee status",
       error: error.message,

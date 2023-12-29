@@ -4,7 +4,7 @@ import { convertDateReadability } from "../../../util/formatting.js";
 import axios from "../../../axiosConfig.js";
 import Attendee from "./Attendee/Attendee.js";
 
-const Attendance = ({ event, onUpdateEvent }) => {
+const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Attendance = ({ event, onUpdateEvent }) => {
     ogStatus,
     seats
   ) => {
-    if (newStatus === ogStatus) return;
+    if (newStatus === ogStatus && newStatus !== "Confirmed") return;
 
     try {
       const response = await axios.put("/attendees/update-status", {
@@ -74,12 +74,16 @@ const Attendance = ({ event, onUpdateEvent }) => {
               attendee={attendee}
               onStatusChange={updateAttendeeStatus}
               date={event.date}
+              eventTiming={eventTiming}
+              availableSeats={event.seatsRemaining}
             />
           ))}
         </div>
       ) : (
         <div className="no-attendees-container">
-          <p>No attendees yet</p>
+          <p>
+            {eventTiming === "upcoming" ? "No Attendess Yet" : "No Attendees"}
+          </p>
         </div>
       )}
     </div>

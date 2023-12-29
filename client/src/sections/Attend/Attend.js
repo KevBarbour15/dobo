@@ -8,6 +8,8 @@ import {
 
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
 import { photoArray2 } from "../../assets/images/photoArrays.js";
+import { useSnackbar } from "notistack";
+import { showSuccessNotification } from "../../util/notifications.js";
 
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
@@ -16,6 +18,7 @@ const Attend = () => {
   const [selectedEventId, setSelectedEventId] = useState("");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -71,6 +74,7 @@ const Attend = () => {
         setSelectedEventId("");
         setDate("");
         setMessage("");
+        showSuccessNotification(enqueueSnackbar, "Thank you for your inquiry");
       }
     } catch (error) {
       const errorData = error.response ? error.response.data : error.message;

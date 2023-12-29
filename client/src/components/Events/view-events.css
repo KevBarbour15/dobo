@@ -26,6 +26,9 @@
   font-weight: 600;
   color: white;
   text-shadow: 1px 1px 2px #000000;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
 }
 
 .event-details {
@@ -62,6 +65,11 @@
 }
 
 @media (max-width: 768px) {
+  .events-list {
+    overflow-y: auto;
+    min-height: calc(100vh - 94px);
+  }
+
   .event-options button {
     width: 150px;
     height: 30px;

@@ -1,14 +1,19 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   border-top: 2px solid #bd9c72;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
 }
 
 .attendee-container select {
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  font-size: 1.15rem;
   width: 250px;
   height: 40px;
   border: 1px solid grey;
@@ -47,12 +52,13 @@
   margin-bottom: 2vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
 }
 
 .attendee-info p {
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .attendee-email {
@@ -60,4 +66,8 @@
   color: #bd9c72;
   cursor: pointer;
   text-decoration: none;
+}
+
+.attendee-message p {
+  font-size: 1rem;
 }

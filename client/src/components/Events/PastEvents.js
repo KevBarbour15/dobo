@@ -13,7 +13,11 @@ const EventDetailsPast = ({ event }) => {
 
   const handleViewAttendance = () => {
     setModalContent(
-      <Attendance event={event} onClose={() => setModalOpen(false)} />
+      <Attendance
+        event={event}
+        onClose={() => setModalOpen(false)}
+        eventTiming={"past"}
+      />
     );
     setModalOpen(true);
   };
@@ -25,7 +29,7 @@ const EventDetailsPast = ({ event }) => {
         <p>{convertDateReadability(event.date)}</p>
         <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>
-        <p>Seats Available: {event.seatsRemaining}</p>
+        <p>Attendees: {event.seats - event.seatsRemaining}</p>
         <p>Price: ${event.price}</p>
       </div>
       <div className="event-options">

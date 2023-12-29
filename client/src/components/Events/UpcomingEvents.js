@@ -41,6 +41,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         event={event}
         onUpdateEvent={() => onUpdateEvent(event._id)}
         onClose={() => setModalOpen(false)}
+        eventTiming={"upcoming"}
       />
     );
     setModalOpen(true);

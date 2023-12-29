@@ -4,8 +4,19 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
 import { photoArray3 } from "../../assets/images/photoArrays.js";
+import { useSnackbar } from "notistack";
+import { showSuccessNotification } from "../../util/notifications.js";
 
 const Contact = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    // fill in logic to subscribe to new events
+
+    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!");
+  };
+
   return (
     <div id="contact" className="contact-container">
       <div className="contact-left">
@@ -39,7 +50,7 @@ const Contact = () => {
               <p>Be the first to know about Dobo's next dinner:</p>
               <div className="subscribe-email">
                 <input placeholder="Email" required></input>
-                <button>Submit</button>
+                <button onClick={handleSubscribe}>Subscribe</button>
               </div>
             </div>
           </div>

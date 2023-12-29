@@ -1,8 +1,12 @@
 import "./cancel-event.css";
 import { convertDateReadability } from "../../../util/formatting.js";
 import axios from "../../../axiosConfig.js";
+import { useSnackbar } from "notistack";
+import { showSuccessNotification } from "../../../util/notifications.js";
 
 const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -16,9 +20,7 @@ const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
 
       if (response.status === 200 || response.status === 201) {
         onDeleteEvent(event._id);
-        console.log("Event deleted successfully!");
-      } else {
-        console.error("Error deleting event:", response);
+        showSuccessNotification(enqueueSnackbar, "Event canceled!");
       }
     } catch (error) {
       const errorData = error.response ? error.response.data : error.message;

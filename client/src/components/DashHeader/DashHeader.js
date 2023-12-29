@@ -35,8 +35,8 @@ const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
             >
               <button>Past</button>
             </div>
-            <div className="dash-link-container">
-              <button onClick={onLogout}>Logout</button>
+            <div className="dash-link-container" onClick={onLogout}>
+              <button>Logout</button>
             </div>
           </nav>
         </div>

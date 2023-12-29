@@ -1,4 +1,4 @@
-function convertMilitaryTime(militaryTime) {
+export const convertMilitaryTime = (militaryTime) => {
   if (!/^([01]\d|2[0-3]):?([0-5]\d)$/.test(militaryTime)) {
     return "Invalid time format!";
   }
@@ -19,13 +19,13 @@ function convertMilitaryTime(militaryTime) {
   }
 
   return `${hours}:${minutes.toString().padStart(2, "0")} ${period}`;
-}
+};
 
-function formatDate(date) {
+export const formatDate = (date) => {
   return date ? date.split("T")[0] : new Date().toISOString().split("T")[0];
-}
+};
 
-function convertDateReadability(dateString) {
+export const convertDateReadability = (dateString) => {
   const date = new Date(dateString);
   const options = {
     year: "numeric",
@@ -33,6 +33,4 @@ function convertDateReadability(dateString) {
     day: "numeric",
   };
   return new Intl.DateTimeFormat("en-US", options).format(date);
-}
-
-module.exports = { convertMilitaryTime, convertDateReadability, formatDate };
+};

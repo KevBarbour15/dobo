@@ -24,17 +24,20 @@
 }
 
 .create-event-form p {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  font-size: 1.35rem;
   color: white;
   text-shadow: 1px 1px 2px #000000;
   text-align: left;
 }
 
 .create-event-form input {
-  font-weight: 600;
-  width: 250px;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  width: 225px;
   border: 1px solid grey;
   background-color: black;
   color: white;
@@ -46,9 +49,11 @@
 }
 
 .create-event-form select {
-  font-weight: 600;
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
   letter-spacing: 1.5px;
-  width: 250px;
+  width: 100px;
   height: 40px;
   border: 1px solid grey;
   border-radius: 25px;

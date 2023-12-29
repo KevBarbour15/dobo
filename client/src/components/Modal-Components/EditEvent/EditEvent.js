@@ -5,6 +5,9 @@ import {
   convertDateReadability,
   formatDate,
 } from "../../../util/formatting.js";
+import { useSnackbar } from "notistack";
+import { showSuccessNotification } from "../../../util/notifications.js";
+
 
 const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [title, setTitle] = useState(event.title);
@@ -14,6 +17,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
   const committed = event.seats - event.seatsRemaining;
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleTitleChange = (e) => setTitle(e.target.value);
   const handleDateChange = (e) => setDate(e.target.value);
@@ -54,6 +58,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       if (response.status === 200 || response.status === 201) {
         onUpdateEvent(response.data);
         onClose();
+        showSuccessNotification(enqueueSnackbar, "Event updated!");
       } else {
         console.error("Error updating event: ", response);
       }
