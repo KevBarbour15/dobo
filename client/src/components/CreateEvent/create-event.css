@@ -1,0 +1,91 @@
+.create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../../assets/images/background4.jpg");
+  background-size: cover;
+  height: 100%;
+}
+
+.create-event-form {
+  margin-top: 4vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-event-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-event-form p {
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  font-size: 1.35rem;
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+  text-align: left;
+}
+
+.create-event-form input {
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  width: 225px;
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  padding-left: 1rem;
+  height: 40px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.create-event-form select {
+  font-family: "Questrial", serif;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  letter-spacing: 1.5px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 25px;
+  padding-left: 1rem;
+  color: white;
+  background-color: black;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.create-event-form input:focus,
+.create-event-form select:focus,
+.create-event-form textarea:focus {
+  border: 1px solid #bd9c72;
+  outline: none;
+}
+
+.create-event-form button {
+  font-family: "Aboreto", sans-serif;
+  font-weight: 600;
+  width: 170px;
+  height: 40px;
+  border: 2px solid #bd9c72;
+  border-radius: 50px;
+  background-color: black;
+  color: #bd9c72;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.create-event-form button:hover {
+  background-color: #bd9c72;
+  color: black;
+}
