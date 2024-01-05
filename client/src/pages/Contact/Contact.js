@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray3 } from "../../assets/images/PhotoArrays.js";
+import { photoArray3 } from "../../assets/images/photoArrays.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 

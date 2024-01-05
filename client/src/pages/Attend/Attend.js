@@ -7,7 +7,7 @@ import {
 } from "../../util/formatting.js";
 
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray2 } from "../../assets/images/PhotoArrays.js";
+import { photoArray2 } from "../../assets/images/photoArrays.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 

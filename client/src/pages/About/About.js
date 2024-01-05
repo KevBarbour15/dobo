@@ -1,6 +1,6 @@
 import "./about.css";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray1 } from "../../assets/images/PhotoArrays.js";
+import { photoArray1 } from "../../assets/images/photoArrays.js";
 
 const About = () => {
   return (
