@@ -1,0 +1,34 @@
+.footer-container {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-location h3 {
+  font-family: "Aboreto", sans-serif;
+  font-size: 0.75rem;
+  padding-left: 20px;
+}
+
+.footer-login button {
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding-right: 20px;
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .footer-location h3 {
+    font-size: 0.75rem;
+  }
+
+  .footer-login a {
+    font-size: 1.15rem;
+  }
+}
