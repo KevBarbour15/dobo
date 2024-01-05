@@ -1,0 +1,100 @@
+.menu-container {
+  position: fixed;
+  height: 100vh;
+  top: -100%;
+  height: 100%;
+  width: 50%;
+  transition: top 0.4s ease-in-out;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-container.open {
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-close-button {
+  align-self: flex-start;
+  position: absolute;
+  font-family: "Figtree";
+  border: none;
+  background: none;
+  font-size: 25px;
+  font-weight: bold;
+  top: 1.15rem;
+  left: 1.15rem;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-links-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 5;
+}
+
+.menu-link {
+  font-family: "Aboreto", sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: -4.5px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-link p {
+  margin: -.3rem;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.outlined-text {
+  -webkit-text-stroke: 0.75px white;
+  color: transparent;
+}
+
+.rotated-text {
+  transform: rotate(-12.5deg);
+  margin-top: 1.15rem;
+  margin-bottom: 1.15rem;
+}
+
+.menu-link:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1025px) {
+  .menu-container {
+    width: calc(75% * 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .menu-close-button{
+    left: 0.05rem;
+  }
+
+  .menu-link {
+    font-size: 2.5rem;
+  }
+
+}

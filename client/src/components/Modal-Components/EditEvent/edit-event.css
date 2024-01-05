@@ -30,9 +30,8 @@
   letter-spacing: -1.5px;
   width: 170px;
   height: 40px;
-  border: 2px solid #bd9c72;
+  border: 2px solid black;
   border-radius: 50px;
-  background-color: black;
   color: #bd9c72;
   font-size: 1.25rem;
   cursor: pointer;
@@ -47,7 +46,7 @@
 .edit-event-form input {
   font-weight: 600;
   width: 250px;
-  border: 1px solid grey;
+  border: 2px solid black;
   background-color: black;
   color: white;
   font-size: 1rem;

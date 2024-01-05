@@ -1,28 +1,26 @@
 .contact-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   display: flex;
-  border-bottom: 2px solid #bd9c72;
 }
 
 .contact-left,
 .contact-right {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   flex: 1;
   display: flex;
   justify-content: center;
 }
-
 .contact-left {
-  background-image: url(../../assets/images/background.jpg);
-  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-right {
   height: 100%;
-  border-right: 2px solid #bd9c72;
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
 }
 
 .contact-info-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   width: 80%;
 }
 
@@ -31,11 +29,13 @@
 }
 
 .contact-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: -5px;
+  font-family: "Aboreto", sans-serif;
+  font-size: 3rem;
   margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-bottom: 7.5vh;
+  -webkit-text-stroke: 0.75px black;
+  color: transparent;
+  transform: rotate(-12.5deg);
 }
 
 .contact-ig,
@@ -47,11 +47,9 @@
 .contact-ig p,
 .contact-email p {
   margin-bottom: 1.5vh;
-  text-shadow: 1px 1px 2px #000000;
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
-  letter-spacing: 0.75px;
-  font-size: 1.95vh;
+  font-size: 2.5vh;
 }
 
 .contact-ig-logo,
@@ -65,14 +63,14 @@
 .contact-ig-logo a,
 .contact-email-logo a {
   font-size: 4vh;
-  color: #bd9c72;
+  color: black;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 1px 1px 2px #000000;
 }
 
 .contact-ig-logo a:hover,
 .contact-email-logo a:hover {
+  color: #bd9c72;
   cursor: pointer;
 }
 
@@ -85,11 +83,9 @@
 
 .subscribe-container p {
   margin-bottom: 1.5vh;
-  text-shadow: 1px 1px 2px #000000;
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
-  letter-spacing: 0.75px;
-  font-size: 1.95vh;
+  font-size: 2.5vh;
 }
 
 .subscribe-email {
@@ -100,46 +96,43 @@
 
 .subscribe-email input {
   width: 250px;
-  border: 1px solid grey;
-  background-color: black;
-  color: white;
+  border: 2px solid black;
   font-size: 1rem;
   padding-left: 1rem;
   margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1px 1px 2px #000000;
-  font-family: "Questrial", serif;
+  box-shadow: 1px 1px 3px black;
+  font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
 }
 
 .subscribe-email input:focus {
-  border: 1px solid #bd9c72;
+  border: 2px solid #bd9c72;
   outline: none;
 }
 
 .subscribe-email button {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
+  font-family: "Figtree";
+  font-size: 1.25rem;
+  font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid #bd9c72;
+  border: 2px solid black;
   border-radius: 50px;
-  background-color: black;
-  color: #bd9c72;
-  font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: 1px 1px 2px #000000;
+  box-shadow: 1px 1px 3px grey;
+  color: black;
+  background-color: #efefef;
 }
 
 .subscribe-email button:hover {
   background-color: #bd9c72;
-  color: black;
 }
 
 .contact-image-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,12 +154,15 @@
   .contact-left,
   .contact-right {
     width: 100%;
-    border-left: none;
-    border-right: none;
   }
 
   .contact-left {
-    border-bottom: 2px solid #bd9c72;
+    order: 2;
+  }
+
+  .contact-right {
+    order: 1;
+    border-bottom: 2px solid black;
   }
 
   .subscribe-email input {
