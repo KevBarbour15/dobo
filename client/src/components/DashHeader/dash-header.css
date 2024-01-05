@@ -1,7 +1,7 @@
 .dash-header-container {
   position: sticky;
   top: 0;
-  background-color: black;
+  background-color: #EFEFEF;
   z-index: 1000;
   height: 90px;
   display: flex;
@@ -9,12 +9,12 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  border-top: 2px solid #bd9c72;
+  border-top: 2px solid black;
 }
 
 .dash-header-title-container,
 .dash-header-links-container {
-  border-bottom: 2px solid #bd9c72;
+  border-bottom: 2px solid black;
   width: 100%;
 }
 
@@ -27,9 +27,9 @@
 
 .dash-header-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: -5px;
-  color: white;
+  font-size: 1.25rem;
+  letter-spacing: -4.5px;
+  color: black;
 }
 
 .dash-header-links-container {
@@ -55,7 +55,7 @@
 .dash-link-container button {
   font-family: "Aboreto", sans-serif;
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -2.5px;
@@ -65,18 +65,23 @@
 }
 
 .dash-link-container:hover {
-  background-color: #bd9c72;
+  background-color: black;
   cursor: pointer;
 }
 
-.dash-link-container:hover a {
+.dash-link-container:hover button {
   color: white;
-  background-color: #bd9c72;
+  background-color: black;
   cursor: pointer;
 }
 
 .dash-active-link {
-  background-color: #bd9c72;
+  background-color: black;
+}
+
+.dash-active-link button {
+  color: white;
+  background-color: black;
 }
 
 @media (max-width: 768px) {

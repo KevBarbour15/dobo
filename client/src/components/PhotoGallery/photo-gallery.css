@@ -1,14 +1,18 @@
 .photo-gallery-container {
   height: 100%;
   width: 100%;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .photo-gallery-container .awssld {
-  height: 100%;
-  width: 100%;
+  height: 95%;
+  width: 90%;
   object-fit: cover;
   background-color: black;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
 }
 
 .photo-gallery-slide .awssld__controls__arrow-left,

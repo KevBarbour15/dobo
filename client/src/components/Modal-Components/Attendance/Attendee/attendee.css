@@ -3,20 +3,20 @@
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  border-top: 2px solid #bd9c72;
-  font-family: "Questrial", serif;
+  border-top: 2px solid black;
+  font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
 }
 
 .attendee-container select {
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
   font-size: 1.15rem;
   width: 250px;
   height: 40px;
-  border: 1px solid grey;
+  border: 2px solid black;
   border-radius: 25px;
   padding-left: 1rem;
   color: white;
@@ -31,7 +31,7 @@
   letter-spacing: -1.5px;
   width: 170px;
   height: 40px;
-  border: 2px solid #bd9c72;
+  border: 2px solid black;
   border-radius: 50px;
   background-color: black;
   color: #bd9c72;

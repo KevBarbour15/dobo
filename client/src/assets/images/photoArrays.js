@@ -14,4 +14,5 @@ const photoArray1 = [img3, img5, img1, img10];
 const photoArray2 = [img4, img7, img9, img2];
 const photoArray3 = [img11, img6, img8];
 
+
 export { photoArray1, photoArray2, photoArray3 };

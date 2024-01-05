@@ -1,11 +1,16 @@
 import "./about.css";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray1 } from "../../assets/images/photoArrays.js";
+import { photoArray1 } from "../../assets/images/PhotoArrays.js";
 
 const About = () => {
   return (
     <div id="about" className="about-container">
       <div className="about-left">
+        <div className="image-container">
+          <PhotoGallery photos={photoArray1} />
+        </div>
+      </div>
+      <div className="about-right">
         <div className="about-info-container">
           <div className="about-title">About</div>
           <div className="about-text">
@@ -40,11 +45,6 @@ const About = () => {
               sit amet nunc.
             </p>
           </div>
-        </div>
-      </div>
-      <div className="about-right">
-        <div className="image-container">
-          <PhotoGallery photos={photoArray1} />
         </div>
       </div>
     </div>

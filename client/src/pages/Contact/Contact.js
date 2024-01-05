@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray3 } from "../../assets/images/photoArrays.js";
+import { photoArray3 } from "../../assets/images/PhotoArrays.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
@@ -20,6 +20,11 @@ const Contact = () => {
   return (
     <div id="contact" className="contact-container">
       <div className="contact-left">
+        <div className="image-container">
+          <PhotoGallery photos={photoArray3} />
+        </div>
+      </div>
+      <div className="contact-right">
         <div className="contact-info-container">
           <div className="contact-title">Contact</div>
           <div className="contact-text">
@@ -54,11 +59,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="contact-right">
-        <div className="image-container">
-          <PhotoGallery photos={photoArray3} />
         </div>
       </div>
     </div>

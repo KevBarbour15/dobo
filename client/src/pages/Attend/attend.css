@@ -1,14 +1,13 @@
 .attend-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid #bd9c72;
 }
 
 .attend-left,
 .attend-right {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   flex: 1;
   display: flex;
   align-items: center;
@@ -16,14 +15,10 @@
 
 .attend-right {
   flex-direction: column;
-  background-image: url(../../assets/images/background.jpg);
-  background-size: cover;
-  height: 100%;
-  border-left: 2px solid #bd9c72;
 }
 
 .attend-image-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -37,34 +32,34 @@
 }
 
 .attend-info-container {
-  height: calc(100vh - 94px);
+  height: calc(100vh - 61px);
   width: 80%;
 }
 
 .attend-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: -5px;
+  font-size: 3rem;
   margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-bottom: 7.5vh;
+  -webkit-text-stroke: 0.75px black;
+  color: transparent;
+  transform: rotate(-12.5deg);
 }
 
 .attend-text {
   width: 70%;
   font-size: 2vh;
   margin-bottom: 2vh;
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
   line-height: 1.5;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
 }
 
 .inquiry-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  
 }
 
 .inquiry-form form {
@@ -73,73 +68,66 @@
 }
 
 .inquiry-form select {
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
   width: 250px;
   height: 40px;
-  border: 1px solid grey;
+  border: 2px solid black;
   border-radius: 25px;
   padding-left: 1rem;
-  color: white;
-  background-color: black;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  box-shadow: 1px 1px 3px grey;
 }
 
 .inquiry-form input {
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
   width: 250px;
-  border: 1px solid grey;
-  background-color: black;
-  color: white;
+  border: 2px solid black;
   font-size: 1rem;
   padding-left: 1rem;
   margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1px 1px 2px #000000;
-
+  box-shadow: 1px 1px 3px grey;
 }
 
 .inquiry-form textarea {
-  font-family: "Questrial", serif;
+  font-family: "Figtree";
   font-weight: bold;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
   width: 250px;
-  border: 1px solid grey;
-  background-color: black;
-  color: white;
+  border: 2px solid black;
   font-size: 1rem;
   padding-top: 0.5rem;
   padding-left: 1rem;
   margin-bottom: 2vh;
   height: 15vh;
   border-radius: 20px;
-  box-shadow: 1px 1px 2px #000000;
+  box-shadow: 1px 1px 3px grey;
 }
 
 .inquiry-form button {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
+  font-family: "Figtree";
   font-size: 1.25rem;
-  letter-spacing: -1.5px;
+  font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid #bd9c72;
+  border: 2px solid black;
   border-radius: 50px;
-  background-color: black;
-  color: #bd9c72;
   cursor: pointer;
-  box-shadow: 1px 1px 2px #000000;
+  box-shadow: 1px 1px 3px grey;
+  color: black;
+  background-color: #efefef;
 }
 
 .inquiry-form input:focus,
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
-  border: 1px solid #bd9c72;
+  border: 2px solid #bd9c72;
   outline: none;
 }
 
@@ -167,7 +155,6 @@
 
   .attend-right {
     order: 1;
-    border-bottom: 2px solid #bd9c72;
   }
 
   .attend-text {
