@@ -3,11 +3,17 @@ import "./attendance.css";
 import { convertDateReadability } from "../../../util/formatting.js";
 import axios from "../../../axiosConfig.js";
 import Attendee from "./Attendee/Attendee.js";
+import Loading from "../../Loading/Loading.js";
 
 const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [minLoadTimePassed, setMinLoadTimePassed] = useState(false);
+  const minLoadingTime = 2000;
 
   useEffect(() => {
+    let timer = null;
+
     const fetchAttendees = async () => {
       try {
         const response = await axios.post("/attendees/get-by-ids", {
@@ -18,13 +24,23 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
         setAttendees(response.data);
       } catch (error) {
         console.error("Error fetching events: ", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     if (event && event.attendees) {
       fetchAttendees();
     }
-  }, [event]);
+
+    timer = setTimeout(() => {
+      setMinLoadTimePassed(true);
+    }, minLoadingTime);
+
+    return () => clearTimeout(timer);
+  }, [event, minLoadingTime]);
+
+  const shouldDisplayLoading = isLoading || !minLoadTimePassed;
 
   const updateAttendeeStatus = async (
     attendeeId,
@@ -66,25 +82,37 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
       <div className="event-date">
         <h1>{convertDateReadability(event.date)}</h1>
       </div>
-      {attendees.length > 0 ? (
-        <div className="attendees-container">
-          {attendees.map((attendee) => (
-            <Attendee
-              key={attendee._id}
-              attendee={attendee}
-              onStatusChange={updateAttendeeStatus}
-              date={event.date}
-              eventTiming={eventTiming}
-              availableSeats={event.seatsRemaining}
-            />
-          ))}
-        </div>
+      {shouldDisplayLoading ? (
+        <Loading />
       ) : (
-        <div className="no-attendees-container">
-          <p>
-            {eventTiming === "upcoming" ? "No Attendess Yet" : "No Attendees"}
-          </p>
-        </div>
+        <>
+          {attendees.length > 0 ? (
+            <div
+              className={`attendees-container ${
+                !shouldDisplayLoading ? "visible" : ""
+              }`}
+            >
+              {attendees.map((attendee) => (
+                <Attendee
+                  key={attendee._id}
+                  attendee={attendee}
+                  onStatusChange={updateAttendeeStatus}
+                  date={event.date}
+                  eventTiming={eventTiming}
+                  availableSeats={event.seatsRemaining}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="no-attendees-container">
+              <p>
+                {eventTiming === "upcoming"
+                  ? "No Attendess Yet"
+                  : "No Attendees"}
+              </p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

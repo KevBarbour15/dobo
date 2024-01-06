@@ -1,3 +1,11 @@
+.attendance-container {
+  width: 30vw;
+  min-height: 30vh;
+  max-height: 60vh;
+  transition: max-height 0.95s ease, opacity 0.95s ease;
+  overflow: hidden;
+}
+
 .event-date {
   text-align: center;
   font-family: "Aboreto", sans-serif;
@@ -7,18 +15,19 @@
 }
 
 .attendees-container {
-  width: 30vw;
-  min-height: 100px;
-  max-height: 75vh;
+  min-height: 250px;
   overflow-y: scroll;
-  border-top: 2px solid black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.attendees-container.visible {
+  opacity: 1;
 }
 
 .no-attendees-container {
   width: 100%;
-  min-height: 125px;
-  max-height: 75vh;
-  border-top: 2px solid black;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,10 +43,11 @@
 }
 
 @media (max-width: 768px) {
-  .attendees-container {
-    height: 65vh;
-    width: 85vw;
+  .attendance-container {
+    width: 75vw;
+    min-height: 45vh;
   }
+
   .event-date {
     font-size: 0.75rem;
   }
