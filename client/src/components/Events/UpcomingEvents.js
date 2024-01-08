@@ -4,6 +4,7 @@ import Modal from "../Modal/Modal.js";
 import EditEvent from "../Modal-Components/EditEvent/EditEvent.js";
 import Attendance from "../Modal-Components/Attendance/Attendance.js";
 import Cancel from "../Modal-Components/CancelEvent/CancelEvent.js";
+import ViewNotes from "../Modal-Components/Notes/ViewNotes.js";
 import {
   convertDateReadability,
   convertMilitaryTime,
@@ -35,6 +36,17 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
     setModalOpen(true);
   };
 
+  const handleViewNotes = () => {
+    setModalContent(
+      <ViewNotes
+        event={event}
+        onUpdateEvent={() => onUpdateEvent(event._id)}
+        onClose={() => setModalOpen(false)}
+      />
+    );
+    setModalOpen(true);
+  };
+
   const handleViewAttendance = () => {
     setModalContent(
       <Attendance
@@ -60,6 +72,9 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
       <div className="event-options">
         <button type="button" onClick={handleViewAttendance}>
           Attendance
+        </button>
+        <button type="button" onClick={handleViewNotes}>
+          Notes
         </button>
         <button type="button" onClick={handleEdit}>
           Edit

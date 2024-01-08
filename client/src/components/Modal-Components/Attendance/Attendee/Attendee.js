@@ -46,7 +46,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming }) => {
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
           <div className="attendee-message">
-            <p>{attendee.message ? "Message: " + attendee.message : ""}</p>
+            <p>{attendee.message ? "- " + attendee.message : ""}</p>
           </div>
           <select value={status} onChange={handleStatusChange}>
             <option value="Confirmed">Confirmed</option>

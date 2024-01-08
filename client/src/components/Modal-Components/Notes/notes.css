@@ -1,0 +1,109 @@
+.notes-container {
+  width: 30vw;
+  min-height: 45vh;
+  max-height: 75vh;
+  transition: max-height 0.95s ease, opacity 0.95s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.notes-event-date {
+  text-align: center;
+  font-family: "Aboreto", sans-serif;
+  font-weight: bold;
+}
+
+.notes-text-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.notes-text-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.notes-text-form textarea {
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  width: 250px;
+  border: 2px solid black;
+  font-size: 1rem;
+  margin-bottom: 2vh;
+  border-radius: 20px;
+  box-shadow: 1px 1px 3px grey;
+  width: 27vw;
+  min-height: 40vh;
+  max-height: 75vh;
+  overflow: auto;
+  padding: 0.65rem;
+  box-sizing: border-box;
+}
+
+.notes-text-form button {
+  font-family: "Figtree";
+  font-size: 1.25rem;
+  font-weight: bold;
+  width: 170px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px grey;
+  color: black;
+  background-color: #efefef;
+  margin-top: 0.75rem;
+}
+
+.notes-text-form select {
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  letter-spacing: 1.5px;
+  width: 100px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding-left: 1rem;
+  box-shadow: 1px 1px 2px #000000;
+}
+
+.notes-text-form textarea:focus {
+  border: 2px solid black;
+  outline: none;
+}
+
+.notes-text-form button:hover {
+  background-color: #bd9c72;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .notes-container {
+    width: 75vw;
+    min-height: 50vh;
+  }
+
+  .notes-text-form textarea {
+    font-size: 0.9rem;
+    width: 70vw;
+    min-height: 45vh;
+  }
+
+  .notes-text-form button {
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .notes-text-form p {
+    font-size: 0.85rem;
+  }
+}

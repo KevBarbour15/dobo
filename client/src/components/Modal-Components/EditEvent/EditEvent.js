@@ -8,7 +8,6 @@ import {
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../../util/notifications.js";
 
-
 const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [title, setTitle] = useState(event.title);
   const [date, setDate] = useState(formatDate(event.date));
@@ -17,6 +16,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
   const committed = event.seats - event.seatsRemaining;
+
   const { enqueueSnackbar } = useSnackbar();
 
   const handleTitleChange = (e) => setTitle(e.target.value);
@@ -40,7 +40,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(event._id);
+
     const updatedEventData = {
       ...event,
       title,
@@ -77,7 +77,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <p>Title:</p>
           <input type="text" value={title} onChange={handleTitleChange} />
 
-          <div>
+          <div className="seating-container">
             <p>Seats:</p>
             <div className="count-button-container">
               <div className="count-button">
@@ -99,12 +99,13 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
             </div>
             <p> People Commited: {committed}</p>
           </div>
-          <p>Date and Time:</p>
+          <p>Date:</p>
           <input type="date" value={date} onChange={handleDateChange} />
+          <p>Time:</p>
           <input type="time" value={time} onChange={handleTimeChange} />
           <p>Price:</p>
           <input type="number" value={price} onChange={handlePriceChange} />
-          <button type="submit">Save Changes</button>
+          <button type="submit">Save</button>
         </form>
       </div>
     </div>

@@ -7,12 +7,13 @@
 .edit-event-date {
   text-align: center;
   font-family: "Aboreto", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .edit-event-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -20,22 +21,32 @@
 .edit-event-form form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
 
+.edit-event-form p {
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  font-size: 1.15rem;
+  color: black;
+}
+
 .edit-event-form button {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  letter-spacing: -1.5px;
+  font-family: "Figtree";
+  font-size: 1.25rem;
+  font-weight: bold;
   width: 170px;
   height: 40px;
   border: 2px solid black;
   border-radius: 50px;
-  color: #bd9c72;
-  font-size: 1.25rem;
   cursor: pointer;
-  margin-top: 1rem;
+  box-shadow: 1px 1px 3px grey;
+  color: black;
+  background-color: #efefef;
+  margin-top: 0.75rem;
 }
 
 .edit-event-form button:hover {
@@ -44,22 +55,44 @@
 }
 
 .edit-event-form input {
-  font-weight: 600;
-  width: 250px;
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  width: 225px;
   border: 2px solid black;
-  background-color: black;
-  color: white;
   font-size: 1rem;
-  padding-left: 1rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   height: 40px;
   border-radius: 50px;
+  box-shadow: 1px 1px 3px grey;
 }
 
-.edit-event-form p {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  color: #bd9c72;
-  text-align: center;
+.edit-event-form select {
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  letter-spacing: 1.5px;
+  width: 100px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  box-shadow: 1px 1px 3px grey;
+}
+
+.edit-event-form input:focus,
+.edit-event-form select:focus,
+.edit-event-form textarea:focus {
+  border: 2px solid black;
+  outline: none;
+}
+
+.seating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .count-button-container {
@@ -72,16 +105,16 @@
 .count-button {
   cursor: pointer;
   color: #bd9c72;
-  font-size: 3rem;
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-family: "Figtree";
+  font-weight: bold;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
 @media (max-width: 768px) {
   .edit-event-date {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .edit-event-form input {
@@ -95,6 +128,6 @@
   }
 
   .edit-event-form p {
-    font-size: 1.85vh;
+    font-size: 0.85rem;
   }
 }

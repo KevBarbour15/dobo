@@ -1,6 +1,5 @@
 *** TO DO ***
-
-- Work on font design (font size in Gimp is 160, Canvas is 150px high for menu items)
+- Add notes throughout project
 
 - remove photos from sections on mobile and also add a gallery
 
@@ -9,10 +8,12 @@
 - Ensure uniform styling throughout
 
 - Email signup 
-  - Find best service
+  - Find best/most fitting service for Sean's needs
 
-- add some loading animation for attendees
-  
+- add some loading animation for photo galleries
+
+- Consider error handling notifications 
+
 - Does Sean want to be notified when he gets a new inquiry?
   - Have email sent to Sean's email of choice and with inquiry info
 
@@ -24,12 +25,13 @@
   - work on the state management
   - sean can't take away more seats than exist or add more people than available seats 
 
-- Add notes for events
+- move the mobile home image over
+
+- compress all images more /potential lazy load
 
 - redesign in figma
 
-- lower section titles to align with photo line
-
-- move domain name over
-
-- Sean get me the color palatte this weekend
+- Sean - follow up Wedsnesday
+  - move domain name over
+  - get me the color palatte asap
+  - get Sean's current Dobo email information to start syncing it up

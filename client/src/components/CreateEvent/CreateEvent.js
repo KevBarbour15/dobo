@@ -12,6 +12,7 @@ const CreateEvent = ({ onEventCreated }) => {
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
   const { enqueueSnackbar } = useSnackbar();
+  const notes = "";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const CreateEvent = ({ onEventCreated }) => {
       date,
       time,
       price,
+      notes,
     };
 
     try {
@@ -54,24 +56,25 @@ const CreateEvent = ({ onEventCreated }) => {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <p>Date and Time:</p>
+        <p>Price:</p>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+        <p>Date:</p>
         <input
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
         />
+        <p>Time:</p>
         <input
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
-        />
-        <p>Price:</p>
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          placeholder="$"
           required
         />
         <p>Seats:</p>

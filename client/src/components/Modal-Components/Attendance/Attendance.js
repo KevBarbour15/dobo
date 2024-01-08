@@ -9,7 +9,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false);
-  const minLoadingTime = 2000;
+  const minLoadingTime = 1000;
 
   useEffect(() => {
     let timer = null;

@@ -2,12 +2,13 @@ import { useState } from "react";
 import "./view-events.css";
 import Modal from "../Modal/Modal.js";
 import Attendance from "../Modal-Components/Attendance/Attendance.js";
+import ViewNotes from "../Modal-Components/Notes/ViewNotes.js";
 import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../../util/formatting.js";
 
-const EventDetailsPast = ({ event }) => {
+const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
@@ -17,6 +18,17 @@ const EventDetailsPast = ({ event }) => {
         event={event}
         onClose={() => setModalOpen(false)}
         eventTiming={"past"}
+      />
+    );
+    setModalOpen(true);
+  };
+
+  const handleViewNotes = () => {
+    setModalContent(
+      <ViewNotes
+        event={event}
+        onUpdateEvent={() => onUpdateEvent(event._id)}
+        onClose={() => setModalOpen(false)}
       />
     );
     setModalOpen(true);
@@ -36,15 +48,22 @@ const EventDetailsPast = ({ event }) => {
         <button type="button" onClick={handleViewAttendance}>
           Attendance
         </button>
+        <button type="button" onClick={handleViewNotes}>
+          Notes
+        </button>
       </div>
-      <Modal isVisible={isModalOpen} onClose={() => setModalOpen(false)}>
+      <Modal
+        isVisible={isModalOpen}
+        onUpdateEvent={onUpdateEvent}
+        onClose={() => setModalOpen(false)}
+      >
         <div>{modalContent}</div>
       </Modal>
     </div>
   );
 };
 
-const PastEvents = ({ events }) => {
+const PastEvents = ({ events, onUpdateEvent }) => {
   const pastEvents = events.filter(
     (event) => new Date(event.date) < new Date()
   );
@@ -53,7 +72,11 @@ const PastEvents = ({ events }) => {
     <div className="event-form">
       <div className="events-list">
         {pastEvents.map((event) => (
-          <EventDetailsPast key={event._id} event={event} />
+          <EventDetailsPast
+            key={event._id}
+            event={event}
+            onUpdateEvent={onUpdateEvent}
+          />
         ))}
       </div>
     </div>

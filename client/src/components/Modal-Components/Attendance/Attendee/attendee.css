@@ -1,7 +1,7 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   justify-content: center;
   font-family: "Figtree";
   font-weight: bold;
@@ -10,40 +10,50 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.attendee-info p {
+  font-size: 1.15rem;
 }
 
 .attendee-container select {
   font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   width: 250px;
-  height: 40px;
+  height: 35px;
   border: 2px solid black;
   border-radius: 25px;
-  padding-left: 1rem;
-  color: white;
-  background-color: black;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  color: black;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
 .attendee-container button {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  letter-spacing: -1.5px;
-  width: 170px;
-  height: 40px;
+  font-family: "Figtree";
+  font-size: 1.15rem;
+  font-weight: bold;
+  width: 150px;
+  height: 35px;
   border: 2px solid black;
   border-radius: 50px;
-  background-color: black;
-  color: #bd9c72;
-  font-size: 1.25rem;
   cursor: pointer;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  box-shadow: 1px 1px 3px grey;
+  color: black;
+  background-color: #efefef;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
 }
 
 .attendee-container button:hover {
@@ -54,25 +64,25 @@
 .attendee-info {
   margin-left: 3vw;
   margin-right: 3vw;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
-}
-
-.attendee-info p {
-  font-weight: 600;
-  font-size: 1.5rem;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .attendee-email {
   font-size: 3.5vh;
   color: #bd9c72;
-  cursor: pointer;
   text-decoration: none;
 }
 
+.attendee-email a  {
+  cursor: pointer;
+}
+
 .attendee-message p {
-  font-size: 1rem;
+  font-size: .9rem;
 }

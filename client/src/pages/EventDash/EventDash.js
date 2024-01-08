@@ -85,7 +85,7 @@ const EventDash = () => {
         )}
         {activeSection === "past" && (
           <div className="view-container">
-            <PastEvents events={events} />
+            <PastEvents events={events} onUpdateEvent={updateEvent} />
           </div>
         )}
       </div>

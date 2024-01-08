@@ -9,7 +9,7 @@
 
 .events-container {
   height: calc(100vh - 94px);
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 @media (min-width: 1025px) {
