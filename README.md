@@ -1,16 +1,12 @@
 *** TO DO ***
 - Add notes throughout project
 
-- remove photos from sections on mobile and also add a gallery
-
 - Turn scroll feature off when menu is open
 
 - Ensure uniform styling throughout
 
 - Email signup 
   - Find best/most fitting service for Sean's needs
-
-- add some loading animation for photo galleries
 
 - Consider error handling notifications 
 
@@ -25,7 +21,7 @@
   - work on the state management
   - sean can't take away more seats than exist or add more people than available seats 
 
-- move the mobile home image over
+- move the mobile home image over and add untrimmed version to image collection
 
 - compress all images more /potential lazy load
 
@@ -33,5 +29,6 @@
 
 - Sean - follow up Wedsnesday
   - move domain name over
-  - get me the color palatte asap
+  - get me the color palatte asap 
+  - get me font info
   - get Sean's current Dobo email information to start syncing it up

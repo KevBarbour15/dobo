@@ -24,7 +24,11 @@ const Footer = () => {
           <FontAwesomeIcon icon={faKey} />
         </button>
       </div>
-      <Modal isVisible={isModalOpen} onClose={() => setModalOpen(false)}>
+      <Modal
+        title={"Owner Login"}
+        isVisible={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      >
         <div>{modalContent}</div>
       </Modal>
     </div>

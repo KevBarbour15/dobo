@@ -37,9 +37,6 @@ const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
 
   return (
     <div className="notes-container">
-      <div className="notes-event-date">
-        <h1>{convertDateReadability(event.date)}</h1>
-      </div>
       <div className="notes-text-form">
         <form onSubmit={handleSubmit}>
           <textarea value={notes} onChange={handleNotesChange}></textarea>

@@ -84,6 +84,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         </button>
       </div>
       <Modal
+        title={convertDateReadability(event.date)}
         isVisible={isModalOpen}
         onClose={() => setModalOpen(false)}
         onDeleteEvent={onDeleteEvent}

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
 }
 
 .event-title {
@@ -44,10 +44,10 @@
   font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
   color: black;
   background-color: #efefef;
   margin-top: 0.75rem;

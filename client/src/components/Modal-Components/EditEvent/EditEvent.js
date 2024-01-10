@@ -69,9 +69,6 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
 
   return (
     <div className="edit-event-container">
-      <div className="edit-event-date">
-        <h1>{convertDateReadability(event.date)}</h1>
-      </div>
       <div className="edit-event-form">
         <form onSubmit={handleSubmit}>
           <p>Title:</p>
@@ -105,7 +102,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <input type="time" value={time} onChange={handleTimeChange} />
           <p>Price:</p>
           <input type="number" value={price} onChange={handlePriceChange} />
-          <button type="submit">Save</button>
+          <button type="submit">Update</button>
         </form>
       </div>
     </div>

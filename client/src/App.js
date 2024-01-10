@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Attend from "./pages/Attend/Attend";
 import Contact from "./pages/Contact/Contact";
-import ImageGallery from "./pages/Gallery/ImageGallery";
+import ImageGallery from "./pages/ImageGallery/ImageGallery";
 
 import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -29,8 +29,8 @@ function App() {
         >
           <div>
             <Routes>
+              <Route index element={<Home />} />
               <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
                 <Route path="About" element={<About />} />
                 <Route path="Attend" element={<Attend />} />
                 <Route path="Contact" element={<Contact />} />

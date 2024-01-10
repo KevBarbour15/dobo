@@ -6,7 +6,7 @@ const Menu = ({ isOpen, onClose }) => {
     <div className={`menu-container ${isOpen ? "open" : ""}`}>
       <div>
         <button onClick={onClose} className="menu-close-button">
-          X
+          <span className="material-icons">close</span>
         </button>
       </div>
       <div className="menu-links-container">

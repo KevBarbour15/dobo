@@ -35,11 +35,11 @@
   font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
-  border: 2px solid black;
+  border: 1px solid black;
   font-size: 1rem;
   margin-bottom: 2vh;
   border-radius: 20px;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
   width: 27vw;
   min-height: 40vh;
   max-height: 75vh;
@@ -54,10 +54,10 @@
   font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
   color: black;
   background-color: #efefef;
   margin-top: 0.75rem;
@@ -70,14 +70,14 @@
   letter-spacing: 1.5px;
   width: 100px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 25px;
   padding-left: 1rem;
-  box-shadow: 1px 1px 2px #000000;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .notes-text-form textarea:focus {
-  border: 2px solid black;
+  border: 1px solid black;
   outline: none;
 }
 

@@ -40,10 +40,10 @@
   font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
   color: black;
   background-color: #efefef;
   margin-top: 0.75rem;
@@ -59,13 +59,13 @@
   font-weight: bold;
   letter-spacing: 0.75px;
   width: 225px;
-  border: 2px solid black;
+  border: 1px solid black;
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .edit-event-form select {
@@ -75,17 +75,17 @@
   letter-spacing: 1.5px;
   width: 100px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 25px;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .edit-event-form input:focus,
 .edit-event-form select:focus,
 .edit-event-form textarea:focus {
-  border: 2px solid black;
+  border: 1px solid black;
   outline: none;
 }
 

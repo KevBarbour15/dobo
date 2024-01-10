@@ -1,5 +1,5 @@
 .about-container {
-  height: calc(100vh - 61px);
+  height: calc(100vh - 58px);
   display: flex;
 }
 
@@ -17,17 +17,19 @@
 
 .about-info-container {
   width: 80%;
-  height: calc(100vh - 61px);
+  height: calc(100vh - 58px);
 }
 
 .about-title {
   font-family: "Aboreto", sans-serif;
   font-size: 3rem;
+  letter-spacing: -4.5px;
+  //-webkit-text-stroke: 0.75px black;
+  color: black;
+  transform: rotate(-12.5deg);
+  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
   margin-top: 3vh;
   margin-bottom: 7.5vh;
-  -webkit-text-stroke: 0.75px black;
-  color: transparent;
-  transform: rotate(-12.5deg);
 }
 
 .about-text {
@@ -40,13 +42,13 @@
 }
 
 .image-container {
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  box-shadow: 1px 1px 3px black;
+  border-right: 1px solid black;
+  //box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .image-container img {
@@ -66,7 +68,7 @@
   }
 
   .about-right {
-    min-height: calc(100vh - 61px);
+    min-height: calc(100vh - 58px);
     height: auto;
     overflow-y: hidden;
     order: 1;
@@ -84,4 +86,3 @@
     flex-direction: column;
   }
 }
-

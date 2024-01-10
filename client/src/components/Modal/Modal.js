@@ -5,14 +5,15 @@ const Modal = ({ isVisible, title, children, onClose }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <h4>{title}</h4>
-          <button onClick={onClose} className="close-button">X</button>
-        </div>
-        <div className="modal-body">
-          {children}
-        </div>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <header className="modal-header">
+          <div className="invisible-element"></div>
+          <p>{title}</p>
+          <button onClick={onClose} className="close-button">
+            <span className="material-icons">close</span>
+          </button>
+        </header>
+        <div className="modal-body">{children}</div>
       </div>
     </div>
   );

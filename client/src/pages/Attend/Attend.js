@@ -6,8 +6,8 @@ import {
   convertMilitaryTime,
 } from "../../util/formatting.js";
 
-import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray2 } from "../../assets/images/photoArrays.js";
+import img from "../../assets/images/dobo-3.jpg";
+
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
@@ -88,7 +88,7 @@ const Attend = () => {
     <div id="attend" className="attend-container">
       <div className="attend-left">
         <div className="image-container">
-          <PhotoGallery photos={photoArray2} />
+          <img src={img} alt="dobo" />
         </div>
       </div>
       <div className="attend-right">

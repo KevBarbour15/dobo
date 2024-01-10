@@ -12,7 +12,7 @@ export const showSuccessNotification = (enqueueSnackbar, message) => {
       fontFamily: "Aboreto, sans-serif",
       fontWeight: "600",
       textAlign: "center",
-      boxShadow: "1px 1px 2px #000000",
+      boxShadow: "1.5px 1.5px 4px #A9A9A9",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

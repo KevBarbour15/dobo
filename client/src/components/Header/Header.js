@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./header.css";
 import Menu from "../Menu/Menu.js";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,12 +22,12 @@ const Header = () => {
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <FontAwesomeIcon icon={faBars} />
+            <span className="material-icons">menu</span>
           </button>
         </div>
       </div>
       <div className="header-title-container">
-        <div className="header-title">
+        <div  className={`header-title ${isMenuOpen ? "open" : ""}`}>
           <h1>DOBO</h1>
         </div>
       </div>

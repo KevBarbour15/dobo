@@ -2,8 +2,9 @@ import "./contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray3 } from "../../assets/images/photoArrays.js";
+
+import img from "../../assets/images/dobo-11.jpg";
+
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
@@ -21,7 +22,7 @@ const Contact = () => {
     <div id="contact" className="contact-container">
       <div className="contact-left">
         <div className="image-container">
-          <PhotoGallery photos={photoArray3} />
+          <img src={img} alt="dobo" />
         </div>
       </div>
       <div className="contact-right">
@@ -31,25 +32,23 @@ const Contact = () => {
             <div className="contact-ig">
               <p>Instagram:</p>
 
-              <div className="contact-ig-logo">
-                <a
-                  href="https://www.instagram.com/dobonyc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              </div>
+              <FontAwesomeIcon
+                className="contact-logo"
+                href="https://www.instagram.com/dobonyc"
+                target="_blank"
+                rel="noopener noreferrer"
+                icon={faInstagram}
+              />
             </div>
 
             <div className="contact-email">
               <p>All other inquiries:</p>
 
-              <div className="contact-email-logo">
-                <a href="mailto:dobodinner@gmail.com">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </a>
-              </div>
+              <FontAwesomeIcon
+                className="contact-logo"
+                href="mailto:dobodinner@gmail.com"
+                icon={faEnvelope}
+              />
             </div>
             <div className="subscribe-container">
               <p>Be the first to know about Dobo's next dinner:</p>

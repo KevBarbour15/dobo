@@ -79,9 +79,6 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
 
   return (
     <div className="attendance-container">
-      <div className="event-date">
-        <h1>{convertDateReadability(event.date)}</h1>
-      </div>
       {shouldDisplayLoading ? (
         <Loading />
       ) : (

@@ -7,16 +7,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 
 const ImageGallery = () => {
   return (
     <div className="gallery-container">
       <Swiper
-       effect={'fade'}
-        pagination={true}
+        effect={"fade"}
         navigation={true}
-       modules={[EffectFade, Pagination, Navigation]}
+        modules={[EffectFade, Pagination, Navigation]}
       >
         {imagesArray.map((image, index) => {
           return (

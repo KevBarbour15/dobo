@@ -1,5 +1,4 @@
 import "./cancel-event.css";
-import { convertDateReadability } from "../../../util/formatting.js";
 import axios from "../../../axiosConfig.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../../util/notifications.js";
@@ -31,9 +30,6 @@ const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
 
   return (
     <div className="cancel-event-container">
-      <div className="cancel-event-date">
-        <h1>{convertDateReadability(event.date)}</h1>
-      </div>
       <p>Are you sure you want to cancel this event?</p>
       <button onClick={handleDelete}>Cancel Event</button>
     </div>

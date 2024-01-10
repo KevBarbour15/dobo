@@ -1,15 +1,13 @@
 .attend-container {
-  height: calc(100vh - 61px);
+  height: calc(100vh - 58px);
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .attend-left,
 .attend-right {
-  height: calc(100vh - 61px);
   flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -18,32 +16,35 @@
 }
 
 .attend-image-container {
-  height: calc(100vh - 61px);
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid black;
 }
 
-.attend-image {
-  height: calc(100%);
-  width: calc(100%);
+.attend-image img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
 .attend-info-container {
-  height: calc(100vh - 61px);
+  height: calc(100vh - 58px);
   width: 80%;
 }
 
 .attend-title {
   font-family: "Aboreto", sans-serif;
   font-size: 3rem;
+  letter-spacing: -4.5px;
+  //-webkit-text-stroke: 0.75px black;
+  color: black;
+  transform: rotate(-12.5deg);
+  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
   margin-top: 3vh;
   margin-bottom: 7.5vh;
-  -webkit-text-stroke: 0.75px black;
-  color: transparent;
-  transform: rotate(-12.5deg);
 }
 
 .attend-text {
@@ -73,13 +74,13 @@
   letter-spacing: 0.75px;
   width: 250px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 25px;
-  padding-left: .7rem;
-  padding-right: .7rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   margin-top: 2vh;
   margin-bottom: 2vh;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .inquiry-form input {
@@ -87,14 +88,14 @@
   font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
-  border: 2px solid black;
+  border: 1px solid black;
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .inquiry-form textarea {
@@ -102,13 +103,13 @@
   font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
-  border: 2px solid black;
+  border: 1px solid black;
   font-size: 1rem;
   padding: 0.7rem;
   margin-bottom: 2vh;
   height: 15vh;
   border-radius: 20px;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
 }
 
 .inquiry-form button {
@@ -117,10 +118,10 @@
   font-weight: bold;
   width: 170px;
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1.5px 1.5px 4px #a9a9a9;
   color: black;
   background-color: #efefef;
 }
@@ -143,19 +144,8 @@
     flex-direction: column;
   }
 
-  .attend-left,
-  .attend-right {
-    width: 100%;
-    border-left: none;
-    border-right: none;
-  }
-
   .attend-left {
-    order: 2;
-  }
-
-  .attend-right {
-    order: 1;
+    display: none;
   }
 
   .attend-text {

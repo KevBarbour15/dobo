@@ -10,9 +10,7 @@ import img9 from "./dobo-9.jpg";
 import img10 from "./dobo-10.jpg";
 import img11 from "./dobo-11.jpg";
 
-const photoArray1 = [img3, img5, img1, img10];
-const photoArray2 = [img4, img7, img9, img2];
-const photoArray3 = [img11, img6, img8];
+const imagesArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11];
 
 
-export { photoArray1, photoArray2, photoArray3 };
+export { imagesArray};

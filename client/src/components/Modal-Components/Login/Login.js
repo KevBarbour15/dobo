@@ -30,7 +30,6 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <div className="login-title">Owner Login</div>
         <input
           type="text"
           value={username}

@@ -15,6 +15,7 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const handleViewAttendance = () => {
     setModalContent(
       <Attendance
+       
         event={event}
         onClose={() => setModalOpen(false)}
         eventTiming={"past"}
@@ -53,6 +54,7 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
         </button>
       </div>
       <Modal
+        title={convertDateReadability(event.date)}
         isVisible={isModalOpen}
         onUpdateEvent={onUpdateEvent}
         onClose={() => setModalOpen(false)}
