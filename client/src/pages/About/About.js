@@ -1,13 +1,12 @@
 import "./about.css";
-import PhotoGallery from "../../components/PhotoGallery/PhotoGallery.js";
-import { photoArray1 } from "../../assets/images/photoArrays.js";
+import img from "../../assets/images/dobo-7.jpg";
 
 const About = () => {
   return (
     <div id="about" className="about-container">
       <div className="about-left">
         <div className="image-container">
-          <PhotoGallery photos={photoArray1} />
+          <img src={img} alt="dobo" />
         </div>
       </div>
       <div className="about-right">
