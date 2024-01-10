@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Attend from "./pages/Attend/Attend";
 import Contact from "./pages/Contact/Contact";
+import ImageGallery from "./pages/Gallery/ImageGallery";
 
 import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -33,6 +34,7 @@ function App() {
                 <Route path="About" element={<About />} />
                 <Route path="Attend" element={<Attend />} />
                 <Route path="Contact" element={<Contact />} />
+                <Route path="Gallery" element={<ImageGallery />} />
               </Route>
               <Route path="/EventDash" element={<EventDash />} />
             </Routes>
