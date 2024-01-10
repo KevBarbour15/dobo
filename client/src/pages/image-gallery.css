@@ -1,0 +1,28 @@
+.gallery-container {
+  height: calc(100vh - 61px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper {
+  width: 75%;
+  height: 95%;
+}
+
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  color: red;
+}
+
+.swiper-slide img {
+  height: calc(100% - 4px);
+  border: 2px solid black;
+  box-shadow: 1px 1px 3px black;
+}
