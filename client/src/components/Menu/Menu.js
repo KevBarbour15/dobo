@@ -13,16 +13,20 @@ const Menu = ({ isOpen, onClose }) => {
         <Link className="menu-link bold-text" to="/" onClick={onClose}>
           <p>HOME</p>
         </Link>
-        <Link className="menu-link outlined-text" to="/about" onClick={onClose}>
+        <Link className="menu-link outlined-text" to="/About" onClick={onClose}>
           <p>ABOUT</p>
         </Link>
-        <Link className="menu-link bold-text" to="/attend" onClick={onClose}>
+        <Link className="menu-link bold-text" to="/Attend" onClick={onClose}>
           <p>ATTEND</p>
         </Link>
-        <Link className="menu-link outlined-text rotated-text" to="/contact" onClick={onClose}>
+        <Link
+          className="menu-link outlined-text rotated-text"
+          to="/Contact"
+          onClick={onClose}
+        >
           <p>CONTACT</p>
         </Link>
-        <Link className="menu-link bold-text" onClick={onClose}>
+        <Link className="menu-link bold-text" to="/Gallery" onClick={onClose}>
           <p>GALLERY</p>
         </Link>
       </div>
