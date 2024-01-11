@@ -48,7 +48,7 @@
   justify-content: center;
   align-items: center;
   border-right: 1px solid black;
-  //box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  //box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .image-container img {

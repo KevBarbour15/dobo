@@ -80,7 +80,7 @@
   padding-right: 0.7rem;
   margin-top: 2vh;
   margin-bottom: 2vh;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .inquiry-form input {
@@ -95,7 +95,7 @@
   margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .inquiry-form textarea {
@@ -109,7 +109,7 @@
   margin-bottom: 2vh;
   height: 15vh;
   border-radius: 20px;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .inquiry-form button {
@@ -121,7 +121,7 @@
   border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
 }

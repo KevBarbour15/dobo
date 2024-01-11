@@ -10,6 +10,7 @@
   justify-content: center;
   transition: all 0.3s ease;
   border-top: 1px solid black;
+  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .dash-header-title-container,
@@ -58,7 +59,7 @@
   text-decoration: none;
   color: black;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: -2.5px;
   background-color: transparent;
   border: none;

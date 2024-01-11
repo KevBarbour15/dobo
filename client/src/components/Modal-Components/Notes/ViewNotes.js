@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./notes.css";
 import axios from "../../../axiosConfig.js";
-import { convertDateReadability } from "../../../util/formatting.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../../util/notifications.js";
 

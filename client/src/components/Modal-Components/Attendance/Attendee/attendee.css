@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
   animation: fadeIn 0.75s ease-out;
   border-bottom: 1px solid black;
+  min-height: 300px;
+  width: 300px;
 }
 
 @keyframes fadeIn {
@@ -17,6 +18,13 @@
   to {
     opacity: 1;
   }
+}
+
+.attendee-info {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
 .attendee-info p {
@@ -35,8 +43,9 @@
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   color: black;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
 }
 
 .attendee-container button {
@@ -48,28 +57,17 @@
   border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
-  margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2vh;
+  margin-bottom: 1rem;
 }
 
 .attendee-container button:hover {
   background-color: #bd9c72;
   color: black;
-}
-
-.attendee-info {
-  margin-left: 3vw;
-  margin-right: 3vw;
-  margin-bottom: 1vh;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
 }
 
 .attendee-email {

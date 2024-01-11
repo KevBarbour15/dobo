@@ -3,14 +3,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 25vh;
-  padding: 20px;
+  height: 225px;
+  width: 300px;
 }
 
 .cancel-event-container p {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  letter-spacing: -1.5px;
+  width: 70%;
+  font-size: 1.35rem;
+  font-family: "Figtree";
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  line-height: 1.25;
   text-align: center;
 }
 .cancel-event-container button {
@@ -25,16 +28,10 @@
   color: red;
   font-size: 1.1rem;
   cursor: pointer;
+  margin: auto;
 }
 
 .cancel-event-container button:hover {
   background-color: red;
   color: white;
-}
-
-@media (max-width: 768px) {
-  .cancel-event-container {
-    height: 20vh;
-    width: 70vw;
-  }
 }

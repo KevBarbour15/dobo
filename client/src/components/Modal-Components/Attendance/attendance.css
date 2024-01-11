@@ -1,22 +1,11 @@
 .attendance-container {
-  width: 30vw;
-  min-height: 30vh;
-  max-height: 60vh;
+  width: 300px;
+  max-height: 650px;
   transition: max-height 0.95s ease, opacity 0.95s ease;
   overflow-y: scroll;
 }
 
-.event-date {
-  text-align: center;
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  margin-left: 2vh;
-  margin-right: 2vh;
-}
-
 .attendees-container {
-  min-height: 250px;
-  overflow-y: scroll;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -26,8 +15,8 @@
 }
 
 .no-attendees-container {
-  width: 100%;
-  height: 30vh;
+  height: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,13 +32,4 @@
 }
 
 @media (max-width: 768px) {
-  .attendance-container {
-    width: 75vw;
-    min-height: 45vh;
-    max-height: 90vh;
-  }
-
-  .event-date {
-    font-size: 0.75rem;
-  }
 }

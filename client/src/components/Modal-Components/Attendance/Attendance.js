@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import "./attendance.css";
-import { convertDateReadability } from "../../../util/formatting.js";
 import axios from "../../../axiosConfig.js";
 import Attendee from "./Attendee/Attendee.js";
-import Loading from "../../Loading/Loading.js";
+import Loading from "../Loading/Loading.js";
 
 const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);

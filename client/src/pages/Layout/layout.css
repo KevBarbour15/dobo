@@ -5,8 +5,6 @@
   margin-right: auto;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .image-container {
@@ -16,7 +14,7 @@
   justify-content: center;
   align-items: center;
   border-right: 1px solid black;
-  //box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  //box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .left-container {

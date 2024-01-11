@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./edit-event.css";
 import axios from "../../../axiosConfig.js";
 import {
-  convertDateReadability,
   formatDate,
 } from "../../../util/formatting.js";
 import { useSnackbar } from "notistack";

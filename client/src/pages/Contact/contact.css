@@ -92,7 +92,7 @@
   margin-bottom: 2vh;
   height: 40px;
   border-radius: 50px;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
   font-family: "Figtree";
   font-weight: bold;
   letter-spacing: 0.75px;
@@ -112,7 +112,7 @@
   border: 1px solid black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 1.5px 1.5px 4px #a9a9a9;
+  box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
 }

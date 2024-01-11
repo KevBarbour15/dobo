@@ -4,7 +4,8 @@
   border-bottom: 1px solid black;
   margin-left: auto;
   margin-right: auto;
-  background-color: #efefef;
+  background-image: url("../../assets/images/background.jpg");
+  background-size: cover;
 }
 
 .events-container {
