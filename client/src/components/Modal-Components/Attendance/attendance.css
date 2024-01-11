@@ -1,6 +1,6 @@
 .attendance-container {
   width: 300px;
-  max-height: 650px;
+  max-height: 550px;
   transition: max-height 0.95s ease, opacity 0.95s ease;
   overflow-y: scroll;
 }

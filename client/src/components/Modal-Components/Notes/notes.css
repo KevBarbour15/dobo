@@ -2,7 +2,7 @@
   height: 700px;
   width: 500px;
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 70vh;
   transition: max-height 0.95s ease, opacity 0.95s ease;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@
   box-shadow: 1px 1px 3px #a9a9a9;
   color: black;
   background-color: #efefef;
-  margin:  auto;
+  margin: auto;
 }
 
 .notes-text-form textarea:focus {
@@ -71,6 +71,4 @@
 }
 
 @media (max-width: 768px) {
-
-
 }

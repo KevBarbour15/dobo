@@ -55,9 +55,3 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
   border: 1px solid black;
 }
-
-@media (max-width: 768px) {
-  .gallery-container {
-    height: calc(100vh - 58px);
-  }
-}
