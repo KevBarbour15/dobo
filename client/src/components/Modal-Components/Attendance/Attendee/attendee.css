@@ -46,6 +46,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
+  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .attendee-container button {
@@ -70,10 +71,17 @@
   color: black;
 }
 
+.attendee-container select:focus {
+  outline: none;
+  border: 1px solid #bd9c72;
+}
+
 .attendee-email {
-  font-size: 3.5vh;
+  display: flex;
+  font-size: 1.75rem;
   color: #bd9c72;
-  text-decoration: none;
+  cursor: pointer;
+  filter: drop-shadow(1.25px 1.25px 1.5px rgba(0, 0, 0, 0.5));
 }
 
 .attendee-email a {
