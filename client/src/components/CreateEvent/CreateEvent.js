@@ -5,6 +5,8 @@ import "./create-event.css";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
+import img from "../../assets/images/dobo-8.jpg";
+
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
   const [seats, setSeats] = useState(1);
@@ -47,52 +49,61 @@ const CreateEvent = ({ onEventCreated }) => {
   };
 
   return (
-    <div className="create-event-form">
-      <form onSubmit={handleSubmit}>
-        <p>Event Name:</p>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <p>Price:</p>
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-        <p>Date:</p>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-        <p>Time:</p>
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          required
-        />
-        <p>Seats:</p>
-        <select
-          placeholder="Seats"
-          value={seats}
-          onChange={(e) => setSeats(formatDate(e.target.value))}
-          required
-        >
-          {[...Array(20)].map((_, i) => (
-            <option key={i} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
+    <div className="create-event-container">
+      <div className="create-left">
+        <div className="image-container">
+          <img src={img} alt="dobo" />
+        </div>
+      </div>
+      <div className="create-right">
+        <div className="create-event-form">
+          <form onSubmit={handleSubmit}>
+            <p>Event Name:</p>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+            <p>Price:</p>
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+            <p>Date:</p>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+            <p>Time:</p>
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              required
+            />
+            <p>Seats:</p>
+            <select
+              placeholder="Seats"
+              value={seats}
+              onChange={(e) => setSeats(formatDate(e.target.value))}
+              required
+            >
+              {[...Array(20)].map((_, i) => (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
 
-        <button type="submit">Create</button>
-      </form>
+            <button type="submit">Create</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

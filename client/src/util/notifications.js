@@ -1,18 +1,20 @@
-export const showSuccessNotification = (enqueueSnackbar, message) => {
+export const showSuccessNotification = (enqueueSnackbar, message, position) => {
   enqueueSnackbar(message, {
     autoHideDuration: 1500,
+    anchorOrigin: {
+      vertical: position.vertical, 
+      horizontal: position.horizontal, 
+    },
     style: {
-      backgroundColor: "black",
-      color: "white",
-      border: "2px solid #bd9c72",
+      backgroundColor: "#efefef",
+      color: "black",
+      border: "1px solid black",
       borderRadius: "25px",
-      height: "80px",
-      width: "300px",
-      fontSize: "20px",
-      fontFamily: "Aboreto, sans-serif",
-      fontWeight: "600",
+      fontSize: "15px",
+      fontWeight: "bold",
+      fontFamily: "Figtree",
       textAlign: "center",
-      boxShadow: "1.5px 1.5px 4px #A9A9A9",
+      boxShadow: "1.25px 1.25px 2.5px black",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

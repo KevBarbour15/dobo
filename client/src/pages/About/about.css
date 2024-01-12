@@ -1,5 +1,5 @@
 .about-container {
-  height: calc(100vh - 58px);
+  min-height: calc(100vh - 58px);
   display: flex;
 }
 
@@ -24,10 +24,9 @@
   font-family: "Aboreto", sans-serif;
   font-size: 3rem;
   letter-spacing: -4.5px;
-  //-webkit-text-stroke: 0.75px black;
   color: black;
   transform: rotate(-12.5deg);
-  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 3vh;
   margin-bottom: 7.5vh;
 }
@@ -38,7 +37,6 @@
   letter-spacing: 0.75px;
   padding-bottom: 2vh;
   font-family: "Figtree";
-  font-weight: bold;
 }
 
 .image-container {

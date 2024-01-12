@@ -1,6 +1,6 @@
 .events-list {
   overflow-y: auto;
-  max-height: calc(100vh - 94px);
+  min-height: calc(100vh - 94px);
 }
 
 .events-card {
@@ -13,16 +13,16 @@
 .event-title {
   font-family: "Aboreto", sans-serif;
   font-weight: 600;
-  text-shadow: 0.5px 0.5px 1px grey;
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
   letter-spacing: -2px;
+  font-size: 25px;
 }
 
 .event-details,
 .event-options {
   width: 48%;
-  font-weight: 600;
   font-family: "Figtree";
-  font-weight: bold;
+  font-size: 15px;
   letter-spacing: 0.75px;
 }
 

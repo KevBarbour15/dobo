@@ -24,10 +24,9 @@
   font-family: "Aboreto", sans-serif;
   font-size: 3rem;
   letter-spacing: -4.5px;
-  //-webkit-text-stroke: 0.75px black;
   color: black;
   transform: rotate(-12.5deg);
-  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 3vh;
   margin-bottom: 7.5vh;
 }
@@ -42,7 +41,6 @@
 .contact-email p {
   margin-bottom: 1.5vh;
   font-family: "Figtree";
-  font-weight: bold;
   font-size: 2.5vh;
 }
 
@@ -52,16 +50,15 @@
   margin-top: 1.5vh;
   margin-bottom: 4.5vh;
   font-size: 4vh;
-  color: #bd9c72;
+  color: black;
   cursor: pointer;
-  filter: drop-shadow(1.25px 1.25px 1.5px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3));
 }
 
-.contact-ig-logo a:hover,
-.contact-email-logo a:hover {
+.contact-logo:hover {
   color: #bd9c72;
-  cursor: pointer;
 }
+
 
 .subscribe-container {
   display: flex;
@@ -73,7 +70,6 @@
 .subscribe-container p {
   margin-bottom: 1.5vh;
   font-family: "Figtree";
-  font-weight: bold;
   font-size: 2.5vh;
 }
 
@@ -121,19 +117,6 @@
   background-color: #bd9c72;
 }
 
-.contact-image-container {
-  height: calc(100vh - 58px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.contact-image {
-  height: calc(100%);
-  width: calc(100%);
-  object-fit: cover;
-}
 
 @media screen and (max-width: 768px) {
   .contact-container {

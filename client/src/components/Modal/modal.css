@@ -33,17 +33,25 @@
 
 .modal-header p {
   font-family: "Aboreto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   letter-spacing: -1.5px;
   color: black;
-  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
 }
 
 .close-button {
   border: none;
   background: none;
   text-decoration: none;
+}
+
+.close-button span {
+  font-size: 20px;
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
   color: black;
   cursor: pointer;
-  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
+}
+
+.close-button span:hover {
+  font-weight: bold;
 }

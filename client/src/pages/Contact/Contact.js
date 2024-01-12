@@ -15,11 +15,14 @@ const Contact = () => {
     e.preventDefault();
     // fill in logic to subscribe to new events
 
-    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!");
+    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!", {
+      vertical: "top",
+      horizontal: "left",
+    });
   };
 
   return (
-    <div id="contact" className="contact-container">
+    <div className="contact-container">
       <div className="contact-left">
         <div className="image-container">
           <img src={img} alt="dobo" />
@@ -32,23 +35,21 @@ const Contact = () => {
             <div className="contact-ig">
               <p>Instagram:</p>
 
-              <FontAwesomeIcon
+              <a
                 className="contact-logo"
                 href="https://www.instagram.com/dobonyc"
                 target="_blank"
                 rel="noopener noreferrer"
-                icon={faInstagram}
-              />
+              >
+                <FontAwesomeIcon className="logo-icon" icon={faInstagram} />
+              </a>
             </div>
 
             <div className="contact-email">
               <p>All other inquiries:</p>
-
-              <FontAwesomeIcon
-                className="contact-logo"
-                href="mailto:dobodinner@gmail.com"
-                icon={faEnvelope}
-              />
+              <a className="contact-logo" href="mailto:dobodinner@gmail.com">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </a>
             </div>
             <div className="subscribe-container">
               <p>Be the first to know about Dobo's next dinner:</p>

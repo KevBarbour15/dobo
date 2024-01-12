@@ -21,15 +21,24 @@
 .menu-close-button {
   align-self: flex-start;
   position: absolute;
-  font-family: "Figtree";
   border: none;
   background: none;
-  font-size: 25px;
   font-weight: bold;
   top: 1.15rem;
   left: 1.15rem;
+}
+
+.menu-close-button span {
+  font-size: 20px;
+  transition: font-size 0.5s ease-in-out;
+  text-shadow: 2.25px 2.25px 2.25px rgba(0, 0, 0, 0.75);
   color: white;
   cursor: pointer;
+}
+
+.menu-close-button span:hover {
+  font-weight: bold;
+  transition: font-size 0.1s ease-in-out;
 }
 
 .menu-links-container {
@@ -40,6 +49,7 @@
   align-items: center;
   height: 100%;
   z-index: 5;
+  text-shadow: 2.25px 2.25px 2.25px rgba(0, 0, 0, 0.75);
 }
 
 .menu-link {
@@ -48,7 +58,7 @@
   letter-spacing: -4.5px;
   color: white;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out;
 }
 
 .menu-link p {
@@ -83,7 +93,7 @@
 @media (max-width: 768px) {
   .menu-container {
     width: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.8);
   }
 
   .menu-close-button {
@@ -91,6 +101,6 @@
   }
 
   .menu-link {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }

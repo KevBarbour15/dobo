@@ -5,6 +5,7 @@
   margin-right: auto;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .image-container {

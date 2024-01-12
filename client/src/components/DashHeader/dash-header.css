@@ -31,7 +31,7 @@
   font-size: 1.25rem;
   letter-spacing: -4.5px;
   color: black;
-  text-shadow: 1.15px 1.15px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
 }
 
 .dash-header-links-container {
@@ -64,6 +64,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
 }
 
 .dash-link-container:hover {

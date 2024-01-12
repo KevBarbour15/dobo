@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./image-gallery.css";
-import { imagesArray } from "../../assets/images/photoArrays.js";
+import { imagesArray } from "../../assets/images/photoArray.js";
 import Masonry from "react-masonry-css";
 
 const ImageGallery = () => {
