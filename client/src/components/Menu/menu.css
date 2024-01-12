@@ -1,7 +1,7 @@
 .menu-container {
   position: fixed;
   height: 100vh;
-  top: -100%;
+  top: calc(-100% - 2.5px);
   height: 100%;
   width: 50%;
   transition: top 0.4s ease-in-out;
@@ -11,6 +11,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 1.25px 1.25px 2.5px black;
+  border-right: 1px solid black;
 }
 
 .menu-container.open {

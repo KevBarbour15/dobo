@@ -39,7 +39,7 @@ const ImageGallery = () => {
 
       {lightboxOpen && (
         <div className="lightbox">
-          <button onClick={closeLightbox} className="menu-close-button">
+          <button onClick={closeLightbox} className="close-button">
             <span className="material-icons">close</span>
           </button>
           <img src={selectedImage} alt="Enlarged view" />
