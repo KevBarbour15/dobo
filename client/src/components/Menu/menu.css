@@ -51,7 +51,7 @@
   align-items: center;
   height: 100%;
   z-index: 5;
-  text-shadow: 2.25px 2.25px 2.25px rgba(0, 0, 0, 0.75);
+  text-shadow: 1.25px 1.25px 1.25px rgba(0, 0, 0, 0.75);
 }
 
 .menu-link {
@@ -95,7 +95,7 @@
 @media (max-width: 768px) {
   .menu-container {
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
   }
 
   .menu-close-button {

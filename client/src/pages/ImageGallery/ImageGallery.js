@@ -8,7 +8,7 @@ const ImageGallery = () => {
     default: 4,
     1100: 3,
     700: 2,
-    500: 1,
+    500: 2,
   };
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -39,7 +39,7 @@ const ImageGallery = () => {
 
       {lightboxOpen && (
         <div className="lightbox">
-          <button onClick={closeLightbox} className="close-button">
+          <button onClick={closeLightbox} className="lightbox-close-button">
             <span className="material-icons">close</span>
           </button>
           <img src={selectedImage} alt="Enlarged view" />
