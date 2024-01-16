@@ -34,7 +34,8 @@
 .create-event-form form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2vh;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
 }
 
 .create-event-form p {
@@ -97,6 +98,9 @@
 }
 
 @media (max-width: 768px) {
+  .create-event-container {
+    height: auto;
+  }
   .create-left {
     display: none;
   }
@@ -118,5 +122,11 @@
     font-size: 3.5rem;
     color: white;
     text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
+  }
+
+  .create-event-form input,
+  .create-event-form select,
+  .create-event-form button {
+    height: 4vh;
   }
 }

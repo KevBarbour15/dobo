@@ -169,21 +169,13 @@
     color: white;
     text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
   }
-
-  .attend-text p {
-    font-size: 1.25rem;
-    line-height: 1.25;
-  }
-
-  .inquiry-form select {
-    height: 4vh;
-  }
-
+  
+  .inquiry-form select,
   .inquiry-form input {
     height: 4vh;
   }
 
   .inquiry-form textarea {
-    height: 15vh;
+    height: 18vh;
   }
 }

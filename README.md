@@ -3,8 +3,6 @@
 
 - Turn scroll feature off when menu is open
 
-- Ensure uniform styling throughout IN A SOLID PLACE
-
 - Email signup 
   - Find best/most fitting service for Sean's needs
 
@@ -13,13 +11,7 @@
 - Does Sean want to be notified when he gets a new inquiry?
   - Have email sent to Sean's email of choice and with inquiry info
 
-- Work on responsiveness on horizontal phones and ipads
-
 - Set up cron job / talk to Sean about hosting etc
-
-- Seats / status error handling
-  - work on the state management
-  - sean can't take away more seats than exist or add more people than available seats 
 
 - compress all images more / potential lazy load
 
