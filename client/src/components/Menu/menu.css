@@ -25,7 +25,6 @@
   position: absolute;
   border: none;
   background: none;
-  font-weight: bold;
   top: 1.15rem;
   left: 1.15rem;
 }
@@ -36,11 +35,6 @@
   text-shadow: 2.25px 2.25px 2.25px rgba(0, 0, 0, 0.75);
   color: white;
   cursor: pointer;
-}
-
-.menu-close-button span:hover {
-  font-weight: bold;
-  transition: font-size 0.1s ease-in-out;
 }
 
 .menu-links-container {

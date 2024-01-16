@@ -39,15 +39,14 @@
   box-shadow: 1px 1px 3px #a9a9a9;
   overflow: auto;
   padding: 0.65rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  margin-top: 2vh;
 }
 
 .notes-text-form button {
   font-family: "Figtree";
   font-size: 1.25rem;
-  font-weight: bold;
   width: 170px;
   height: 40px;
   border: 1px solid black;
@@ -56,7 +55,7 @@
   box-shadow: 1px 1px 3px #a9a9a9;
   color: black;
   background-color: #efefef;
-  margin: auto;
+  margin: 2vh;
 }
 
 .notes-text-form textarea:focus {

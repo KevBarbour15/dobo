@@ -18,14 +18,12 @@
   height: 300px;
   width: 300px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .no-attendees-container p {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   font-size: 1.5rem;
   color: #bd9c72;

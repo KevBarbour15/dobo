@@ -7,7 +7,6 @@
 .attend-right {
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -30,9 +29,10 @@
   object-fit: cover;
 }
 
-.attend-info-container {
-  height: calc(100vh - 58px);
+.attend-title-container {
+  display: flex;
   width: 80%;
+  height: 110px;
 }
 
 .attend-title {
@@ -42,14 +42,17 @@
   color: black;
   transform: rotate(-12.5deg);
   text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
-  margin-top: 3vh;
-  margin-bottom: 7.5vh;
-  transition: top 0.4s ease-in-out;
+  margin-top: 4vh;
+}
+
+.attend-info-container {
+  height: calc(100vh - 58px - 110px);
+  width: 80%;
 }
 
 .attend-text {
-  width: 70%;
-  font-size: 2vh;
+  font-size: 20px;
+  margin-top: 2vh;
   margin-bottom: 2vh;
   font-family: "Figtree";
   line-height: 1.5;
@@ -69,7 +72,6 @@
 
 .inquiry-form select {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
   height: 40px;
@@ -77,14 +79,12 @@
   border-radius: 25px;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
-  margin-top: 2vh;
   margin-bottom: 2vh;
   box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .inquiry-form input {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
   border: 1px solid black;
@@ -99,7 +99,6 @@
 
 .inquiry-form textarea {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   width: 250px;
   border: 1px solid black;
@@ -114,7 +113,6 @@
 .inquiry-form button {
   font-family: "Figtree";
   font-size: 1.25rem;
-  font-weight: bold;
   width: 170px;
   height: 40px;
   border: 1px solid black;
@@ -123,12 +121,13 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
+  margin-bottom: 2vh;
 }
 
 .inquiry-form input:focus,
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
-  border: 2px solid #bd9c72;
+  border: 1px solid #bd9c72;
   outline: none;
 }
 
@@ -138,6 +137,10 @@
 }
 
 @media (max-width: 768px) {
+  .about-right {
+    height: auto;
+  }
+
   .attend-container {
     height: auto;
     flex-direction: column;
@@ -147,12 +150,24 @@
     display: none;
   }
 
-  .attend-text {
-    width: 80%;
+  .attend-title-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../assets/images/dobo-4.jpg");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid black;
+    top: 0;
+  }
+
+  .attend-title {
+    margin: auto;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
   }
 
   .attend-text p {

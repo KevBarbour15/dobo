@@ -3,18 +3,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 225px;
-  width: 300px;
 }
 
 .cancel-event-container p {
   width: 70%;
-  font-size: 1.35rem;
+  font-size: 20px;
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   line-height: 1.25;
   text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 .cancel-event-container button {
   font-family: "Aboreto", sans-serif;
@@ -28,7 +27,7 @@
   color: red;
   font-size: 1.1rem;
   cursor: pointer;
-  margin: auto;
+  margin-bottom: 2vh;
 }
 
 .cancel-event-container button:hover {

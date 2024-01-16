@@ -1,5 +1,5 @@
 .create-event-container {
-  height: calc(100vh - 94px);
+  min-height: calc(100vh - 94px);
   display: flex;
 }
 
@@ -7,34 +7,47 @@
 .create-right {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-.create-event-form {
-  height: 90%;
-  width: 80%;
+.create-title-container {
   display: flex;
-  flex-direction: column;
+  width: 80%;
+  height: 110px;
+}
+
+.create-title {
+  font-family: "Aboreto", sans-serif;
+  font-size: 3rem;
+  letter-spacing: -4.5px;
+  color: black;
+  transform: rotate(-12.5deg);
+  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
+  margin-top: 4vh;
+}
+
+.create-event-form {
+  width: 80%;
 }
 
 .create-event-form form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2vh;
 }
 
 .create-event-form p {
   font-family: "Figtree";
   letter-spacing: 0.75px;
-  font-size: 1.35rem;
+  font-size: 16px;
   color: black;
-  margin-top: 1.5vh;
-  margin-bottom: 1.5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .create-event-form input {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   width: 225px;
   border: 1px solid black;
@@ -47,7 +60,6 @@
 
 .create-event-form select {
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
   letter-spacing: 1.5px;
   width: 100px;
@@ -56,20 +68,19 @@
   border-radius: 25px;
   padding-left: 1rem;
   box-shadow: 1.25px 1.25px 2.5px black;
+  margin-bottom: 2vh;
 }
 
 .create-event-form input:focus,
 .create-event-form select:focus,
 .create-event-form textarea:focus {
-  border: 1px solid black;
+  border: 1px solid #bd9c72;
   outline: none;
 }
 
 .create-event-form button {
-  margin-top: 2vh;
   font-family: "Figtree";
   font-size: 1.25rem;
-  font-weight: bold;
   width: 170px;
   height: 40px;
   border: 1px solid black;
@@ -85,9 +96,27 @@
   color: black;
 }
 
-
 @media (max-width: 768px) {
-  .create-left{
+  .create-left {
     display: none;
+  }
+
+  .create-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../assets/images/dobo-8.jpg");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid black;
+  }
+
+  .create-title {
+    margin: auto;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
   }
 }

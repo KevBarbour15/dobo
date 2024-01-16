@@ -56,9 +56,12 @@ const CreateEvent = ({ onEventCreated }) => {
         </div>
       </div>
       <div className="create-right">
+      <div className="create-title-container">
+          <div className="create-title">New Event</div>
+        </div>
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
-            <p>Event Name:</p>
+            <p>Name:</p>
             <input
               type="text"
               value={title}

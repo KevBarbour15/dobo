@@ -7,7 +7,7 @@
 .about-right {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -15,9 +15,10 @@
   overflow-y: auto;
 }
 
-.about-info-container {
+.about-title-container {
+  display: flex;
   width: 80%;
-  height: calc(100vh - 58px);
+  height: 110px;
 }
 
 .about-title {
@@ -27,15 +28,20 @@
   color: black;
   transform: rotate(-12.5deg);
   text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
-  margin-top: 3vh;
-  margin-bottom: 7.5vh;
+  margin-top: 4vh;
+}
+
+.about-info-container {
+  width: 80%;
+  height: calc(100vh - 58px - 110px);
 }
 
 .about-text {
   line-height: 1.55;
   font-size: 16px;
   letter-spacing: 0.75px;
-  padding-bottom: 2vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   font-family: "Figtree";
 }
 
@@ -46,7 +52,6 @@
   justify-content: center;
   align-items: center;
   border-right: 1px solid black;
-  //box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .image-container img {
@@ -66,11 +71,28 @@
   }
 
   .about-right {
-    min-height: calc(100vh - 58px);
     height: auto;
     overflow-y: hidden;
     order: 1;
     width: 100%;
+  }
+
+  .about-title-container {
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../assets/images/dobo-7.jpg");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid black;
+  }
+
+  .about-title {
+    margin: auto;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
   }
 
   .about-info-container {

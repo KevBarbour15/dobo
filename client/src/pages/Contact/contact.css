@@ -1,5 +1,5 @@
 .contact-container {
-  height: calc(100vh - 58px);
+  min-height: calc(100vh - 58px);
   display: flex;
 }
 
@@ -7,17 +7,14 @@
 .contact-right {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-.contact-info-container {
-  height: calc(100vh - 58px);
+.contact-title-container {
+  display: flex;
   width: 80%;
-}
-
-.contact-info-container p {
-  font-size: 1.5vh;
+  height: 110px;
 }
 
 .contact-title {
@@ -27,29 +24,27 @@
   color: black;
   transform: rotate(-12.5deg);
   text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
-  margin-top: 3vh;
-  margin-bottom: 7.5vh;
+  margin-top: 4vh;
 }
 
-.contact-ig,
-.contact-email {
-  font-size: 2.5vh;
-  margin-bottom: 3vh;
+.contact-info-container {
+  height: calc(100vh - 58px - 110px);
+  width: 80%;
 }
+
 
 .contact-ig p,
 .contact-email p {
-  margin-bottom: 1.5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   font-family: "Figtree";
-  font-size: 2.5vh;
+  font-size: 20px;
 }
 
 .contact-logo {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5vh;
-  margin-bottom: 4.5vh;
-  font-size: 4vh;
+  font-size: 5vh;
   color: black;
   cursor: pointer;
   filter: drop-shadow(1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3));
@@ -59,7 +54,6 @@
   color: #bd9c72;
 }
 
-
 .subscribe-container {
   display: flex;
   justify-content: center;
@@ -68,9 +62,10 @@
 }
 
 .subscribe-container p {
-  margin-bottom: 1.5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   font-family: "Figtree";
-  font-size: 2.5vh;
+  font-size: 20px;
 }
 
 .subscribe-email {
@@ -90,7 +85,6 @@
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
   font-family: "Figtree";
-  font-weight: bold;
   letter-spacing: 0.75px;
 }
 
@@ -102,7 +96,6 @@
 .subscribe-email button {
   font-family: "Figtree";
   font-size: 1.25rem;
-  font-weight: bold;
   width: 170px;
   height: 40px;
   border: 1px solid black;
@@ -111,21 +104,43 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
+  margin-bottom: 2vh;
 }
 
 .subscribe-email button:hover {
   background-color: #bd9c72;
 }
 
-
 @media screen and (max-width: 768px) {
   .contact-container {
-    height: auto;
     flex-direction: column;
   }
 
   .contact-left {
     display: none;
+  }
+
+  .contact-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    background-image: url("../../assets/images/dobo-11.jpg");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid black;
+  }
+
+  .contact-title {
+    margin: auto;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
+  }
+
+  .contact-info-container {
+    height: auto;
   }
 
   .subscribe-email input {

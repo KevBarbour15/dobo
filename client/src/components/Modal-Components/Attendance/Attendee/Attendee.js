@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { convertDateReadability } from "../../../../util/formatting.js";
 
-const Attendee = ({ attendee, onStatusChange, date, eventTiming }) => {
+const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
   const [status, setStatus] = useState(attendee.status);
   const [seats, setSeats] = useState(attendee.seats);
   const [ogStatus, setOgStatus] = useState("");
@@ -12,13 +12,22 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming }) => {
   useEffect(() => {
     setOgStatus(attendee.status);
     setSeats(attendee.seats);
-  }, [attendee.status, attendee.seats]);
+  }, [attendee.status, attendee.seats, event]);
+
+  useEffect(() => {
+    if (status !== "Confirmed") {
+      setSeats(0);
+    }
+  }, [event.seatsRemaining, status]);
 
   const handleStatusChange = (e) => {
     const newStatus = e.target.value;
     setStatus(newStatus);
 
-    // If status is changed from "Confirmed" to another status, reset seats to 0
+    if (newStatus === "Confirmed" && seats === 0) {
+      setSeats(1);
+    }
+
     if (newStatus !== "Confirmed") {
       setSeats(0);
     }
@@ -28,7 +37,18 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming }) => {
     setSeats(e.target.value);
   };
 
+  const generateSeats = () => {
+    let options = [];
+    for (let i = 1; i <= event.seatsRemaining; i++) {
+      options.push(
+        <option value={i}>{`${i} Seat${i !== 1 ? "s" : ""}`}</option>
+      );
+    }
+    return options;
+  };
+
   const handleSave = () => {
+    console.log("Seats: ", seats);
     onStatusChange(attendee._id, status, ogStatus, seats);
   };
 
@@ -54,18 +74,12 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming }) => {
             <option value="Contacted">Contacted</option>
             <option value="Not Attending">Not Attending</option>
           </select>
-          {console.log(attendee.seats)}
-          <select value={seats} onChange={handleSeatsChange}>
-            <option value="0">0 Seats</option>
-            <option value="1">1 Seat</option>
-            <option value="2">2 Seats</option>
-            <option value="3">3 Seats</option>
-            <option value="4">4 Seats</option>
-            <option value="5">5 Seats</option>
-            <option value="6">6 Seats</option>
-            <option value="7">7 Seats</option>
-            <option value="8">8 Seats</option>
-          </select>
+          {status === "Confirmed" && (
+            <select value={seats} onChange={handleSeatsChange}>
+              {console.log("Seats: ", seats)}
+              {generateSeats()}
+            </select>
+          )}
           <button onClick={handleSave}>Update</button>
         </div>
       ) : attendee.status === "Confirmed" ? (

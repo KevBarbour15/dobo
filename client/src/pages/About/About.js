@@ -10,8 +10,10 @@ const About = () => {
         </div>
       </div>
       <div className="about-right">
-        <div className="about-info-container">
+        <div className="about-title-container">
           <div className="about-title">About</div>
+        </div>
+        <div className="about-info-container">
           <div className="about-text">
             <p>This is all placeholder shit, you can write whatever here</p>
             <p>

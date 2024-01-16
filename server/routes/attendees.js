@@ -41,24 +41,24 @@ router.put("/update-status", async (req, res) => {
   let { status, ogStatus, attendeeId, eventId, seats } = req.body;
   seats = parseInt(seats, 10); // Ensure seats is an integer
 
-  console.log("Seats: " + seats);
   try {
+    const currentAttendee = await Attendee.findById(attendeeId);
+    const currentSeats = currentAttendee.seats;
     // Update attendee's status
     await Attendee.findByIdAndUpdate(attendeeId, { status, seats });
 
-    // Handle seat allocation for "Confirmed" status
     if (status === "Confirmed" && ogStatus !== "Confirmed") {
-      // Decrement event's available seats
       await Event.findByIdAndUpdate(eventId, {
         $inc: { seatsRemaining: -seats },
       });
-    }
-
-    // Handle returning seats when moving away from "Confirmed"
-    if (status !== "Confirmed" && ogStatus === "Confirmed") {
-      // Increment event's available seats
+    } else if (status === "Confirmed" && ogStatus === "Confirmed") {
+      const seatDiff = seats - currentSeats;
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: seats },
+        $inc: { seatsRemaining: -seatDiff },
+      });
+    } else if (status !== "Confirmed" && ogStatus === "Confirmed") {
+      await Event.findByIdAndUpdate(eventId, {
+        $inc: { seatsRemaining: currentSeats },
       });
     }
 

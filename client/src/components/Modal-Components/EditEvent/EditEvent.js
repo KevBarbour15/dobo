@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "./edit-event.css";
 import axios from "../../../axiosConfig.js";
-import {
-  formatDate,
-} from "../../../util/formatting.js";
+import { formatDate } from "../../../util/formatting.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../../util/notifications.js";
 
@@ -72,7 +70,12 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
         <form onSubmit={handleSubmit}>
           <p>Title:</p>
           <input type="text" value={title} onChange={handleTitleChange} />
-
+          <p>Price:</p>
+          <input type="number" value={price} onChange={handlePriceChange} />
+          <p>Date:</p>
+          <input type="date" value={date} onChange={handleDateChange} />
+          <p>Time:</p>
+          <input type="time" value={time} onChange={handleTimeChange} />
           <div className="seating-container">
             <p>Seats:</p>
             <div className="count-button-container">
@@ -95,12 +98,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
             </div>
             <p> People Commited: {committed}</p>
           </div>
-          <p>Date:</p>
-          <input type="date" value={date} onChange={handleDateChange} />
-          <p>Time:</p>
-          <input type="time" value={time} onChange={handleTimeChange} />
-          <p>Price:</p>
-          <input type="number" value={price} onChange={handlePriceChange} />
+
           <button type="submit">Update</button>
         </form>
       </div>

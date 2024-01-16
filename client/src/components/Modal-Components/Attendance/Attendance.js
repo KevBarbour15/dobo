@@ -95,7 +95,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
                   onStatusChange={updateAttendeeStatus}
                   date={event.date}
                   eventTiming={eventTiming}
-                  availableSeats={event.seatsRemaining}
+                  event={event}
                 />
               ))}
             </div>

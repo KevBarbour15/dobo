@@ -51,7 +51,3 @@
   color: black;
   cursor: pointer;
 }
-
-.close-button span:hover {
-  font-weight: bold;
-}
