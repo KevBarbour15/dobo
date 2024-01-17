@@ -5,9 +5,9 @@
   font-family: "Figtree";
   letter-spacing: 0.75px;
   animation: fadeIn 0.75s ease-out;
-  border-bottom: 1px solid black;
-  min-height: 300px;
+  height: 300px;
   width: 300px;
+  background-color: #efefef;
 }
 
 @keyframes fadeIn {

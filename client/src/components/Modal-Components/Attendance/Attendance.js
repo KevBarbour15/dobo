@@ -103,7 +103,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
             <div className="no-attendees-container">
               <p>
                 {eventTiming === "upcoming"
-                  ? "No Attendess Yet"
+                  ? "No Attendees Yet"
                   : "No Attendees"}
               </p>
             </div>

@@ -43,6 +43,9 @@
   font-family: "Figtree";
 }
 
+.about-text p {
+}
+
 @media (max-width: 768px) {
   .about-container {
     height: auto;

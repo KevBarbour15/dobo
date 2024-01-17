@@ -32,7 +32,7 @@ const ImageGallery = () => {
       >
         {imagesArray.map((image) => (
           <div className="masonry-image" onClick={() => openLightbox(image)}>
-            <img src={image} alt="dobo" />
+            <img src={image} loading="lazy" alt="dobo" />
           </div>
         ))}
       </Masonry>
@@ -42,7 +42,7 @@ const ImageGallery = () => {
           <button onClick={closeLightbox} className="lightbox-close-button">
             <span className="material-icons">close</span>
           </button>
-          <img src={selectedImage} alt="Enlarged view" />
+          <img src={selectedImage} loading="lazy" alt="Enlarged view" />
         </div>
       )}
     </div>

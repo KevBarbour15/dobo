@@ -14,11 +14,10 @@
 
 - redesign in figma
 
-- get the <select> styled like the other elements
-
 - Sean 
   - get me the color palatte 
   - get me font info
   - get Sean's current Dobo email information to start syncing it up and 
         move domain name over(when deployment is ready)
   - what level of service is he willing to pay for?
+  - create Upwork posting 
