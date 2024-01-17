@@ -15,10 +15,7 @@ const Contact = () => {
     e.preventDefault();
     // fill in logic to subscribe to new events
 
-    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!", {
-      vertical: "top",
-      horizontal: "left",
-    });
+    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!");
   };
 
   return (

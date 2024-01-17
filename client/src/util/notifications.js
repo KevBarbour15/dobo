@@ -1,10 +1,6 @@
-export const showSuccessNotification = (enqueueSnackbar, message, position) => {
+export const showSuccessNotification = (enqueueSnackbar, message) => {
   enqueueSnackbar(message, {
     autoHideDuration: 1500,
-    anchorOrigin: {
-      vertical: position.vertical,
-      horizontal: position.horizontal,
-    },
     style: {
       backgroundColor: "#efefef",
       color: "black",

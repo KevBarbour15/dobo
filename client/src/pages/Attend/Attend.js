@@ -18,6 +18,7 @@ const Attend = () => {
   const [selectedEventId, setSelectedEventId] = useState("");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
@@ -32,30 +33,31 @@ const Attend = () => {
           (event) => new Date(event.date) > new Date()
         );
         setFutureEvents(futureEvents);
-      } catch (error) {}
+      } catch (error) {
+        const errorData = error.response ? error.response.data : error.message;
+        console.error("There was an error fetching the data:", errorData);
+      }
     };
     fetchEvents();
   }, []);
 
-  useEffect(() => {
+  const handleDropdownToggle = () => {
     if (futureEvents.length > 0) {
-      const firstEvent = futureEvents[0];
-      setSelectedEventId(firstEvent._id);
-      setDate(firstEvent.date);
+      setShowDropdown(!showDropdown);
     }
-  }, [futureEvents]);
+  };
 
-  const handleEventChange = (e) => {
-    const eventId = e.target.value;
-    setSelectedEventId(eventId);
-    const selectedEvent = futureEvents.find((event) => event._id === eventId);
-    if (selectedEvent) {
-      setDate(selectedEvent.date);
-    }
+  const handleSelectEvent = (event) => {
+    setSelectedEventId(event._id);
+    setDate(event.date);
+    setShowDropdown(false);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!selectedEventId) return;
+
     let convertedDate = convertDateReadability(date);
     const attendeeData = {
       name,
@@ -82,7 +84,23 @@ const Attend = () => {
     }
   };
 
-  // add "select a date as a placeholder for the date input"
+  const getDisplayValue = () => {
+    if (futureEvents.length === 0) {
+      return "No upcoming events";
+    }
+
+    if (selectedEventId) {
+      const selectedEvent = futureEvents.find(
+        (event) => event._id === selectedEventId
+      );
+      if (selectedEvent) {
+        return `${convertDateReadability(
+          selectedEvent.date
+        )} at ${convertMilitaryTime(selectedEvent.time)}`;
+      }
+    }
+    return "Select a date: ";
+  };
 
   return (
     <div id="attend" className="attend-container">
@@ -97,20 +115,31 @@ const Attend = () => {
         </div>
         <div className="attend-info-container">
           <div className="attend-text">
-            To attend Dobo, please fill out the form below. We will
-            reach out with details. Seating is limited.
+            To attend Dobo, please fill out the form below. We will reach out
+            with details. Seating is limited.
           </div>
 
           <div className="inquiry-form">
             <form onSubmit={handleSubmit}>
-              <select value={selectedEventId} onChange={handleEventChange}>
-                {futureEvents.map((event) => (
-                  <option key={event._id} value={event._id}>
-                    {convertDateReadability(event.date)} at{" "}
-                    {convertMilitaryTime(event.time)}
-                  </option>
-                ))}
-              </select>
+              <div className="custom-dropdown" onClick={handleDropdownToggle}>
+                <div className="dropdown-selected-value">
+                  {getDisplayValue()}
+                </div>
+                {showDropdown && (
+                  <div className="dropdown-list">
+                    {futureEvents.map((event) => (
+                      <div
+                        key={event._id}
+                        className="dropdown-list-item"
+                        onClick={() => handleSelectEvent(event)}
+                      >
+                        {convertDateReadability(event.date)} at{" "}
+                        {convertMilitaryTime(event.time)}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <input
                 type="text"

@@ -36,7 +36,6 @@
   display: block;
 }
 
-
 .lightbox {
   position: fixed;
   top: 0;
@@ -58,7 +57,7 @@
   border: 1px solid black;
 }
 
-.lightbox-close-button{
+.lightbox-close-button {
   position: absolute;
   border: none;
   background: none;
@@ -81,7 +80,7 @@
     overflow-y: hidden;
   }
 
-  .lightbox{
+  .lightbox {
     background: rgba(0, 0, 0, 0.85);
   }
 }
