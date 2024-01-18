@@ -9,7 +9,7 @@
   width: 225px;
   font-size: 20px;
   font-family: "Figtree";
-  letter-spacing: 0.75px;
+
   line-height: 1.25;
   text-align: center;
   margin-top: 2vh;
@@ -28,6 +28,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .cancel-event-container button:hover {

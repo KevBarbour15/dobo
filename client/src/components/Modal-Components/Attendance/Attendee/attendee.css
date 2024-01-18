@@ -1,13 +1,12 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: "Figtree";
-  letter-spacing: 0.75px;
-  animation: fadeIn 0.75s ease-out;
+  animation: fadeIn 0.25s ease-in-out;
   height: 300px;
   width: 300px;
   background-color: #efefef;
+  padding-left: 20px;
 }
 
 @keyframes fadeIn {
@@ -33,7 +32,6 @@
 
 .attendee-container select {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   font-size: 18px;
   width: 250px;
   height: 35px;
@@ -42,10 +40,9 @@
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   color: black;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
   box-shadow: 1.25px 1.25px 2.5px black;
+  transition: all 0.25s ease-in-out;
 }
 
 .attendee-container button {
@@ -59,9 +56,9 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 1vh;
   margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .attendee-container button:hover {
@@ -79,7 +76,7 @@
   font-size: 1.75rem;
   color: black;
   cursor: pointer;
-  filter: drop-shadow(1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3));
+  transition: all 0.25s ease-in-out;
 }
 
 .attendee-email:hover {

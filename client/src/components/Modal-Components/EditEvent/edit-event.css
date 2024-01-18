@@ -14,7 +14,6 @@
 
 .edit-event-form p {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   font-size: 1.15rem;
   margin-top: 0;
   margin-bottom: 2vh;
@@ -32,6 +31,7 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
+  transition: all 0.25s ease-in-out;
 }
 
 .edit-event-form button:hover {
@@ -41,7 +41,6 @@
 
 .edit-event-form input {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   width: 225px;
   border: 1px solid black;
   font-size: 1rem;
@@ -51,6 +50,7 @@
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
   margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .edit-event-form input:focus,
@@ -61,7 +61,6 @@
 
 .edit-event-form select {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   letter-spacing: 1.5px;
   width: 100px;
   height: 40px;
@@ -71,6 +70,7 @@
   padding-right: 0.7rem;
   box-shadow: 1.25px 1.25px 2.5px black;
   margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .edit-event-form input:focus,
@@ -105,10 +105,12 @@
   font-family: "Figtree";
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  transition: all 0.25s ease-in-out;
 }
 
 .count-button:hover {
   color: #bd9c72;
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

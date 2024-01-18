@@ -32,11 +32,11 @@
 }
 
 .modal-header p {
-  font-family: "Aboreto", sans-serif;
-  font-size: 1.75rem;
-  letter-spacing: -1.5px;
+  font-family: "Figtree";
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
   color: black;
-  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
 }
 
 .close-button {
@@ -47,7 +47,11 @@
 
 .close-button span {
   font-size: 20px;
-  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
+  transition: all 0.35s ease-in-out;
   color: black;
   cursor: pointer;
+}
+
+.close-button:hover span {
+  transform: scale(1.15);
 }

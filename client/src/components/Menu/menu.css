@@ -4,7 +4,7 @@
   top: calc(-100% - 2.5px);
   height: 100%;
   width: 50%;
-  transition: top 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   background: rgba(0, 0, 0, 0.65);
   z-index: -1;
   display: flex;
@@ -30,11 +30,14 @@
 }
 
 .menu-close-button span {
-  font-size: 20px;
-  transition: font-size 0.5s ease-in-out;
-  text-shadow: 2.25px 2.25px 2.25px rgba(0, 0, 0, 0.75);
+  font-size: 1.25rem;
+  transition: all 0.35s ease-in-out;
   color: white;
   cursor: pointer;
+}
+
+.menu-close-button span:hover {
+    transform: scale(1.15);
 }
 
 .menu-links-container {
@@ -45,20 +48,23 @@
   align-items: center;
   height: 100%;
   z-index: 5;
-  text-shadow: 1.25px 1.25px 1.25px rgba(0, 0, 0, 0.75);
 }
 
 .menu-link {
   font-family: "Aboreto", sans-serif;
   font-size: 3.5rem;
-  letter-spacing: -4.5px;
+  letter-spacing: -3.5px;
   color: white;
   text-decoration: none;
-  transition: top 0.2s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.menu-link:hover {
+  transform: scale(1.1);
 }
 
 .menu-link p {
-  margin: -0.3rem;
+  margin: -0.35rem;
 }
 
 .bold-text {

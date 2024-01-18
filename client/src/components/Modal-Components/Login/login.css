@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 300px;
+  margin: 2vh;
 }
 
 .login-form {
@@ -29,12 +30,12 @@
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
-  margin-top: 2vh;
+  margin-bottom: 1vh;
   height: 40px;
   border-radius: 50px;
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   box-shadow: 1.25px 1.25px 2.5px black;
+  transition: all 0.25s ease-in-out;
 }
 
 .login-form input:focus {
@@ -53,8 +54,8 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 1vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .login-form button:hover {

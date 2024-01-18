@@ -41,9 +41,11 @@
   border: none;
   padding-left: 2rem;
   color: #efefef;
-  transition: all 0.8s ease;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
-  transition: all 1.5s ease;
+  transition: all .5s ease-in-out;
+}
+
+.home-menu-button span {
+  font-size: 1.25rem;
 }
 
 .home-menu-button:hover {
@@ -53,7 +55,6 @@
 .home-menu-button.open {
   color: transparent;
   text-shadow: none;
-  transition: all 0.35s ease;
 }
 
 .home-header-title-container {
@@ -64,17 +65,16 @@
 
 .home-header-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -4.5px;
+  font-size: 1rem;
+  letter-spacing: -3.5px;
   color: #efefef;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
-  transition: all 1.5s ease;
+  //text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+  transition: all .5s ease-in-out;
 }
 
 .home-header-title.open {
   color: transparent;
   text-shadow: none;
-  transition: all 0.35s ease;
 }
 
 .home-invisible-element {

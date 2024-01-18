@@ -18,17 +18,26 @@
 .about-title-container {
   display: flex;
   width: 80%;
-  height: 110px;
 }
 
 .about-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
-  letter-spacing: -4.5px;
+  font-size: 3.15rem;
+  letter-spacing: -3.5px;
   color: black;
-  transform: rotate(-12.5deg);
-  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 4vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .about-info-container {

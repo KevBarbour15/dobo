@@ -29,9 +29,8 @@
 .dash-header-title {
   font-family: "Aboreto", sans-serif;
   font-size: 1.25rem;
-  letter-spacing: -4.5px;
+  letter-spacing: -3.5px;
   color: black;
-  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
 }
 
 .dash-header-links-container {
@@ -52,6 +51,7 @@
   align-items: center;
   justify-content: center;
   height: 35px;
+  transition: all 0.25s ease-in-out;
 }
 
 .dash-link-container button {
@@ -61,9 +61,9 @@
   font-size: 1.25rem;
   font-weight: bold;
   letter-spacing: -2.5px;
-  background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
 }
 
 .dash-link-container:hover {

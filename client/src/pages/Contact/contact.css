@@ -14,24 +14,32 @@
 .contact-title-container {
   display: flex;
   width: 80%;
-  height: 110px;
 }
 
 .contact-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
-  letter-spacing: -4.5px;
+  font-size: 3.15rem;
+  letter-spacing: -3.5px;
   color: black;
-  transform: rotate(-12.5deg);
-  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 4vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .contact-info-container {
   height: calc(100vh - 58px - 110px);
   width: 80%;
 }
-
 
 .contact-ig p,
 .contact-email p {
@@ -47,7 +55,7 @@
   font-size: 5vh;
   color: black;
   cursor: pointer;
-  filter: drop-shadow(1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3));
+  transition: all 0.25s ease-in-out;
 }
 
 .contact-logo:hover {
@@ -85,7 +93,7 @@
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
   font-family: "Figtree";
-  letter-spacing: 0.75px;
+  transition: all 0.25s ease-in-out;
 }
 
 .subscribe-email input:focus {
@@ -104,11 +112,12 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
   background-color: #efefef;
-  margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .subscribe-email button:hover {
   background-color: #bd9c72;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -143,8 +152,7 @@
     height: auto;
   }
 
-  .subscribe-email input 
-  .subscribe-email button {
+  .subscribe-email input .subscribe-email button {
     height: 4vh;
   }
 }

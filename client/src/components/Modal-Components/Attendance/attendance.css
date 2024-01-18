@@ -2,14 +2,11 @@
   min-width: 300px;
   max-width: 610px;
   max-height: 610px;
-  transition: max-height 0.95s ease, opacity 0.95s ease;
   overflow-y: scroll;
- 
 }
 
 .attendees-container {
   opacity: 0;
-  transition: opacity 0.5s ease;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
@@ -30,7 +27,6 @@
 
 .no-attendees-container p {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   font-size: 1.5rem;
   color: black;
 }
@@ -38,7 +34,7 @@
 @media (max-width: 768px) {
   .attendance-container {
     max-width: 300px;
-  max-height: 300px;
+    max-height: 300px;
   }
   .attendees-container {
     grid-template-columns: repeat(1, 1fr);

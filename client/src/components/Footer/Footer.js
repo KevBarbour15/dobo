@@ -21,11 +21,11 @@ const Footer = () => {
       </div>
       <div className="footer-login">
         <button onClick={handleOpenModal}>
-          <FontAwesomeIcon icon={faKey} />
+          <span class="material-symbols-outlined">login</span>
         </button>
       </div>
       <Modal
-        title={"Owner Login"}
+        title={"Owner"}
         isVisible={isModalOpen}
         onClose={() => setModalOpen(false)}
       >

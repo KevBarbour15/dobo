@@ -17,17 +17,26 @@
 .attend-title-container {
   display: flex;
   width: 80%;
-  height: 110px;
 }
 
 .attend-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
-  letter-spacing: -4.5px;
+  font-size: 3.15rem;
+  letter-spacing: -3.5px;
   color: black;
-  transform: rotate(-12.5deg);
-  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 4vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .attend-info-container {
@@ -41,7 +50,6 @@
   margin-bottom: 2vh;
   font-family: "Figtree";
   line-height: 1.5;
-  letter-spacing: 0.75px;
 }
 
 .inquiry-form {
@@ -55,22 +63,8 @@
   flex-direction: column;
 }
 
-.inquiry-form select {
-  font-family: "Figtree";
-  letter-spacing: 0.75px;
-  width: 250px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 25px;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  margin-bottom: 2vh;
-  box-shadow: 1.25px 1.25px 2.5px black;
-}
-
 .inquiry-form input {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -80,11 +74,11 @@
   height: 40px;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
+  transition: all 0.25s ease-in-out;
 }
 
 .inquiry-form textarea {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -93,6 +87,7 @@
   height: 15vh;
   border-radius: 20px;
   box-shadow: 1.25px 1.25px 2.5px black;
+  transition: all 0.25s ease-in-out;
 }
 
 .inquiry-form button {
@@ -105,8 +100,9 @@
   cursor: pointer;
   box-shadow: 1.25px 1.25px 2.5px black;
   color: black;
-  background-color: #efefef;
+  background-color: white;
   margin-bottom: 2vh;
+  transition: all 0.25s ease-in-out;
 }
 
 .inquiry-form input:focus,
@@ -123,7 +119,6 @@
 
 .custom-dropdown {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   width: 250px;
   border: 1px solid black;
   font-size: 0.85rem;
@@ -138,24 +133,14 @@
   margin-bottom: 2vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.dropdown-selected-value {
-  background: transparent;
-  padding: 10px;
+  transition: all 0.25s ease-in-out;
 }
 
 .dropdown-list {
-  width: 300px;
-  position: absolute;
-  border: 1px solid #ccc;
-  background-color: white;
+  min-width: 315px;
+  position: fixed;
+  border: 1px solid #bd9c72;
   z-index: 100;
-  font-family: "Figtree";
-  letter-spacing: 0.75px;
-  border: 1px solid black;
-  font-size: 0.85rem;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
   background-color: white;
@@ -167,8 +152,8 @@
 }
 
 .dropdown-list-item {
-  padding: 10px;
-  background: transparent;
+  padding: 12px;
+  transition: all 0.25s ease-in-out;
 }
 
 .dropdown-list-item:last-child {
@@ -176,6 +161,8 @@
 }
 
 .dropdown-list-item:hover {
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -198,7 +185,7 @@
     align-items: center;
     height: 200px;
     width: 100%;
-    background-image: url("../../assets/images/dobo-4.jpg");
+    background-image: url("../../assets/images/dobo-10.jpg");
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid black;
@@ -210,11 +197,6 @@
     font-size: 3.5rem;
     color: white;
     text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
-  }
-
-  .inquiry-form select,
-  .inquiry-form input {
-    height: 4vh;
   }
 
   .inquiry-form textarea {

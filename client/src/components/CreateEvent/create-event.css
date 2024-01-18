@@ -14,17 +14,26 @@
 .create-title-container {
   display: flex;
   width: 80%;
-  height: 110px;
 }
 
 .create-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3rem;
-  letter-spacing: -4.5px;
+  font-size: 3.15rem;
+  letter-spacing: -3.5px;
   color: black;
-  transform: rotate(-12.5deg);
-  text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.3);
   margin-top: 4vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .create-event-form {
@@ -40,7 +49,6 @@
 
 .create-event-form p {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
   font-size: 16px;
   color: black;
   margin-top: 2vh;
@@ -49,7 +57,7 @@
 
 .create-event-form input {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
+
   width: 225px;
   border: 1px solid black;
   font-size: 1rem;
@@ -61,7 +69,7 @@
 
 .create-event-form select {
   font-family: "Figtree";
-  letter-spacing: 0.75px;
+
   letter-spacing: 1.5px;
   width: 100px;
   height: 40px;

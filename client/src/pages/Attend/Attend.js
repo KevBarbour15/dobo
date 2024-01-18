@@ -111,7 +111,7 @@ const Attend = () => {
       </div>
       <div className="attend-right">
         <div className="attend-title-container">
-          <div className="about-title">Attend</div>
+          <div className="attend-title">Attend</div>
         </div>
         <div className="attend-info-container">
           <div className="attend-text">
@@ -123,7 +123,7 @@ const Attend = () => {
             <form onSubmit={handleSubmit}>
               <div className="custom-dropdown" onClick={handleDropdownToggle}>
                 <div className="dropdown-selected-value">
-                  {getDisplayValue()}
+                  {getDisplayValue()} 
                 </div>
                 {showDropdown && (
                   <div className="dropdown-list">
