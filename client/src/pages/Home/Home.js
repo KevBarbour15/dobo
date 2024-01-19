@@ -1,8 +1,6 @@
 import "./home.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Menu from "../../components/Menu/Menu.js";
-import img from "../../assets/images/dobo-11.jpg";
-
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +12,7 @@ const Home = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-  
+
   return (
     <div className="home-container">
       <div className="home-image-container">
