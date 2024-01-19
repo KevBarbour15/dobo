@@ -7,7 +7,7 @@ export const showSuccessNotification = (enqueueSnackbar, message) => {
       border: "1px solid black",
       borderRadius: "25px",
       fontSize: "15px",
-      fontFamily: "Figtree",
+      fontFamily: 'Jost',
       textAlign: "center",
       boxShadow: "1.25px 1.25px 2.5px black",
       display: "flex",

@@ -45,10 +45,10 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
         <p>Price: ${event.price}</p>
       </div>
       <div className="event-options">
-        <button type="button" onClick={handleViewAttendance}>
+        <button className="button" type="button" onClick={handleViewAttendance}>
           Attendance
         </button>
-        <button type="button" onClick={handleViewNotes}>
+        <button className="button" type="button" onClick={handleViewNotes}>
           Notes
         </button>
       </div>

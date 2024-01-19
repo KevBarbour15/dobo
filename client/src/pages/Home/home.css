@@ -1,10 +1,14 @@
 .home-container {
-  min-height: calc(100vh - 2px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  overflow: clip;
 }
 
 .home-image-container {
@@ -36,16 +40,18 @@
 }
 
 .home-menu-button {
+  display: flex;
   font-size: 1.15rem;
   background-color: transparent;
   border: none;
   padding-left: 2rem;
-  color: #efefef;
-  transition: all .5s ease-in-out;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  text-shadow: 1.25px 1.25px 1.25px rgba(0, 0, 0, 0.75);
 }
 
 .home-menu-button span {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .home-menu-button:hover {
@@ -65,11 +71,11 @@
 
 .home-header-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 1rem;
-  letter-spacing: -3.5px;
-  color: #efefef;
-  //text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
-  transition: all .5s ease-in-out;
+  font-size: 0.6rem;
+  letter-spacing: -1.5px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  text-shadow: 1.25px 1.25px 1.25px rgba(0, 0, 0, 0.75);
 }
 
 .home-header-title.open {
@@ -95,13 +101,18 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
   }
 
   .home-header-container {
     width: 100%;
   }
+
+  .home-menu-button {
+    text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
+  }
+
   .home-header-title {
-    font-size: 1.15rem;
+    font-size: 0.5rem;
+    text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
   }
 }

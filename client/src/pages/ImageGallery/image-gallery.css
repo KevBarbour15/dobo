@@ -8,6 +8,11 @@
   box-sizing: border-box;
   padding-left: 6px;
   padding-right: 6px;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .masonry-grid {
@@ -34,17 +39,17 @@
   width: 100%;
   height: auto;
   border: 1px solid black;
-  //box-shadow: 1.25px 1.25px 2.5px black;
+  box-shadow: 1.25px 1.25px 2.5px black;
   transition: all 0.25s ease-in-out;
   display: block;
 }
 
 .masonry-image:hover {
-  transform: scale(1.02);
+  //transform: scale(1.015);
 }
 
 .masonry-image:hover img {
-  box-shadow: 1.25px 1.25px 2.5px black;
+  box-shadow: 3.75px 3.75px 4.75px black;
 }
 
 .lightbox {
@@ -85,12 +90,11 @@
 }
 
 .lightbox-close-button span:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 @media (max-width: 768px) {
   .gallery-container {
     min-height: calc(100vh - 58px);
-    height: auto;
     overflow-y: hidden;
   }
 

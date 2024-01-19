@@ -8,48 +8,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin: 2vh 2vw;
 }
 
-.edit-event-form p {
-  font-family: "Figtree";
-  font-size: 1.15rem;
-  margin-top: 0;
-  margin-bottom: 2vh;
-  color: black;
+.event-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.edit-event-form button {
-  font-family: "Figtree";
-  font-size: 1.25rem;
-  width: 170px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: #efefef;
-  transition: all 0.25s ease-in-out;
-}
-
-.edit-event-form button:hover {
-  background-color: #bd9c72;
-  color: black;
+.event-label label {
+  text-align: left;
+  margin: 1vh 0;
+  width: 100%;
 }
 
 .edit-event-form input {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   width: 225px;
   border: 1px solid black;
   font-size: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  padding: 0 0.7rem;
   height: 40px;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
-  margin-bottom: 2vh;
   transition: all 0.25s ease-in-out;
 }
 
@@ -60,16 +42,14 @@
 }
 
 .edit-event-form select {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   letter-spacing: 1.5px;
   width: 100px;
   height: 40px;
   border: 1px solid black;
   border-radius: 25px;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  padding: 0 0.7rem;
   box-shadow: 1.25px 1.25px 2.5px black;
-  margin-bottom: 2vh;
   transition: all 0.25s ease-in-out;
 }
 
@@ -82,45 +62,51 @@
 .seating-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 85%;
+}
+
+.seating-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.seating-labels label {
+  text-align: left;
+  margin: 1vh 0;
+  width: 100%;
+}
+
+.seating-container input {
+  margin: 0 0.5vw;
+  padding: 0 0.7rem;
+  width: 125px;
 }
 
 .count-button-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
   margin-bottom: 2vh;
-}
-
-.count-button-container input {
-  margin-bottom: 0;
 }
 
 .count-button {
   cursor: pointer;
   color: black;
-  font-size: 2.5rem;
-  font-family: "Figtree";
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  font-size: 2.75rem;
+  font-family: "Jost", sans-serif;
   transition: all 0.25s ease-in-out;
 }
 
 .count-button:hover {
   color: #bd9c72;
-  transform: scale(1.1);
+}
+
+.count-button:active {
+  color: #bd9c72;
+  transform: scale(0.9);
 }
 
 @media (max-width: 768px) {
-  .edit-event-form input {
-    width: 200px;
-    height: 4vh;
-  }
-
-  .edit-event-form button {
-    height: 4vh;
-    font-size: 1rem;
-  }
 }

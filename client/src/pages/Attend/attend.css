@@ -6,12 +6,10 @@
 .attend-left,
 .attend-right {
   flex: 1;
+  width: 50%;
   display: flex;
-  align-items: center;
-}
-
-.attend-right {
   flex-direction: column;
+  align-items: center;
 }
 
 .attend-title-container {
@@ -21,39 +19,37 @@
 
 .attend-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3.15rem;
   letter-spacing: -3.5px;
   color: black;
+  text-shadow: 2px 2px 1.25px rgba(0, 0, 0, 0.25);
   margin-top: 4vh;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-500px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+  animation-name: slideLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 3.15rem;
+  transform: translateX(800px);
+  opacity: 0;
 }
 
 .attend-info-container {
+  opacity: 0;
   height: calc(100vh - 58px - 110px);
   width: 80%;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-delay: 0.75s;
+  animation-fill-mode: forwards;
 }
 
 .attend-text {
   font-size: 20px;
   margin-top: 2vh;
   margin-bottom: 2vh;
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   line-height: 1.5;
 }
 
 .inquiry-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -64,7 +60,7 @@
 }
 
 .inquiry-form input {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -78,7 +74,7 @@
 }
 
 .inquiry-form textarea {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -90,21 +86,6 @@
   transition: all 0.25s ease-in-out;
 }
 
-.inquiry-form button {
-  font-family: "Figtree";
-  font-size: 1.25rem;
-  width: 170px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: white;
-  margin-bottom: 2vh;
-  transition: all 0.25s ease-in-out;
-}
-
 .inquiry-form input:focus,
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
@@ -112,13 +93,8 @@
   outline: none;
 }
 
-.inquiry-form button:hover {
-  background-color: #bd9c72;
-  color: black;
-}
-
 .custom-dropdown {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   width: 250px;
   border: 1px solid black;
   font-size: 0.85rem;
@@ -166,17 +142,12 @@
 }
 
 @media (max-width: 768px) {
-  .about-right {
-    height: auto;
-  }
-
-  .attend-container {
-    height: auto;
-    flex-direction: column;
-  }
-
   .attend-left {
     display: none;
+  }
+
+  .about-right {
+    width: 100%;
   }
 
   .attend-title-container {
@@ -185,20 +156,28 @@
     align-items: center;
     height: 200px;
     width: 100%;
-    background-image: url("../../assets/images/dobo-10.jpg");
+    background-image: url("../../assets/images/dobo-7.jpg");
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid black;
     top: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.7s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 
   .attend-title {
     margin: auto;
-    font-size: 3.5rem;
-    color: white;
-    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
+    font-size: 3.75rem;
+    color: #efefef;
+    text-shadow: 3px 3px 1.5px black;
   }
 
+  .attend-info-section {
+    animation-delay: 0.4s;
+  }
   .inquiry-form textarea {
     height: 18vh;
   }

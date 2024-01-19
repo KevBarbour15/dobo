@@ -1,18 +1,13 @@
 .main-page-container {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
   margin-left: auto;
   margin-right: auto;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
-
-.left-container img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  box-sizing: border-box;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .image-container {
@@ -23,6 +18,11 @@
   align-items: center;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .image-container img {
@@ -31,14 +31,40 @@
   object-fit: cover;
 }
 
+.button {
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  width: 170px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1.25px 1.25px 2.5px black;
+  color: black;
+  background-color: white;
+  transition: all 0.25s ease-in-out;
+}
+
+.button:hover {
+  background-color: #efefef;
+}
+
+.button:active {
+  background-color: #dfdfdf;
+  box-shadow: 0.25px 0.25px 0.25px black;
+}
+
 @media (min-width: 1025px) {
   .main-page-container {
     width: 75%;
+    border-left: none;
+    border-right: none;
   }
 }
 
 @media (max-width: 768px) {
   .main-page-container {
-    width: calc(100% - 4px);
+    width: 100%;
+    background-image: url("../../assets/images/background.jpg");
   }
 }

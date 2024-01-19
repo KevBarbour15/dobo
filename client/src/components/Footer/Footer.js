@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./footer.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal/Modal";
 import Login from "../Modal-Components/Login/Login";
 

@@ -33,7 +33,6 @@ const Contact = () => {
           <div className="contact-text">
             <div className="contact-ig">
               <p>Instagram:</p>
-
               <a
                 className="contact-logo"
                 href="https://www.instagram.com/dobonyc"
@@ -47,14 +46,14 @@ const Contact = () => {
             <div className="contact-email">
               <p>All other inquiries:</p>
               <a className="contact-logo" href="mailto:dobodinner@gmail.com">
-                <FontAwesomeIcon icon={faEnvelope} />
+                <FontAwesomeIcon className="logo-icon" icon={faEnvelope} />
               </a>
             </div>
             <div className="subscribe-container">
               <p>Be the first to know about Dobo's next dinner:</p>
               <div className="subscribe-email">
                 <input placeholder="Email" required></input>
-                <button onClick={handleSubscribe}>Subscribe</button>
+                <button className="button" onClick={handleSubscribe}>Subscribe</button>
               </div>
             </div>
           </div>

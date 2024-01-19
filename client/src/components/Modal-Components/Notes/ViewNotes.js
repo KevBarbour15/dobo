@@ -39,7 +39,7 @@ const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
       <div className="notes-text-form">
         <form onSubmit={handleSubmit}>
           <textarea value={notes} onChange={handleNotesChange}></textarea>
-          <button type="submit">Save</button>
+          <button className="button" type="submit">Save</button>
         </form>
       </div>
     </div>

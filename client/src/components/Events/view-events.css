@@ -1,6 +1,6 @@
 .events-list {
   overflow-y: auto;
-  min-height: calc(100vh - 94px);
+  min-height: calc(100vh - 92px);
 }
 
 .events-card {
@@ -23,7 +23,7 @@
 .event-details,
 .event-options {
   width: 48%;
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   font-size: 15px;
 }
 
@@ -44,36 +44,17 @@
 }
 
 .event-options button {
-  font-family: "Figtree";
-  font-size: 1.25rem;
-  width: 170px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: #efefef;
-  margin: 0.5vh;
-  transition: all 0.25s ease-in-out;
-}
-
-.event-options button:hover {
-  background-color: #bd9c72;
-  color: black;
+  margin: 1vh;
 }
 
 @media (max-width: 768px) {
   .events-list {
     overflow-y: auto;
-    min-height: calc(100vh - 94px);
+    min-height: calc(100vh - 92px);
   }
 
   .event-options button {
     width: 150px;
-    height: 30px;
-    font-size: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.75vh;
   }
 }

@@ -31,7 +31,9 @@ const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
   return (
     <div className="cancel-event-container">
       <p>Are you sure you want to cancel this event?</p>
-      <button onClick={handleDelete}>Cancel Event</button>
+      <button className="button" onClick={handleDelete}>
+        Cancel Event
+      </button>
     </div>
   );
 };

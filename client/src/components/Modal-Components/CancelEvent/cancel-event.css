@@ -3,32 +3,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 2vh 2vw;
 }
 
 .cancel-event-container p {
-  width: 225px;
+  width: 300px;
   font-size: 20px;
-  font-family: "Figtree";
-
+  font-family: "Jost", sans-serif;
   line-height: 1.25;
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-bottom: 2vh;
-}
-.cancel-event-container button {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  letter-spacing: -1.5px;
-  width: 170px;
-  height: 40px;
-  border: 2px solid red;
-  border-radius: 50px;
-  background-color: white;
-  color: red;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin-bottom: 2vh;
-  transition: all 0.25s ease-in-out;
 }
 
 .cancel-event-container button:hover {

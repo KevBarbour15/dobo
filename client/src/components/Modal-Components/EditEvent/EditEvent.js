@@ -68,38 +68,52 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
     <div className="edit-event-container">
       <div className="edit-event-form">
         <form onSubmit={handleSubmit}>
-          <p>Title:</p>
-          <input type="text" value={title} onChange={handleTitleChange} />
-          <p>Price:</p>
-          <input type="number" value={price} onChange={handlePriceChange} />
-          <p>Date:</p>
-          <input type="date" value={date} onChange={handleDateChange} />
-          <p>Time:</p>
-          <input type="time" value={time} onChange={handleTimeChange} />
+          <div className="event-label">
+            <label>Title:</label>
+            <input t type="text" value={title} onChange={handleTitleChange} />
+          </div>
+          <div className="event-label">
+            <label>Price:</label>
+            <input type="number" value={price} onChange={handlePriceChange} />
+          </div>
+          <div className="event-label">
+            <label>Date:</label>
+            <input type="date" value={date} onChange={handleDateChange} />
+          </div>
+          <div className="event-label">
+            <label>Time:</label>
+            <input type="time" value={time} onChange={handleTimeChange} />
+          </div>
           <div className="seating-container">
-            <p>Seats:</p>
-            <div className="count-button-container">
-              <div className="count-button">
-                <span
-                  type="button"
-                  onClick={decrementSeats}
-                  disabled={seats <= committed}
-                  className="count-button"
-                >
-                  -
-                </span>
-              </div>
-              <input type="number" value={seats} readOnly />
-              <div className="count-button">
-                <span type="button" onClick={incrementSeats}>
-                  +
-                </span>
-              </div>
+            <div className="seating-labels">
+              <label> Attendees: {committed}</label>
+              <label> Seats: {seats}</label>
             </div>
-            <p> People Commited: {committed}</p>
+            <div className="count-button-container">
+              <span
+                class="material-symbols-outlined"
+                type="button"
+                onClick={decrementSeats}
+                disabled={seats <= committed}
+              >
+                remove
+              </span>
+
+              <input type="number" value={seats} readOnly />
+
+              <span
+                class="material-symbols-outlined"
+                classtype="button"
+                onClick={incrementSeats}
+              >
+                add
+              </span>
+            </div>
           </div>
 
-          <button type="submit">Update</button>
+          <button className="button" type="submit">
+            Update
+          </button>
         </form>
       </div>
     </div>

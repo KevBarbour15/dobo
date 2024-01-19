@@ -16,3 +16,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    font-size: 10rem;
+    transform: translateX(-400px);
+  }
+  100% {
+    opacity: 1;
+    font-size: 3.15rem;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+  
+    transform: translateX(800px);
+  }
+  100% {
+    opacity: 1;
+  
+    transform: translateX(0px);
+  }
+}

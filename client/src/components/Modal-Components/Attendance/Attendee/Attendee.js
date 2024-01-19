@@ -80,7 +80,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               {generateSeats()}
             </select>
           )}
-          <button onClick={handleSave}>Update</button>
+          <button className="button" onClick={handleSave}>Update</button>
         </div>
       ) : attendee.status === "Confirmed" ? (
         <div className="attendee-info">

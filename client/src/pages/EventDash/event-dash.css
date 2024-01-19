@@ -9,7 +9,7 @@
 }
 
 .events-container {
-  height: calc(100vh - 94px);
+  min-height: calc(100vh - 94px);
   overflow-y: scroll;
 }
 
@@ -21,6 +21,6 @@
 
 @media (max-width: 768px) {
   .dash-container {
-    width: calc(100% - 4px);
+    width: calc(100% - 2px);
   }
 }

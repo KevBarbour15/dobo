@@ -1,6 +1,8 @@
 import "./home.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Menu from "../../components/Menu/Menu.js";
+import img from "../../assets/images/dobo-11.jpg";
+
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +14,7 @@ const Home = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
+  
   return (
     <div className="home-container">
       <div className="home-image-container">
@@ -32,7 +34,7 @@ const Home = () => {
 
           <div className="home-header-title-container">
             <div className={`home-header-title ${isMenuOpen ? "open" : ""}`}>
-              <h1>DOBO</h1>
+              <h1>Brooklyn, NYC</h1>
             </div>
           </div>
 

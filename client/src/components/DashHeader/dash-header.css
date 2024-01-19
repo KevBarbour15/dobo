@@ -1,7 +1,6 @@
 .dash-header-container {
   position: sticky;
   top: 0;
-  background-color: #efefef;
   z-index: 1000;
   height: 90px;
   display: flex;
@@ -9,8 +8,10 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  background-image: url("../../assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
   border-top: 1px solid black;
-  box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .dash-header-title-container,
@@ -28,9 +29,10 @@
 
 .dash-header-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   letter-spacing: -3.5px;
   color: black;
+  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.15);
 }
 
 .dash-header-links-container {
@@ -58,9 +60,10 @@
   font-family: "Aboreto", sans-serif;
   text-decoration: none;
   color: black;
+  background-color: transparent;
   font-size: 1.25rem;
   font-weight: bold;
-  letter-spacing: -2.5px;
+  letter-spacing: -1.65px;
   border: none;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
@@ -73,7 +76,6 @@
 
 .dash-link-container:hover button {
   color: white;
-  background-color: black;
   cursor: pointer;
 }
 
@@ -88,11 +90,11 @@
 
 @media (max-width: 768px) {
   .dash-header-container {
-    width: 100%;
+    background-image: url("../../assets/images/background-header-mobile.jpg");
   }
 
   .dash-header-title {
-    font-size: 1rem;
+    font-size: 1.15rem;
   }
 
   .dash-link-container button {

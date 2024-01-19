@@ -56,7 +56,7 @@ const CreateEvent = ({ onEventCreated }) => {
         </div>
       </div>
       <div className="create-right">
-      <div className="create-title-container">
+        <div className="create-title-container">
           <div className="create-title">New Event</div>
         </div>
         <div className="create-event-form">
@@ -103,7 +103,9 @@ const CreateEvent = ({ onEventCreated }) => {
               ))}
             </select>
 
-            <button type="submit">Create</button>
+            <button className="button" type="submit">
+              Create
+            </button>
           </form>
         </div>
       </div>

@@ -85,10 +85,6 @@ const Attend = () => {
   };
 
   const getDisplayValue = () => {
-    if (futureEvents.length === 0) {
-      return "No upcoming events";
-    }
-
     if (selectedEventId) {
       const selectedEvent = futureEvents.find(
         (event) => event._id === selectedEventId
@@ -123,7 +119,7 @@ const Attend = () => {
             <form onSubmit={handleSubmit}>
               <div className="custom-dropdown" onClick={handleDropdownToggle}>
                 <div className="dropdown-selected-value">
-                  {getDisplayValue()} 
+                  {getDisplayValue()}
                 </div>
                 {showDropdown && (
                   <div className="dropdown-list">
@@ -164,7 +160,7 @@ const Attend = () => {
                 onChange={(e) => setMessage(e.target.value)}
               />
 
-              <button type="submit">Submit</button>
+              <button className="button" type="submit">Submit</button>
             </form>
           </div>
         </div>

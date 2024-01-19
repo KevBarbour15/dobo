@@ -1,11 +1,13 @@
 .about-container {
   min-height: calc(100vh - 58px);
   display: flex;
+  overflow-y: auto;
 }
 
 .about-left,
 .about-right {
   flex: 1;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,57 +24,47 @@
 
 .about-title {
   font-family: "Aboreto", sans-serif;
-  font-size: 3.15rem;
   letter-spacing: -3.5px;
   color: black;
+  text-shadow: 2px 2px 1.25px rgba(0, 0, 0, 0.25);
   margin-top: 4vh;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-500px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+  animation-name: slideLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 3.15rem;
+  transform: translateX(800px);
+  opacity: 0;
 }
 
 .about-info-container {
-  width: 80%;
+  opacity: 0;
   height: calc(100vh - 58px - 110px);
+  width: 80%;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-delay: 0.75s;
+  animation-fill-mode: forwards;
 }
 
 .about-text {
   line-height: 1.55;
   font-size: 16px;
   letter-spacing: 0.75px;
-  font-family: "Figtree";
-}
-
-.about-text p {
+  font-family: "Jost", sans-serif;
 }
 
 @media (max-width: 768px) {
-  .about-container {
-    height: auto;
-    flex-direction: column;
-  }
-
   .about-left {
     display: none;
   }
 
   .about-right {
-    height: auto;
     overflow-y: hidden;
-    order: 1;
     width: 100%;
   }
 
   .about-title-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 200px;
@@ -81,13 +73,19 @@
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid black;
+    top: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.7s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 
   .about-title {
     margin: auto;
-    font-size: 3.5rem;
-    color: white;
-    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
+    font-size: 3.75rem;
+    color: #efefef;
+    text-shadow: 3px 3px 1.5px black;
   }
 
   .about-info-container {

@@ -1,21 +1,12 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   animation: fadeIn 0.25s ease-in-out;
   height: 300px;
   width: 300px;
   background-color: #efefef;
   padding-left: 20px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .attendee-info {
@@ -31,7 +22,7 @@
 }
 
 .attendee-container select {
-  font-family: "Figtree";
+  font-family: "Jost", sans-serif;
   font-size: 18px;
   width: 250px;
   height: 35px;
@@ -43,27 +34,6 @@
   margin-bottom: 1vh;
   box-shadow: 1.25px 1.25px 2.5px black;
   transition: all 0.25s ease-in-out;
-}
-
-.attendee-container button {
-  font-family: "Figtree";
-  font-size: 1.15rem;
-  width: 150px;
-  height: 35px;
-  border: 1px solid black;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: #efefef;
-  margin-top: 1vh;
-  margin-bottom: 2vh;
-  transition: all 0.25s ease-in-out;
-}
-
-.attendee-container button:hover {
-  background-color: #bd9c72;
-  color: black;
 }
 
 .attendee-container select:focus {
