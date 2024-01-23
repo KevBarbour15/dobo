@@ -13,9 +13,7 @@ const Contact = () => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    // fill in logic to subscribe to new events
-
-    showSuccessNotification(enqueueSnackbar, "Thank you for subscribing!");
+    showSuccessNotification(enqueueSnackbar, "Feature coming soon.");
   };
 
   return (
@@ -45,7 +43,7 @@ const Contact = () => {
 
             <div className="contact-email">
               <p>All other inquiries:</p>
-              <a className="contact-logo" href="mailto:dobodinner@gmail.com">
+              <a className="contact-logo" href="mailto:dobonyc@gmail.com">
                 <FontAwesomeIcon className="logo-icon" icon={faEnvelope} />
               </a>
             </div>
