@@ -61,7 +61,8 @@
   transition: all 0.35s ease-in-out;
 }
 
-.menu-link:active, .menu-link:hover {
+.menu-link:active,
+.menu-link:hover {
   transform: scale(1.1);
 }
 
@@ -78,12 +79,6 @@
   color: transparent;
 }
 
-.rotated-text {
-  transform: rotate(-12.5deg);
-  margin-top: 1.15rem;
-  margin-bottom: 1.15rem;
-}
-
 .menu-link:hover {
   cursor: pointer;
 }
@@ -97,7 +92,7 @@
 @media (max-width: 768px) {
   .menu-container {
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.75);
   }
 
   .menu-close-button {

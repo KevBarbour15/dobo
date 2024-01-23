@@ -14,6 +14,7 @@
 - redesign in figma
 
 - Sean 
+  - need the about info
   - get me the color palatte 
   - get me font info
   - get Sean's current Dobo email information to start syncing it up and 

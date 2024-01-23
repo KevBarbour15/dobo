@@ -32,7 +32,7 @@ const ImageGallery = () => {
               setIsOpen(true);
             }}
           >
-            <img src={thumbnail} loading="lazy" alt="dobo" />
+            <img src={thumbnail} alt="dobo" />
           </div>
         ))}
       </Masonry>
@@ -42,7 +42,7 @@ const ImageGallery = () => {
           mainSrc={imageArray[photoIndex]}
           nextSrc={imageArray[(photoIndex + 1) % imageArray.length]}
           prevSrc={
-            imageArray.length[
+            imageArray[
               (photoIndex + imageArray.length - 1) % imageArray.length
             ]
           }
