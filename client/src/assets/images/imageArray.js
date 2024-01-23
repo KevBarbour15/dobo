@@ -11,7 +11,19 @@ import img10 from "./dobo-10.jpg";
 import img11 from "./dobo-11.jpg";
 import img12 from "./dobo-12.jpg";
 
-const imagesArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
+const imageArray = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+];
 
-
-export { imagesArray};
+export { imageArray };

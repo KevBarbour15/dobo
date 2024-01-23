@@ -2,15 +2,14 @@
 
 - Email signup 
   - Find best/most fitting service for Sean's needs
+  - *** this is dependent on Sean being willing to pay
 
 - Consider error handling notifications 
 
 - Does Sean want to be notified when he gets a new inquiry?
   - Have email sent to Sean's email of choice and with inquiry info
-
+  
 - Set up cron job / talk to Sean about hosting etc
-
-- compress all images more / potential lazy load
 
 - redesign in figma
 

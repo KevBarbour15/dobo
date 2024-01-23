@@ -110,11 +110,12 @@
   display: flex;
   align-items: center;
   transition: all 0.25s ease-in-out;
+  position: relative;
 }
 
 .dropdown-list {
   min-width: 315px;
-  position: fixed;
+  position: absolute;
   border: 1px solid #bd9c72;
   z-index: 100;
   border-radius: 50px;
@@ -156,7 +157,7 @@
     align-items: center;
     height: 200px;
     width: 100%;
-    background-image: url("../../assets/images/dobo-7.jpg");
+    background-image: url("../../assets/thumbnail-images/dobo-7-thumb.jpg");
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid black;

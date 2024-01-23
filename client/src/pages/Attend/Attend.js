@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./attend.css";
 import axios from "../../axiosConfig.js";
 import {
@@ -52,6 +52,24 @@ const Attend = () => {
     setDate(event.date);
     setShowDropdown(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showDropdown && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    if (showDropdown) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showDropdown]);
+
+  const dropdownRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -117,7 +135,11 @@ const Attend = () => {
 
           <div className="inquiry-form">
             <form onSubmit={handleSubmit}>
-              <div className="custom-dropdown" onClick={handleDropdownToggle}>
+              <div
+                ref={dropdownRef}
+                className="custom-dropdown"
+                onClick={handleDropdownToggle}
+              >
                 <div className="dropdown-selected-value">
                   {getDisplayValue()}
                 </div>
@@ -160,7 +182,9 @@ const Attend = () => {
                 onChange={(e) => setMessage(e.target.value)}
               />
 
-              <button className="button" type="submit">Submit</button>
+              <button className="button" type="submit">
+                Submit
+              </button>
             </form>
           </div>
         </div>

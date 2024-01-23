@@ -39,7 +39,7 @@
 }
 
 .menu-close-button span:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .menu-links-container {
@@ -61,7 +61,7 @@
   transition: all 0.35s ease-in-out;
 }
 
-.menu-link:hover {
+.menu-link:active, .menu-link:hover {
   transform: scale(1.1);
 }
 

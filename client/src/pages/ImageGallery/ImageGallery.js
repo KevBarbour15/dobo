@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./image-gallery.css";
-import { imagesArray } from "../../assets/images/photoArray.js";
+import { imageArray } from "../../assets/images/imageArray.js";
+import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js";
 import Masonry from "react-masonry-css";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 const ImageGallery = () => {
   const breakpointColumnsObj = {
@@ -11,17 +14,8 @@ const ImageGallery = () => {
     500: 2,
   };
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-
-  const openLightbox = (image) => {
-    setSelectedImage(image);
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   return (
     <div className="gallery-container">
@@ -30,20 +24,38 @@ const ImageGallery = () => {
         className="masonry-grid"
         columnClassName="masonry-grid_column"
       >
-        {imagesArray.map((image) => (
-          <div className="masonry-image" onClick={() => openLightbox(image)}>
-            <img src={image} loading="lazy" alt="dobo" />
+        {thumbnailArray.map((thumbnail, index) => (
+          <div
+            className="masonry-image"
+            onClick={() => {
+              setPhotoIndex(index);
+              setIsOpen(true);
+            }}
+          >
+            <img src={thumbnail} loading="lazy" alt="dobo" />
           </div>
         ))}
       </Masonry>
 
-      {lightboxOpen && (
-        <div className="lightbox">
-          <button onClick={closeLightbox} className="lightbox-close-button">
-            <span className="material-icons">close</span>
-          </button>
-          <img src={selectedImage} loading="lazy" alt="Enlarged view" />
-        </div>
+      {isOpen && (
+        <Lightbox
+          mainSrc={imageArray[photoIndex]}
+          nextSrc={imageArray[(photoIndex + 1) % imageArray.length]}
+          prevSrc={
+            imageArray.length[
+              (photoIndex + imageArray.length - 1) % imageArray.length
+            ]
+          }
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex(
+              (photoIndex + imageArray.length - 1) % imageArray.length
+            )
+          }
+          onMoveNextRequest={() =>
+            setPhotoIndex((photoIndex + 1) % imageArray.length)
+          }
+        />
       )}
     </div>
   );
