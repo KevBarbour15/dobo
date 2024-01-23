@@ -4,14 +4,13 @@
   font-family: "Jost", sans-serif;
   animation: fadeIn 0.25s ease-in-out;
   height: 300px;
-  width: 300px;
   background-color: #efefef;
   padding-left: 20px;
 }
 
 .attendee-info {
   height: 100%;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -24,7 +23,7 @@
 .attendee-container select {
   font-family: "Jost", sans-serif;
   font-size: 18px;
-  width: 250px;
+  width: 225px;
   height: 35px;
   border: 1px solid black;
   border-radius: 25px;

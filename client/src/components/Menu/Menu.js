@@ -20,7 +20,7 @@ const Menu = ({ isOpen, onClose }) => {
           <p>ATTEND</p>
         </Link>
         <Link
-          className="menu-link outlined-text rotated-text"
+          className="menu-link outlined-text"
           to="/Contact"
           onClick={onClose}
         >
