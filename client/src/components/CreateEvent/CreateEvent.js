@@ -57,7 +57,7 @@ const CreateEvent = ({ onEventCreated }) => {
       </div>
       <div className="create-right">
         <div className="create-title-container">
-          <div className="create-title">New Event</div>
+          <div className="create-title">new event</div>
         </div>
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>

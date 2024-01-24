@@ -115,7 +115,8 @@ const Attend = () => {
     }
     return "Select a date: ";
   };
-
+  
+  // need to have it compare time to new york time
   return (
     <div id="attend" className="attend-container">
       <div className="attend-left">
@@ -125,7 +126,7 @@ const Attend = () => {
       </div>
       <div className="attend-right">
         <div className="attend-title-container">
-          <div className="attend-title">Attend</div>
+          <div className="attend-title">attend</div>
         </div>
         <div className="attend-info-container">
           <div className="attend-text">

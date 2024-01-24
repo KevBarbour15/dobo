@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   const handleScroll = () => {
-    if (window.scrollY > 1) {
+    if (window.scrollY > 5) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);

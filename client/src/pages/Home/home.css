@@ -3,16 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   opacity: 0;
   animation-name: fadeIn;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  overflow: clip;
+  overflow: hidden;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .home-image-container {
-  min-height: calc(100vh - 2px);
+  height: 100%;
   width: 100%;
   background-image: url("../../assets/images/dobo-home-horizontal.jpg");
   background-size: cover;
@@ -47,7 +48,7 @@
   padding-left: 2rem;
   color: white;
   transition: all 0.5s ease-in-out;
-  text-shadow: 1.25px 1.25px 1.25px rgba(0, 0, 0, 0.75);
+  text-shadow: 3px 3px 5px black;
 }
 
 .home-menu-button span {
@@ -70,7 +71,7 @@
 }
 
 .home-header-title {
-  font-family: "Aboreto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 0.6rem;
   letter-spacing: -1.5px;
   color: white;
@@ -85,6 +86,47 @@
 
 .home-invisible-element {
   width: 40px;
+}
+
+.home-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -1.5px;
+  color: white;
+  text-shadow: 3px 3px 5px black;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-22.5px);
+}
+
+.home-text-container h1 {
+  margin: 0;
+  opacity: 0;
+}
+
+.text-left {
+  font-size: 2rem;
+  animation-name: slideRightText;
+  animation-delay: 0.25s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.text-right {
+  font-size: 1rem;
+  animation-name: slideLeftText;
+  animation-delay: 0.25s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.home-text-container.open {
+  color: transparent;
+  text-shadow: none;
 }
 
 @media (min-width: 1025px) {
@@ -114,5 +156,17 @@
   .home-header-title {
     font-size: 0.5rem;
     text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
+  }
+
+  .text-left {
+    font-size: 1.5rem;
+    animation-delay: 0.25s;
+    animation-duration: 1s;
+  }
+
+  .text-right {
+    font-size: 0.85rem;
+    animation-delay: 0.25s;
+    animation-duration: 1s;
   }
 }

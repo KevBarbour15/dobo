@@ -26,10 +26,11 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
 .notes-text-form textarea {
-  font-family: "Jost", sans-serif;
   height: 80%;
   width: 85%;
   border: 1px solid black;
@@ -39,13 +40,11 @@
   overflow: auto;
   padding: 0.65rem;
   transition: all 0.25s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.35);
   margin: 2vh;
 }
 
 .notes-text-form textarea:focus {
-  border: 1px solid #bd9c72;
+  background-color: white;
   outline: none;
-}
-
-@media (max-width: 768px) {
 }

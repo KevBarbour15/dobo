@@ -28,10 +28,10 @@
 }
 
 .create-title {
-  font-family: "Aboreto", sans-serif;
-  letter-spacing: -3.5px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -2.5px;
   color: black;
-  text-shadow: 2px 2px 1.25px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
   margin-top: 4vh;
   animation-name: slideLeft;
   animation-duration: 1s;
@@ -51,6 +51,8 @@
 }
 
 .create-event-form form {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
@@ -58,15 +60,13 @@
 }
 
 .create-event-form p {
-  font-family: "Jost", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
 .create-event-form input {
-  font-family: "Jost", sans-serif;
   width: 225px;
   border: 1px solid black;
   font-size: 1rem;
@@ -74,19 +74,17 @@
   height: 40px;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .create-event-form select {
-  font-family: "Jost", sans-serif;
-  letter-spacing: 1.5px;
   width: 100px;
   height: 40px;
   border: 1px solid black;
   border-radius: 25px;
   padding-left: 1rem;
   box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.35);
   margin-bottom: 2vh;
 }
 
@@ -127,8 +125,8 @@
 
   .create-title {
     margin: auto;
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     color: white;
-    text-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 1);
+    text-shadow: 3px 3px 5px black;
   }
 }

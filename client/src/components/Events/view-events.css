@@ -11,11 +11,10 @@
 }
 
 .event-title {
-  font-family: "Aboreto", sans-serif;
-  font-weight: 600;
-  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   letter-spacing: -2px;
-  font-size: 25px;
+  font-size: 30px;
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
@@ -23,8 +22,9 @@
 .event-details,
 .event-options {
   width: 48%;
-  font-family: "Jost", sans-serif;
-  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .event-details {

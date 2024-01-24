@@ -26,52 +26,36 @@ code {
   }
 }
 
-@keyframes slideRight {
+@keyframes slideRightText {
   0% {
     opacity: 0;
-    font-size: 10rem;
-    transform: translateX(-400px);
+    transform: translateX(-100vw);
   }
   100% {
     opacity: 1;
-    font-size: 3.15rem;
-    transform: translateX(0px);
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes slideLeftText {
+  0% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0vw);
   }
 }
 
 @keyframes slideLeft {
   0% {
     opacity: 0;
-  
+
     transform: translateX(800px);
   }
   100% {
     opacity: 1;
-  
     transform: translateX(0px);
-  }
-}
-
-@keyframes fadeInMobile {
-  from {
-    opacity: 0;
-    transform: translateX(-800px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-75px)
-  }
-}
-
-@keyframes slideLeftMobile {
-  0% {
-    opacity: 0;
-  
-    transform: translateX(800px);
-  }
-  100% {
-    opacity: 1;
-  
-    transform: translateX(100px);
   }
 }

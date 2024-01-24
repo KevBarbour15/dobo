@@ -45,7 +45,8 @@
 }
 
 .masonry-image:hover img {
-  box-shadow: 4.25px 4.75px 5.25px black;
+  transform: scale(1.025);
+  box-shadow: 3.25px 3.25px 5.25px black;
 }
 
 .ril__toolbar {

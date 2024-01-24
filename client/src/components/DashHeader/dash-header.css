@@ -8,9 +8,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-image: url("../../assets/images/background.jpg");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.8));
   border-top: 1px solid black;
 }
 
@@ -32,7 +30,7 @@
   font-size: 1rem;
   letter-spacing: -3.5px;
   color: black;
-  text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.15);
+  //text-shadow: 1.15px 1.15px 0.85px rgba(0, 0, 0, 0.15);
 }
 
 .dash-header-links-container {
@@ -57,7 +55,8 @@
 }
 
 .dash-link-container button {
-  font-family: "Aboreto", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   text-decoration: none;
   color: black;
   background-color: transparent;

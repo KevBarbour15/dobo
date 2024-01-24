@@ -1,7 +1,7 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  font-family: "Jost", sans-serif;
+  font-family: "Poppins", sans-serif;
   animation: fadeIn 0.25s ease-in-out;
   height: 300px;
   background-color: #efefef;
@@ -21,7 +21,7 @@
 }
 
 .attendee-container select {
-  font-family: "Jost", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   width: 225px;
   height: 35px;
@@ -33,11 +33,12 @@
   margin-bottom: 1vh;
   box-shadow: 1.25px 1.25px 2.5px black;
   transition: all 0.25s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .attendee-container select:focus {
+  background-color: white;
   outline: none;
-  border: 1px solid #bd9c72;
 }
 
 .attendee-email {

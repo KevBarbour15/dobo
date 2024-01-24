@@ -18,16 +18,15 @@
 }
 
 .contact-title {
-  font-family: "Aboreto", sans-serif;
+  font-family: "Poppins", sans-serif;
   letter-spacing: -2.5px;
   color: black;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 4vh;
   animation-name: slideLeft;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  font-size: 3.15rem;
-  transform: translateX(800px);
+  font-size: 4.75rem;
   opacity: 0;
 }
 
@@ -45,8 +44,10 @@
 .contact-email p {
   margin-top: 2vh;
   margin-bottom: 2vh;
-  font-family: "Jost", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 .contact-logo {
@@ -76,8 +77,10 @@
 .subscribe-container p {
   margin-top: 2vh;
   margin-bottom: 2vh;
-  font-family: "Jost", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 .subscribe-email {
@@ -98,7 +101,7 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   font-family: "Jost", sans-serif;
   transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .subscribe-email input:focus {
@@ -137,9 +140,9 @@
 
   .contact-title {
     margin: auto;
-    font-size: 3.75rem;
+    font-size: 3rem;
     color: #efefef;
-    text-shadow: 3px 3px 1.5px black;
+    text-shadow: 3px 3px 10px black;
   }
 
   .contact-info-container {

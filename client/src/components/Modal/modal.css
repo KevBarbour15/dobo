@@ -32,10 +32,10 @@
 }
 
 .modal-header p {
-  font-family: "Jost", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: bold;
   color: black;
 }
 
