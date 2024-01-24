@@ -74,6 +74,7 @@
   height: 40px;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .create-event-form select {
@@ -85,13 +86,14 @@
   border-radius: 25px;
   padding-left: 1rem;
   box-shadow: 1.25px 1.25px 2.5px black;
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 2vh;
 }
 
 .create-event-form input:focus,
 .create-event-form select:focus,
 .create-event-form textarea:focus {
-  border: 1px solid #bd9c72;
+  background-color: white;
   outline: none;
 }
 
@@ -104,15 +106,17 @@
   }
 
   .create-title-container {
+    margin-top: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 100%;
-    background-image: url("../../assets/images/dobo-8.jpg");
+    height: 250px;
+    width: 90%;
+    background-image: url("../../assets/thumbnail-images/dobo-8-thumb.jpg");
     background-size: cover;
     background-position: center;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    box-shadow: 1.25px 1.25px 2.5px black;
     top: 0;
     animation-name: fadeIn;
     animation-duration: 0.7s;

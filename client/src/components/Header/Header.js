@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./header.css";
 import Menu from "../Menu/Menu.js";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,8 +14,24 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 1) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header-container">
+    <header className={isScrolled ? 'header-container-scrolled' : 'header-container'}>
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
       <div className="header-menu-container">
         <div className="header-menu">
@@ -27,7 +44,7 @@ const Header = () => {
         </div>
       </div>
       <div className="header-title-container">
-        <div  className={`header-title ${isMenuOpen ? "open" : ""}`}>
+        <div className={`header-title ${isMenuOpen ? "open" : ""}`}>
           <h1>DOBO</h1>
         </div>
       </div>

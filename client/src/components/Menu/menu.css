@@ -39,7 +39,7 @@
 }
 
 .menu-close-button span:hover {
-  transform: scale(1.15);
+  transform: scale(1.25);
 }
 
 .menu-links-container {
@@ -54,7 +54,8 @@
 
 .menu-link {
   font-family: "Aboreto", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3.65rem;
+  line-height: 1.25;
   letter-spacing: -3.5px;
   color: white;
   text-decoration: none;
@@ -63,7 +64,7 @@
 
 .menu-link:active,
 .menu-link:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .menu-link p {
@@ -74,9 +75,19 @@
   font-weight: bold;
 }
 
+.bold-text:hover {
+  font-weight: normal;
+  -webkit-text-stroke: 0.75px white;
+  color: transparent;
+}
+
 .outlined-text {
   -webkit-text-stroke: 0.75px white;
   color: transparent;
+}
+
+.outlined-text:hover {
+  color: white;
 }
 
 .menu-link:hover {

@@ -52,12 +52,6 @@
   background-color: transparent !important;
 }
 
-/*
-.ril__navButtonNext {
-  background: red !important;
-}
-*/
-
 @media (max-width: 768px) {
   .gallery-container {
     min-height: calc(100vh - 58px);
