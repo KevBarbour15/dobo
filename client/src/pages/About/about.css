@@ -1,5 +1,5 @@
 .about-container {
-  min-height: calc(100vh - 58px);
+  height: calc(100vh - 55px);
   display: flex;
   overflow-y: auto;
 }
@@ -86,7 +86,8 @@
   .about-title {
     margin: auto;
     font-size: 3rem;
-    color: #efefef;
+    color: black;
+    -webkit-text-stroke: 0.5px #efefef;
     text-shadow: 3px 3px 10px black;
   }
 

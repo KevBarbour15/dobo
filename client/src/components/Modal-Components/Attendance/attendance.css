@@ -9,7 +9,7 @@
   opacity: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
-  grid-gap: 10px;
+  grid-gap: 1px;
   background-color: black;
 }
 

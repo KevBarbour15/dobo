@@ -1,5 +1,5 @@
 .attend-container {
-  min-height: calc(100vh - 58px);
+  height: calc(100vh - 55px);
   display: flex;
   font-family: "Poppins", sans-serif;
 }
@@ -74,6 +74,7 @@
 }
 
 .inquiry-form textarea {
+  font-family: "Poppins", sans-serif;
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -90,7 +91,13 @@
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
   outline: none;
-  background-color: white;
+  //background-color: white;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 10)
+  );
+  transform: scale(1.05);
 }
 
 .custom-dropdown {
@@ -120,7 +127,8 @@
   z-index: 100;
   border-radius: 50px;
   box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: white;
+  background: white;
+  transform: scale(1.05);
   cursor: pointer;
   display: flex;
   flex-direction: column;

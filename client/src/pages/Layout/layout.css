@@ -48,7 +48,12 @@
 }
 
 .button:hover {
-  background-color: white;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 10)
+  );
+  transform: scale(1.05);
 }
 
 .button:active {

@@ -1,19 +1,1 @@
 // this is for once we can the animations correct and can get rid of a lot of redundant styling
-
-.page-title-container {
-  display: flex;
-  width: 80%;
-}
-
-.page-title {
-  font-family: "Aboreto", sans-serif;
-  letter-spacing: -3.5px;
-  color: black;
-  margin-top: 4vh;
-  animation-name: slideRight;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  font-size: 8rem;
-  transform: translateX(-600px);
-  opacity: 0;
-}

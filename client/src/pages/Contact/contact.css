@@ -1,5 +1,5 @@
 .contact-container {
-  min-height: calc(100vh - 58px);
+  height: calc(100vh - 55px);
   display: flex;
 }
 

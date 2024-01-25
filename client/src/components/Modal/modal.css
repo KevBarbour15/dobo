@@ -32,8 +32,9 @@
 }
 
 .modal-header p {
-  font-family: "Poppins", sans-serif;
+  font-family: "Aboreto", sans-serif;
   font-weight: 700;
+  letter-spacing: -3px;
   font-size: 1.5rem;
   text-transform: uppercase;
   color: black;
