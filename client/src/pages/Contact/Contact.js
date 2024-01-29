@@ -25,33 +25,38 @@ const Contact = () => {
       </div>
       <div className="contact-right">
         <div className="contact-title-container">
+          <div className="contact-title-img">{/* placeholder */}</div>
           <div className="contact-title">contact</div>
         </div>
         <div className="contact-info-container">
-          <div className="contact-text">
-            <div className="contact-ig">
-              <p>Instagram:</p>
-              <a
-                className="contact-logo"
-                href="https://www.instagram.com/dobonyc"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon className="logo-icon" icon={faInstagram} />
-              </a>
+          <div className="subscribe-container">
+            <p>Be the first to know about Dobo's next dinner:</p>
+            <div className="subscribe-email">
+              <input placeholder="Email" required></input>
+              <button className="button" onClick={handleSubscribe}>
+                Subscribe
+              </button>
             </div>
 
-            <div className="contact-email">
-              <p>All other inquiries:</p>
-              <a className="contact-logo" href="mailto:dobonyc@gmail.com">
-                <FontAwesomeIcon className="logo-icon" icon={faEnvelope} />
-              </a>
-            </div>
-            <div className="subscribe-container">
-              <p>Be the first to know about Dobo's next dinner:</p>
-              <div className="subscribe-email">
-                <input placeholder="Email" required></input>
-                <button className="button" onClick={handleSubscribe}>Subscribe</button>
+            <div className="contact-links-container">
+              <p>For any information or inquiries:</p>
+              <div className="contact-icons">
+                <div className="contact-icon">
+                  <a
+                    className="item"
+                    href="https://www.instagram.com/dobonyc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon className="icon" icon={faInstagram} />
+                  </a>
+                </div>
+
+                <div className="contact-icon">
+                  <a className="item" href="mailto:dobonyc@gmail.com">
+                    <FontAwesomeIcon className="icon" icon={faEnvelope} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

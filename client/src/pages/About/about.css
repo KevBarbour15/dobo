@@ -68,13 +68,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 90%;
-    background-image: url("../../assets/thumbnail-images/dobo-7-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
+    height: 225px;
+    width: 315px;
     top: 0;
     animation-name: fadeIn;
     animation-duration: 0.7s;
@@ -83,16 +78,37 @@
     opacity: 0;
   }
 
-  .about-title {
-    margin: auto;
-    font-size: 3rem;
-    color: black;
-    -webkit-text-stroke: 0.5px #efefef;
-    text-shadow: 3px 3px 10px black;
+  .about-title-img {
+    height: 100%;
+    width: 50%;
+    background-image: url("../../assets/thumbnail-images/dobo-7-thumb.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    box-shadow: 1.25px 1.25px 2.5px black;
   }
 
   .about-info-container {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+  }
+
+  .about-title {
+    width: 50%;
+    margin: auto;
+    font-size: 2.5rem;
+    animation: slideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    text-align: center;
+  }
+
+  .about-info-container {
+    width: 315px;
     height: auto;
   }
 

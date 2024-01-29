@@ -1,5 +1,5 @@
 .attend-container {
-  height: calc(100vh - 55px);
+  min-height: calc(100vh - 55px);
   display: flex;
   font-family: "Poppins", sans-serif;
 }
@@ -11,6 +11,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.attend-right {
+  margin: 0 0 8vh 0;
 }
 
 .attend-title-container {
@@ -32,7 +36,6 @@
 
 .attend-info-container {
   opacity: 0;
-  height: calc(100vh - 58px - 110px);
   width: 80%;
   animation-name: fadeIn;
   animation-duration: 0.75s;
@@ -41,7 +44,8 @@
 }
 
 .attend-text {
-  font-size: 20px;
+  width: 65%;
+  font-size: 15px;
   margin-top: 2vh;
   margin-bottom: 2vh;
   font-weight: 400;
@@ -59,7 +63,8 @@
   font-weight: 400;
 }
 
-.inquiry-form input {
+.inquiry-form input,
+.inquiry-form select {
   width: 250px;
   border: 1px solid black;
   font-size: 1rem;
@@ -88,15 +93,9 @@
 }
 
 .inquiry-form input:focus,
-.inquiry-form select:focus,
 .inquiry-form textarea:focus {
   outline: none;
-  //background-color: white;
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 10)
-  );
+  background: white;
   transform: scale(1.05);
 }
 
@@ -151,6 +150,10 @@
 }
 
 @media (max-width: 768px) {
+  .attend-container {
+    height: auto;
+  }
+
   .attend-left {
     display: none;
   }
@@ -164,13 +167,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 90%;
-    background-image: url("../../assets/thumbnail-images/dobo-4-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
+    height: 225px;
+    width: 315px;
     top: 0;
     animation-name: fadeIn;
     animation-duration: 0.7s;
@@ -179,16 +177,56 @@
     opacity: 0;
   }
 
+  .attend-title-img {
+    height: 100%;
+    width: 50%;
+    background-image: url("../../assets/thumbnail-images/dobo-3-thumb.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    box-shadow: 1.25px 1.25px 2.5px black;
+  }
+
+  .attend-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+  }
+
   .attend-title {
+    width: 50%;
     margin: auto;
-    font-size: 3rem;
-    color: #efefef;
-    text-shadow: 3px 3px 10px black;
+    font-size: 2.5rem;
+    animation: slideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    text-align: center;
   }
 
   .attend-info-section {
     animation-delay: 0.4s;
   }
+
+  .attend-text {
+    width: 315px;
+    font-size: 15px;
+  }
+
+  .inquiry-form form {
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+  }
+
+  .inquiry-form input,
+  .inquiry-form textarea,
+  .custom-dropdown {
+    width: 315px;
+  }
+
   .inquiry-form textarea {
     height: 18vh;
   }

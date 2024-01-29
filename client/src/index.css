@@ -51,11 +51,21 @@ code {
 @keyframes slideLeft {
   0% {
     opacity: 0;
-
     transform: translateX(800px);
   }
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+@keyframes slideLeftMobile {
+  0% {
+    opacity: 0;
+    transform: translateX(800px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%);
   }
 }

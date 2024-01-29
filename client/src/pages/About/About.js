@@ -11,6 +11,7 @@ const About = () => {
       </div>
       <div className="about-right">
         <div className="about-title-container">
+          <div className="about-title-img">{/* placeholder */}</div>
           <div className="about-title">about</div>
         </div>
         <div className="about-info-container">

@@ -1,5 +1,5 @@
 .contact-container {
-  height: calc(100vh - 55px);
+  height: calc(100vh - 50px);
   display: flex;
 }
 
@@ -10,6 +10,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.contact-right {
+  margin: 0 0 4vh 0;
 }
 
 .contact-title-container {
@@ -32,7 +36,6 @@
 
 .contact-info-container {
   opacity: 0;
-  height: calc(100vh - 58px - 110px);
   width: 80%;
   animation-name: fadeIn;
   animation-duration: 0.75s;
@@ -40,47 +43,22 @@
   animation-fill-mode: forwards;
 }
 
-.contact-ig p,
-.contact-email p {
+.subscribe-container p,
+.contact-links-container p {
   margin-top: 2vh;
   margin-bottom: 2vh;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
-.contact-logo {
-  cursor: default;
-}
-
-.logo-icon {
-  display: flex;
-  justify-content: space-between;
-  color: black;
-  cursor: pointer;
-  transition: all 0.25s ease-in-out;
-  font-size: 4.25vh;
-}
-
-.logo-icon:hover {
-  filter: drop-shadow(2.75px 2.75px 3.75px rgba(0, 0, 0, 0.75));
-}
-
-.subscribe-container {
+.subscribe-container,
+.contact-links-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-}
-
-.subscribe-container p {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.5;
 }
 
 .subscribe-email {
@@ -101,15 +79,81 @@
   box-shadow: 1.25px 1.25px 2.5px black;
   font-family: "Jost", sans-serif;
   transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .subscribe-email input:focus {
-  background-color: white;
+  background: white;
   outline: none;
 }
 
+.contact-links-container {
+  display: flex;
+  margin-top: 4vh;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-icons {
+  display: flex;
+}
+
+.contact-icons a {
+  margin: 0 2vw 0 0;
+}
+
+.item {
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 1.25px 1.25px 2.5px black;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.icon {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: black;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.item:hover .icon {
+  transform: rotateX(360deg);
+}
+
+.item:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.5), white);
+  transition: 0.25s;
+  z-index: 2;
+}
+
+.item:hover:before {
+  top: 0;
+}
+
 @media screen and (max-width: 768px) {
+  .contact-container {
+    min-height: auto;
+  }
+
   .contact-left {
     display: none;
   }
@@ -123,13 +167,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 90%;
-    background-image: url("../../assets/thumbnail-images/dobo-5-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
+    height: 225px;
+    width: 315px;
     top: 0;
     animation-name: fadeIn;
     animation-duration: 0.7s;
@@ -138,14 +177,58 @@
     opacity: 0;
   }
 
-  .contact-title {
-    margin: auto;
-    font-size: 3rem;
-    color: #efefef;
-    text-shadow: 3px 3px 10px black;
+  .contact-title-img {
+    height: 100%;
+    width: 50%;
+    background-image: url("../../assets/thumbnail-images/dobo-3-thumb.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    box-shadow: 1.25px 1.25px 2.5px black;
   }
 
   .contact-info-container {
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+  }
+
+  .contact-title {
+    width: 50%;
+    margin: auto;
+    font-size: 2.5rem;
+    animation: slideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    text-align: center;
+  }
+
+  .subscribe-container,
+  .contact-links-container {
+    width: 315px;
+  }
+
+  .subscribe-container p,
+  .contact-links-container p {
+    margin-top: 3vh;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -1.35px;
+    line-height: 1.15;
+  }
+
+  .subscribe-email {
+    width: 315px;
+  }
+
+  .subscribe-email input {
+    width: 275px;
+  }
+
+  .contact-icons a {
+    margin: 0 5vw 0 0;
   }
 }
