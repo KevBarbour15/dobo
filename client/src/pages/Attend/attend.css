@@ -199,11 +199,11 @@
   .attend-title {
     width: 50%;
     margin: auto;
-    font-size: 2.5rem;
+    font-size: 2.85rem;
     animation: slideLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    text-align: center;
+    text-align: right;
   }
 
   .attend-info-section {
@@ -212,7 +212,13 @@
 
   .attend-text {
     width: 315px;
-    font-size: 15px;
+    font-size: 20px;
+    margin-top: 3vh;
+    font-weight: 700;
+    letter-spacing: -1.35px;
+    line-height: 1.15;
+    text-align: justify;
+
   }
 
   .inquiry-form form {
@@ -224,7 +230,7 @@
   .inquiry-form input,
   .inquiry-form textarea,
   .custom-dropdown {
-    width: 315px;
+    width: 275px;
   }
 
   .inquiry-form textarea {

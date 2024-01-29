@@ -100,11 +100,11 @@
   .about-title {
     width: 50%;
     margin: auto;
-    font-size: 2.5rem;
+    font-size: 2.85rem;
     animation: slideLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    text-align: center;
+    text-align: right;
   }
 
   .about-info-container {
