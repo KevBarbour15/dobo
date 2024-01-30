@@ -16,6 +16,7 @@ const Contact = () => {
     showSuccessNotification(enqueueSnackbar, "Feature coming soon.");
   };
 
+  // separate the 2 links and make sure it extends on mobile
   return (
     <div className="contact-container">
       <div className="contact-left">
@@ -39,11 +40,11 @@ const Contact = () => {
             </div>
 
             <div className="contact-links-container">
-              <p>For any information or inquiries:</p>
               <div className="contact-icons">
                 <div className="contact-icon">
+                  <p>Follow Dobo NYC on Instagram:</p>
                   <a
-                    className="item"
+                    className="item ig"
                     href="https://www.instagram.com/dobonyc"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -53,7 +54,8 @@ const Contact = () => {
                 </div>
 
                 <div className="contact-icon">
-                  <a className="item" href="mailto:dobonyc@gmail.com">
+                  <p>For all inquiries, contact us here:</p>
+                  <a className="item email" href="mailto:dobonyc@gmail.com">
                     <FontAwesomeIcon className="icon" icon={faEnvelope} />
                   </a>
                 </div>

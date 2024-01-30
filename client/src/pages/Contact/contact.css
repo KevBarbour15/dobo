@@ -95,13 +95,21 @@
 }
 
 .contact-icons {
+  
+}
+
+.contact-icon{
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
 }
 
-.contact-icons a {
-  margin: 0 2vw 0 0;
+.contact-icon p {
+  width: 125px;
+  margin: 4vh 2vw 4vh 0;
+  
 }
-
 .item {
   width: 65px;
   height: 65px;
@@ -130,6 +138,7 @@
 }
 
 .item:hover .icon {
+  color: white;
   transform: rotateX(360deg);
 }
 
@@ -140,9 +149,31 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.5), white);
   transition: 0.25s;
   z-index: 2;
+}
+
+.item.email:before {
+  background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);
+}
+
+.item.ig:before {
+  background: radial-gradient(
+      circle farthest-corner at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    ),
+    radial-gradient(
+      circle farthest-corner at 70% 90%,
+      #ffdb2d 0%,
+      #ffdb2d 5%,
+      #ff640c 45%,
+      #c709c7 60%,
+      #285aeb 90%
+    );
 }
 
 .item:hover:before {
@@ -151,7 +182,7 @@
 
 @media screen and (max-width: 768px) {
   .contact-container {
-    min-height: auto;
+    height: auto;
   }
 
   .contact-left {
