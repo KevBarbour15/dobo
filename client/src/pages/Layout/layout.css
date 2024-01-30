@@ -10,54 +10,6 @@
   border-right: 1px solid black;
 }
 
-.image-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-delay: 0.25s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-}
-
-.image-container img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  //box-shadow: 1.25px 1.25px 2.5px black;
-}
-
-.button {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  width: 170px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: all 0.25s ease-in-out;
-  text-transform: lowercase;
-}
-
-.button:hover {
-  background: white;
-  transform: scale(1.075);
-}
-
-.button:active {
-  background-color: white;
-  box-shadow: 0.15px 0.15px 0.15px black;
-}
-
 @media (min-width: 1025px) {
   .main-page-container {
     width: 75%;

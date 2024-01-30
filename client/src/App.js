@@ -1,3 +1,5 @@
+import "./App.css";
+
 import { useState } from "react";
 import Layout from "./pages/Layout/Layout";
 import EventDash from "./pages/EventDash/EventDash";

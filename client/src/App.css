@@ -1,0 +1,118 @@
+/* For images on the main pages */
+.image-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 1.25px 1.25px 2.5px black;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.icon {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: black;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.item:hover .icon {
+  color: white;
+  transform: rotateX(360deg);
+}
+
+.item:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.25s;
+  z-index: 2;
+}
+
+.item.email:before {
+  background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);
+}
+
+.item.ig:before {
+  background: radial-gradient(
+      circle farthest-corner at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    ),
+    radial-gradient(
+      circle farthest-corner at 70% 90%,
+      #ffdb2d 0%,
+      #ffdb2d 5%,
+      #ff640c 45%,
+      #c709c7 60%,
+      #285aeb 90%
+    );
+}
+
+.item:hover:before {
+  top: 0;
+}
+
+/* For button styling */
+.button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  width: 170px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1.25px 1.25px 2.5px black;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease-in-out;
+  text-transform: lowercase;
+}
+
+.button:hover {
+  background: white;
+  transform: scale(1.075);
+}
+
+.button:active {
+  background-color: white;
+  box-shadow: 0.15px 0.15px 0.15px black;
+}

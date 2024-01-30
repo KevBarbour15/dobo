@@ -13,12 +13,6 @@ app.get("/", (req, res) => {
   res.send("Server is up and running.");
 });
 
-// to avoid cold starts on render for now
-app.get("/ping", (req, res) => {
-  console.log("Ping Pong");
-  res.send("Pong");
-});
-
 const authRoutes = require("./routes/auth");
 const eventsRoutes = require("./routes/events");
 const attendeesRoutes = require("./routes/attendees");

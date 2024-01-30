@@ -42,9 +42,7 @@ const ImageGallery = () => {
           mainSrc={imageArray[photoIndex]}
           nextSrc={imageArray[(photoIndex + 1) % imageArray.length]}
           prevSrc={
-            imageArray[
-              (photoIndex + imageArray.length - 1) % imageArray.length
-            ]
+            imageArray[(photoIndex + imageArray.length - 1) % imageArray.length]
           }
           onCloseRequest={() => setIsOpen(false)}
           onMovePrevRequest={() =>

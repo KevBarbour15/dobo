@@ -38,28 +38,23 @@ const Contact = () => {
                 Subscribe
               </button>
             </div>
+          </div>
+          <div className="contact-icons">
+            <div className="contact-icon">
+              <a
+                className="item ig"
+                href="https://www.instagram.com/dobonyc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon className="icon" icon={faInstagram} />
+              </a>
+            </div>
 
-            <div className="contact-links-container">
-              <div className="contact-icons">
-                <div className="contact-icon">
-                  <p>Follow Dobo NYC on Instagram:</p>
-                  <a
-                    className="item ig"
-                    href="https://www.instagram.com/dobonyc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon className="icon" icon={faInstagram} />
-                  </a>
-                </div>
-
-                <div className="contact-icon">
-                  <p>For all inquiries, contact us here:</p>
-                  <a className="item email" href="mailto:dobonyc@gmail.com">
-                    <FontAwesomeIcon className="icon" icon={faEnvelope} />
-                  </a>
-                </div>
-              </div>
+            <div className="contact-icon">
+              <a className="item email" href="mailto:dobonyc@gmail.com">
+                <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              </a>
             </div>
           </div>
         </div>

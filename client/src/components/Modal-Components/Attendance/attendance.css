@@ -1,6 +1,5 @@
 .attendance-container {
   min-width: 300px;
-  max-width: 610px;
   max-height: 610px;
   overflow-y: scroll;
 }
@@ -19,7 +18,7 @@
 
 .no-attendees-container {
   height: 300px;
-  min-width: 300px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;

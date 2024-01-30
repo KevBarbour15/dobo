@@ -35,17 +35,20 @@
 }
 
 .contact-info-container {
+  flex: 1;
   opacity: 0;
   width: 80%;
   animation-name: fadeIn;
   animation-duration: 0.75s;
   animation-delay: 0.75s;
   animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.subscribe-container p,
-.contact-links-container p {
-  margin-top: 2vh;
+.subscribe-container p {
+  margin-top: 4vh;
   margin-bottom: 2vh;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -54,10 +57,8 @@
   letter-spacing: -1.35px;
 }
 
-.subscribe-container,
-.contact-links-container {
+.subscribe-container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   width: 100%;
 }
@@ -88,97 +89,17 @@
   outline: none;
 }
 
-.contact-links-container {
+.contact-icons {
   display: flex;
-  margin-top: 4vh;
-  width: 100%;
-  height: 100%;
+  margin-top: auto;
 }
 
-.contact-icon {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
+.contact-icons .item {
+  margin-right: 2vw;
 }
-
-.contact-icon p {
-  width: 125px;
-  margin: 4vh 2vw 4vh 0;
-}
-.item {
-  width: 65px;
-  height: 65px;
-  text-align: center;
-  font-size: 30px;
-  display: flex;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid black;
-  z-index: 1;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.icon {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  color: black;
-  transition: 0.5s;
-  z-index: 3;
-}
-
-.item:hover .icon {
-  color: white;
-  transform: rotateX(360deg);
-}
-
-.item:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: 0.25s;
-  z-index: 2;
-}
-
-.item.email:before {
-  background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);
-}
-
-.item.ig:before {
-  background: radial-gradient(
-      circle farthest-corner at 30% 107%,
-      #fdf497 0%,
-      #fdf497 5%,
-      #fd5949 45%,
-      #d6249f 60%,
-      #285aeb 90%
-    ),
-    radial-gradient(
-      circle farthest-corner at 70% 90%,
-      #ffdb2d 0%,
-      #ffdb2d 5%,
-      #ff640c 45%,
-      #c709c7 60%,
-      #285aeb 90%
-    );
-}
-
-.item:hover:before {
-  top: 0;
-}
-
 @media screen and (max-width: 768px) {
   .contact-container {
-    height: auto;
+    min-height: calc(100vh - 58px);
   }
 
   .contact-left {
@@ -216,10 +137,6 @@
   }
 
   .contact-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 315px;
   }
 
@@ -253,9 +170,5 @@
 
   .subscribe-email input {
     width: 275px;
-  }
-
-  .contact-icons a {
-    margin: 0 5vw 0 0;
   }
 }

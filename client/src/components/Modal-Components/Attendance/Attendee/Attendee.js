@@ -68,7 +68,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
             </a>
           </div>
           <div className="attendee-message">
-            <p>{attendee.message ? "- " + attendee.message : ""}</p>
+            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
           </div>
           <select value={status} onChange={handleStatusChange}>
             <option value="Confirmed">Confirmed</option>
