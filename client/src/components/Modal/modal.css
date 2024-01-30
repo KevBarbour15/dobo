@@ -31,11 +31,10 @@
   background-color: #efefef;
 }
 
-.modal-header p {
+.modal-header  {
   font-family: "Aboreto", sans-serif;
-  font-weight: 700;
-  letter-spacing: -3px;
-  font-size: 1.5rem;
+  font-size: 25px;
+  letter-spacing: -4px;
   text-transform: uppercase;
   color: black;
 }

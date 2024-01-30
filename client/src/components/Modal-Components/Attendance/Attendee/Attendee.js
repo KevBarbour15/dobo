@@ -56,15 +56,17 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     <div className="attendee-container">
       {eventTiming === "upcoming" ? (
         <div className="attendee-info">
-          <p>{attendee.name}</p>
-          <a
-            className="attendee-email"
-            href={`mailto:${
-              attendee.email
-            }?subject=Dobo ${convertDateReadability(date)}`}
-          >
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+          <div className="contact-icon">
+            <p className="attendee-name">{attendee.name}</p>
+            <a
+              className="item email"
+              href={`mailto:${
+                attendee.email
+              }?subject=Dobo ${convertDateReadability(date)}`}
+            >
+              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+            </a>
+          </div>
           <div className="attendee-message">
             <p>{attendee.message ? "- " + attendee.message : ""}</p>
           </div>
@@ -80,19 +82,23 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               {generateSeats()}
             </select>
           )}
-          <button className="button" onClick={handleSave}>Update</button>
+          <button className="button" onClick={handleSave}>
+            Update
+          </button>
         </div>
       ) : attendee.status === "Confirmed" ? (
         <div className="attendee-info">
-          <p>{attendee.name}</p>
-          <a
-            className="attendee-email"
-            href={`mailto:${
-              attendee.email
-            }?subject=Dobo ${convertDateReadability(date)}`}
-          >
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+          <div className="contact-icon">
+            <p className="attendee-name">{attendee.name}</p>
+            <a
+              className="item email"
+              href={`mailto:${
+                attendee.email
+              }?subject=Dobo ${convertDateReadability(date)}`}
+            >
+              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+            </a>
+          </div>
           <p>Seats: {attendee.seats}</p>
         </div>
       ) : (

@@ -52,7 +52,8 @@
 
 .create-event-form form {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
+  letter-spacing: -1.35px;
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
@@ -108,13 +109,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 90%;
-    background-image: url("../../assets/thumbnail-images/dobo-8-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
+    height: 225px;
+    width: 315px;
     top: 0;
     animation-name: fadeIn;
     animation-duration: 0.7s;
@@ -123,10 +119,56 @@
     opacity: 0;
   }
 
+  .create-title-img {
+    height: 100%;
+    width: 50%;
+    background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    box-shadow: 1.25px 1.25px 2.5px black;
+  }
+
+  .create-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+  }
+
   .create-title {
+    width: 50%;
     margin: auto;
-    font-size: 3.25rem;
-    color: white;
-    text-shadow: 3px 3px 5px black;
+    font-size: 2.85rem;
+    animation: slideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    text-align: right;
+  }
+
+  .create-event-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .create-event-form input,
+  .create-event-form {
+    width: 275px;
+  }
+
+  .seats-title {
+    margin: auto;
+  }
+
+  .seats {
+    width: 25px;
+    margin: auto;
+  }
+
+  .create-event-form button {
+    margin: auto;
   }
 }

@@ -1,5 +1,5 @@
 .notes-container {
-  height: 700px;
+  height: 800px;
   width: 500px;
   max-width: 90vw;
   max-height: 70vh;
@@ -8,6 +8,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.notes-container .button {
+  margin: 0 0 2vh 0;
 }
 
 .notes-text-form {
@@ -32,7 +36,7 @@
 
 .notes-text-form textarea {
   height: 80%;
-  width: 85%;
+  width: 80%;
   border: 1px solid black;
   font-size: 1rem;
   border-radius: 20px;

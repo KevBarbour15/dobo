@@ -1,5 +1,5 @@
 .contact-container {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 58px);
   display: flex;
 }
 
@@ -48,9 +48,10 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.5;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: -1.35px;
 }
 
 .subscribe-container,
@@ -94,11 +95,7 @@
   height: 100%;
 }
 
-.contact-icons {
-  
-}
-
-.contact-icon{
+.contact-icon {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -108,7 +105,6 @@
 .contact-icon p {
   width: 125px;
   margin: 4vh 2vw 4vh 0;
-  
 }
 .item {
   width: 65px;
@@ -244,7 +240,7 @@
 
   .subscribe-container p,
   .contact-links-container p {
-    margin-top: 3vh;
+    margin-top: 4vh;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -1.35px;

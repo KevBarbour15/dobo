@@ -24,11 +24,12 @@
 }
 
 .image-container img {
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  border: 1px solid black;
-  box-shadow: 1.25px 1.25px 2.5px black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  //box-shadow: 1.25px 1.25px 2.5px black;
 }
 
 .button {

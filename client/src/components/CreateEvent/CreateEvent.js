@@ -56,41 +56,43 @@ const CreateEvent = ({ onEventCreated }) => {
         </div>
       </div>
       <div className="create-right">
-        <div className="create-title-container">
+      <div className="create-title-container">
+          <div className="create-title-img">{/* placeholder */}</div>
           <div className="create-title">new event</div>
         </div>
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
-            <p>Name:</p>
+            <p>event name:</p>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
-            <p>Price:</p>
+            <p>price:</p>
             <input
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
             />
-            <p>Date:</p>
+            <p>date:</p>
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
             />
-            <p>Time:</p>
+            <p>time:</p>
             <input
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
               required
             />
-            <p>Seats:</p>
+            <p className="seats-title">seats:</p>
             <select
+              className="seats"
               placeholder="Seats"
               value={seats}
               onChange={(e) => setSeats(formatDate(e.target.value))}

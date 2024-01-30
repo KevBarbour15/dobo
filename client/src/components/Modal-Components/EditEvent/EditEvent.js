@@ -69,25 +69,25 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       <div className="edit-event-form">
         <form onSubmit={handleSubmit}>
           <div className="event-label">
-            <label>Title:</label>
+            <label>title:</label>
             <input t type="text" value={title} onChange={handleTitleChange} />
           </div>
           <div className="event-label">
-            <label>Price:</label>
+            <label>price:</label>
             <input type="number" value={price} onChange={handlePriceChange} />
           </div>
           <div className="event-label">
-            <label>Date:</label>
+            <label>date:</label>
             <input type="date" value={date} onChange={handleDateChange} />
           </div>
           <div className="event-label">
-            <label>Time:</label>
+            <label>time:</label>
             <input type="time" value={time} onChange={handleTimeChange} />
           </div>
           <div className="seating-container">
             <div className="seating-labels">
-              <label> Attendees: {committed}</label>
-              <label> Seats: {seats}</label>
+              <label> attendees: {committed}</label>
+              <label> seats: {seats}</label>
             </div>
             <div className="count-button-container">
               <span

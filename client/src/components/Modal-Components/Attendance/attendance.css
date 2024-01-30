@@ -27,7 +27,8 @@
 
 .no-attendees-container p {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 20px;
   color: black;
+  letter-spacing: -1.35px;
 }

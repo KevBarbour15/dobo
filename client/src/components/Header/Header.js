@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./header.css";
 import Menu from "../Menu/Menu.js";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,24 +13,8 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const handleScroll = () => {
-    if (window.scrollY > 5) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <header className={isScrolled ? 'header-container-scrolled' : 'header-container'}>
+    <header className="header-container">
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
       <div className="header-menu-container">
         <div className="header-menu">
