@@ -32,7 +32,7 @@
 }
 
 .menu-close-button span {
-  font-size: 1.25rem;
+  font-size: 20px;
   transition: all 0.35s ease-in-out;
   color: white;
   cursor: pointer;
@@ -53,10 +53,12 @@
 }
 
 .menu-link {
-  font-family: "Aboreto", sans-serif;
-  font-size: 3.65rem;
-  line-height: 1.25;
-  letter-spacing: -3.5px;
+  //font-family: "Didot", serif;
+  letter-spacing: -2.5px;
+  //letter-spacing: -1.5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
   color: white;
   text-decoration: none;
   transition: all 0.35s ease-in-out;
@@ -65,33 +67,32 @@
 .menu-link:active,
 .menu-link:hover {
   transform: scale(1.2);
-}
-
-.menu-link p {
-  margin: -0.35rem;
-}
-
-.bold-text {
-  font-weight: bold;
-}
-
-.bold-text:hover {
   font-weight: normal;
   -webkit-text-stroke: 0.75px white;
   color: transparent;
 }
 
-.outlined-text {
-  -webkit-text-stroke: 0.75px white;
-  color: transparent;
-}
-
-.outlined-text:hover {
-  color: white;
+.menu-link {
+  margin: -0.4rem;
 }
 
 .menu-link:hover {
   cursor: pointer;
+}
+
+.menu-login {
+  align-self: flex-start;
+}
+
+.menu-login button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.menu-login span {
+  font-size: 18px;
 }
 
 @media (min-width: 1025px) {
@@ -108,9 +109,5 @@
 
   .menu-close-button {
     left: 0.05rem;
-  }
-
-  .menu-link {
-    font-size: 3rem;
   }
 }

@@ -15,25 +15,30 @@
   padding-left: 15px;
 }
 
-.footer-login button {
+.footer-icons {
   display: flex;
-  cursor: pointer;
-  padding-right: 15px;
-  background-color: transparent;
-  border: none;
-  color: black;
+  flex-direction: row;
+  padding-right: 10px;
 }
 
-.footer-login span {
-  font-size: 1.25rem;
+.footer-icons .item {
+  height: 30px;
+  width: 30px;
+  margin: 0 5px;
+  box-shadow: none;
 }
+
+.footer-icons .icon {
+  font-size: 20px;
+ }
 
 @media (max-width: 768px) {
   .footer-location h3 {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
-  .footer-login a {
-    font-size: 1.15rem;
+  .footer-icons .item {
+    height: 28px;
+    width: 28px;
   }
 }

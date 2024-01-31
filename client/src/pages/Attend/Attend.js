@@ -8,6 +8,8 @@ import {
 
 import img from "../../assets/images/dobo-3.jpg";
 
+import PageTitle from "../../components/PageTitle/PageTitle.js";
+
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
@@ -113,7 +115,7 @@ const Attend = () => {
         )} at ${convertMilitaryTime(selectedEvent.time)}`;
       }
     }
-    return "Select a date: ";
+    return "select a date: ";
   };
 
   // need to have it compare time to new york time
@@ -125,10 +127,7 @@ const Attend = () => {
         </div>
       </div>
       <div className="attend-right">
-        <div className="attend-title-container">
-          <div className="attend-title-img">{/* placeholder */}</div>
-          <div className="attend-title">attend</div>
-        </div>
+        <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
             To attend Dobo, please fill out the form below. We will reach out
@@ -164,7 +163,7 @@ const Attend = () => {
               <input
                 type="text"
                 value={name}
-                placeholder="Name"
+                placeholder="name"
                 onChange={(e) => setName(e.target.value)}
                 required
               />
@@ -172,7 +171,7 @@ const Attend = () => {
               <input
                 type="email"
                 value={email}
-                placeholder="Email"
+                placeholder="email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -180,7 +179,7 @@ const Attend = () => {
               <textarea
                 type="text"
                 value={message}
-                placeholder="Message (Optional)"
+                placeholder="message (optional)"
                 onChange={(e) => setMessage(e.target.value)}
               />
 

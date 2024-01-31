@@ -1,5 +1,6 @@
 import "./about.css";
 import img from "../../assets/images/dobo-7.jpg";
+import PageTitle from "../../components/PageTitle/PageTitle.js";
 
 const About = () => {
   return (
@@ -10,10 +11,7 @@ const About = () => {
         </div>
       </div>
       <div className="about-right">
-        <div className="about-title-container">
-          <div className="about-title-img">{/* placeholder */}</div>
-          <div className="about-title">about</div>
-        </div>
+        <PageTitle title={"dobo"} />
         <div className="about-info-container">
           <div className="about-text">
             <p>Coming soon...</p>

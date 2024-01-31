@@ -17,23 +17,6 @@
   margin: 0 0 8vh 0;
 }
 
-.attend-title-container {
-  display: flex;
-  width: 80%;
-}
-
-.attend-title {
-  letter-spacing: -2.5px;
-  color: black;
-  font-weight: 700;
-  margin-top: 4vh;
-  animation-name: slideLeft;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  font-size: 4.75rem;
-  opacity: 0;
-}
-
 .attend-info-container {
   opacity: 0;
   width: 80%;
@@ -48,10 +31,10 @@
   font-size: 15px;
   margin-top: 2vh;
   margin-bottom: 2vh;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 17px;
   line-height: 1.25;
-  letter-spacing: -1.35px;
+  letter-spacing: -1px;
 }
 
 .inquiry-form {
@@ -67,31 +50,31 @@
 
 .inquiry-form input,
 .inquiry-form select {
-  width: 250px;
-  border: 1px solid black;
+  width: 225px;
+  border: 2px solid #bd9c72;
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   margin-bottom: 2vh;
-  height: 40px;
-  border-radius: 50px;
-  box-shadow: 1.25px 1.25px 2.5px black;
+  height: 35px;
+  border-radius: 5px;
+  //box-shadow: 1.25px 1.25px 2.5px black;
   transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .inquiry-form textarea {
   font-family: "Poppins", sans-serif;
-  width: 250px;
-  border: 1px solid black;
+  width: 225px;
+  border: 2px solid #bd9c72;
   font-size: 1rem;
   padding: 0.7rem;
   margin-bottom: 2vh;
   height: 15vh;
-  border-radius: 20px;
-  box-shadow: 1.25px 1.25px 2.5px black;
+  border-radius: 5px;
+  //box-shadow: 1.25px 1.25px 2.5px black;
   transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .inquiry-form input:focus,
@@ -101,18 +84,28 @@
   transform: scale(1.05);
 }
 
+.inquiry-form input::placeholder,
+.inquiry-form textarea::placeholder,
+.custom-dropdown {
+  color: #bd9c72;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .custom-dropdown {
   font-weight: 400;
-  width: 250px;
-  border: 1px solid black;
+  width: 225px;
+  border: 2px solid #bd9c72;
   font-size: 0.85rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
   margin-bottom: 2vh;
-  height: 40px;
-  border-radius: 50px;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.35);
+  height: 35px;
+  border-radius: 5px;
+  //box-shadow: 1.25px 1.25px 2.5px black;
+  background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
   margin-bottom: 2vh;
   display: flex;
@@ -124,9 +117,9 @@
 .dropdown-list {
   min-width: 315px;
   position: absolute;
-  border: 1px solid black;
+  border: 2px solid #bd9c72;
   z-index: 100;
-  border-radius: 50px;
+  border-radius: 5px;
   box-shadow: 1.25px 1.25px 2.5px black;
   background: white;
   transform: scale(1.05);
@@ -164,48 +157,12 @@
     width: 100%;
   }
 
-  .attend-title-container {
-    margin-top: 3vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 225px;
-    width: 315px;
-    top: 0;
-    animation-name: fadeIn;
-    animation-duration: 0.7s;
-    animation-delay: 0.3s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-  }
-
-  .attend-title-img {
-    height: 100%;
-    width: 50%;
-    background-image: url("../../assets/thumbnail-images/dobo-4-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
-  }
-
   .attend-info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 315px;
-  }
-
-  .attend-title {
-    width: 50%;
-    margin: auto;
-    font-size: 2.85rem;
-    animation: slideLeft;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    text-align: right;
   }
 
   .attend-info-section {

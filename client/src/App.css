@@ -93,22 +93,24 @@
 /* For button styling */
 .button {
   font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  width: 170px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 50px;
+  letter-spacing: 3px;
+  font-size: 18px;
+  width: 135px;
+  height: 35px;
+  border: 2px solid #bd9c72;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
+  //box-shadow: 1.25px 1.25px 2.5px black;
+  color: #bd9c72;
+  background: rgba(255, 255, 255, 0.25);
   transition: all 0.25s ease-in-out;
   text-transform: lowercase;
+  font-weight: 400;
 }
 
 .button:hover {
-  background: white;
+  color: white;
+  background: #bd9c72;
   transform: scale(1.075);
 }
 
@@ -116,3 +118,5 @@
   background-color: white;
   box-shadow: 0.15px 0.15px 0.15px black;
 }
+
+/* For input styling */

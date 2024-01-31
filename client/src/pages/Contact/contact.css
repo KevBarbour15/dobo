@@ -16,24 +16,6 @@
   margin: 0 0 4vh 0;
 }
 
-.contact-title-container {
-  display: flex;
-  width: 80%;
-}
-
-.contact-title {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: -2.5px;
-  color: black;
-  font-weight: 700;
-  margin-top: 4vh;
-  animation-name: slideLeft;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  font-size: 4.75rem;
-  opacity: 0;
-}
-
 .contact-info-container {
   flex: 1;
   opacity: 0;
@@ -42,18 +24,13 @@
   animation-duration: 0.75s;
   animation-delay: 0.75s;
   animation-fill-mode: forwards;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
-.subscribe-container p {
+.subscribe-container span {
   margin-top: 4vh;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
   font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 1.25;
+  font-size: 18px;
   letter-spacing: -1.35px;
 }
 
@@ -70,18 +47,27 @@
 }
 
 .subscribe-email input {
-  width: 250px;
-  border: 1px solid black;
+  width: 225px;
+  border: 2px solid #bd9c72;
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
-  margin-bottom: 2vh;
-  height: 40px;
-  border-radius: 50px;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  font-family: "Jost", sans-serif;
+  margin-bottom: 3vh;
+  height: 35px;
+  border-radius: 6px;
+  //box-shadow: 1.25px 1.25px 2.5px black;
+  //font-family: "Avina", sans-serif;
   transition: all 0.25s ease-in-out;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.subscribe-email input::placeholder {
+  color: #bd9c72;
+  font-family: "Poppins", sans-serif;
+  //font-family: "Avina", sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .subscribe-email input:focus {
@@ -89,14 +75,6 @@
   outline: none;
 }
 
-.contact-icons {
-  display: flex;
-  margin-top: auto;
-}
-
-.contact-icons .item {
-  margin-right: 2vw;
-}
 @media screen and (max-width: 768px) {
   .contact-container {
     min-height: calc(100vh - 58px);
@@ -110,44 +88,8 @@
     width: 100%;
   }
 
-  .contact-title-container {
-    margin-top: 3vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 225px;
-    width: 315px;
-    top: 0;
-    animation-name: fadeIn;
-    animation-duration: 0.7s;
-    animation-delay: 0.3s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-  }
-
-  .contact-title-img {
-    height: 100%;
-    width: 50%;
-    background-image: url("../../assets/thumbnail-images/dobo-3-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
-  }
-
   .contact-info-container {
     width: 315px;
-  }
-
-  .contact-title {
-    width: 50%;
-    margin: auto;
-    font-size: 2.85rem;
-    animation: slideLeft;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    text-align: right;
   }
 
   .subscribe-container,
@@ -159,7 +101,7 @@
   .contact-links-container p {
     margin-top: 4vh;
     font-size: 20px;
-    font-weight: 700;
+
     letter-spacing: -1.35px;
     line-height: 1.15;
   }

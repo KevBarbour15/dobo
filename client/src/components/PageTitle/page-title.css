@@ -1,0 +1,72 @@
+.title-container {
+  display: flex;
+  width: 80%;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  //font-family: "Didot", serif;
+  letter-spacing: -2.5px;
+  //letter-spacing: -1.5px;
+  color: black;
+  font-weight: 700;
+  margin-top: 4vh;
+  animation-name: slideLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  margin-left: 0;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .title-container {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 225px;
+    width: 315px;
+    top: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.7s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  .title-img.contact {
+    background-image: url("../../assets/thumbnail-images/dobo-3-thumb.jpg");
+  }
+
+  .title-img.attend {
+    background-image: url("../../assets/thumbnail-images/dobo-4-thumb.jpg");
+  }
+
+  .title-img.dobo {
+    background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
+  }
+
+  .title-img {
+    height: 100%;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    //box-shadow: 1.25px 1.25px 2.5px black;
+  }
+
+  .title {
+    width: 50%;
+    margin: auto;
+    font-size: 30px;
+    animation: slideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    text-align: right;
+  }
+}

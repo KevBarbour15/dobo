@@ -1,10 +1,11 @@
 import "./home.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Menu from "../../components/Menu/Menu.js";
+import logo from "../../assets/images/logo.png";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [time, setTime] = useState(getNewYorkDate());
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,28 +14,6 @@ const Home = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
-  function getNewYorkDate() {
-    const optionsDate = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "America/New_York",
-    };
-
-    const optionsTime = {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-      timeZone: "America/New_York",
-    };
-
-    const now = new Date();
-    const date = now.toLocaleDateString("en-US", optionsDate);
-    const time = now.toLocaleTimeString("en-US", optionsTime);
-
-    return `${date}, ${time}`;
-  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,16 +46,18 @@ const Home = () => {
           </div>
 
           <div className="home-header-title-container">
-            <div className={`home-header-title ${isMenuOpen ? "open" : ""}`}>
-              {/*<h1>brooklyn, nyc</h1>*/}
-            </div>
+            <div
+              className={`home-header-title ${isMenuOpen ? "open" : ""}`}
+            ></div>
           </div>
-
           <div className="home-invisible-element"></div>
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
-          <h1 className="text-left">brooklyn, nyc</h1>
-          <h1 className="text-right">{time}</h1>
+          {/*<span className="text-left">DOBO</span>*/}
+          <img className="text-left" src={logo}></img>
+          <Link className="button-right" to="/Attend">
+            attend
+          </Link>
         </div>
       </div>
       <div className="home-empty-footer"></div>

@@ -53,8 +53,7 @@
 }
 
 .menu-button.open {
-  color: transparent;
-  text-shadow: none;
+  filter: blur(50px);
 }
 
 .menu-button:hover {
@@ -81,8 +80,7 @@
 }
 
 .header-title.open {
-  color: transparent;
-  text-shadow: none;
+  filter: blur(50px);
 }
 
 .invisible-element {
