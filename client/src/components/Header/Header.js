@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./header.css";
 import Menu from "../Menu/Menu.js";
+import logo from "../../assets/images/logo-black.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,10 +27,13 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="header-title-container">
-        <div className={`header-title ${isMenuOpen ? "open" : ""}`}>
+      <div className={`header-title-container ${isMenuOpen ? "open" : ""}`}>
+        {/*  <div className={`header-title ${isMenuOpen ? "open" : ""}`}>
           <h1>DOBO</h1>
         </div>
+        */}
+
+        <img className="header-title" src={logo} alt="DOBO" />
       </div>
       <div className="invisible-element"></div>
     </header>

@@ -84,14 +84,21 @@
   transform: scale(1.05);
 }
 
+.inquiry-form input[type="text"],
+.inquiry-form input[type="email"],
+.inquiry-form textarea[type="text"],
 .inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder,
 .custom-dropdown {
   color: #bd9c72;
   font-family: "Poppins", sans-serif;
-  letter-spacing: 3px;
-  font-size: 18px;
+  letter-spacing: 1.25px;
+  font-size: 16px;
   font-weight: 400;
+}
+
+.custom-dropdown {
+  letter-spacing: 2.25px;
 }
 
 .custom-dropdown {
@@ -173,7 +180,7 @@
     width: 315px;
     font-size: 20px;
     margin-top: 3vh;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: -1.35px;
     line-height: 1.15;
     text-align: justify;

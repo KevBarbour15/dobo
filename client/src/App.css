@@ -64,10 +64,12 @@
 }
 
 .item.email:before {
-  background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);
+  /*background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);*/
+  background: #bd9c72;
 }
 
 .item.ig:before {
+  /*
   background: radial-gradient(
       circle farthest-corner at 30% 107%,
       #fdf497 0%,
@@ -84,6 +86,8 @@
       #c709c7 60%,
       #285aeb 90%
     );
+    */
+    background: #bd9c72;
 }
 
 .item:hover:before {

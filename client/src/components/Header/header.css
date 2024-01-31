@@ -67,9 +67,10 @@
 }
 
 .header-title {
-  font-family: "Aboreto", sans-serif;
-  font-size: 15px;
-  letter-spacing: -4px;
+  //font-family: "Aboreto", sans-serif;
+  //font-size: 15px;
+  //letter-spacing: -4px;
+  height: 35px;
   transition: all 0.5s ease-in-out;
   animation-name: fadeIn;
   opacity: 0;
@@ -88,8 +89,5 @@
 }
 
 @media (max-width: 768px) {
-  .header-title {
-    font-size: 1.2rem;
-    letter-spacing: -6.5px;
-  }
+ 
 }

@@ -54,7 +54,7 @@ const Home = () => {
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
           {/*<span className="text-left">DOBO</span>*/}
-          <img className="text-left" src={logo}></img>
+          <img className="text-left" src={logo} alt="DOBO"></img>
           <Link className="button-right" to="/Attend">
             attend
           </Link>
