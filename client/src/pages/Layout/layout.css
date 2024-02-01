@@ -12,7 +12,7 @@
 
 @media (min-width: 1025px) {
   .main-page-container {
-    width: 75%;
+    width: 100%;
     border-left: none;
     border-right: none;
   }

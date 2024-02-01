@@ -5,12 +5,14 @@
 
 - Today:
 
-  - work on styling buttons and forms \*\*\* dependant on Sean
-  - finish the page titles \*\*\* DONE
-  - move icons to the footer \*\*\* DONE
-  - move login link to the menu corner \*\*\* DONE
-  - fix the shadow and button display on the main menu when menu is down \*\*\* DONE
+  - work on styling buttons and forms 
   - fix attendance bug (??? need to think more on this)
-  - hook up the mail chimp *** NEED SEAN"S input 
-  - get the logo from the image deck
+
+  - hook up the mail chimp 
   - Get approved by Upwork 
+
+  - look into opt in for subscribe features 
+  - at sold out to attend list
+  - randomize pictures 
+
+  "to know about the next dinner subscribe" 

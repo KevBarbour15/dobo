@@ -28,7 +28,7 @@
 
 .subscribe-container span {
   margin-top: 4vh;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   letter-spacing: -1.35px;
@@ -52,7 +52,7 @@
   font-size: 1rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
   height: 35px;
   border-radius: 6px;
   //box-shadow: 1.25px 1.25px 2.5px black;
@@ -101,7 +101,6 @@
   .contact-links-container p {
     margin-top: 4vh;
     font-size: 20px;
-
     letter-spacing: -1.35px;
     line-height: 1.15;
   }

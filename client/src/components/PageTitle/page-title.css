@@ -6,10 +6,10 @@
 .title {
   font-family: "Poppins", sans-serif;
   //font-family: "Didot", serif;
-  letter-spacing: -2.5px;
+  //letter-spacing: -2.5px;
   //letter-spacing: -1.5px;
   color: black;
-  font-weight: 700;
+  //font-weight: 700;
   margin-top: 4vh;
   animation-name: slideLeft;
   animation-duration: 1s;
@@ -19,7 +19,7 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -43,7 +43,7 @@
   }
 
   .title-img.attend {
-    background-image: url("../../assets/thumbnail-images/dobo-4-thumb.jpg");
+    background-image: url("../../assets/thumbnail-images/dobo-7-thumb.jpg");
   }
 
   .title-img.dobo {

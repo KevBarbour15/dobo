@@ -25,8 +25,8 @@
   height: 100%;
   background: linear-gradient(
     to top,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 1)
+    rgba(255, 255, 255, 0.25),
+    #efefef
   );
   z-index: 701;
 }
@@ -66,6 +66,10 @@
   justify-content: center;
 }
 
+.header-title-container.open .header-title {
+  filter: blur(50px);
+}
+
 .header-title {
   //font-family: "Aboreto", sans-serif;
   //font-size: 15px;
@@ -78,10 +82,6 @@
   animation-duration: 1s;
   animation-fill-mode: forwards;
   z-index: 702;
-}
-
-.header-title.open {
-  filter: blur(50px);
 }
 
 .invisible-element {

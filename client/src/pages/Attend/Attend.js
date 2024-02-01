@@ -127,10 +127,10 @@ const Attend = () => {
         </div>
       </div>
       <div className="attend-right">
-        <PageTitle title={"attend"} />
+        <PageTitle title={"ATTEND"} />
         <div className="attend-info-container">
           <div className="attend-text">
-            To attend Dobo, please fill out the form below. We will reach out
+            Please fill out the form below to attend. We will reach out
             with details. Seating is limited.
           </div>
 

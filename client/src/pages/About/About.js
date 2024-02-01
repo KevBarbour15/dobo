@@ -11,7 +11,7 @@ const About = () => {
         </div>
       </div>
       <div className="about-right">
-        <PageTitle title={"dobo"} />
+        <PageTitle title={"ABOUT"} />
         <div className="about-info-container">
           <div className="about-text">
             <p>Coming soon...</p>
