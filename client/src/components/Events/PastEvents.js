@@ -37,7 +37,7 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
   return (
     <div className="events-card">
       <div className="event-details">
-        <h2 className="event-title">{event.title}</h2>
+        <p className="event-title">{event.title}</p>
         <p>{convertDateReadability(event.date)}</p>
         <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>

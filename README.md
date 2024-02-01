@@ -1,18 +1,13 @@
 **_ TO DO _**
 
-- Didot
-- Avina
-
-- Today:
-
-  - work on styling buttons and forms 
+- Today and Friday:
+  - make everything uniform with official stlying now
   - fix attendance bug (??? need to think more on this)
+  - add sold out to attend list
+  - randomize pictures
+  - turn off hover feature on mobile (doesn't look good)
+  - get rid of contact and add the subscribe to the bottom of the attend page
+    - then hook up mail chimp
+  - make sure that anything dealing with past and present is comparing against New York time.
 
-  - hook up the mail chimp 
-  - Get approved by Upwork 
-
-  - look into opt in for subscribe features 
-  - at sold out to attend list
-  - randomize pictures 
-
-  "to know about the next dinner subscribe" 
+*** once About is written and these are done we can deploy

@@ -51,9 +51,6 @@
 }
 
 .create-event-form form {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  letter-spacing: -1.35px;
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
@@ -65,17 +62,6 @@
   color: black;
   margin-top: 1vh;
   margin-bottom: 1vh;
-}
-
-.create-event-form input {
-  width: 225px;
-  border: 1px solid black;
-  font-size: 1rem;
-  padding-left: 1rem;
-  height: 40px;
-  border-radius: 50px;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .create-event-form select {

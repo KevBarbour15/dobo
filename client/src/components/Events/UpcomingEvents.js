@@ -62,9 +62,9 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   return (
     <div className="events-card">
       <div className="event-details">
-        <h2 className="event-title">{event.title}</h2>
+        <p className="event-title">{event.title}</p>
         <p>{convertDateReadability(event.date)}</p>
-        <p>{convertMilitaryTime(event.time)}</p>
+        <p>{convertMilitaryTime(event.time)}</p> 
         <p>Seats: {event.seats}</p>
         <p>Seats Available: {event.seatsRemaining}</p>
         <p>Price: ${event.price}</p>

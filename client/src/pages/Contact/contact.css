@@ -26,55 +26,6 @@
   animation-fill-mode: forwards;
 }
 
-.subscribe-container span {
-  margin-top: 4vh;
-  margin-bottom: 2vh;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  letter-spacing: -1.35px;
-}
-
-.subscribe-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.subscribe-email {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.subscribe-email input {
-  width: 225px;
-  border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  margin-bottom: 2vh;
-  height: 35px;
-  border-radius: 6px;
-  //box-shadow: 1.25px 1.25px 2.5px black;
-  //font-family: "Avina", sans-serif;
-  transition: all 0.25s ease-in-out;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.subscribe-email input::placeholder {
-  color: #bd9c72;
-  font-family: "Poppins", sans-serif;
-  //font-family: "Avina", sans-serif;
-  letter-spacing: 3px;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.subscribe-email input:focus {
-  background: white;
-  outline: none;
-}
-
 @media screen and (max-width: 768px) {
   .contact-container {
     min-height: calc(100vh - 58px);

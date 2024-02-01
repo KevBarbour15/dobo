@@ -5,11 +5,7 @@
 
 .title {
   font-family: "Poppins", sans-serif;
-  //font-family: "Didot", serif;
-  //letter-spacing: -2.5px;
-  //letter-spacing: -1.5px;
   color: black;
-  //font-weight: 700;
   margin-top: 4vh;
   animation-name: slideLeft;
   animation-duration: 1s;
@@ -19,7 +15,7 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 25px;
 }
 
 @media screen and (max-width: 768px) {
@@ -43,11 +39,15 @@
   }
 
   .title-img.attend {
-    background-image: url("../../assets/thumbnail-images/dobo-7-thumb.jpg");
+    background-image: url("../../assets/thumbnail-images/dobo-12-thumb.jpg");
   }
 
-  .title-img.dobo {
+  .title-img.about {
     background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
+  }
+
+  .title-img.create {
+    background-image: url("../../assets/thumbnail-images/dobo-8-thumb.jpg");
   }
 
   .title-img {
@@ -57,13 +57,12 @@
     background-position: center;
     background-repeat: no-repeat;
     border: 1px solid black;
-    //box-shadow: 1.25px 1.25px 2.5px black;
   }
 
   .title {
     width: 50%;
     margin: auto;
-    font-size: 30px;
+    font-size: 22px;
     animation: slideLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;

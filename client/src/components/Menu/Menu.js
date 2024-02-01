@@ -21,23 +21,16 @@ const Menu = ({ isOpen, onClose }) => {
         </button>
       </div>
       <div className="menu-links-container">
-        <Link className="menu-link bold-text" to="/" onClick={onClose}>
+        <Link className="menu-link" to="/" onClick={onClose}>
           <span>HOME</span>
         </Link>
-        <Link className="menu-link outlined-text" to="/About" onClick={onClose}>
+        <Link className="menu-link" to="/About" onClick={onClose}>
           <span>ABOUT</span>
         </Link>
-        <Link className="menu-link bold-text" to="/Attend" onClick={onClose}>
+        <Link className="menu-link" to="/Attend" onClick={onClose}>
           <span>ATTEND</span>
         </Link>
-        <Link
-          className="menu-link outlined-text"
-          to="/Contact"
-          onClick={onClose}
-        >
-          <span>CONTACT</span>
-        </Link>
-        <Link className="menu-link bold-text" to="/Gallery" onClick={onClose}>
+        <Link className="menu-link" to="/Gallery" onClick={onClose}>
           <span>GALLERY</span>
         </Link>
       </div>

@@ -4,7 +4,7 @@
   top: calc(-100% - 2.5px);
   height: 100%;
   width: 25%;
-  transition: all 0.45s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.65);
   z-index: -1;
   display: flex;
@@ -19,7 +19,7 @@
 
 .menu-container.open {
   top: 0;
-  z-index: 950;
+  z-index: 975;
 }
 
 .menu-close-button {
@@ -53,9 +53,6 @@
 }
 
 .menu-link {
-  //font-family: "Didot", serif;
-  //letter-spacing: -1px;
-  //letter-spacing: -1.5px;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   line-height: 1.75;

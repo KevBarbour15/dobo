@@ -31,7 +31,7 @@ const EventDash = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/");
+      //navigate("/");
     }
     fetchEvents();
   }, [isAuthenticated, navigate]);

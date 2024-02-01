@@ -31,9 +31,9 @@
 }
 
 .modal-header  {
-  font-family: "Aboreto", sans-serif;
-  font-size: 25px;
-  letter-spacing: -4px;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-size: 20px;
   text-transform: uppercase;
   color: black;
 }

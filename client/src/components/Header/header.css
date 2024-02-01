@@ -10,7 +10,7 @@
   border-top: 1px solid black;
   background: #efefef;
   border-bottom: 1px solid black;
-  background-image: url("../../assets/images/background-mobile.jpg");
+  background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,11 +23,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.25),
-    #efefef
-  );
   z-index: 701;
 }
 

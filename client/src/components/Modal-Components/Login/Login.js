@@ -31,24 +31,28 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <input
+          className="input"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="USERNAME"
+          placeholder="username:"
           id="username"
           autoComplete="username"
           required
         />
         <input
+          className="input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="PASSWORD"
+          placeholder="password:"
           id="password"
           autoComplete="current-password"
           required
         />
-        <button className="button" type="submit">Login</button>
+        <button className="button" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

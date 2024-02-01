@@ -70,15 +70,30 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
         <form onSubmit={handleSubmit}>
           <div className="event-label">
             <label>title:</label>
-            <input t type="text" value={title} onChange={handleTitleChange} />
+            <input
+              className="input"
+              type="text"
+              value={title}
+              onChange={handleTitleChange}
+            />
           </div>
           <div className="event-label">
             <label>price:</label>
-            <input type="number" value={price} onChange={handlePriceChange} />
+            <input
+              className="input"
+              type="number"
+              value={price}
+              onChange={handlePriceChange}
+            />
           </div>
           <div className="event-label">
             <label>date:</label>
-            <input type="date" value={date} onChange={handleDateChange} />
+            <input
+              className="input"
+              type="date"
+              value={date}
+              onChange={handleDateChange}
+            />
           </div>
           <div className="event-label">
             <label>time:</label>

@@ -1,5 +1,6 @@
 import "./about.css";
-import img from "../../assets/images/dobo-7.jpg";
+import img from "../../assets/images/dobo-5.jpg";
+
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
 const About = () => {
@@ -11,7 +12,7 @@ const About = () => {
         </div>
       </div>
       <div className="about-right">
-        <PageTitle title={"ABOUT"} />
+        <PageTitle title={"about"} />
         <div className="about-info-container">
           <div className="about-text">
             <p>Coming soon...</p>

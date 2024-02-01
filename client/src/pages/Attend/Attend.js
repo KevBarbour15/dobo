@@ -6,7 +6,7 @@ import {
   convertMilitaryTime,
 } from "../../util/formatting.js";
 
-import img from "../../assets/images/dobo-3.jpg";
+import img from "../../assets/images/dobo-12.jpg";
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
@@ -118,6 +118,11 @@ const Attend = () => {
     return "select a date: ";
   };
 
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    showSuccessNotification(enqueueSnackbar, "Feature coming soon.");
+  };
+
   // need to have it compare time to new york time
   return (
     <div id="attend" className="attend-container">
@@ -127,7 +132,7 @@ const Attend = () => {
         </div>
       </div>
       <div className="attend-right">
-        <PageTitle title={"ATTEND"} />
+        <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
             Please fill out the form below to attend. We will reach out
@@ -161,25 +166,28 @@ const Attend = () => {
               </div>
 
               <input
+                className="input"
                 type="text"
                 value={name}
-                placeholder="name"
+                placeholder="name:"
                 onChange={(e) => setName(e.target.value)}
                 required
               />
 
               <input
+                className="input"
                 type="email"
                 value={email}
-                placeholder="email"
+                placeholder="email:"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
 
               <textarea
+                className="text-area"
                 type="text"
                 value={message}
-                placeholder="message (optional)"
+                placeholder="message (optional):"
                 onChange={(e) => setMessage(e.target.value)}
               />
 
@@ -187,6 +195,16 @@ const Attend = () => {
                 Submit
               </button>
             </form>
+          </div>
+
+          <div className="subscribe-container">
+            <span>Be the first to know about Dobo's next dinner:</span>
+            <div className="subscribe-email">
+              <input placeholder="email" required></input>
+              <button className="button" onClick={handleSubscribe}>
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </div>

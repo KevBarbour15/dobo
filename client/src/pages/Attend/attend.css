@@ -14,7 +14,7 @@
 }
 
 .attend-right {
-  margin: 0 0 8vh 0;
+  justify-content: space-between;
 }
 
 .attend-info-container {
@@ -24,22 +24,26 @@
   animation-duration: 0.75s;
   animation-delay: 0.75s;
   animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
 }
 
 .attend-text {
-  width: 45%;
-  font-size: 15px;
+  width: 225px;
   margin-top: 4vh;
   margin-bottom: 2vh;
   font-weight: 400;
-  font-size: 17px;
-  line-height: 1.25;
-  letter-spacing: -1px;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.15px;
 }
 
 .inquiry-form {
   display: flex;
   flex-direction: column;
+  margin-bottom: auto;
 }
 
 .inquiry-form form {
@@ -48,46 +52,13 @@
   font-weight: 400;
 }
 
-.inquiry-form input,
-.inquiry-form select {
-  width: 225px;
-  border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  margin-bottom: 2vh;
-  height: 35px;
-  border-radius: 5px;
-  //box-shadow: 1.25px 1.25px 2.5px black;
-  transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
-.inquiry-form textarea {
-  font-family: "Poppins", sans-serif;
-  width: 225px;
-  border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding: 0.7rem;
-  margin-bottom: 2vh;
-  height: 15vh;
-  border-radius: 5px;
-  //box-shadow: 1.25px 1.25px 2.5px black;
-  transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
-.inquiry-form input:focus,
 .inquiry-form textarea:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
-.inquiry-form input[type="text"],
-.inquiry-form input[type="email"],
 .inquiry-form textarea[type="text"],
-.inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder,
 .custom-dropdown {
   color: #bd9c72;
@@ -98,7 +69,7 @@
 }
 
 .custom-dropdown {
-  letter-spacing: 2.25px;
+  letter-spacing: 1.5px;
 }
 
 .custom-dropdown {
@@ -111,7 +82,6 @@
   margin-bottom: 2vh;
   height: 35px;
   border-radius: 5px;
-  //box-shadow: 1.25px 1.25px 2.5px black;
   background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
   margin-bottom: 2vh;
@@ -151,6 +121,53 @@
   transform: scale(1.1);
 }
 
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+
+.subscribe-container span {
+  width: 225px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.15px;
+  margin-bottom: 2vh;
+}
+
+.subscribe-email {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subscribe-email input {
+  width: 225px;
+  border: 2px solid #bd9c72;
+  font-size: 1rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  margin-bottom: 2vh;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.subscribe-email input::placeholder {
+  color: #bd9c72;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.subscribe-email input:focus {
+  background: white;
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .attend-container {
     height: auto;
@@ -178,10 +195,10 @@
 
   .attend-text {
     width: 315px;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 3vh;
     font-weight: 400;
-    letter-spacing: -1.35px;
+    letter-spacing: -1px;
     line-height: 1.15;
     text-align: justify;
   }

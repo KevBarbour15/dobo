@@ -87,7 +87,7 @@
       #285aeb 90%
     );
     */
-    background: #bd9c72;
+  background: #bd9c72;
 }
 
 .item:hover:before {
@@ -97,14 +97,13 @@
 /* For button styling */
 .button {
   font-family: "Poppins", sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-size: 18px;
   width: 135px;
   height: 35px;
   border: 2px solid #bd9c72;
   border-radius: 5px;
   cursor: pointer;
-  //box-shadow: 1.25px 1.25px 2.5px black;
   color: #bd9c72;
   background: rgba(255, 255, 255, 0.25);
   transition: all 0.25s ease-in-out;
@@ -124,3 +123,55 @@
 }
 
 /* For input styling */
+.input {
+  width: 225px;
+  border: 2px solid #bd9c72;
+  font-size: 1rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  margin-bottom: 2vh;
+  height: 32px;
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+input {
+  color: black;
+}
+
+input::placeholder {
+  color: #bd9c72;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1.25px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* For text area styling */
+.text-area {
+  font-family: "Poppins", sans-serif;
+  width: 225px;
+  border: 2px solid #bd9c72;
+  font-size: 1rem;
+  padding: 0.7rem;
+  margin-bottom: 2vh;
+  height: 100px;
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* for label styling */
+label {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: #bd9c72;
+}

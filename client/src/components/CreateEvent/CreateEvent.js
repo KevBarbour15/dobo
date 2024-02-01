@@ -7,6 +7,8 @@ import { showSuccessNotification } from "../../util/notifications.js";
 
 import img from "../../assets/images/dobo-8.jpg";
 
+import PageTitle from "../../components/PageTitle/PageTitle.js";
+
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
   const [seats, setSeats] = useState(1);
@@ -56,35 +58,36 @@ const CreateEvent = ({ onEventCreated }) => {
         </div>
       </div>
       <div className="create-right">
-      <div className="create-title-container">
-          <div className="create-title-img">{/* placeholder */}</div>
-          <div className="create-title">new event</div>
-        </div>
+        <PageTitle title={"create"} />
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
-            <p>event name:</p>
+            <label>event name:</label>
             <input
+              className="input"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
-            <p>price:</p>
+            <label>price:</label>
             <input
+              className="input"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
             />
-            <p>date:</p>
+            <label>date:</label>
             <input
+              className="input"
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
             />
-            <p>time:</p>
+            <label>time:</label>
             <input
+              className="input"
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
