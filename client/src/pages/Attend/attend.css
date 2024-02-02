@@ -37,7 +37,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: -0.15px;
 }
 
 .inquiry-form {
@@ -125,12 +124,10 @@
   }
 
   .attend-text {
-    width: 315px;
+    width: 225px;
     font-size: 16px;
     margin-top: 3vh;
     font-weight: 400;
-    letter-spacing: -2px;
-    line-height: 1.15;
     text-align: justify;
   }
 

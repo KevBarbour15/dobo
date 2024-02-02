@@ -91,11 +91,9 @@
 @media (max-width: 768px) {
   .dash-header-title {
     font-size: 1.2rem;
-    letter-spacing: -6px;
   }
 
   .dash-link-container button {
-    letter-spacing: -2px;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
