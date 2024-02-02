@@ -1,10 +1,9 @@
 .dash-container {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-left: 1.5px solid black;
+  border-right: 1.5px solid black;
+  border-bottom: 1.5px solid black;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("../../assets/images/background.jpg");
   background-size: cover;
 }
 
@@ -15,12 +14,12 @@
 
 @media (min-width: 1025px) {
   .dash-container {
-    width: 100%;
+    width: 75%;
   }
 }
 
 @media (max-width: 768px) {
   .dash-container {
-    width: calc(100% - 2px);
+    width: calc(100% - 4px);
   }
 }

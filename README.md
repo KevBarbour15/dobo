@@ -6,7 +6,7 @@
   - add sold out to attend list
   - randomize pictures
   - turn off hover feature on mobile (doesn't look good)
-  - get rid of contact and add the subscribe to the bottom of the attend page
+  - add subscribe to form
     - then hook up mail chimp
   - make sure that anything dealing with past and present is comparing against New York time.
 

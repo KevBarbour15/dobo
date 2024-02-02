@@ -8,6 +8,8 @@ import {
 
 import img from "../../assets/images/dobo-12.jpg";
 
+//import ImageContainer from "../../components/ImageContainer/ImageContainer.js";
+
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
 import { useSnackbar } from "notistack";
@@ -20,7 +22,7 @@ const Attend = () => {
   const [selectedEventId, setSelectedEventId] = useState("");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
@@ -43,35 +45,22 @@ const Attend = () => {
     fetchEvents();
   }, []);
 
-  const handleDropdownToggle = () => {
-    if (futureEvents.length > 0) {
-      setShowDropdown(!showDropdown);
+  const handleSelectChange = (e) => {
+    const selectElement = e.target;
+    const selectedEvent = futureEvents.find(
+      (event) => event._id === e.target.value
+    );
+
+    if (selectedEvent) {
+      setSelectedEventId(selectedEvent._id);
+      setDate(selectedEvent.date);
+      selectElement.classList.remove("default-option");
+      selectElement.classList.add("select-option");
+    } else {
+      selectElement.classList.add("default-option");
+      selectElement.classList.remove("select-option");
     }
   };
-
-  const handleSelectEvent = (event) => {
-    setSelectedEventId(event._id);
-    setDate(event.date);
-    setShowDropdown(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (showDropdown && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-
-    if (showDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showDropdown]);
-
-  const dropdownRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,26 +93,13 @@ const Attend = () => {
     }
   };
 
-  const getDisplayValue = () => {
-    if (selectedEventId) {
-      const selectedEvent = futureEvents.find(
-        (event) => event._id === selectedEventId
-      );
-      if (selectedEvent) {
-        return `${convertDateReadability(
-          selectedEvent.date
-        )} at ${convertMilitaryTime(selectedEvent.time)}`;
-      }
+  useEffect(() => {
+    const selectElement = document.querySelector("select");
+    if (selectElement && selectedEventId === "") {
+      selectElement.classList.add("default-");
     }
-    return "select a date: ";
-  };
+  }, []);
 
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    showSuccessNotification(enqueueSnackbar, "Feature coming soon.");
-  };
-
-  // need to have it compare time to new york time
   return (
     <div id="attend" className="attend-container">
       <div className="attend-left">
@@ -135,38 +111,35 @@ const Attend = () => {
         <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
-            Please fill out the form below to attend. We will reach out
-            with details. Seating is limited.
+            Please fill out the form below to attend. We will reach out with
+            details. Seating is limited.
           </div>
 
           <div className="inquiry-form">
             <form onSubmit={handleSubmit}>
-              <div
-                ref={dropdownRef}
-                className="custom-dropdown"
-                onClick={handleDropdownToggle}
+              <select
+                className="form-element"
+                value={selectedEventId}
+                onChange={handleSelectChange}
               >
-                <div className="dropdown-selected-value">
-                  {getDisplayValue()}
-                </div>
-                {showDropdown && (
-                  <div className="dropdown-list">
-                    {futureEvents.map((event) => (
-                      <div
-                        key={event._id}
-                        className="dropdown-list-item"
-                        onClick={() => handleSelectEvent(event)}
-                      >
-                        {convertDateReadability(event.date)} at{" "}
-                        {convertMilitaryTime(event.time)}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
+                <option className="default-option" value="" disabled hidden>
+                  select a date
+                </option>
+                {futureEvents.map((event) => (
+                  <option
+                    className="selected-option"
+                    key={event._id}
+                    value={event._id}
+                  >
+                    {convertDateReadability(event.date)} at{" "}
+                    {event.seatsRemaining > 0
+                      ? convertMilitaryTime(event.time)
+                      : "SOLD OUT"}
+                  </option>
+                ))}
+              </select>
               <input
-                className="input"
+                className="form-element"
                 type="text"
                 value={name}
                 placeholder="name:"
@@ -175,7 +148,7 @@ const Attend = () => {
               />
 
               <input
-                className="input"
+                className="form-element"
                 type="email"
                 value={email}
                 placeholder="email:"
@@ -184,7 +157,7 @@ const Attend = () => {
               />
 
               <textarea
-                className="text-area"
+                className="form-element"
                 type="text"
                 value={message}
                 placeholder="message (optional):"
@@ -192,19 +165,9 @@ const Attend = () => {
               />
 
               <button className="button" type="submit">
-                Submit
+                submit
               </button>
             </form>
-          </div>
-
-          <div className="subscribe-container">
-            <span>Be the first to know about Dobo's next dinner:</span>
-            <div className="subscribe-email">
-              <input placeholder="email" required></input>
-              <button className="button" onClick={handleSubscribe}>
-                Subscribe
-              </button>
-            </div>
           </div>
         </div>
       </div>

@@ -38,15 +38,15 @@
   cursor: pointer;
   width: 100%;
   height: auto;
-  border: 1px solid black;
-  //box-shadow: 1.25px 1.25px 2.5px black;
+  border: 1.5px solid black;
+  box-shadow: 0 2px4px rgba(0, 0, 0, 0.5);
   transition: all 0.25s ease-in-out;
   display: block;
 }
 
 .masonry-image:hover img {
   transform: scale(1.025);
-  box-shadow: 3.25px 3.25px 5.25px black;
+  box-shadow: 1.5px 1.5px 3.25px black;
 }
 
 .ril__toolbar {

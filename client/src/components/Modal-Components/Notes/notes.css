@@ -1,17 +1,12 @@
 .notes-container {
-  height: 800px;
-  width: 500px;
-  max-width: 85vw;
-  max-height: 70vh;
+  height: 600px;
+  width: 400px;
   transition: max-height 0.95s ease, opacity 0.95s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.notes-container .button {
-  margin: 0 0 2vh 0;
+  margin: 2vh auto;
 }
 
 .notes-text-form {
@@ -31,18 +26,15 @@
   height: 100%;
   width: 100%;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
 }
 
 .notes-text-form textarea {
   font-family: "Poppins", sans-serif;
   border: 2px solid #bd9c72;
-  height: 700px;
-  max-height: 55vh;
-  width: 425px;
-  max-width: 80vw;
-  font-size: 1rem;
-  padding: 0.7rem;
+  width: 85%;
+  flex-grow: 1;
+  font-size: 14px;
+  padding: 10px;
   margin-bottom: 2vh;
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
@@ -52,4 +44,11 @@
 .notes-text-form textarea:focus {
   background-color: white;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .notes-container {
+    height: 600px;
+    width: 325px;
+  }
 }

@@ -8,17 +8,17 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-image: url("../../assets/images/background.jpg");
+  background-image: url("../../assets/images/background-grey.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-top: 1px solid black;
+  border-top: 1.5px solid black;
 }
 
 .dash-header-title-container,
 .dash-header-links-container {
   z-index: 702;
-  border-bottom: 1px solid black;
+  border-bottom: 1.5px solid black;
   width: 100%;
 }
 
@@ -30,9 +30,9 @@
 }
 
 .dash-header-title {
-  font-family: "Aboreto", sans-serif;
-  font-size: 1rem;
-  letter-spacing: -3.5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
   color: black;
 }
 
@@ -66,7 +66,6 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   border: none;
-  cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 
@@ -96,7 +95,7 @@
   }
 
   .dash-link-container button {
-    letter-spacing: -1px;
+    letter-spacing: -2px;
     font-size: 1rem;
   }
 }

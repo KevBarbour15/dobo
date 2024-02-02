@@ -61,14 +61,6 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
 
   return (
     <div className="events-card">
-      <div className="event-details">
-        <p className="event-title">{event.title}</p>
-        <p>{convertDateReadability(event.date)}</p>
-        <p>{convertMilitaryTime(event.time)}</p> 
-        <p>Seats: {event.seats}</p>
-        <p>Seats Available: {event.seatsRemaining}</p>
-        <p>Price: ${event.price}</p>
-      </div>
       <div className="event-options">
         <button className="button" type="button" onClick={handleViewAttendance}>
           Attendance
@@ -82,6 +74,14 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <button className="button" type="button" onClick={handleDelete}>
           Cancel
         </button>
+      </div>
+      <div className="event-details">
+        <p className="event-title">{event.title}</p>
+        <p>{convertDateReadability(event.date)}</p>
+        <p>{convertMilitaryTime(event.time)}</p> 
+        <p>Seats: {event.seats}</p>
+        <p>Seats Available: {event.seatsRemaining}</p>
+        <p>Price: ${event.price}</p>
       </div>
       <Modal
         title={convertDateReadability(event.date)}

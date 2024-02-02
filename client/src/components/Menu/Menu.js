@@ -1,18 +1,8 @@
 import "./menu.css";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
-import Modal from "../Modal/Modal";
-import Login from "../Modal-Components/Login/Login";
 
 const Menu = ({ isOpen, onClose }) => {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("");
-
-  const handleOpenModal = () => {
-    setModalOpen(true);
-    setModalContent(<Login />);
-  };
-
   return (
     <div className={`menu-container ${isOpen ? "open" : ""}`}>
       <div>
@@ -34,20 +24,6 @@ const Menu = ({ isOpen, onClose }) => {
           <span>GALLERY</span>
         </Link>
       </div>
-
-      <div className="menu-login">
-        <button onClick={handleOpenModal}>
-          <span class="material-symbols-outlined">login</span>
-        </button>
-      </div>
-
-      <Modal
-        title={"Owner"}
-        isVisible={isModalOpen}
-        onClose={() => setModalOpen(false)}
-      >
-        <div>{modalContent}</div>
-      </Modal>
     </div>
   );
 };

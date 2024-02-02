@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 300px;
-  margin: 2vh;
+  margin: 2vh 0;
 }
 
 .login-form {
@@ -13,8 +13,6 @@
   align-items: center;
   justify-content: center;
   padding: none;
-  margin-left: 2vh;
-  margin-right: 2vh;
 }
 
 .login-form form {

@@ -36,14 +36,6 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
 
   return (
     <div className="events-card">
-      <div className="event-details">
-        <p className="event-title">{event.title}</p>
-        <p>{convertDateReadability(event.date)}</p>
-        <p>{convertMilitaryTime(event.time)}</p>
-        <p>Seats: {event.seats}</p>
-        <p>Attendees: {event.seats - event.seatsRemaining}</p>
-        <p>Price: ${event.price}</p>
-      </div>
       <div className="event-options">
         <button className="button" type="button" onClick={handleViewAttendance}>
           Attendance
@@ -51,6 +43,14 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
         <button className="button" type="button" onClick={handleViewNotes}>
           Notes
         </button>
+      </div>
+      <div className="event-details">
+        <p className="event-title">{event.title}</p>
+        <p>{convertDateReadability(event.date)}</p>
+        <p>{convertMilitaryTime(event.time)}</p>
+        <p>Seats: {event.seats}</p>
+        <p>Attendees: {event.seats - event.seatsRemaining}</p>
+        <p>Price: ${event.price}</p>
       </div>
       <Modal
         title={convertDateReadability(event.date)}

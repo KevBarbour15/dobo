@@ -22,44 +22,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2vh 0 0 0;
+  margin: 2vh 0;
 }
 
 .attendee-name {
   font-weight: 700;
-  letter-spacing: -1.35px;
-  line-height: 1.15;
-  text-transform: lowercase;
+  letter-spacing: -0.15px;
   font-size: 22px;
-}
-
-.attendee-container select {
-  font-weight: 400;
-  font-size: 18px;
-  width: 225px;
-  height: 35px;
-  border: 1px solid black;
-  border-radius: 25px;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  color: black;
-  margin-bottom: 1vh;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.35);
-}
-
-.attendee-container select:focus {
-  background-color: white;
-  outline: none;
-}
-
-.attendee-email {
-  display: flex;
-  font-size: 1.75rem;
-  color: black;
-  cursor: pointer;
-  transition: all 0.25s ease-in-out;
 }
 
 .attendee-email:hover {
@@ -71,5 +40,5 @@
 }
 
 .attendee-message p {
-  font-size: 0.9rem;
+  font-size: 14px;
 }

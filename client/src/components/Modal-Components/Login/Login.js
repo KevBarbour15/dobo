@@ -31,7 +31,7 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <input
-          className="input"
+          className="form-element"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -41,7 +41,7 @@ const Login = () => {
           required
         />
         <input
-          className="input"
+          className="form-element"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

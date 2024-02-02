@@ -70,14 +70,14 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
           <div className="attendee-message">
             <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
           </div>
-          <select value={status} onChange={handleStatusChange}>
+          <select className="form-element" value={status} onChange={handleStatusChange}>
             <option value="Confirmed">Confirmed</option>
             <option value="Inquired">Inquired</option>
             <option value="Contacted">Contacted</option>
             <option value="Not Attending">Not Attending</option>
           </select>
           {status === "Confirmed" && (
-            <select value={seats} onChange={handleSeatsChange}>
+            <select  className="form-element" value={seats} onChange={handleSeatsChange}>
               {console.log("Seats: ", seats)}
               {generateSeats()}
             </select>

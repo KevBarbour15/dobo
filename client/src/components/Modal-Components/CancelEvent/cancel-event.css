@@ -6,15 +6,18 @@
   margin: 2vh 2vw;
 }
 
-.cancel-event-container p {
-  width: 300px;
+.cancel-event-container span {
+  width: 250px;
   font-size: 20px;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  line-height: 1.25;
   text-align: center;
-  margin-top: 1vh;
   margin-bottom: 2vh;
+}
+
+.cancel-event-container button {
+  border: 2pxsolid red;
+  color: red;
+  width: 135px;
 }
 
 .cancel-event-container button:hover {

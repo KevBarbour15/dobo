@@ -63,7 +63,7 @@ const CreateEvent = ({ onEventCreated }) => {
           <form onSubmit={handleSubmit}>
             <label>event name:</label>
             <input
-              className="input"
+              className="form-element"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -71,7 +71,7 @@ const CreateEvent = ({ onEventCreated }) => {
             />
             <label>price:</label>
             <input
-              className="input"
+              className="form-element"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -79,7 +79,7 @@ const CreateEvent = ({ onEventCreated }) => {
             />
             <label>date:</label>
             <input
-              className="input"
+              className="form-element"
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -87,15 +87,15 @@ const CreateEvent = ({ onEventCreated }) => {
             />
             <label>time:</label>
             <input
-              className="input"
+              className="form-element"
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
               required
             />
-            <p className="seats-title">seats:</p>
+            <label className="seats-title">seats:</label>
             <select
-              className="seats"
+              className="form-element"
               placeholder="Seats"
               value={seats}
               onChange={(e) => setSeats(formatDate(e.target.value))}
@@ -107,7 +107,7 @@ const CreateEvent = ({ onEventCreated }) => {
                 </option>
               ))}
             </select>
-
+           
             <button className="button" type="submit">
               Create
             </button>

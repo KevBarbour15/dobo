@@ -7,10 +7,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid black;
+  border-top: 1.5px solid black;
   background: #efefef;
-  border-bottom: 1px solid black;
-  background-image: url("../../assets/images/background.jpg");
+  border-bottom: 1.5px solid black;
+  background-image: url("../../assets/images/background-grey.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -84,5 +84,4 @@
 }
 
 @media (max-width: 768px) {
- 
 }

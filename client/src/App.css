@@ -16,9 +16,11 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
+  border-right: 1.5px solid black;
+  border-left: 1.5px solid black;
 }
+
+/* for the contact icons */
 
 .item {
   width: 50px;
@@ -29,13 +31,12 @@
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  border: 1px solid black;
+  border: 1.5px solid black;
   z-index: 1;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  //box-shadow: 1.25px 1.25px 2.5px black;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .icon {
@@ -48,8 +49,8 @@
 }
 
 .item:hover .icon {
-  color: white;
-  transform: rotateX(360deg);
+  color: black;
+  transform: rotateY(360deg);
 }
 
 .item:before {
@@ -64,30 +65,11 @@
 }
 
 .item.email:before {
-  /*background-image: linear-gradient(to bottom, #63b1f7 0%, #4687d6 100%);*/
-  background: #bd9c72;
+  background: linear-gradient(to bottom, #efefef, #bd9c72);
 }
 
 .item.ig:before {
-  /*
-  background: radial-gradient(
-      circle farthest-corner at 30% 107%,
-      #fdf497 0%,
-      #fdf497 5%,
-      #fd5949 45%,
-      #d6249f 60%,
-      #285aeb 90%
-    ),
-    radial-gradient(
-      circle farthest-corner at 70% 90%,
-      #ffdb2d 0%,
-      #ffdb2d 5%,
-      #ff640c 45%,
-      #c709c7 60%,
-      #285aeb 90%
-    );
-    */
-  background: #bd9c72;
+  background: linear-gradient(to bottom, #efefef, #bd9c72);
 }
 
 .item:hover:before {
@@ -96,82 +78,111 @@
 
 /* For button styling */
 .button {
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1.25px;
   font-size: 18px;
-  width: 135px;
+  width: 117.5px;
   height: 35px;
   border: 2px solid #bd9c72;
   border-radius: 5px;
-  cursor: pointer;
   color: #bd9c72;
   background: rgba(255, 255, 255, 0.25);
   transition: all 0.25s ease-in-out;
   text-transform: lowercase;
   font-weight: 400;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .button:hover {
-  color: white;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: none;
   background: #bd9c72;
-  transform: scale(1.075);
+  box-shadow: 1.5px 1.5px 3.25px black;
 }
 
 .button:active {
-  background-color: white;
   box-shadow: 0.15px 0.15px 0.15px black;
 }
 
-/* For input styling */
-.input {
-  width: 225px;
+/* Common styles for input, select, and textarea */
+.form-element {
+  box-sizing: border-box;
+  width: 235px;
   border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.75px;
   margin-bottom: 2vh;
-  height: 32px;
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-input {
-  color: black;
-}
-
-input::placeholder {
-  color: #bd9c72;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1.25px;
-  font-size: 16px;
-}
-
-input:focus {
+.form-element:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.5);
   color: black;
-  transform: scale(1.05);
+  box-shadow: 1.5px 1.5px 3.25px black;
 }
 
-/* For text area styling */
-.text-area {
-  font-family: "Poppins", sans-serif;
-  width: 225px;
-  border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding: 0.7rem;
-  margin-bottom: 2vh;
-  height: 100px;
-  border-radius: 5px;
-  transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.25);
+.form-element:hover {
+  cursor: pointer;
+}
+
+input {
+  padding: 0 10px;
+  height: 32px;
+}
+
+input::active,
+textarea::active {
+  color: black;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: grey;
+  font-size: 14px;
+}
+
+textarea {
+  padding: 10px;
+  height: 150px;
+  color: black;
+  resize: vertical;
+  overflow: auto;
+}
+
+select {
+  height: 32px;
+  padding: 0 10px;
+  color: black;
+  background: transparent;
+}
+
+.default-option {
+  color: grey;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.select-option {
+  color: black;
+  font-size: 12px;
+  letter-spacing: 0.25px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* for label styling */
 label {
   font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
-  font-size: 18px;
-  color: #bd9c72;
+  letter-spacing: -0.15px;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 1vh;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }

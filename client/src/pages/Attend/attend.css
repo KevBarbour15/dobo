@@ -31,7 +31,7 @@
 }
 
 .attend-text {
-  width: 225px;
+  width: 235px;
   margin-top: 4vh;
   margin-bottom: 2vh;
   font-weight: 400;
@@ -52,75 +52,6 @@
   font-weight: 400;
 }
 
-.inquiry-form textarea:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(1.05);
-}
-
-.inquiry-form textarea[type="text"],
-.inquiry-form textarea::placeholder,
-.custom-dropdown {
-  color: #bd9c72;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1.25px;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.custom-dropdown {
-  letter-spacing: 1.5px;
-}
-
-.custom-dropdown {
-  font-weight: 400;
-  width: 225px;
-  border: 2px solid #bd9c72;
-  font-size: 0.85rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  margin-bottom: 2vh;
-  height: 35px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  margin-bottom: 2vh;
-  display: flex;
-  align-items: center;
-  transition: all 0.25s ease-in-out;
-  position: relative;
-}
-
-.dropdown-list {
-  min-width: 315px;
-  position: absolute;
-  border: 2px solid #bd9c72;
-  z-index: 100;
-  border-radius: 5px;
-  box-shadow: 1.25px 1.25px 2.5px black;
-  background: white;
-  transform: scale(1.05);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.dropdown-list-item {
-  padding: 12px;
-  transition: all 0.25s ease-in-out;
-}
-
-.dropdown-list-item:last-child {
-  border-bottom: none;
-}
-
-.dropdown-list-item:hover {
-  font-weight: bold;
-  transform: scale(1.1);
-}
-
 .subscribe-container {
   display: flex;
   flex-direction: column;
@@ -129,7 +60,7 @@
 }
 
 .subscribe-container span {
-  width: 225px;
+  width: 235px;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   letter-spacing: -0.15px;
@@ -143,7 +74,7 @@
 }
 
 .subscribe-email input {
-  width: 225px;
+  width: 235px;
   border: 2px solid #bd9c72;
   font-size: 1rem;
   padding-left: 0.7rem;
@@ -198,7 +129,7 @@
     font-size: 16px;
     margin-top: 3vh;
     font-weight: 400;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
     line-height: 1.15;
     text-align: justify;
   }
@@ -207,12 +138,6 @@
     align-items: center;
     justify-content: center;
     width: 315px;
-  }
-
-  .inquiry-form input,
-  .inquiry-form textarea,
-  .custom-dropdown {
-    width: 275px;
   }
 
   .inquiry-form textarea {

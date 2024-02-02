@@ -12,8 +12,8 @@
 }
 
 .modal-content {
-  border: 1px solid black;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  border: 1.5px solid black;
+  box-shadow: 2px2px10px rgba(0, 0, 0, 0.75);
   background-color: #efefef;
   overflow-y: scroll;
 }
@@ -26,11 +26,11 @@
   justify-content: space-between;
   align-items: center;
   height: 55px;
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
   background-color: #efefef;
 }
 
-.modal-header  {
+.modal-header {
   font-family: "Poppins", sans-serif;
   color: black;
   font-size: 20px;

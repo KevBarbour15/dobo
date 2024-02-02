@@ -11,7 +11,7 @@ const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
     <div className="dash-header-container">
       <div className="dash-header-title-container">
         <div className="dash-header-title">
-          <h1>Dashboard</h1>
+          <span>Dashboard</span>
         </div>
       </div>
       <div className="dash-header-links-container">

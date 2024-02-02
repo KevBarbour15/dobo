@@ -4,7 +4,7 @@ export const showSuccessNotification = (enqueueSnackbar, message) => {
     style: {
       backgroundColor: "rgba(255, 255, 255, 0.8)",
       color: "#bd9c72",
-      border: "2px solid #bd9c72",
+      border: "2pxsolid #bd9c72",
       borderRadius: "5px",
       fontSize: "20px",
       fontFamily: "Poppins, sans-serif",

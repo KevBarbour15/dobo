@@ -1,21 +1,21 @@
 .events-list {
   overflow-y: auto;
-  min-height: calc(100vh - 92px);
+  min-height: calc(100vh - 94px);
 }
 
 .events-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1.5px solid black;
   padding: 2vh 2vw;
+  color: black;
 }
 
 .event-title {
-  font-family: "Poppins", sans-serif;
-  text-align: right;
   font-size: 20px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .event-details,
@@ -31,23 +31,22 @@
 
 .event-details p {
   font-family: "Poppins", sans-serif;
-  text-align: right;
+  text-align: left;
 }
 
 .event-options {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+  display: grid;
+  justify-content: end;
 }
 
 .event-options button:not(:last-child) {
-  margin-bottom: 1vh;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 768px) {
   .events-list {
     overflow-y: auto;
-    min-height: calc(100vh - 92px);
+    min-height: calc(100vh - 94px);
   }
 
   .event-options button {
