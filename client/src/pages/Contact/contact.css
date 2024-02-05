@@ -43,24 +43,6 @@
     width: 315px;
   }
 
-  .subscribe-container,
-  .contact-links-container {
-    width: 315px;
-  }
 
-  .subscribe-container p,
-  .contact-links-container p {
-    margin-top: 4vh;
-    font-size: 20px;
-    letter-spacing: -1.35px;
-    line-height: 1.15;
-  }
 
-  .subscribe-email {
-    width: 315px;
-  }
-
-  .subscribe-email input {
-    width: 275px;
-  }
 }

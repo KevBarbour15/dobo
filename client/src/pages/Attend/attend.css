@@ -1,7 +1,8 @@
 .attend-container {
-  min-height: calc(100vh - 58px);
+  min-height: calc(100vh - 55px);
   display: flex;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
 .attend-left,
@@ -52,50 +53,67 @@
 }
 
 .subscribe-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 2vh;
-}
-
-.subscribe-container span {
+  box-sizing: border-box;
   width: 235px;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  letter-spacing: -0.15px;
-  margin-bottom: 2vh;
-}
-
-.subscribe-email {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.subscribe-email input {
-  width: 235px;
-  border: 2px solid #bd9c72;
-  font-size: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2vh;
-  height: 32px;
-  border-radius: 6px;
-  transition: all 0.25s ease-in-out;
-  background: rgba(255, 255, 255, 0.25);
 }
 
-.subscribe-email input::placeholder {
-  color: #bd9c72;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 3px;
-  font-size: 18px;
+.subscribe-text {
+  width: 70%;
   font-weight: 400;
+  font-size: 12px;
 }
 
-.subscribe-email input:focus {
-  background: white;
-  outline: none;
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  width: 60px;
+  height: 32px;
+  border-radius: 5px;
+  z-index: 2;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+input[type="checkbox"]:focus {
+  outline: 0;
+}
+
+.toggle {
+  box-sizing: border-box;
+  height: 32px;
+  width: 60px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  border: 2px solid #bd9c72;
+  cursor: pointer;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border: 1px solid #bd9c72;
+  box-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+}
+
+input[type="checkbox"].toggle:checked:after {
+  background: linear-gradient(to bottom, #efefef, #bd9c72);
+  transition: all 0.25s ease-in-out;
+  transform: translateX(26px);
 }
 
 @media (max-width: 768px) {
@@ -139,5 +157,14 @@
 
   .inquiry-form textarea {
     height: 18vh;
+  }
+
+  .subscribe-container {
+    width: 300px;
+  }
+
+  .subscribe-text {
+    width: 70%;
+    font-size: 16px;
   }
 }

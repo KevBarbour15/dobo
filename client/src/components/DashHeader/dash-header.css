@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-image: url("../../assets/images/background-grey.jpg");
+  background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -90,10 +90,10 @@
 
 @media (max-width: 768px) {
   .dash-header-title {
-    font-size: 1.2rem;
+    font-size: 18px;
   }
 
   .dash-link-container button {
-    font-size: 1.1rem;
+    font-size: 12px;
   }
 }

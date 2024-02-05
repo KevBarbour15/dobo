@@ -1,5 +1,5 @@
 .create-event-container {
-  min-height: calc(100vh - 94px);
+  min-height: calc(100vh - 90px);
   display: flex;
 }
 
@@ -49,12 +49,6 @@
   margin-bottom: 1vh;
 }
 
-.create-event-form input:focus,
-.create-event-form select:focus,
-.create-event-form textarea:focus {
-  background-color: white;
-  outline: none;
-}
 
 @media (max-width: 768px) {
   .create-event-container {
@@ -62,6 +56,10 @@
   }
   .create-left {
     display: none;
+  }
+
+  .create-right {
+    width: 100%;
   }
 
   .create-title-container {
@@ -112,20 +110,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .create-event-form input,
-  .create-event-form {
-    width: 275px;
-  }
-
-  .seats-title {
-    margin: auto;
-  }
-
-  .seats {
-    width: 25px;
-    margin: auto;
   }
 
   .create-event-form button {

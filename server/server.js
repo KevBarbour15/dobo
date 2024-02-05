@@ -16,10 +16,12 @@ app.get("/", (req, res) => {
 const authRoutes = require("./routes/auth");
 const eventsRoutes = require("./routes/events");
 const attendeesRoutes = require("./routes/attendees");
+const subscribeRoutes = require("./routes/subscribe");
 
 app.use("/auth", authRoutes);
 app.use("/events", eventsRoutes);
 app.use("/attendees", attendeesRoutes);
+app.use("/subscribe", subscribeRoutes);
 
 connect();
 

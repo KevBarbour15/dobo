@@ -93,7 +93,7 @@ const CreateEvent = ({ onEventCreated }) => {
               onChange={(e) => setTime(e.target.value)}
               required
             />
-            <label className="seats-title">seats:</label>
+            <label>seats:</label>
             <select
               className="form-element"
               placeholder="Seats"
@@ -107,7 +107,7 @@ const CreateEvent = ({ onEventCreated }) => {
                 </option>
               ))}
             </select>
-           
+
             <button className="button" type="submit">
               Create
             </button>

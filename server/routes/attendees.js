@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Attendee = require("../schemas/attendees");
 const Event = require("../schemas/eventInfo");
-const inquiryNotification = require("../utils/inquiryNotification");
 
 // creates a new attendee
 router.post("/new", async (req, res) => {
@@ -15,11 +14,12 @@ router.post("/new", async (req, res) => {
       $push: { attendees: savedAttendee._id },
     });
 
+    if (req.body.isChecked) {
+      console.log(API_KEY, AUDIENCE_ID, DATACENTER);
+    }
+
     res.status(201).json(savedAttendee);
-    //inquiryNotification(savedAttendee);
-    console.log("Attendee added");
   } catch (error) {
-    console.log("Error creating attendee");
     res
       .status(500)
       .json({ message: "Error creating attendee", error: error.message });

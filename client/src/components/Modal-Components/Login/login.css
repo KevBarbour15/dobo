@@ -3,8 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  margin: 2vh 2vw;
+  margin: 14px;
 }
 
 .login-form {
@@ -20,4 +19,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form-element.login {
+    width: 225px;
+  }
 }

@@ -21,20 +21,6 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const handleTimeChange = (e) => setTime(e.target.value);
   const handlePriceChange = (e) => setPrice(e.target.value);
 
-  const incrementSeats = () => {
-    setSeats(seats + 1);
-    setSeatsRemaining(seatsRemaining + 1);
-  };
-
-  const decrementSeats = () => {
-    if (seats > committed) {
-      setSeats(seats - 1);
-      setSeatsRemaining(seatsRemaining - 1);
-    } else {
-      alert("You cannot have less seats than attendees!");
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -79,7 +65,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           </div>
           <div className="event-label">
             <label>price:</label>
-            <select
+            <input
               className="form-element"
               type="number"
               value={price}
@@ -104,31 +90,23 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
               onChange={handleTimeChange}
             />
           </div>
-          <div className="seating-container">
-            <div className="seating-labels">
-              <label> attendees: {committed}</label>
-              <label> seats: {seats}</label>
-            </div>
-            <div className="count-button-container">
-              <span
-                class="material-symbols-outlined"
-                type="button"
-                onClick={decrementSeats}
-                disabled={seats <= committed}
-              >
-                remove
-              </span>
-
-              <input type="number" value={seats} readOnly />
-
-              <span
-                class="material-symbols-outlined"
-                classtype="button"
-                onClick={incrementSeats}
-              >
-                add
-              </span>
-            </div>
+          <div className="event-label">
+            <label>seats:</label>
+            <select
+              className="form-element"
+              value={seats}
+              onChange={(e) => setSeats(e.target.value)}
+            >
+              {Array.from(
+                { length: 25 - committed },
+                (_, i) => i + committed
+              ).map((i) => (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+            <label>attendees: {committed}</label>
           </div>
 
           <button className="button" type="submit">

@@ -57,7 +57,9 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
       {eventTiming === "upcoming" ? (
         <div className="attendee-info">
           <div className="contact-icon">
-            <p className="attendee-name">{attendee.name}</p>
+            <span className="attendee-name">
+              {attendee.firstName + " " + attendee.lastName}
+            </span>
             <a
               className="item email"
               href={`mailto:${
@@ -70,14 +72,22 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
           <div className="attendee-message">
             <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
           </div>
-          <select className="form-element" value={status} onChange={handleStatusChange}>
+          <select
+            className="form-element"
+            value={status}
+            onChange={handleStatusChange}
+          >
             <option value="Confirmed">Confirmed</option>
             <option value="Inquired">Inquired</option>
             <option value="Contacted">Contacted</option>
             <option value="Not Attending">Not Attending</option>
           </select>
           {status === "Confirmed" && (
-            <select  className="form-element" value={seats} onChange={handleSeatsChange}>
+            <select
+              className="form-element"
+              value={seats}
+              onChange={handleSeatsChange}
+            >
               {console.log("Seats: ", seats)}
               {generateSeats()}
             </select>

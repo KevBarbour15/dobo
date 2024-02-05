@@ -10,7 +10,7 @@
   border-top: 1.5px solid black;
   background: #efefef;
   border-bottom: 1.5px solid black;
-  background-image: url("../../assets/images/background-grey.jpg");
+  background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -66,9 +66,6 @@
 }
 
 .header-title {
-  //font-family: "Aboreto", sans-serif;
-  //font-size: 15px;
-  //letter-spacing: -4px;
   height: 35px;
   transition: all 0.5s ease-in-out;
   animation-name: fadeIn;

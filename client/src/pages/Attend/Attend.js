@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./attend.css";
 import axios from "../../axiosConfig.js";
 import {
@@ -17,11 +17,13 @@ import { showSuccessNotification } from "../../util/notifications.js";
 
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedEventId, setSelectedEventId] = useState("");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -69,28 +71,69 @@ const Attend = () => {
 
     let convertedDate = convertDateReadability(date);
     const attendeeData = {
-      name,
+      firstName,
+      lastName,
       email,
       eventId: selectedEventId,
       date: convertedDate,
       status: "Inquired",
       message,
+      subscribe: isChecked,
     };
 
-    try {
-      const response = await axios.post("/attendees/new", attendeeData);
-      if (response.status === 200 || response.status === 201) {
-        setName("");
-        setEmail("");
-        setSelectedEventId("");
-        setDate("");
-        setMessage("");
-        showSuccessNotification(enqueueSnackbar, "Thank you for your inquiry");
+    const resetForm = () => {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setIsChecked(false);
+      setSelectedEventId("");
+      setDate("");
+      setMessage("");
+    };
+
+    const postAttendeeData = async () => {
+      try {
+        const response = await axios.post("/attendees/new", attendeeData);
+        if (response.status === 200 || response.status === 201) {
+          showSuccessNotification(
+            enqueueSnackbar,
+            "Thank you for your inquiry"
+          );
+          if (!isChecked) {
+            resetForm();
+          }
+        }
+      } catch (error) {
+        const errorData = error.response ? error.response.data : error.message;
+        console.error("There was an error sending the data:", errorData);
       }
-    } catch (error) {
-      const errorData = error.response ? error.response.data : error.message;
-      console.error("There was an error sending the data:", errorData);
-    }
+    };
+
+    const postSubscriptionData = async () => {
+      if (isChecked) {
+        try {
+          const response = await axios.post("/subscribe/new", {
+            email,
+            firstName,
+            lastName,
+          });
+
+          if (response.status === 200 || response.status === 201) {
+            resetForm();
+          }
+        } catch (error) {
+          if (error.response.status === 400) {
+            console.log("User email already subscribed.");
+          } else {
+            console.error("There was an error subscribing the user: ", error);
+          }
+          resetForm();
+        }
+      }
+    };
+
+    await postAttendeeData();
+    await postSubscriptionData();
   };
 
   useEffect(() => {
@@ -99,6 +142,10 @@ const Attend = () => {
       selectElement.classList.add("default-");
     }
   }, []);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   return (
     <div id="attend" className="attend-container">
@@ -131,9 +178,9 @@ const Attend = () => {
                     key={event._id}
                     value={event._id}
                   >
-                    {convertDateReadability(event.date)} at{" "}
+                    {convertDateReadability(event.date)}
                     {event.seatsRemaining > 0
-                      ? convertMilitaryTime(event.time)
+                      ? " at " + convertMilitaryTime(event.time)
                       : "SOLD OUT"}
                   </option>
                 ))}
@@ -141,9 +188,17 @@ const Attend = () => {
               <input
                 className="form-element"
                 type="text"
-                value={name}
-                placeholder="name:"
-                onChange={(e) => setName(e.target.value)}
+                value={firstName}
+                placeholder="first name:"
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+              <input
+                className="form-element"
+                type="text"
+                value={lastName}
+                placeholder="last name:"
+                onChange={(e) => setLastName(e.target.value)}
                 required
               />
 
@@ -163,6 +218,17 @@ const Attend = () => {
                 placeholder="message (optional):"
                 onChange={(e) => setMessage(e.target.value)}
               />
+              <div class="subscribe-container">
+                <div class="subscribe-text">
+                  Subscribe to receive alerts when new events are posted.
+                </div>
+                <input
+                  type="checkbox"
+                  className="toggle"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+              </div>
 
               <button className="button" type="submit">
                 submit

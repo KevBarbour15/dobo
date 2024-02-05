@@ -6,9 +6,13 @@ const AttendeeSchema = new mongoose.Schema({
     ref: "DoboEvent",
     required: true,
   },
-  name: {
+  firstName: {
     type: String,
     required: true,
+  },
+  lastName: {
+    type: String,
+    required: false,
   },
   email: {
     type: String,
