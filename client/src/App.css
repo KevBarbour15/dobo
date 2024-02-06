@@ -77,9 +77,9 @@
 /* For button styling */
 .button {
   box-sizing: border-box;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  letter-spacing: 1.25px;
-  font-size: 18px;
+  letter-spacing: 2px;
   width: 117.5px;
   height: 35px;
   border: 2px solid #bd9c72;
@@ -182,9 +182,9 @@ select {
 
 /* for label styling */
 label {
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  letter-spacing: -0.15px;
-  font-size: 20px;
+  letter-spacing: 2px;
   color: black;
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);

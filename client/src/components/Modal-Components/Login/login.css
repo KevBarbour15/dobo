@@ -21,8 +21,16 @@
   justify-content: center;
 }
 
+.form-element.login {
+  margin-bottom: 7px;
+}
+
+.button.login {
+  margin-top: 7px;
+}
+
 @media (max-width: 768px) {
   .form-element.login {
-    width: 250px;
+    width: 275px;
   }
 }

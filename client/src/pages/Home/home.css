@@ -100,7 +100,7 @@
 }
 
 .text-left {
-  height: 45px;
+  width: 117.5px;
   animation-name: slideRightText;
   animation-delay: 0.25s;
   animation-duration: 1.5s;
@@ -125,9 +125,10 @@
   font-weight: 400;
   transition: all 0.25s ease-in-out;
   border-radius: 5px;
-  padding: 10px 22px;
-  letter-spacing: 1.25px;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  width: 117.5px;
+  height: 35px;
   text-shadow: 4.75px 4.75px 10px black;
   transition: all 0.25s ease-in-out;
 }

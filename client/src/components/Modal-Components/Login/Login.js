@@ -50,7 +50,7 @@ const Login = () => {
           autoComplete="current-password"
           required
         />
-        <button className="button" type="submit">
+        <button className="button login" type="submit">
           Login
         </button>
       </form>
