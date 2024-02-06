@@ -27,7 +27,7 @@
   margin: 0;
 }
 
-.event-details  {
+.event-details {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
@@ -43,6 +43,11 @@
 
 .event-options button:not(:last-child) {
   margin-bottom: 12px;
+}
+
+.negative-seats {
+  color: red;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

@@ -61,7 +61,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
       setAttendees(
         attendees.map((attendee) =>
           attendee._id === attendeeId
-            ? { ...attendee, status: newStatus }
+            ? { ...attendee, status: newStatus, seats: seats}
             : attendee
         )
       );

@@ -111,6 +111,10 @@ input[type="checkbox"]:focus {
   transition: transform 0.25s cubic-bezier(0.5, 0.1, 0.75, 1.35);
 }
 
+.toggle::after {
+  background: linear-gradient(to bottom, #efefef, #d3d3d3);
+}
+
 input[type="checkbox"].toggle:checked:after {
   background: linear-gradient(to bottom, #efefef, #bd9c72);
   transition: all 0.25s ease-in-out;

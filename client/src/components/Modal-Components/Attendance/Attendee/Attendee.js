@@ -37,15 +37,6 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     setSeats(e.target.value);
   };
 
-  const generateSeats = () => {
-    let options = [];
-    for (let i = 1; i <= event.seatsRemaining; i++) {
-      options.push(
-        <option value={i}>{`${i} Seat${i !== 1 ? "s" : ""}`}</option>
-      );
-    }
-    return options;
-  };
 
   const handleSave = () => {
     console.log("Seats: ", seats);
@@ -88,8 +79,11 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               value={seats}
               onChange={handleSeatsChange}
             >
-              {console.log("Seats: ", seats)}
-              {generateSeats()}
+              {[...Array(20)].map((_, i) => (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
             </select>
           )}
           <button className="button" onClick={handleSave}>
@@ -108,7 +102,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
             >
               <FontAwesomeIcon className="icon" icon={faEnvelope} />
             </a>
-          </div>
+            </div>
           <p>Seats: {attendee.seats}</p>
         </div>
       ) : (

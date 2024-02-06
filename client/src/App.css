@@ -16,6 +16,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-left: 1.5px solid black;
   border-right: 1.5px solid black;
 }
 
@@ -95,14 +96,15 @@
 
 .button:hover {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: none;
+  color: #efefef;
   background: #bd9c72;
-  box-shadow: 1.5px 1.5px 3.25px black;
+  transition: all 0.25s ease-in-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 1.25px 3px 6px rgba(0, 0, 0, 0.75);
 }
 
 .button:active {
-  box-shadow: 0.15px 0.15px 0.15px black;
+  box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
 }
 
 /* Common styles for input, select, and textarea */
@@ -132,6 +134,12 @@
   cursor: pointer;
 }
 
+.form-element::placeholder,
+textarea::placeholder,
+.default-option {
+  letter-spacing: 3px;
+}
+
 input {
   padding: 0 10px;
   height: 32px;
@@ -153,6 +161,16 @@ textarea::placeholder {
   font-size: 14px;
 }
 
+input[type="date"],
+input[type="time"]{
+  padding: 0 10px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  color: black;
+  text-align: left;
+}
+
 textarea {
   padding: 10px;
   height: 150px;
@@ -166,17 +184,12 @@ select {
   padding: 0 10px;
   color: black;
   background: transparent;
-}
-
-.default-option {
-  color: grey;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 3px;
 }
 
 .select-option {
   color: black;
   font-size: 12px;
-  letter-spacing: 0.25px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 

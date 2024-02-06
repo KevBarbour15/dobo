@@ -80,7 +80,14 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <p>{convertDateReadability(event.date)}</p>
         <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>
-        <p>Seats Available: {event.seatsRemaining}</p>
+        {event.seatsRemaining >= 0 ? (
+          <p>Seats Available: {event.seatsRemaining}</p>
+        ) : (
+          <p className="negative-seats">
+            Seats Available: {event.seatsRemaining} (Overbooked)
+          </p>
+        )}
+
         <p>Price: ${event.price}</p>
       </div>
       <Modal

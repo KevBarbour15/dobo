@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./edit-event.css";
 import axios from "../../../axiosConfig.js";
 import { formatDate } from "../../../util/formatting.js";
@@ -20,6 +20,10 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const handleDateChange = (e) => setDate(e.target.value);
   const handleTimeChange = (e) => setTime(e.target.value);
   const handlePriceChange = (e) => setPrice(e.target.value);
+
+  useEffect(() => {
+    setSeatsRemaining(seats - committed);
+  }, [seats, committed]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
