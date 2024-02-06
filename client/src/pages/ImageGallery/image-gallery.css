@@ -39,7 +39,7 @@
   width: 100%;
   height: auto;
   border: 1.5px solid black;
-  box-shadow: 0 2px4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease-in-out;
   display: block;
 }
