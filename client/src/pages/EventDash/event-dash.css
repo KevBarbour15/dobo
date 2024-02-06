@@ -6,6 +6,7 @@
   margin-right: auto;
   background-size: cover;
   box-sizing: border-box;
+  min-height: calc(100vh - 90px);
 }
 
 .events-container {

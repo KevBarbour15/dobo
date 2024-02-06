@@ -1,6 +1,7 @@
 .create-event-container {
   min-height: calc(100vh - 90px);
   display: flex;
+  box-sizing: border-box;
 }
 
 .create-left,
@@ -39,16 +40,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
-  margin-bottom: 4vh;
+  margin-bottom: 6vh;
 }
-
-.create-event-form p {
-  font-size: 20px;
-  color: black;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-}
-
 
 @media (max-width: 768px) {
   .create-event-container {
@@ -61,33 +54,7 @@
   .create-right {
     width: 100%;
   }
-
-  .create-title-container {
-    margin-top: 3vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 235px;
-    width: 315px;
-    top: 0;
-    animation-name: fadeIn;
-    animation-duration: 0.7s;
-    animation-delay: 0.3s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-  }
-
-  .create-title-img {
-    height: 100%;
-    width: 50%;
-    background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1.5px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
-  }
-
+  
   .create-info-container {
     display: flex;
     flex-direction: column;

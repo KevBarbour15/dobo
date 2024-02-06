@@ -1,6 +1,6 @@
 .events-list {
   overflow-y: auto;
-  min-height: calc(100vh - 94px);
+  min-height: calc(100vh - 90px);
 }
 
 .events-card {

@@ -194,4 +194,10 @@ label {
   .form-element {
     width: 300px;
   }
+
+  .button:hover {
+    color: #bd9c72;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 1.5px 1.5px 3.25px black;
+  }
 }

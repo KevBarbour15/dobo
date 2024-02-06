@@ -35,20 +35,16 @@
     opacity: 0;
   }
 
-  .title-img.contact {
-    background-image: url("../../assets/thumbnail-images/dobo-3-thumb.jpg");
-  }
-
   .title-img.attend {
     background-image: url("../../assets/thumbnail-images/dobo-12-thumb.jpg");
   }
 
   .title-img.about {
-    background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
+    background-image: url("../../assets/thumbnail-images/dobo-4-thumb.jpg");
   }
 
   .title-img.create {
-    background-image: url("../../assets/thumbnail-images/dobo-8-thumb.jpg");
+    background-image: url("../../assets/images/julius-randle.jpeg");
   }
 
   .title-img {

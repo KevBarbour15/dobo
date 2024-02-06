@@ -13,6 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   border-top: 1.5px solid black;
+  box-sizing: border-box;
+
 }
 
 .dash-header-title-container,

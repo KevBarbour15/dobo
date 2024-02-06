@@ -141,7 +141,7 @@ const Attend = () => {
     if (selectElement && selectedEventId === "") {
       selectElement.classList.add("default-");
     }
-  }, []);
+  }, [selectedEventId]);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);

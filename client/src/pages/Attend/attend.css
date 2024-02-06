@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: column;
   font-weight: 400;
+  margin-bottom: 6vh;
 }
 
 .subscribe-container {
@@ -119,7 +120,6 @@ input[type="checkbox"].toggle:checked:after {
 @media (max-width: 768px) {
   .attend-container {
     height: auto;
-    padding-bottom: 6vh;
   }
 
   .attend-left {

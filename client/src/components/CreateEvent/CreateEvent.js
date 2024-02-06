@@ -5,7 +5,7 @@ import "./create-event.css";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
-import img from "../../assets/images/dobo-8.jpg";
+import img from "../../assets/images/julius-randle.jpeg";
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 

@@ -78,7 +78,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
       <div className="event-details">
         <p className="event-title">{event.title}</p>
         <p>{convertDateReadability(event.date)}</p>
-        <p>{convertMilitaryTime(event.time)}</p> 
+        <p>{convertMilitaryTime(event.time)}</p>
         <p>Seats: {event.seats}</p>
         <p>Seats Available: {event.seatsRemaining}</p>
         <p>Price: ${event.price}</p>
@@ -102,17 +102,15 @@ const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
   );
 
   return (
-    <div className="event-form">
-      <div className="events-list">
-        {futureEvents.map((event) => (
-          <EventDetails
-            key={event._id}
-            event={event}
-            onDeleteEvent={onDeleteEvent}
-            onUpdateEvent={onUpdateEvent}
-          />
-        ))}
-      </div>
+    <div className="events-list">
+      {futureEvents.map((event) => (
+        <EventDetails
+          key={event._id}
+          event={event}
+          onDeleteEvent={onDeleteEvent}
+          onUpdateEvent={onUpdateEvent}
+        />
+      ))}
     </div>
   );
 };
