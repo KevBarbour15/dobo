@@ -1,15 +1,14 @@
 export const showSuccessNotification = (enqueueSnackbar, message) => {
   enqueueSnackbar(message, {
-    autoHideDuration: 1250,
+    autoHideDuration: 1500,
     style: {
-      backgroundColor: "efefef",
+      backgroundColor: "white",
       color: "#bd9c72",
       border: "2px solid #bd9c72",
       borderRadius: "5px",
-      fontSize: "14px",
+      fontSize: "12px",
       fontFamily: "Poppins, sans-serif",
-      fontWeight: "bold",
-      textTransform: "lowercase",
+      textTransform: "uppercase",
       textAlign: "center",
       boxShadow: "1.25px 1.25px 2.5px black",
       display: "flex",
