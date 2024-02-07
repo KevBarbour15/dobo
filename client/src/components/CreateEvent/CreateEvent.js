@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "../../axiosConfig.js";
 import { formatDate } from "../../util/formatting.js";
 import "./create-event.css";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
-import img from "../../assets/images/julius-randle.jpeg";
+import { imageArray } from "../../assets/images/imageArray.js";
+import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js";
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
@@ -15,7 +16,17 @@ const CreateEvent = ({ onEventCreated }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
+  const [image, setImage] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * imageArray.length);
+
+    setImage(imageArray[randomIndex]);
+    setThumbnail(thumbnailArray[randomIndex]);
+  }, []);
+
   const notes = "";
 
   const handleSubmit = async (e) => {
@@ -54,11 +65,11 @@ const CreateEvent = ({ onEventCreated }) => {
     <div className="create-event-container">
       <div className="create-left">
         <div className="image-container">
-          <img src={img} alt="dobo" />
+          <img src={image} alt="dobo" />
         </div>
       </div>
       <div className="create-right">
-        <PageTitle title={"create"} />
+        <PageTitle title={"create"} thumbnail={thumbnail} />
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
             <label>event name:</label>

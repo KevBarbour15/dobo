@@ -29,11 +29,11 @@
 
 .attend-text {
   width: 235px;
-  margin-top: 4vh;
-  margin-bottom: 2vh;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
 }
 
 .inquiry-form {
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   font-weight: 400;
-  margin-bottom: 6vh;
+  margin-bottom: 32px;
 }
 
 .subscribe-container {
@@ -55,12 +55,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .subscribe-text {
   width: 70%;
-  font-weight: 400;
   font-size: 12px;
 }
 
@@ -134,9 +133,6 @@ input[type="checkbox"].toggle:checked:after {
 
   .attend-text {
     width: 300px;
-    font-size: 16px;
-    margin-top: 3vh;
-    font-weight: 400;
     text-align: justify;
   }
 
@@ -147,7 +143,7 @@ input[type="checkbox"].toggle:checked:after {
   }
 
   .inquiry-form textarea {
-    height: 18vh;
+    height: 150px;
   }
 
   .subscribe-container {

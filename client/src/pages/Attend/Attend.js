@@ -6,9 +6,8 @@ import {
   convertMilitaryTime,
 } from "../../util/formatting.js";
 
-import img from "../../assets/images/dobo-12.jpg";
-
-//import ImageContainer from "../../components/ImageContainer/ImageContainer.js";
+import { randomImageArray1 } from "../../assets/images/imageArray.js";
+import { randomThumbnailArray1 } from "../../assets/thumbnail-images/thumbnailArray.js";
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
@@ -24,8 +23,16 @@ const Attend = () => {
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-
+  const [image, setImage] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
+
+    setImage(randomImageArray1[randomIndex]);
+    setThumbnail(randomThumbnailArray1[randomIndex]);
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -151,11 +158,11 @@ const Attend = () => {
     <div className="attend-container">
       <div className="page-left">
         <div className="image-container">
-          <img src={img} alt="dobo" />
+          <img src={image} alt="dobo" />
         </div>
       </div>
       <div className="page-right">
-        <PageTitle title={"attend"} />
+        <PageTitle title={"attend"} thumbnail={thumbnail} />
         <div className="attend-info-container">
           <div className="attend-text">
             Please fill out the form below to attend. We will reach out with

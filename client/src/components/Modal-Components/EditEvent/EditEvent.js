@@ -61,7 +61,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <div className="event-label">
             <label>title:</label>
             <input
-              className="form-element"
+              className="form-element edit"
               type="text"
               value={title}
               onChange={handleTitleChange}
@@ -70,7 +70,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <div className="event-label">
             <label>price:</label>
             <input
-              className="form-element"
+              className="form-element edit"
               type="number"
               value={price}
               onChange={handlePriceChange}
@@ -79,7 +79,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <div className="event-label">
             <label>date:</label>
             <input
-              className="form-element"
+              className="form-element edit"
               type="date"
               value={date}
               onChange={handleDateChange}
@@ -88,7 +88,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <div className="event-label">
             <label>time:</label>
             <input
-              className="form-element"
+              className="form-element edit"
               type="time"
               value={time}
               onChange={handleTimeChange}
@@ -97,7 +97,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
           <div className="event-label">
             <label>seats:</label>
             <select
-              className="form-element"
+              className="form-element edit"
               value={seats}
               onChange={(e) => setSeats(e.target.value)}
             >

@@ -7,7 +7,7 @@ import thumb6 from "./dobo-6-thumb.jpg";
 import thumb7 from "./dobo-7-thumb.jpg";
 import thumb8 from "./dobo-8-thumb.jpg";
 import thumb9 from "./dobo-9-thumb.jpg";
-import thhumb10 from "./dobo-10-thumb.jpg";
+import thumb10 from "./dobo-10-thumb.jpg";
 import thumb11 from "./dobo-11-thumb.jpg";
 import thumb12 from "./dobo-12-thumb.jpg";
 
@@ -21,9 +21,12 @@ const thumbnailArray = [
   thumb7,
   thumb8,
   thumb9,
-  thhumb10,
+  thumb10,
   thumb11,
   thumb12,
 ];
 
-export { thumbnailArray };
+const randomThumbnailArray1 = [thumb1, thumb2, thumb4, thumb5, thumb6];
+const randomThumbnailArray2 = [thumb8, thumb9, thumb10, thumb11, thumb12];
+
+export { thumbnailArray, randomThumbnailArray1, randomThumbnailArray2 };

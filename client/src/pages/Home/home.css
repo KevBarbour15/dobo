@@ -183,7 +183,7 @@
 
   .button-right {
     font-size: 16px;
-    padding: 8px 18px;
+    padding: 0;
     animation-delay: 0.25s;
     animation-duration: 1s;
   }
