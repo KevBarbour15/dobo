@@ -148,13 +148,13 @@ const Attend = () => {
   };
 
   return (
-    <div id="attend" className="attend-container">
-      <div className="attend-left">
+    <div className="attend-container">
+      <div className="page-left">
         <div className="image-container">
           <img src={img} alt="dobo" />
         </div>
       </div>
-      <div className="attend-right">
+      <div className="page-right">
         <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
@@ -218,8 +218,8 @@ const Attend = () => {
                 placeholder="message (optional):"
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <div class="subscribe-container">
-                <div class="subscribe-text">
+              <div className="subscribe-container">
+                <div className="subscribe-text">
                   Subscribe to receive alerts when new events are posted.
                 </div>
                 <input

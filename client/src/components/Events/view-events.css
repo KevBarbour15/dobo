@@ -1,6 +1,8 @@
 .events-list {
   overflow-y: auto;
   min-height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .events-card {
@@ -8,8 +10,14 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1.5px solid black;
+  border-right: 1.5px solid black;
   padding: 2vh 2vw;
   color: black;
+  height: 200px;
+}
+
+.events-list .events-card:nth-of-type(2n) {
+  border-right: none;
 }
 
 .event-title {
@@ -21,13 +29,14 @@
 
 .event-details,
 .event-options {
-  width: 48%;
+  width: 100%;
   height: 100%;
   line-height: 1;
   margin: 0;
 }
 
 .event-details {
+  margin-left: 1vw;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
@@ -37,6 +46,7 @@
 }
 
 .event-options {
+  margin-right: 1vw;
   display: grid;
   justify-content: end;
 }
@@ -54,6 +64,11 @@
   .events-list {
     overflow-y: auto;
     min-height: calc(100vh - 94px);
+    grid-template-columns: 1fr;
+  }
+
+  .events-card {
+    border-right: none;
   }
 
   .event-options button {

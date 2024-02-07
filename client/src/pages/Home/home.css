@@ -11,6 +11,7 @@
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
+  box-sizing: border-box;
 }
 
 .home-image-container {
@@ -19,6 +20,7 @@
   background-image: url("../../assets/images/dobo-7-7.jpg");
   background-size: cover;
   border: 1.5px solid black;
+  box-sizing: border-box;
 }
 
 .home-header-container {
@@ -121,8 +123,7 @@
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
   text-decoration: none;
-  color: white;
-  font-weight: 400;
+  color: #efefef;
   transition: all 0.25s ease-in-out;
   border-radius: 5px;
   font-size: 14px;
@@ -185,5 +186,10 @@
     padding: 8px 18px;
     animation-delay: 0.25s;
     animation-duration: 1s;
+  }
+
+  .button-right:hover {
+    cursor: pointer;
+    background: none;
   }
 }

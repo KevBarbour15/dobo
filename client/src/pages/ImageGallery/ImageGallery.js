@@ -9,8 +9,8 @@ import "react-image-lightbox/style.css";
 const ImageGallery = () => {
   const breakpointColumnsObj = {
     default: 4,
-    1100: 3,
-    700: 2,
+    1100: 4,
+    700: 3,
     500: 2,
   };
 
@@ -26,6 +26,7 @@ const ImageGallery = () => {
       >
         {thumbnailArray.map((thumbnail, index) => (
           <div
+            key={"thumbnail-" + index}
             className="masonry-image"
             onClick={() => {
               setPhotoIndex(index);
