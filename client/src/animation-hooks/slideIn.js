@@ -7,7 +7,7 @@ const useSlideIn = (element, duration) => {
       x: "100%", 
       autoAlpha: 0, 
       duration: duration,
-      ease: "power1.out", 
+      ease: "power2.in", 
     });
   }, [element,duration]);
 };

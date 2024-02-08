@@ -9,20 +9,18 @@ import "react-image-lightbox/style.css";
 import useAnimateImages from "../../animation-hooks/animateImages.js";
 
 const ImageGallery = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  // animate images populating the gallery
+  useAnimateImages(".masonry-image");
+
   const breakpointColumnsObj = {
     default: 4,
     1100: 4,
     700: 3,
     500: 2,
   };
-
-  
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
-
-  // animate images populating the gallery
-  useAnimateImages();
 
   return (
     <div className="gallery-container">
@@ -40,7 +38,11 @@ const ImageGallery = () => {
               setIsOpen(true);
             }}
           >
-            <img src={thumbnail} alt="dobo" />
+            <img
+              src={thumbnail}
+              alt="dobo"
+              onLoad={(e) => e.target.classList.add("image-loaded")} 
+            />
           </div>
         ))}
       </Masonry>

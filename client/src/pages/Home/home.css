@@ -15,7 +15,7 @@
   width: 100%;
   background-image: url("../../assets/images/dobo-7-7.jpg");
   background-size: cover;
-  border: 1.5px solid black;
+  border: 1px solid black;
   box-sizing: border-box;
 }
 
@@ -94,7 +94,6 @@
   transform: translateY(-22.5px);
   margin: 0;
 }
-
 
 .home-logo {
   width: 117.5px;

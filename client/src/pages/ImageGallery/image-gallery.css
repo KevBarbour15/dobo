@@ -6,8 +6,8 @@
   align-items: center;
   overflow-y: auto;
   box-sizing: border-box;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .masonry-grid {
@@ -18,27 +18,26 @@
 
 .masonry-grid_column {
   background-clip: padding-box;
-  padding: 6px;
+  padding: 3px;
 }
 
 .masonry-image {
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-.masonry-image img {
+.image-loaded {
+  border: 1px solid black;
   cursor: pointer;
   width: 100%;
   height: auto;
-  border: 1.5px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  display: block;
   transition: all 0.25s ease-in-out;
 }
 
-.masonry-image:hover img {
+.image-loaded:hover {
   transform: scale(1.025);
   box-shadow: 1.5px 1.5px 3.25px black;
 }
