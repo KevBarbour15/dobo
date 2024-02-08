@@ -5,22 +5,8 @@
   box-sizing: border-box;
 }
 
-.attend-left,
-.attend-right {
-  flex: 1;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .attend-info-container {
-  opacity: 0;
   width: 80%;
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-delay: 0.75s;
-  animation-fill-mode: forwards;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -29,7 +15,6 @@
 
 .attend-text {
   width: 235px;
-  margin-top: 32px;
   margin-bottom: 16px;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
@@ -125,10 +110,6 @@ input[type="checkbox"].toggle:checked:after {
     align-items: center;
     justify-content: center;
     width: 315px;
-  }
-
-  .attend-info-section {
-    animation-delay: 0.4s;
   }
 
   .attend-text {

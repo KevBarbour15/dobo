@@ -10,6 +10,9 @@ import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js"
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
+import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useScaleIn from "../../animation-hooks/scaleIn.js";
+
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
   const [seats, setSeats] = useState(1);
@@ -19,6 +22,10 @@ const CreateEvent = ({ onEventCreated }) => {
   const [image, setImage] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
+
+  useFadeIn(true, ".create-event-container", 1);
+  useFadeIn(true,".image-container", 1.5);
+  useScaleIn(true, ".create-event-form", 1.5);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * imageArray.length);
@@ -63,13 +70,13 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <div className="create-left">
+      <div className="page-left">
         <div className="image-container">
           <img src={image} alt="dobo" />
         </div>
       </div>
-      <div className="create-right">
-        <PageTitle title={"create"} thumbnail={thumbnail} />
+      <div className="page-right">
+        <PageTitle title={"new"} thumbnail={thumbnail} />
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
             <label>event name:</label>

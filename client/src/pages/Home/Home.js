@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import Menu from "../../components/Menu/Menu.js";
 import logo from "../../assets/images/logo.png";
 
+import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useScaleIn from "../../animation-hooks/scaleIn.js";
+
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useFadeIn(true, ".home-image-container", 1);
+  useScaleIn(true, ".home-text-container", 1.5);
+  useFadeIn(true, ".home-header-container", 1.5);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,7 +38,6 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-image-container">
-        {/* background image */}
         <header className="home-header-container">
           <Menu isOpen={isMenuOpen} onClose={closeMenu} />
           <div className="home-header-menu-container">
@@ -53,9 +59,8 @@ const Home = () => {
           <div className="home-invisible-element"></div>
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
-          {/*<span className="text-left">DOBO</span>*/}
-          <img className="text-left" src={logo} alt="DOBO"></img>
-          <Link className="button-right" to="/Attend">
+          <img className="home-logo" src={logo} alt="DOBO"></img>
+          <Link className="home-button" to="/Attend">
             attend
           </Link>
         </div>

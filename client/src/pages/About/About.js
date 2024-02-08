@@ -5,9 +5,17 @@ import { randomThumbnailArray2 } from "../../assets/thumbnail-images/thumbnailAr
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
+import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useScaleIn from "../../animation-hooks/scaleIn.js";
+
 const About = () => {
   const [image, setImage] = useState("");
   const [thumbnail, setThumbnail] = useState("");
+
+  // animate images and content
+  useFadeIn(true, ".about-container", 1);
+  useFadeIn(true, ".image-container", 1.5);
+  useScaleIn(true, ".about-info-container", 1.5);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray2.length);

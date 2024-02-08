@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
@@ -21,7 +21,6 @@
   z-index: 702;
   border-bottom: 1.5px solid black;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .dash-header-title-container {

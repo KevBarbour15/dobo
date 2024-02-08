@@ -3,63 +3,62 @@
   min-height: calc(100vh - 90px);
   display: grid;
   grid-template-columns: 50% 50%;
+  grid-auto-rows: 250px;
 }
 
 .events-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   border-bottom: 1.5px solid black;
   border-right: 1.5px solid black;
   color: black;
-  height: 225px;
+  height: 250px;
+  box-sizing: border-box;
 }
 
 .events-list .events-card:nth-of-type(2n) {
   border-right: none;
 }
 
-.event-details,
-.event-options {
-  height: 200px;
-  width: 45%;
-  align-items: center;
+.event-info {
+  display: flex;
 }
 
 .event-title {
+  flex: 1;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: -0.15px;
-  margin-top: auto;
+  text-align: center;
+  margin: auto 0;
 }
 
 .event-details {
+  flex: 1;
   margin-left: 1vw;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   text-transform: lowercase;
-  text-align: left;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin: 14px;
+  text-align: center;
 }
 
-.event-details p {
-  margin-bottom: 18px;
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin:0;
 }
 
-.event-details p:last-child {
-  margin-bottom: 0;
-}
-
-.event-options {
-  margin-right: 1vw;
-  display: grid;
-  justify-content: end;
-}
-
-.event-options button:not(:last-child) {
-  margin-bottom: 12px;
+.button.event {
+  width: 110px;
+  font-size: 13px;
+  margin: 0 14px;
 }
 
 .negative-seats {
@@ -73,13 +72,23 @@
     min-height: calc(100vh - 94px);
     display: flex;
     flex-direction: column;
+    grid-auto-rows: none;
   }
 
   .events-card {
     border-right: none;
+    height: auto;
   }
 
-  .event-options button:not(:last-child) {
-    margin-bottom: 12px;
+  .button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button.event {
+   align-self: center;
+   margin: 6px auto 14px auto;
   }
 }

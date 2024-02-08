@@ -4,72 +4,28 @@
   box-sizing: border-box;
 }
 
-.create-left,
-.create-right {
-  flex: 1;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.create-left {
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-fill-mode: forwards;
-}
-
-.create-right {
-  overflow-y: auto;
-}
-
-.create-title-container {
-  display: flex;
-  width: 80%;
-}
 .create-event-form {
   width: 80%;
-  opacity: 0;
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-delay: 0.75s;
-  animation-fill-mode: forwards;
+  margin-left: 0;
 }
 
 .create-event-form form {
   display: flex;
   flex-direction: column;
-  margin: 16px 16px 32px 16px;
+  margin: 0 16px 0 0;
 }
 
 @media (max-width: 768px) {
   .create-event-container {
     height: auto;
   }
-  .create-left {
-    display: none;
-  }
 
-  .create-right {
-    width: 100%;
-  }
-  
   .create-info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 315px;
-  }
-
-  .create-title {
-    width: 50%;
-    margin: auto;
-    font-size: 2.85rem;
-    animation: slideLeft;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    text-align: right;
   }
 
   .create-event-form {

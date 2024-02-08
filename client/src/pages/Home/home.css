@@ -3,10 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  animation-name: fadeIn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
   overflow: hidden;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
@@ -95,36 +91,24 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  letter-spacing: -1.5px;
-  color: white;
   transform: translateY(-22.5px);
   margin: 0;
 }
 
-.text-left {
+
+.home-logo {
   width: 117.5px;
-  animation-name: slideRightText;
-  animation-delay: 0.25s;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
   transition: all 0.25s ease-in-out;
-  opacity: 0;
 }
 
-.button-right {
-  opacity: 0;
+.home-button {
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  animation-name: slideLeftText;
-  animation-delay: 0.25s;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
   text-decoration: none;
   color: #efefef;
-  transition: all 0.25s ease-in-out;
   border-radius: 5px;
   font-size: 14px;
   letter-spacing: 2px;
@@ -134,7 +118,7 @@
   transition: all 0.25s ease-in-out;
 }
 
-.button-right:hover {
+.home-button:hover {
   cursor: pointer;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: none;
@@ -142,8 +126,8 @@
   box-shadow: 1.5px 1.5px 3.25px black;
 }
 
-.home-text-container.open .text-left,
-.home-text-container.open .button-right {
+.home-text-container.open .home-logo,
+.home-text-container.open .home-button {
   filter: blur(50px);
 }
 
@@ -175,20 +159,16 @@
     text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
   }
 
-  .text-left {
+  .home-logo {
     font-size: 30px;
-    animation-delay: 0.25s;
-    animation-duration: 1s;
   }
 
-  .button-right {
+  .home-button {
     font-size: 16px;
     padding: 0;
-    animation-delay: 0.25s;
-    animation-duration: 1s;
   }
 
-  .button-right:hover {
+  .home-button:hover {
     cursor: pointer;
     background: none;
   }

@@ -14,6 +14,11 @@ import PageTitle from "../../components/PageTitle/PageTitle.js";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
+import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useScaleIn from "../../animation-hooks/scaleIn.js";
+
+import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
+
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
   const [firstName, setFirstName] = useState("");
@@ -27,6 +32,11 @@ const Attend = () => {
   const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 
+  // animate images and content
+  useFadeIn(true, ".attend-container", 1);
+  useFadeIn(true, ".image-container", 1.5);
+  useScaleIn(true, ".attend-info-container", 1.5);
+
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
 
@@ -38,13 +48,9 @@ const Attend = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get("/events/get-all");
-        const sortedEvents = response.data.sort(
-          (a, b) => new Date(a.date) - new Date(b.date)
-        );
-
-        const futureEvents = sortedEvents.filter(
-          (event) => new Date(event.date) > new Date()
-        );
+        let events = response.data;
+        const futureEvents = filterAccessibleEventsNYC(events);
+        console.log(futureEvents);
         setFutureEvents(futureEvents);
       } catch (error) {
         const errorData = error.response ? error.response.data : error.message;

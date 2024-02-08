@@ -1,7 +1,6 @@
 .main-page-container {
   margin-left: auto;
   margin-right: auto;
-  //background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -19,6 +18,5 @@
 @media (max-width: 768px) {
   .main-page-container {
     width: 100%;
-    //background-image: url("../../assets/images/background-grey.jpg");
   }
 }

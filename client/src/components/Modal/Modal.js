@@ -1,6 +1,11 @@
 import "./modal.css";
 
+import useFadeIn from "../../animation-hooks/fadeIn";
+
 const Modal = ({ isVisible, title, children, onClose }) => {
+  useFadeIn(isVisible, ".modal-content", 0.25);
+  useFadeIn(isVisible, ".modal-overlay", 0.5);
+
   if (!isVisible) return null;
 
   return (

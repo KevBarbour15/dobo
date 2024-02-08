@@ -8,11 +8,6 @@
   box-sizing: border-box;
   padding-left: 6px;
   padding-right: 6px;
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-delay: 0.25s;
-  animation-fill-mode: forwards;
-  opacity: 0;
 }
 
 .masonry-grid {
@@ -31,7 +26,6 @@
   padding-right: 6px;
   padding-top: 12px;
   padding-bottom: 12px;
-  transition: all 0.25s ease-in-out;
 }
 
 .masonry-image img {
@@ -40,8 +34,8 @@
   height: auto;
   border: 1.5px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease-in-out;
   display: block;
+  transition: all 0.25s ease-in-out;
 }
 
 .masonry-image:hover img {
@@ -75,5 +69,10 @@
 
   .lightbox {
     background: rgba(0, 0, 0, 0.85);
+  }
+
+  .masonry-image:hover img {
+    transform: none;
+    box-shadow: none;
   }
 }

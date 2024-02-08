@@ -6,20 +6,18 @@
 }
 
 .about-info-container {
-  opacity: 0;
   height: calc(100vh - 58px - 110px);
   width: 80%;
-  animation-name: fadeIn;
-  animation-duration: 0.75s;
-  animation-delay: 0.75s;
-  animation-fill-mode: forwards;
-  margin-top: 32px;
 }
 
 .about-text {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
-  line-height: 1.5;
+  line-height: 1;
+}
+
+.about-text p {
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {

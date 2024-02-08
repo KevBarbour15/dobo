@@ -8,6 +8,10 @@ import {
   convertMilitaryTime,
 } from "../../util/formatting.js";
 
+import { filterPastEventsNYC } from "../../util/timeZoneFormatting.js";
+
+import useFadeIn from "../../animation-hooks/fadeIn.js";
+
 const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
@@ -35,39 +39,60 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
   };
 
   return (
-    <div className="events-card">
-      <div className="event-options">
-        <button className="button" type="button" onClick={handleViewAttendance}>
-          Attendance
-        </button>
-        <button className="button" type="button" onClick={handleViewNotes}>
-          Notes
-        </button>
+
+      <div className="events-card">
+        <div className="event-info">
+          <div className="event-title">
+            <span>{event.title}</span>
+          </div>
+          <div className="event-details">
+            <p>{convertDateReadability(event.date)}</p>
+            <p>{convertMilitaryTime(event.time)}</p>
+            <p>Seats: {event.seats}</p>
+            {event.seatsRemaining >= 0 ? (
+              <p>Seats Available: {event.seatsRemaining}</p>
+            ) : (
+              <p className="negative-seats">
+                Seats Available: {event.seatsRemaining} (Overbooked)
+              </p>
+            )}
+  
+            <p>Price: ${event.price}</p>
+          </div>
+        </div>
+        <div className="event-options">
+          <div className="button-group">
+            <button
+              className="button event"
+              type="button"
+              onClick={handleViewAttendance}
+            >
+             <span>Attendance</span> 
+            </button>
+            <button
+              className="button event"
+              type="button"
+              onClick={handleViewNotes}
+            >
+              Notes
+            </button>
+          </div>
+        </div>
+        <Modal
+          title={convertDateReadability(event.date)}
+          isVisible={isModalOpen}
+          onClose={() => setModalOpen(false)}
+        >
+          <div>{modalContent}</div>
+        </Modal>
       </div>
-      <div className="event-details">
-        <p className="event-title">{event.title}</p>
-        <p>{convertDateReadability(event.date)}</p>
-        <p>{convertMilitaryTime(event.time)}</p>
-        <p>Seats: {event.seats}</p>
-        <p>Attendees: {event.seats - event.seatsRemaining}</p>
-        <p>Price: ${event.price}</p>
-      </div>
-      <Modal
-        title={convertDateReadability(event.date)}
-        isVisible={isModalOpen}
-        onUpdateEvent={onUpdateEvent}
-        onClose={() => setModalOpen(false)}
-      >
-        <div>{modalContent}</div>
-      </Modal>
-    </div>
   );
 };
 
 const PastEvents = ({ events, onUpdateEvent }) => {
-  const pastEvents = events.filter(
-    (event) => new Date(event.date) < new Date()
-  );
+  const pastEvents = filterPastEventsNYC(events);
+
+  useFadeIn(true, ".events-list", 0.5);
 
   return (
     <div className="event-form">

@@ -6,6 +6,8 @@ import Masonry from "react-masonry-css";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
+import useAnimateImages from "../../animation-hooks/animateImages.js";
+
 const ImageGallery = () => {
   const breakpointColumnsObj = {
     default: 4,
@@ -14,8 +16,13 @@ const ImageGallery = () => {
     500: 2,
   };
 
+  
+
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+
+  // animate images populating the gallery
+  useAnimateImages();
 
   return (
     <div className="gallery-container">
