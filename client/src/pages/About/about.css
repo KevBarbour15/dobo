@@ -1,12 +1,10 @@
 .about-container {
-  min-height: calc(100vh - 55px);
   display: flex;
-  overflow-y: auto;
   box-sizing: border-box;
+  height: calc(100vh - 110px);
 }
 
 .about-info-container {
-  height: calc(100vh - 58px - 110px);
   width: 80%;
 }
 

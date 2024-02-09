@@ -3,6 +3,7 @@
   top: 0;
   z-index: 700;
   height: 55px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,6 +11,7 @@
   border-top: 1.5px solid black;
   background: #efefef;
   border-bottom: 1.5px solid black;
+  box-sizing: border-box;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;

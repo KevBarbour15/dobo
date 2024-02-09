@@ -1,10 +1,15 @@
 **_ TO DO _**
 
 - Today:
-  - make sure that anything dealing with past and present is comparing against New York time.
+
+  - fix centering on create mobile
+
+  - finish this footer thing
 
   - look into better toast notifications
 
-  - better animations with GSAP
+  - remove the decoration on the contact logos 
+
+
 
 *** once About is written and these are done we can deploy

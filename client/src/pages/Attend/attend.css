@@ -1,8 +1,8 @@
 .attend-container {
-  min-height: calc(100vh - 55px);
   display: flex;
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  height: calc(100vh - 110px);
 }
 
 .attend-info-container {

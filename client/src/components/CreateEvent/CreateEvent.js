@@ -70,7 +70,7 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <div className="page-left">
+      <div className="page-left create">
         <div className="image-container">
           <img src={image} alt="dobo" />
         </div>
