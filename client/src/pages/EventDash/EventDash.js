@@ -31,7 +31,8 @@ const EventDash = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      //navigate("/");
+      console.log("Redirecting to /Attend");
+      navigate("/Attend");
     }
     fetchEvents();
   }, [isAuthenticated, navigate]);
@@ -56,7 +57,7 @@ const EventDash = () => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/Attend");
     localStorage.removeItem("token");
     setIsAuthenticated(false);
   };

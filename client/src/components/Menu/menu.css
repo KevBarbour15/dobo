@@ -25,8 +25,8 @@
   position: absolute;
   border: none;
   background: none;
-  top: 1.15rem;
-  left: 1.15rem;
+  top: 14px;
+  left: 14px;
 }
 
 .menu-login-button {
@@ -34,8 +34,8 @@
   position: absolute;
   border: none;
   background: none;
-  bottom: 1.15rem;
-  left: 1.15rem;
+  bottom: 14px;
+  left: 14px;
 }
 
 .menu-close-button span,
@@ -71,7 +71,7 @@
 
 .menu-link:active,
 .menu-link:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
   font-weight: normal;
   -webkit-text-stroke: 0.75px white;
   color: transparent;
@@ -106,7 +106,8 @@
     background: rgba(0, 0, 0, 0.75);
   }
 
-  .menu-close-button {
-    left: 0.05rem;
+  .menu-close-button,
+  .menu-login-button {
+    //left: 0.05rem;
   }
 }

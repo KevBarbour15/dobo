@@ -50,7 +50,6 @@ const Attend = () => {
         const response = await axios.get("/events/get-all");
         let events = response.data;
         const futureEvents = filterAccessibleEventsNYC(events);
-        console.log(futureEvents);
         setFutureEvents(futureEvents);
       } catch (error) {
         const errorData = error.response ? error.response.data : error.message;
