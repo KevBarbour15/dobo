@@ -19,7 +19,7 @@
 .footer-title {
   font-family: "Poppins", sans-serif;
   font-size: 12px;
-  padding-left: 142px;
+  padding-left: 14px;
 }
 
 .footer-icons {
@@ -38,7 +38,7 @@
   font-size: 20px;
 }
 
-.item.footer{
+.item.footer {
   border: none;
   background-color: transparent;
 }
