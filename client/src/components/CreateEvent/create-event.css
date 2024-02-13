@@ -1,7 +1,6 @@
 .create-event-container {
   min-height: calc(100vh - 90px);
   display: flex;
-  box-sizing: border-box;
 }
 
 .page-left.create {

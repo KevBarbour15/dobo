@@ -66,32 +66,32 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   return (
     <div className="events-card">
       <div className="event-info">
-        <div className="event-title">
-          <span>{event.title}</span>
+        <div className="event-title-container">
+          <span className="event-title">{event.title}</span>
         </div>
-        <div className="event-details">
-          <p>{convertDateReadability(event.date)}</p>
-          <p>{convertMilitaryTime(event.time)}</p>
-          <p>Seats: {event.seats}</p>
+        <div className="event-details-container">
+          <span>- {convertDateReadability(event.date)}</span>
+          <span>- {convertMilitaryTime(event.time)}</span>
+          <span>- {event.seats} seats total</span>
           {event.seatsRemaining >= 0 ? (
-            <p>Seats Available: {event.seatsRemaining}</p>
+            <span>- {event.seatsRemaining} seats left</span>
           ) : (
-            <p className="negative-seats">
-              Seats Available: {event.seatsRemaining} (Overbooked)
-            </p>
+            <span className="negative-seats">
+              - {event.seatsRemaining} seats available(Overbooked)
+            </span>
           )}
 
-          <p>Price: ${event.price}</p>
+          <span>- ${event.price}</span>
         </div>
       </div>
       <div className="event-options">
-        <div className="button-group">
+        <div className="button-group upcoming">
           <button
             className="button event"
             type="button"
             onClick={handleViewAttendance}
           >
-           <span>Attendance</span> 
+            <span>Attendance</span>
           </button>
           <button
             className="button event"

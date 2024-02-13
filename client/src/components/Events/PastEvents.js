@@ -39,53 +39,47 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
   };
 
   return (
+    <div className="events-card">
+      <div className="event-info">
+        <div className="event-title-container">
+          <span className="event-title">{event.title}</span>
+        </div>
+        <div className="event-details-container">
+          <span>- {convertDateReadability(event.date)}</span>
+          <span>- {convertMilitaryTime(event.time)}</span>
+          <span>- {event.seats} seats</span>
 
-      <div className="events-card">
-        <div className="event-info">
-          <div className="event-title">
-            <span>{event.title}</span>
-          </div>
-          <div className="event-details">
-            <p>{convertDateReadability(event.date)}</p>
-            <p>{convertMilitaryTime(event.time)}</p>
-            <p>Seats: {event.seats}</p>
-            {event.seatsRemaining >= 0 ? (
-              <p>Seats Available: {event.seatsRemaining}</p>
-            ) : (
-              <p className="negative-seats">
-                Seats Available: {event.seatsRemaining} (Overbooked)
-              </p>
-            )}
-  
-            <p>Price: ${event.price}</p>
-          </div>
+          <span>- {event.seats - event.seatsRemaining} attendees</span>
+
+          <span>- ${event.price}</span>
         </div>
-        <div className="event-options">
-          <div className="button-group">
-            <button
-              className="button event"
-              type="button"
-              onClick={handleViewAttendance}
-            >
-             <span>Attendance</span> 
-            </button>
-            <button
-              className="button event"
-              type="button"
-              onClick={handleViewNotes}
-            >
-              Notes
-            </button>
-          </div>
-        </div>
-        <Modal
-          title={convertDateReadability(event.date)}
-          isVisible={isModalOpen}
-          onClose={() => setModalOpen(false)}
-        >
-          <div>{modalContent}</div>
-        </Modal>
       </div>
+      <div className="event-options">
+        <div className="button-group past">
+          <button
+            className="button event"
+            type="button"
+            onClick={handleViewAttendance}
+          >
+            <span>Attendance</span>
+          </button>
+          <button
+            className="button event"
+            type="button"
+            onClick={handleViewNotes}
+          >
+            Notes
+          </button>
+        </div>
+      </div>
+      <Modal
+        title={convertDateReadability(event.date)}
+        isVisible={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      >
+        <div>{modalContent}</div>
+      </Modal>
+    </div>
   );
 };
 

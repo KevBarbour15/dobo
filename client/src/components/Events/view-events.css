@@ -24,35 +24,49 @@
   display: flex;
 }
 
-.event-title {
+.event-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 187px;
+  width: 100%;
   flex: 1;
-  font-size: 20px;
+}
+
+.event-title {
+  font-size: 24px;
   text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: -0.15px;
   text-align: center;
+  letter-spacing: -0.15px;
+  margin: auto 14px;
+}
+
+.event-details-container {
+  width: 100%;
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   margin: auto 0;
 }
 
-.event-details {
-  flex: 1;
-  margin-left: 1vw;
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
-  text-transform: lowercase;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  margin: 14px;
-  text-align: center;
+.event-details-container span {
+  text-align: left;
+  font-size: 15px;
+  margin-left: 2px;
 }
-
 
 .button-group {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin:0;
+  margin: 0;
+  height: 63px;
 }
 
 .button.event {
@@ -80,6 +94,10 @@
     height: auto;
   }
 
+  .event-details-container span {
+    font-size: 14px;
+  }
+
   .button-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -87,8 +105,12 @@
     justify-content: center;
   }
 
+  .button-group.upcoming {
+    height: 126px;
+  }
+
   .button.event {
-   align-self: center;
-   margin: 6px auto 14px auto;
+    align-self: center;
+    margin: 6px auto 14px auto;
   }
 }

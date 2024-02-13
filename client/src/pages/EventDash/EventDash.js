@@ -57,7 +57,7 @@ const EventDash = () => {
   };
 
   const handleLogout = () => {
-    navigate("/Attend");
+    //navigate("/Attend");
     localStorage.removeItem("token");
     setIsAuthenticated(false);
   };
