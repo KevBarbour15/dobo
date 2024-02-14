@@ -7,7 +7,7 @@ const useScaleIn = (shouldScaleIn, element, duration) => {
       gsap.from(element, {
         duration,
         autoAlpha: 0,
-        ease: "power4.inOut",
+        ease: "sine.out",
         scale: 0.15,
         clearProps: "all",
       });

@@ -7,7 +7,7 @@ const useFadeIn = (shouldFadeIn, element, duration) => {
       gsap.from(element, {
         duration: duration,
         autoAlpha: 0,
-        ease: "power3.inOut",
+        ease: "sine.inOut",
         clearProps: "all",
       });
     }

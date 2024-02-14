@@ -14,8 +14,8 @@ const About = () => {
 
   // animate images and content
   useFadeIn(true, ".about-container", 1);
-  useFadeIn(true, ".image-container", 1.5);
-  useScaleIn(true, ".about-info-container", 1.5);
+  useFadeIn(true, ".image-container", 1);
+  useFadeIn(true, ".about-info-container", 1);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray2.length);

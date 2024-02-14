@@ -34,8 +34,8 @@ const Attend = () => {
 
   // animate images and content
   useFadeIn(true, ".attend-container", 1);
-  useFadeIn(true, ".image-container", 1.5);
-  useScaleIn(true, ".attend-info-container", 1.5);
+  useFadeIn(true, ".image-container", 1);
+  useFadeIn(true, ".attend-info-container", 1);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);

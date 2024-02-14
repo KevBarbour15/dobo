@@ -3,8 +3,8 @@ import "./page-title.css";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const PageTitle = ({ title, thumbnail }) => {
-  useFadeIn(".title", 1.25);
-  useFadeIn(true, ".title-img", 1.25);
+  useFadeIn(true, ".title", 1);
+  useFadeIn(true, ".title-img", 1);
   return (
     <div className="title-container">
       <div className={"title-img"}>
