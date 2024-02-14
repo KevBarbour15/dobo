@@ -112,5 +112,6 @@
   .button.event {
     align-self: center;
     margin: 6px auto 14px auto;
+    width: 117.5px;
   }
 }

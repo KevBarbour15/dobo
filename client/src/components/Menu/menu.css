@@ -39,7 +39,7 @@
 }
 
 .menu-close-button span,
-.menu-login-button span{
+.menu-login-button span {
   font-size: 20px;
   transition: all 0.35s ease-in-out;
   color: white;
@@ -103,11 +103,6 @@
 @media (max-width: 768px) {
   .menu-container {
     width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-  }
-
-  .menu-close-button,
-  .menu-login-button {
-    //left: 0.05rem;
+    background: rgba(0, 0, 0, 0.85);
   }
 }
