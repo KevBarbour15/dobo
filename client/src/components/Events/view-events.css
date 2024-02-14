@@ -38,26 +38,27 @@
   text-transform: uppercase;
   text-align: center;
   letter-spacing: -0.15px;
-  margin: auto 14px;
+  width: 75%;
 }
 
 .event-details-container {
   width: 100%;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 16px;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1.5px;
   text-transform: lowercase;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  margin: auto 0;
-}
-
-.event-details-container span {
-  text-align: left;
-  font-size: 15px;
-  margin-left: 2px;
 }
 
 .button-group {
@@ -94,8 +95,8 @@
     height: auto;
   }
 
-  .event-details-container span {
-    font-size: 14px;
+  .event-details {
+    font-size: 12px;
   }
 
   .button-group {

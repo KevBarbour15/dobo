@@ -70,6 +70,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
           <span className="event-title">{event.title}</span>
         </div>
         <div className="event-details-container">
+          <div className="event-details">
           <span>- {convertDateReadability(event.date)}</span>
           <span>- {convertMilitaryTime(event.time)}</span>
           <span>- {event.seats} seats total</span>
@@ -81,7 +82,8 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
             </span>
           )}
 
-          <span>- ${event.price}</span>
+            <span>- ${event.price}</span>
+            </div>
         </div>
       </div>
       <div className="event-options">
