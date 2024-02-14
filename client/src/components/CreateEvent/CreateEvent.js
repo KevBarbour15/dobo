@@ -11,7 +11,6 @@ import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js"
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useScaleIn from "../../animation-hooks/scaleIn.js";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -23,9 +22,9 @@ const CreateEvent = ({ onEventCreated }) => {
   const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 
-  useFadeIn(true, ".create-event-container", 1);
-  useFadeIn(true,".image-container", 1.5);
-  useScaleIn(true, ".create-event-form", 1.5);
+  useFadeIn(true, ".create-event-container", 1, 0);
+  useFadeIn(true, ".image-container", 1, 0);
+  useFadeIn(true, ".create-event-form", 1, 30);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * imageArray.length);

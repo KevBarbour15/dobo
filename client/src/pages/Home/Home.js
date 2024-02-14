@@ -5,14 +5,13 @@ import Menu from "../../components/Menu/Menu.js";
 import logo from "../../assets/images/logo.png";
 
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useScaleIn from "../../animation-hooks/scaleIn.js";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".home-image-container", 1);
-  useScaleIn(true, ".home-text-container", 1.5);
-  useFadeIn(true, ".home-header-container", 1.5);
+  useFadeIn(true, ".home-image-container", 1, 0);
+  useFadeIn(true, ".home-text-container", 1, 25);
+  useFadeIn(true, ".home-header-container", 1, 0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

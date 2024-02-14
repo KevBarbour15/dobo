@@ -15,7 +15,6 @@ import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useScaleIn from "../../animation-hooks/scaleIn.js";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
 
@@ -33,9 +32,9 @@ const Attend = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // animate images and content
-  useFadeIn(true, ".attend-container", 1);
-  useFadeIn(true, ".image-container", 1);
-  useFadeIn(true, ".attend-info-container", 1);
+  useFadeIn(true, ".attend-container", 1, 0);
+  useFadeIn(true, ".image-container", 1, 0);
+  useFadeIn(true, ".attend-info-container", 1, 30);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
