@@ -25,9 +25,11 @@ const Menu = ({ isOpen, onClose }) => {
           <Link className="menu-link" to="/" onClick={onClose}>
             <span>HOME</span>
           </Link>
+          {/*
           <Link className="menu-link" to="/About" onClick={onClose}>
             <span>ABOUT</span>
           </Link>
+  */}
           <Link className="menu-link" to="/Attend" onClick={onClose}>
             <span>ATTEND</span>
           </Link>
