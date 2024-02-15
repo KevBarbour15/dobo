@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState("dobo"); // change these later to empty strings when done testing
-  const [password, setPassword] = useState("dobo"); // and add required to the inputs
+  const [username, setUsername] = useState(""); // change these later to empty strings when done testing
+  const [password, setPassword] = useState(""); // and add required to the inputs
   const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
