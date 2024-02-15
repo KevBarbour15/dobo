@@ -7,12 +7,14 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 import useAnimateImages from "../../animation-hooks/animateImages.js";
+import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const ImageGallery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
   // animate images populating the gallery
+  useFadeIn(true, ".masonry-grid", 0.5, 0);
   useAnimateImages(".masonry-image");
 
   const breakpointColumnsObj = {
@@ -41,7 +43,7 @@ const ImageGallery = () => {
             <img
               src={thumbnail}
               alt="dobo"
-              onLoad={(e) => e.target.classList.add("image-loaded")} 
+              onLoad={(e) => e.target.classList.add("image-loaded")}
             />
           </div>
         ))}
