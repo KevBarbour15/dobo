@@ -117,6 +117,10 @@
   box-shadow: 1.5px 1.5px 3.25px black;
 }
 
+.home-button:active {
+  box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
+}
+
 .home-text-container.open .home-logo,
 .home-text-container.open .home-button {
   filter: blur(50px);
@@ -160,7 +164,7 @@
   }
 
   .home-button:hover {
-    cursor: pointer;
     background: none;
+    box-shadow: none;
   }
 }
