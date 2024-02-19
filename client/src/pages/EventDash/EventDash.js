@@ -31,7 +31,6 @@ const EventDash = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      console.log("Redirecting to /Attend");
       navigate("/Attend");
     }
     fetchEvents();
@@ -52,12 +51,11 @@ const EventDash = () => {
   };
 
   const deleteEvent = (eventId) => {
-    console.log("deleteEvent: ", eventId);
     setEvents(events.filter((event) => event._id !== eventId));
   };
 
   const handleLogout = () => {
-    //navigate("/Attend");
+    navigate("/Attend");
     localStorage.removeItem("token");
     setIsAuthenticated(false);
   };
