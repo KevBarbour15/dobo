@@ -111,7 +111,6 @@
   color: #efefef;
   background: #bd9c72;
   transition: all 0.25s ease-in-out;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 1.25px 3px 6px rgba(0, 0, 0, 0.75);
 }
 
