@@ -105,7 +105,7 @@
   letter-spacing: 1.5px;
   width: 117.5px;
   height: 35px;
-  text-shadow: 4.75px 4.75px 10px black;
+  //text-shadow: 4.75px 4.75px 10px black;
   transition: all 0.25s ease-in-out;
 }
 
@@ -146,12 +146,12 @@
   }
 
   .home-menu-button {
-    text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
+    //text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
   }
 
   .home-header-title {
     font-size: 0.5rem;
-    text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
+    //text-shadow: 1.75px 1.75px 1.75px rgba(0, 0, 0, 0.35);
   }
 
   .home-logo {
