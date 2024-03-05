@@ -1,8 +1,10 @@
 import "./menu.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import Login from "../Modal-Components/Login/Login";
+
+import gsap from "gsap";
 
 const Menu = ({ isOpen, onClose }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -12,6 +14,21 @@ const Menu = ({ isOpen, onClose }) => {
     setModalOpen(true);
     setModalContent(<Login />);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      gsap.set(".menu-links-container", { y: -50, opacity: 0 });
+      gsap.to(".menu-links-container", {
+        delay: 0.15,
+        duration: 0.65,
+        y: 0,
+        opacity: 1,
+        ease: "sine.inOut",
+      });
+    } else {
+      gsap.set(".menu-links-container", { y: 0, opacity: 0 });
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -25,6 +42,7 @@ const Menu = ({ isOpen, onClose }) => {
           <Link className="menu-link" to="/" onClick={onClose}>
             <span>HOME</span>
           </Link>
+
           {/*
           <Link className="menu-link" to="/About" onClick={onClose}>
             <span>ABOUT</span>

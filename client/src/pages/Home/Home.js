@@ -9,9 +9,7 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".home-image-container", 0.75, 0);
-  useFadeIn(true, ".home-text-container", 1.15, 30);
-  useFadeIn(true, ".home-header-container", 1.15, 0);
+  useFadeIn(true, ".home-text-container", 1.15, 35);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
