@@ -32,9 +32,9 @@ const Attend = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // animate images and content
-  useFadeIn(true, ".attend-container", 1, 0);
-  useFadeIn(true, ".image-container", 1, 0);
-  useFadeIn(true, ".attend-info-container", 1, 30);
+  useFadeIn(true, ".attend-container", 0.75, 0.05, 0);
+  useFadeIn(true, ".image-container", 1, 0, 0);
+  useFadeIn(true, ".attend-info-container", 1, 0.25, 35);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);

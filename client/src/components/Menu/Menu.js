@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import Login from "../Modal-Components/Login/Login";
-
 import gsap from "gsap";
 
 const Menu = ({ isOpen, onClose }) => {
@@ -16,17 +15,16 @@ const Menu = ({ isOpen, onClose }) => {
   };
 
   useEffect(() => {
+    const links = gsap.utils.toArray(".link-wrapper");
     if (isOpen) {
-      gsap.set(".menu-links-container", { y: -50, opacity: 0 });
-      gsap.to(".menu-links-container", {
-        delay: 0.15,
-        duration: 0.65,
+      gsap.set(links, { y: 35, opacity: 0 });
+      gsap.to(links, {
+        delay: 0.1,
         y: 0,
         opacity: 1,
         ease: "sine.inOut",
+        stagger: 0.1,
       });
-    } else {
-      gsap.set(".menu-links-container", { y: 0, opacity: 0 });
     }
   }, [isOpen]);
 
@@ -40,7 +38,9 @@ const Menu = ({ isOpen, onClose }) => {
         </div>
         <div className="menu-links-container">
           <Link className="menu-link" to="/" onClick={onClose}>
-            <span>HOME</span>
+            <div className="link-wrapper">
+              <span>HOME</span>
+            </div>
           </Link>
 
           {/*
@@ -48,11 +48,17 @@ const Menu = ({ isOpen, onClose }) => {
             <span>ABOUT</span>
           </Link>
   */}
+
           <Link className="menu-link" to="/Attend" onClick={onClose}>
-            <span>ATTEND</span>
+            <div className="link-wrapper">
+              <span>ATTEND</span>
+            </div>
           </Link>
+
           <Link className="menu-link" to="/Gallery" onClick={onClose}>
-            <span>GALLERY</span>
+            <div className="link-wrapper">
+              <span>GALLERY</span>
+            </div>
           </Link>
         </div>
         <div>

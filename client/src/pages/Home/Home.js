@@ -9,7 +9,8 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".home-text-container", 1.15, 35);
+  useFadeIn(true, ".logo-wrapper", .75, 0.25, 35);
+  useFadeIn(true, ".button-wrapper", .75, 0.45, 35);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,10 +57,14 @@ const Home = () => {
           <div className="home-invisible-element"></div>
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
-          <img className="home-logo" src={logo} alt="DOBO"></img>
-          <Link className="home-button" to="/Attend">
-            attend
-          </Link>
+          <div className="logo-wrapper">
+            <img className="home-logo" src={logo} alt="DOBO"></img>
+          </div>
+          <div className="button-wrapper">
+            <Link className="home-button" to="/Attend">
+              attend
+            </Link>
+          </div>
         </div>
       </div>
       <div className="home-empty-footer"></div>

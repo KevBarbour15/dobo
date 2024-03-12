@@ -22,9 +22,9 @@ const CreateEvent = ({ onEventCreated }) => {
   const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 
-  useFadeIn(true, ".create-event-container", 1, 0);
-  useFadeIn(true, ".image-container", 1, 0);
-  useFadeIn(true, ".create-event-form", 1, 30);
+  useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
+  useFadeIn(true, ".image-container", 1, 0, 0);
+  useFadeIn(true, ".create-event-form", 1, 0.25, 35);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * imageArray.length);

@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 
-const useFadeIn = (shouldFadeIn, element, duration, y) => {
+const useFadeIn = (shouldFadeIn, element, duration, delay, y) => {
   useEffect(() => {
     if (shouldFadeIn) {
       gsap.from(element, {
         duration: duration,
+        delay: delay,
         opacity: 0,
         y: y,
         ease: "sine.inOut",
-        clearProps: "all",
       });
     }
-  }, [shouldFadeIn, element, duration, y]);
+  }, [shouldFadeIn, element, duration, delay, y]);
 };
 
 export default useFadeIn;
