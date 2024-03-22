@@ -43,6 +43,11 @@ router.put("/update-status", async (req, res) => {
     const currentAttendee = await Attendee.findById(attendeeId);
     const currentSeats = currentAttendee.seats;
     // Update attendee's status
+
+    if (status === "Not Attending") {
+      await Attendee.findByIdAndDelete(attendeeId);
+    }
+      
     await Attendee.findByIdAndUpdate(attendeeId, { status, seats });
 
     if (status === "Confirmed" && ogStatus !== "Confirmed") {

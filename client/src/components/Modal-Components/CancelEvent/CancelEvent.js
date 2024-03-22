@@ -32,7 +32,7 @@ const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
     <div className="cancel-event-container">
       <span>Are you sure you want to cancel this event?</span>
       <button className="button cancel" onClick={handleDelete}>
-        Cancel Event
+        Confirm
       </button>
     </div>
   );
