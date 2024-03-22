@@ -15,6 +15,7 @@ import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
 import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useAnimateForm from "../../animation-hooks/animateForm.js";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
 
@@ -35,10 +36,9 @@ const Attend = () => {
   useFadeIn(true, ".attend-container", 0.75, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".attend-info-container", 1, 0.25, 35);
-
+  
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
-
     setImage(randomImageArray1[randomIndex]);
     setThumbnail(randomThumbnailArray1[randomIndex]);
   }, []);
@@ -81,6 +81,7 @@ const Attend = () => {
     if (!selectedEventId) return;
 
     let convertedDate = convertDateReadability(date);
+
     const attendeeData = {
       firstName,
       lastName,
