@@ -3,6 +3,7 @@
   flex-direction: column;
   font-family: "Poppins", sans-serif;
   min-height: 300px;
+  padding: 0 16px;
   height: auto;
   background-color: #efefef;
   margin-top: auto;
