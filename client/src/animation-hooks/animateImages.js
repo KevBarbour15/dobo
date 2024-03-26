@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 
-const useAnimateImages = (element) => {
+const useAnimateImages = (shouldAnimate, element) => {
   useEffect(() => {
+    if (!shouldAnimate) return;
     gsap.from(element, {
       delay: 0.5,
       opacity: 0,
       stagger: 0.1,
-      y: 15,
+      y: 20,
       ease: "sine.inOut",
     });
-  }, [element]);
+  }, [shouldAnimate, element]);
 };
 
 export default useAnimateImages;

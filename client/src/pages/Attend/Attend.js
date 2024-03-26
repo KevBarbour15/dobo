@@ -5,6 +5,7 @@ import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../../util/formatting.js";
+import gsap from "gsap";
 
 import { randomImageArray1 } from "../../assets/images/imageArray.js";
 import { randomThumbnailArray1 } from "../../assets/thumbnail-images/thumbnailArray.js";
@@ -33,10 +34,11 @@ const Attend = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // animate images and content
-  useFadeIn(true, ".attend-container", 0.75, 0.05, 0);
+  useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
-  useFadeIn(true, ".attend-info-container", 1, 0.25, 35);
-  
+  useFadeIn(true, ".attend-info-container", .5, 0.25, 25);
+  useAnimateForm(".form-element-container");
+
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
     setImage(randomImageArray1[randomIndex]);
@@ -176,75 +178,86 @@ const Attend = () => {
 
           <div className="inquiry-form">
             <form onSubmit={handleSubmit}>
-              <select
-                className="form-element"
-                value={selectedEventId}
-                onChange={handleSelectChange}
-              >
-                <option className="default-option" value="" disabled hidden>
-                  select a date
-                </option>
-                {futureEvents.map((event) => (
-                  <option
-                    className="selected-option"
-                    key={event._id}
-                    value={event._id}
-                  >
-                    {convertDateReadability(event.date)}
-                    {event.seatsRemaining > 0
-                      ? " at " + convertMilitaryTime(event.time)
-                      : "SOLD OUT"}
+              <div className="form-element-container">
+                <select
+                  className="form-element"
+                  value={selectedEventId}
+                  onChange={handleSelectChange}
+                >
+                  <option className="default-option" value="" disabled hidden>
+                    select a date
                   </option>
-                ))}
-              </select>
-              <input
-                className="form-element"
-                type="text"
-                value={firstName}
-                placeholder="first name:"
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-              <input
-                className="form-element"
-                type="text"
-                value={lastName}
-                placeholder="last name:"
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-
-              <input
-                className="form-element"
-                type="email"
-                value={email}
-                placeholder="email:"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-
-              <textarea
-                className="form-element"
-                type="text"
-                value={message}
-                placeholder="message (optional):"
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <div className="subscribe-container">
-                <div className="subscribe-text">
-                  Subscribe to receive alerts when new events are posted.
-                </div>
+                  {futureEvents.map((event) => (
+                    <option
+                      className="selected-option"
+                      key={event._id}
+                      value={event._id}
+                    >
+                      {convertDateReadability(event.date)}
+                      {event.seatsRemaining > 0
+                        ? " at " + convertMilitaryTime(event.time)
+                        : "SOLD OUT"}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-element-container">
                 <input
-                  type="checkbox"
-                  className="toggle"
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
+                  className="form-element"
+                  type="text"
+                  value={firstName}
+                  placeholder="first name:"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
               </div>
-
-              <button className="button" type="submit">
-                submit
-              </button>
+              <div className="form-element-container">
+                <input
+                  className="form-element"
+                  type="text"
+                  value={lastName}
+                  placeholder="last name:"
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-element-container">
+                <input
+                  className="form-element"
+                  type="email"
+                  value={email}
+                  placeholder="email:"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-element-container">
+                <textarea
+                  className="form-element"
+                  type="text"
+                  value={message}
+                  placeholder="message (optional):"
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
+              <div className="form-element-container">
+                <div className="subscribe-container">
+                  <div className="subscribe-text">
+                    Subscribe to receive alerts when new events are posted.
+                  </div>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
+                  />
+                </div>
+              </div>
+              <div className="form-element-container">
+                <button className="button" type="submit">
+                  submit
+                </button>
+              </div>
             </form>
           </div>
         </div>

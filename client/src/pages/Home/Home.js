@@ -9,8 +9,8 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".logo-wrapper", .75, 0.25, 35);
-  useFadeIn(true, ".button-wrapper", .75, 0.45, 35);
+  useFadeIn(true, ".logo-wrapper", .5, 0.25, 25);
+  useFadeIn(true, ".button-wrapper", .5, 0.5, 25);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

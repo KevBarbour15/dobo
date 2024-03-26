@@ -1,5 +1,5 @@
 .gallery-container {
-  min-height: calc(100vh - 58px);
+  min-height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

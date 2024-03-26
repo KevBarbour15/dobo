@@ -17,9 +17,9 @@ const Menu = ({ isOpen, onClose }) => {
   useEffect(() => {
     const links = gsap.utils.toArray(".link-wrapper");
     if (isOpen) {
-      gsap.set(links, { y: 35, opacity: 0 });
+      gsap.set(links, { y: 25, opacity: 0 });
       gsap.to(links, {
-        delay: 0.1,
+        delay: 0.15,
         y: 0,
         opacity: 1,
         ease: "sine.inOut",

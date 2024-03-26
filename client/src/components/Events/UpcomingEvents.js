@@ -18,6 +18,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
+  
   const handleEdit = () => {
     setModalContent(
       <EditEvent
@@ -126,7 +127,7 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
 const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
   const futureEvents = filterAccessibleEventsNYC(events);
 
-  useFadeIn(true, ".events-list", 0.5);
+  useFadeIn(true, ".events-list", 0.5, 0.25);
 
   return (
     <div className="events-list">

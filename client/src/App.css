@@ -119,7 +119,14 @@
 }
 
 /* Common styles for input, select, and textarea */
+
+.form-element-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-element {
+  opacity: 1;
   box-sizing: border-box;
   width: 235px;
   border: 2px solid #bd9c72;

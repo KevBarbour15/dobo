@@ -4,10 +4,10 @@ import gsap from "gsap";
 const useAnimateForm = (element) => {
   useEffect(() => {
     gsap.from(element, {
-      delay: 0.5,
+      delay: .5,
       opacity: 0,
       stagger: 0.1,
-      y: 15,
+      y: 25,
       ease: "sine.inOut",
     });
   }, [element]);
