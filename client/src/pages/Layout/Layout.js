@@ -5,12 +5,14 @@ import "./layout.css";
 
 const Layout = () => {
   return (
-    <div className="main-page-container">
-      <Header />
-      <div className="main-page-content">
-        <Outlet />
+    <div className="layout">
+      <div className="main-page-container">
+        <Header />
+        <div className="main-page-content">
+          <Outlet />
         </div>
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
