@@ -31,7 +31,7 @@ const Menu = ({ isOpen, onClose }) => {
   return (
     <>
       <div className={`menu-container ${isOpen ? "open" : ""}`}>
-        <div>
+        <div className="menu-close-button-container">
           <button onClick={onClose} className="menu-close-button">
             <span className="material-icons">close</span>
           </button>
@@ -61,7 +61,7 @@ const Menu = ({ isOpen, onClose }) => {
             </div>
           </Link>
         </div>
-        <div>
+        <div className="login-button-container">
           <button onClick={handleOpenModal} className="menu-login-button">
             <span className="material-icons">login</span>
           </button>

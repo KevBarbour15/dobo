@@ -9,8 +9,9 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".logo-wrapper", .5, 0.25, 25);
-  useFadeIn(true, ".button-wrapper", .5, 0.5, 25);
+  useFadeIn(true, ".home-header-menu", 0.5, 0.25, -5, 0);
+  useFadeIn(true, ".logo-wrapper", 0.5, 0.25, 25);
+  useFadeIn(true, ".button-wrapper", 0.5, 0.5, 25);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -48,13 +49,6 @@ const Home = () => {
               </button>
             </div>
           </div>
-
-          <div className="home-header-title-container">
-            <div
-              className={`home-header-title ${isMenuOpen ? "open" : ""}`}
-            ></div>
-          </div>
-          <div className="home-invisible-element"></div>
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
           <div className="logo-wrapper">

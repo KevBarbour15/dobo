@@ -61,7 +61,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
       setAttendees(
         attendees.map((attendee) =>
           attendee._id === attendeeId
-            ? { ...attendee, status: newStatus, seats: seats}
+            ? { ...attendee, status: newStatus, seats: seats }
             : attendee
         )
       );
@@ -101,11 +101,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
             </div>
           ) : (
             <div className="no-attendees-container">
-              <p>
-                {eventTiming === "upcoming"
-                  ? "No Attendees Yet."
-                  : "No Attendees."}
-              </p>
+              <p>No Attendees Yet.</p>
             </div>
           )}
         </>

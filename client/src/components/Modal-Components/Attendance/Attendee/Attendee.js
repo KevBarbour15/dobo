@@ -37,7 +37,6 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     setSeats(e.target.value);
   };
 
-
   const handleSave = () => {
     console.log("Seats: ", seats);
     onStatusChange(attendee._id, status, ogStatus, seats);
@@ -102,12 +101,14 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
             >
               <FontAwesomeIcon className="icon" icon={faEnvelope} />
             </a>
-            </div>
+          </div>
           <p>Seats: {attendee.seats}</p>
         </div>
       ) : (
-        // Render "No Attendees" if not confirmed
-        <p>No Attendees</p>
+        // Render "No Attendees" if no one was confirmed for the event
+        <div className="no-attendees-container">
+          <p>No Attendees</p>
+        </div>
       )}
     </div>
   );

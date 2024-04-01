@@ -5,15 +5,22 @@
   border-bottom: 1.5px solid black;
   box-sizing: border-box;
   height: 55px;
-  display: flex;
-  z-index: 600;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
+  z-index: 600;
   background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.footer-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .footer-title {

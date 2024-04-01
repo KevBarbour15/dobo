@@ -1,12 +1,12 @@
-import { useEffect } from "react";
 import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
 
 const useAnimateForm = (element) => {
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from(element, {
       delay: .5,
       opacity: 0,
-      stagger: 0.1,
+      stagger: 0.05,
       y: 25,
       ease: "sine.inOut",
     });

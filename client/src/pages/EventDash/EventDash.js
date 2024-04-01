@@ -61,32 +61,34 @@ const EventDash = () => {
   };
 
   return (
-    <div className="dash-container">
-      <DashHeader
-        setActiveSection={setActiveSection}
-        onLogout={handleLogout}
-        activeSection={activeSection}
-      />
-      <div className="events-container">
-        {activeSection === "create" && (
-          <div className="create-container">
-            <CreateEvent onEventCreated={addNewEvent} />
-          </div>
-        )}
-        {activeSection === "view" && (
-          <div className="view-container">
-            <UpcomingEvents
-              events={events}
-              onUpdateEvent={updateEvent}
-              onDeleteEvent={deleteEvent}
-            />
-          </div>
-        )}
-        {activeSection === "past" && (
-          <div className="view-container">
-            <PastEvents events={events} onUpdateEvent={updateEvent} />
-          </div>
-        )}
+    <div className="dash-layout">
+      <div className="dash-container">
+        <DashHeader
+          setActiveSection={setActiveSection}
+          onLogout={handleLogout}
+          activeSection={activeSection}
+        />
+        <div className="events-container">
+          {activeSection === "create" && (
+            <div className="create-container">
+              <CreateEvent onEventCreated={addNewEvent} />
+            </div>
+          )}
+          {activeSection === "view" && (
+            <div className="view-container">
+              <UpcomingEvents
+                events={events}
+                onUpdateEvent={updateEvent}
+                onDeleteEvent={deleteEvent}
+              />
+            </div>
+          )}
+          {activeSection === "past" && (
+            <div className="view-container">
+              <PastEvents events={events} onUpdateEvent={updateEvent} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

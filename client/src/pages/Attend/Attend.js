@@ -5,10 +5,9 @@ import {
   convertDateReadability,
   convertMilitaryTime,
 } from "../../util/formatting.js";
-import gsap from "gsap";
 
+// image imports
 import { randomImageArray1 } from "../../assets/images/imageArray.js";
-import { randomThumbnailArray1 } from "../../assets/thumbnail-images/thumbnailArray.js";
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
@@ -30,19 +29,17 @@ const Attend = () => {
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [image, setImage] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 
   // animate images and content
   useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
-  useFadeIn(true, ".attend-info-container", .5, 0.25, 25);
+  useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
   useAnimateForm(".form-element-container");
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
     setImage(randomImageArray1[randomIndex]);
-    setThumbnail(randomThumbnailArray1[randomIndex]);
   }, []);
 
   useEffect(() => {
@@ -169,7 +166,7 @@ const Attend = () => {
         </div>
       </div>
       <div className="page-right">
-        <PageTitle title={"attend"} thumbnail={thumbnail} />
+        <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
             Please fill out the form below to attend. We will reach out with

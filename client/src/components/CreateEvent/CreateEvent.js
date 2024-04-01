@@ -5,8 +5,9 @@ import "./create-event.css";
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
+// image imports
 import { imageArray } from "../../assets/images/imageArray.js";
-import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js";
+
 
 import PageTitle from "../../components/PageTitle/PageTitle.js";
 
@@ -20,7 +21,7 @@ const CreateEvent = ({ onEventCreated }) => {
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
+
   const { enqueueSnackbar } = useSnackbar();
 
   useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
@@ -32,7 +33,6 @@ const CreateEvent = ({ onEventCreated }) => {
     const randomIndex = Math.floor(Math.random() * imageArray.length);
 
     setImage(imageArray[randomIndex]);
-    setThumbnail(thumbnailArray[randomIndex]);
   }, []);
 
   const notes = "";
@@ -77,7 +77,7 @@ const CreateEvent = ({ onEventCreated }) => {
         </div>
       </div>
       <div className="page-right">
-        <PageTitle title={"new"} thumbnail={thumbnail} />
+        <PageTitle title={"create event"} />
         <div className="create-event-form">
           <form onSubmit={handleSubmit}>
             <div className="form-element-container">
