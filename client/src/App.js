@@ -13,6 +13,12 @@ import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(SplitText);
+
+
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);

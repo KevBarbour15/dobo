@@ -7,7 +7,6 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Footer = () => {
-
   useFadeIn(true, ".footer-title", 0.5, 0.25, 5);
   useFadeIn(true, ".footer-icons", 0.5, 0.25, 5);
 

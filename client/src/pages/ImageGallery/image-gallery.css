@@ -37,7 +37,7 @@
 }
 
 .image-loaded:hover {
-  transform: scale(1.025);
+  transform: scale(1.035);
   box-shadow: 1.5px 1.5px 3.25px black;
 }
 

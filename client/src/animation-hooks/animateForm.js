@@ -1,10 +1,10 @@
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 
 const useAnimateForm = (element) => {
   useGSAP(() => {
     gsap.from(element, {
-      delay: .5,
+      delay: 0.5,
       opacity: 0,
       stagger: 0.05,
       y: 25,

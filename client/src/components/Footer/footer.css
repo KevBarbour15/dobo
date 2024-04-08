@@ -7,7 +7,8 @@
   height: 55px;
   width: 100%;
   z-index: 600;
-  background-image: url("../../assets/images/background.jpg");
+  background: rgba(255, 255, 255, 0.55);
+  //background-image: url("../../assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +21,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background: rgba(255, 255, 255, 0.45);
+  //background: rgba(255, 255, 255, 0.45);
 }
 
 .footer-title {

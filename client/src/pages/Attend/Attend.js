@@ -9,13 +9,17 @@ import {
 // image imports
 import { randomImageArray1 } from "../../assets/images/imageArray.js";
 
+// component imports
 import PageTitle from "../../components/PageTitle/PageTitle.js";
-
 import { useSnackbar } from "notistack";
 import { showSuccessNotification } from "../../util/notifications.js";
 
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
+import useSplitText from "../../animation-hooks/splitText.js";
 import useAnimateForm from "../../animation-hooks/animateForm.js";
+import { SplitText } from "gsap/SplitText";
+
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
 
@@ -31,11 +35,18 @@ const Attend = () => {
   const [image, setImage] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 
+  const split1 = new SplitText(".attend-text", {
+    type: "chars,words,lines",
+    position: "absolute",
+  });
+
   // animate images and content
   useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
+  useSplitText(split1, 0.25);
   useAnimateForm(".form-element-container");
+
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);

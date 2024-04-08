@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 
 const useAnimateImages = (shouldAnimate, element) => {
   useGSAP(() => {
