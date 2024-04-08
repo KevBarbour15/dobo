@@ -13,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
+    "dotenv": "^16.4.5",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "lightgallery.js": "^1.4.0",
     "notistack": "^3.0.1",
