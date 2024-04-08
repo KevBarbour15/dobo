@@ -7,9 +7,9 @@ const useAnimateImages = (shouldAnimate, element) => {
     gsap.from(element, {
       delay: 0.75,
       opacity: 0,
-      stagger: 0.1,
+      stagger: 0.075,
       y: 25,
-      scale: 0.25,
+      scale: 0.75,
       ease: "sine.inOut",
     });
   }, [shouldAnimate, element]);

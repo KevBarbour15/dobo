@@ -12,6 +12,7 @@
   font-size: 17px;
   font-family: "Poppins", sans-serif;
   line-height: 1.35;
+  text-align: justify;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -52,5 +53,6 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    font-size: 14px;
   }
 }

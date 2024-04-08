@@ -20,6 +20,8 @@ import useSplitText from "../../animation-hooks/splitText.js";
 import useAnimateForm from "../../animation-hooks/animateForm.js";
 import { SplitText } from "gsap/SplitText";
 
+// notifications imports
+import { useForm, ValidationError } from "@formspree/react";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
 
@@ -46,7 +48,6 @@ const Attend = () => {
   useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
   useSplitText(split1, 0.25);
   useAnimateForm(".form-element-container");
-
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
@@ -90,6 +91,8 @@ const Attend = () => {
 
     if (!selectedEventId) return;
 
+
+
     let convertedDate = convertDateReadability(date);
 
     const attendeeData = {
@@ -112,6 +115,9 @@ const Attend = () => {
       setDate("");
       setMessage("");
     };
+
+    const formData = new FormData(e.target);
+    console.log("formData: ", formData);
 
     const postAttendeeData = async () => {
       try {
@@ -185,7 +191,12 @@ const Attend = () => {
           </div>
 
           <div className="inquiry-form">
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={handleSubmit}
+              acceptCharset="utf-8"
+              action="https://formspree.io/f/xwkgrqwd"
+              method="post"
+            >
               <div className="form-element-container">
                 <select
                   className="form-element"
@@ -213,6 +224,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
+                  name="firstName"
                   value={firstName}
                   placeholder="first name:"
                   onChange={(e) => setFirstName(e.target.value)}
@@ -223,6 +235,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
+                  name="lastName"
                   value={lastName}
                   placeholder="last name:"
                   onChange={(e) => setLastName(e.target.value)}
@@ -233,6 +246,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="email"
+                  name="email"
                   value={email}
                   placeholder="email:"
                   onChange={(e) => setEmail(e.target.value)}
