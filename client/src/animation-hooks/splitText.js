@@ -9,7 +9,7 @@ const useSplitText = (element, delay) => {
       opacity: 0,
       autoAlpha: 0,
       ease: "sine.inOut",
-      stagger: 0.05,
+      stagger: 0.035,
     });
   }, [element, delay]);
 };
