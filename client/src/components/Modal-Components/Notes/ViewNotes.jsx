@@ -5,12 +5,10 @@ import "./notes.css";
 import axios from "../../../axiosConfig.jsx";
 
 // notification imports
-import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../../util/notifications.jsx";
+
 
 const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
   const [notes, setNotes] = useState(event.notes);
-  const { enqueueSnackbar } = useSnackbar();
 
   const handleNotesChange = (e) => setNotes(e.target.value);
 
@@ -29,7 +27,6 @@ const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
       if (response.status === 200 || response.status === 201) {
         onUpdateEvent(response.data);
         onClose();
-        showSuccessNotification(enqueueSnackbar, "Notes updated!");
       } else {
         console.error("Error updating event: ", response);
       }

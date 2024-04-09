@@ -9,9 +9,11 @@ import About from "./pages/About/About";
 import Attend from "./pages/Attend/Attend";
 import ImageGallery from "./pages/ImageGallery/ImageGallery";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { SnackbarProvider } from "notistack";
 
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -24,8 +26,8 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <SnackbarProvider maxSnack={3}>
-      <Router>
+    <Router>
+        <ToastContainer className="custom"/>
         <AuthContext.Provider
           value={{
             isLoggedIn,
@@ -48,7 +50,6 @@ function App() {
           </div>
         </AuthContext.Provider>
       </Router>
-    </SnackbarProvider>
   );
 }
 

@@ -11,8 +11,6 @@ import { randomImageArray1 } from "../../assets/images/imageArray.js";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
-import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../util/notifications.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
@@ -20,6 +18,9 @@ import useAnimateForm from "../../animation-hooks/animateForm.js";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
+
+import { toast } from "react-toastify";
+import Toast from "../../components/Toast/Toast.jsx";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
@@ -33,8 +34,9 @@ const Attend = () => {
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [image, setImage] = useState("");
-  const { enqueueSnackbar } = useSnackbar();
   const [state, handleSubmit] = useForm("xeqypkbj");
+  const toastMessage =
+    "Thank you for inquiry. We will reach out with details shortly.";
 
   // animate images and content
   useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
@@ -82,12 +84,6 @@ const Attend = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    handleSubmit(e);
-
-    if (state.succeeded) {
-      console.log("Form submitted successfully!");
-    }
-
     if (!selectedEventId) return;
 
     let convertedDate = convertDateReadability(date);
@@ -113,16 +109,33 @@ const Attend = () => {
       setMessage("");
     };
 
-    const formData = new FormData(e.target);
-
     const postAttendeeData = async () => {
       try {
         const response = await axios.post("/attendees/new", attendeeData);
         if (response.status === 200 || response.status === 201) {
-          showSuccessNotification(
-            enqueueSnackbar,
-            "Thank you for your inquiry. Someone will reach out to you shortly with details."
-          );
+          // success notification
+          toast(<Toast message={toastMessage} />, {
+            position: "top-left",
+            autoClose: 10000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            style: {
+              borderRadius: "0px",
+              border: "1px solid black",
+              color: "black",
+              backgroundColor: "#efefef",
+              boxShadow: "10px 10px 5px black",
+              fontWeight: "500",
+              width: "300px",
+              height: "auto",
+            },
+          });
+
+          //handleSubmit(e);
+
           if (!isChecked) {
             resetForm();
           }
@@ -221,7 +234,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
-                  name="firstName"
+                  name="First Name"
                   value={firstName}
                   placeholder="first name:"
                   onChange={(e) => setFirstName(e.target.value)}
@@ -237,7 +250,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
-                  name="lastName"
+                  name="Last Name"
                   value={lastName}
                   placeholder="last name:"
                   onChange={(e) => setLastName(e.target.value)}
@@ -270,10 +283,13 @@ const Attend = () => {
                   className="form-element"
                   type="text"
                   value={message}
-                  placeholder="message (optional):"
+                  name="message"
+                  required
+                  placeholder="please include numbers of guests and any other questions:"
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
+              <input type="hidden" name="Date" />
               <div className="form-element-container">
                 <div className="subscribe-container">
                   <div className="subscribe-text">

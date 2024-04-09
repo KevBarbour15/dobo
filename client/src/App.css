@@ -138,8 +138,7 @@ label {
   box-sizing: border-box;
   width: 235px;
   border: 2px solid #bd9c72;
-
-  letter-spacing: 0.75px;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 16px;
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
@@ -163,6 +162,7 @@ label {
 .form-element::placeholder,
 textarea::placeholder,
 .default-option {
+  font-family: "Poppins", sans-serif;
   letter-spacing: 3px;
 }
 
@@ -222,7 +222,6 @@ select {
 /* for label styling */
 label {
   font-size: 14px;
-
   letter-spacing: 1.5px;
   color: black;
   margin-bottom: 10px;

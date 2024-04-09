@@ -4,8 +4,6 @@ import { formatDate } from "../../util/formatting.jsx";
 import "./create-event.css";
 
 // notification imports
-import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../util/notifications.jsx";
 
 // image imports
 import { imageArray } from "../../assets/images/imageArray.js";
@@ -24,8 +22,6 @@ const CreateEvent = ({ onEventCreated }) => {
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
-
-  const { enqueueSnackbar } = useSnackbar();
 
   useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
@@ -62,7 +58,6 @@ const CreateEvent = ({ onEventCreated }) => {
         setDate("");
         setTime("");
         setPrice(0);
-        showSuccessNotification(enqueueSnackbar, "Event created!");
       } else {
         console.error("Error creating event:", response);
       }

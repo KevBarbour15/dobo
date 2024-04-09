@@ -4,12 +4,8 @@ import "./cancel-event.css";
 import axios from "../../../axiosConfig.jsx";
 
 // notification imports
-import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../../util/notifications.jsx";
 
 const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
-  const { enqueueSnackbar } = useSnackbar();
-
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -23,7 +19,6 @@ const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
 
       if (response.status === 200 || response.status === 201) {
         onDeleteEvent(event._id);
-        showSuccessNotification(enqueueSnackbar, "Event canceled!");
       }
     } catch (error) {
       const errorData = error.response ? error.response.data : error.message;

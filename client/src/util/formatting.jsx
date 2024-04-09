@@ -26,7 +26,6 @@ export const formatDate = (date) => {
 };
 
 export const convertDateReadability = (dateString) => {
-
   // remove the Z from the end of the date string if it's there
   const adjustedDateString = dateString.endsWith('Z') ? dateString.slice(0, -1) : dateString;
   

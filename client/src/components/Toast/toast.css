@@ -1,0 +1,12 @@
+.toastContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toastContainer p {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
