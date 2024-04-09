@@ -1,7 +1,7 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
+
   min-height: 300px;
   padding: 0 16px;
   height: auto;
@@ -27,7 +27,7 @@
 }
 
 .attendee-name {
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.15px;
   font-size: 22px;
   margin: 16px 0;

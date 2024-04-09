@@ -1,9 +1,11 @@
 import "./footer.css";
+
+// icon imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-// animation-hooks
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Footer = () => {

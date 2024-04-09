@@ -1,7 +1,11 @@
 import "./cancel-event.css";
-import axios from "../../../axiosConfig.js";
+
+// component imports
+import axios from "../../../axiosConfig.jsx";
+
+// notification imports
 import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../../util/notifications.js";
+import { showSuccessNotification } from "../../../util/notifications.jsx";
 
 const CancelEvent = ({ event, onClose, onDeleteEvent }) => {
   const { enqueueSnackbar } = useSnackbar();

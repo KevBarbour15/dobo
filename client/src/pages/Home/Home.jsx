@@ -1,9 +1,14 @@
 import "./home.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Menu from "../../components/Menu/Menu.js";
+
+// component imports
+import Menu from "../../components/Menu/Menu.jsx";
+
+// image imports
 import logo from "../../assets/images/logo.png";
 
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Home = () => {

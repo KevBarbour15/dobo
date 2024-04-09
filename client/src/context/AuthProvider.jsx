@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "../axiosConfig";
-import AuthContext from "./AuthContext";
+
+// component imports
+import axios from "../axiosConfig.jsx";
+import AuthContext from "./AuthContext.jsx";
 
 const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

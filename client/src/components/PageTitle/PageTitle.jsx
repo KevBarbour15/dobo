@@ -1,5 +1,6 @@
 import "./page-title.css";
 
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const PageTitle = ({ title }) => {

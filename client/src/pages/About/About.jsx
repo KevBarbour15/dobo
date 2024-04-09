@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 // image imports
 import { randomImageArray2 } from "../../assets/images/imageArray.js";
 
-import PageTitle from "../../components/PageTitle/PageTitle.js";
+// component imports
+import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
-import gsap from "gsap";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 import useSplitText from "../../animation-hooks/splitText.js";
 import { SplitText } from "gsap/SplitText";

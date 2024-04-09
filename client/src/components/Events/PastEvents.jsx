@@ -1,15 +1,19 @@
 import { useState } from "react";
 import "./view-events.css";
-import Modal from "../Modal/Modal.js";
-import Attendance from "../Modal-Components/Attendance/Attendance.js";
-import ViewNotes from "../Modal-Components/Notes/ViewNotes.js";
+
+// component imports
+import Modal from "../Modal/Modal.jsx";
+import Attendance from "../Modal-Components/Attendance/Attendance.jsx";
+import ViewNotes from "../Modal-Components/Notes/ViewNotes.jsx";
+
+// helper function imports
 import {
   convertDateReadability,
   convertMilitaryTime,
-} from "../../util/formatting.js";
+} from "../../util/formatting.jsx";
+import { filterPastEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
-import { filterPastEventsNYC } from "../../util/timeZoneFormatting.js";
-
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const EventDetailsPast = ({ event, onUpdateEvent }) => {

@@ -1,8 +1,10 @@
 import "./menu.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../Modal/Modal";
-import Login from "../Modal-Components/Login/Login";
+
+// Component imports
+import Modal from "../Modal/Modal.jsx";
+import Login from "../Modal-Components/Login/Login.jsx";
 
 // GSAP animations
 import gsap from "gsap";

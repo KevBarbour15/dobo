@@ -1,29 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "./attend.css";
-import axios from "../../axiosConfig.js";
+import axios from "../../axiosConfig.jsx";
 import {
   convertDateReadability,
   convertMilitaryTime,
-} from "../../util/formatting.js";
+} from "../../util/formatting.jsx";
 
 // image imports
 import { randomImageArray1 } from "../../assets/images/imageArray.js";
 
 // component imports
-import PageTitle from "../../components/PageTitle/PageTitle.js";
+import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../util/notifications.js";
+import { showSuccessNotification } from "../../util/notifications.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useSplitText from "../../animation-hooks/splitText.js";
 import useAnimateForm from "../../animation-hooks/animateForm.js";
-import { SplitText } from "gsap/SplitText";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
 
-import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
+import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
@@ -36,17 +34,12 @@ const Attend = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [image, setImage] = useState("");
   const { enqueueSnackbar } = useSnackbar();
-
-  const split1 = new SplitText(".attend-text", {
-    type: "chars,words,lines",
-    position: "absolute",
-  });
+  const [state, handleSubmit] = useForm("xeqypkbj");
 
   // animate images and content
   useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
-  useSplitText(split1, 0.25);
   useAnimateForm(".form-element-container");
 
   useEffect(() => {
@@ -86,12 +79,16 @@ const Attend = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    handleSubmit(e);
+
+    if (state.succeeded) {
+      console.log("Form submitted successfully!");
+    }
+
     if (!selectedEventId) return;
-
-
 
     let convertedDate = convertDateReadability(date);
 
@@ -117,7 +114,6 @@ const Attend = () => {
     };
 
     const formData = new FormData(e.target);
-    console.log("formData: ", formData);
 
     const postAttendeeData = async () => {
       try {
@@ -125,7 +121,7 @@ const Attend = () => {
         if (response.status === 200 || response.status === 201) {
           showSuccessNotification(
             enqueueSnackbar,
-            "Thank you for your inquiry"
+            "Thank you for your inquiry. Someone will reach out to you shortly with details."
           );
           if (!isChecked) {
             resetForm();
@@ -192,9 +188,9 @@ const Attend = () => {
 
           <div className="inquiry-form">
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleFormSubmit}
               acceptCharset="utf-8"
-              action="https://formspree.io/f/xwkgrqwd"
+              action="https://formspree.io/f/xeqypkbj"
               method="post"
             >
               <div className="form-element-container">
@@ -202,6 +198,7 @@ const Attend = () => {
                   className="form-element"
                   value={selectedEventId}
                   onChange={handleSelectChange}
+                  required
                 >
                   <option className="default-option" value="" disabled hidden>
                     select a date
@@ -215,7 +212,7 @@ const Attend = () => {
                       {convertDateReadability(event.date)}
                       {event.seatsRemaining > 0
                         ? " at " + convertMilitaryTime(event.time)
-                        : "SOLD OUT"}
+                        : " - SOLD OUT"}
                     </option>
                   ))}
                 </select>
@@ -231,6 +228,11 @@ const Attend = () => {
                   required
                 />
               </div>
+              <ValidationError
+                prefix="firstName"
+                field="firstName"
+                errors={state.errors}
+              />
               <div className="form-element-container">
                 <input
                   className="form-element"
@@ -242,6 +244,11 @@ const Attend = () => {
                   required
                 />
               </div>
+              <ValidationError
+                prefix="lastName"
+                field="lastName"
+                errors={state.errors}
+              />
               <div className="form-element-container">
                 <input
                   className="form-element"
@@ -253,6 +260,11 @@ const Attend = () => {
                   required
                 />
               </div>
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
               <div className="form-element-container">
                 <textarea
                   className="form-element"

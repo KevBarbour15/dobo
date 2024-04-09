@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./notes.css";
-import axios from "../../../axiosConfig.js";
+
+// component imports
+import axios from "../../../axiosConfig.jsx";
+
+// notification imports
 import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../../util/notifications.js";
+import { showSuccessNotification } from "../../../util/notifications.jsx";
 
 const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
   const [notes, setNotes] = useState(event.notes);
@@ -39,7 +43,9 @@ const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
       <div className="notes-text-form">
         <form onSubmit={handleSubmit}>
           <textarea value={notes} onChange={handleNotesChange}></textarea>
-          <button className="button" type="submit">Save</button>
+          <button className="button" type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>

@@ -1,12 +1,15 @@
 import { useState, useContext } from "react";
 import "./login.css";
-import axios from "../../../axiosConfig";
+
 import { useNavigate } from "react-router-dom";
+
+// component imports
+import axios from "../../../axiosConfig.jsx";
 import AuthContext from "../../../context/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState(""); // change these later to empty strings when done testing
-  const [password, setPassword] = useState(""); // and add required to the inputs
+  const [username, setUsername] = useState(""); 
+  const [password, setPassword] = useState(""); 
   const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 

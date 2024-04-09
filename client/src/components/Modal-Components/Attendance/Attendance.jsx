@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./attendance.css";
-import axios from "../../../axiosConfig.js";
-import Attendee from "./Attendee/Attendee.js";
-import Loading from "../Loading/Loading.js";
+
+// component imports
+import axios from "../../../axiosConfig.jsx";
+import Attendee from "./Attendee/Attendee.jsx";
+import Loading from "../Loading/Loading.jsx";
 
 const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);

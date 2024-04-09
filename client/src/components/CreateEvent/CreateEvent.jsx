@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
-import axios from "../../axiosConfig.js";
-import { formatDate } from "../../util/formatting.js";
+import axios from "../../axiosConfig.jsx";
+import { formatDate } from "../../util/formatting.jsx";
 import "./create-event.css";
+
+// notification imports
 import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../util/notifications.js";
+import { showSuccessNotification } from "../../util/notifications.jsx";
 
 // image imports
 import { imageArray } from "../../assets/images/imageArray.js";
 
+// component imports
+import PageTitle from "../PageTitle/PageTitle.jsx";
 
-import PageTitle from "../../components/PageTitle/PageTitle.js";
-
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 import useAnimateForm from "../../animation-hooks/animateForm.js";
 

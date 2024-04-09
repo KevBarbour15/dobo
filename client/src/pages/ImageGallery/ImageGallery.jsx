@@ -1,11 +1,16 @@
 import { useState } from "react";
 import "./image-gallery.css";
+
+// image imports
 import { imageArray } from "../../assets/images/imageArray.js";
 import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js";
+
+// component imports
 import Masonry from "react-masonry-css";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
+// animation imports
 import useAnimateImages from "../../animation-hooks/animateImages.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 

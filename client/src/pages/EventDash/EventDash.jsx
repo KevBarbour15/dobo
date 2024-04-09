@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../../context/AuthContext";
-import axios from "../../axiosConfig";
-
-import DashHeader from "../../components/DashHeader/DashHeader.js";
-import UpcomingEvents from "../../components/Events/UpcomingEvents.js";
-import PastEvents from "../../components/Events/PastEvents.js";
-import CreateEvent from "../../components/CreateEvent/CreateEvent.js";
 import "./event-dash.css";
+
+// component imports
+import AuthContext from "../../context/AuthContext.jsx";
+import axios from "../../axiosConfig.jsx";
+import DashHeader from "../../components/DashHeader/DashHeader.jsx";
+import UpcomingEvents from "../../components/Events/UpcomingEvents.jsx";
+import PastEvents from "../../components/Events/PastEvents.jsx";
+import CreateEvent from "../../components/CreateEvent/CreateEvent.jsx";
 
 const EventDash = () => {
   const navigate = useNavigate();

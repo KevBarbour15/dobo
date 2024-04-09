@@ -1,5 +1,6 @@
 import "./modal.css";
 
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn";
 
 const Modal = ({ isVisible, title, children, onClose }) => {

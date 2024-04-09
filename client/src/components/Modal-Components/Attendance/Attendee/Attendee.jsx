@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import "./attendee.css";
+
+// icon imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { convertDateReadability } from "../../../../util/formatting.js";
+
+// helper function imports
+import { convertDateReadability } from "../../../../util/formatting.jsx";
 
 const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
   const [status, setStatus] = useState(attendee.status);

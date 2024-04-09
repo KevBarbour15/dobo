@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import "./edit-event.css";
-import axios from "../../../axiosConfig.js";
-import { formatDate } from "../../../util/formatting.js";
+
+// component imports
+import axios from "../../../axiosConfig.jsx";
+
+// helper function imports
+import { formatDate } from "../../../util/formatting.jsx";
+
+// notification imports
 import { useSnackbar } from "notistack";
-import { showSuccessNotification } from "../../../util/notifications.js";
+import { showSuccessNotification } from "../../../util/notifications.jsx";
 
 const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [title, setTitle] = useState(event.title);

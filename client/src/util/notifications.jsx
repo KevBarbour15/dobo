@@ -2,7 +2,7 @@ export const showSuccessNotification = (enqueueSnackbar, message) => {
   enqueueSnackbar(message, {
     autoHideDuration: 1500,
     style: {
-      maxWidth:"250px",
+      maxWidth: "250px",
       backgroundColor: "white",
       color: "black",
       border: "2px solid #bd9c72",

@@ -1,24 +1,27 @@
 import { useState } from "react";
 import "./view-events.css";
-import Modal from "../Modal/Modal.js";
-import EditEvent from "../Modal-Components/EditEvent/EditEvent.js";
-import Attendance from "../Modal-Components/Attendance/Attendance.js";
-import Cancel from "../Modal-Components/CancelEvent/CancelEvent.js";
-import ViewNotes from "../Modal-Components/Notes/ViewNotes.js";
+
+// component imports
+import Modal from "../Modal/Modal.jsx";
+import EditEvent from "../Modal-Components/EditEvent/EditEvent.jsx";
+import Attendance from "../Modal-Components/Attendance/Attendance.jsx";
+import Cancel from "../Modal-Components/CancelEvent/CancelEvent.jsx";
+import ViewNotes from "../Modal-Components/Notes/ViewNotes.jsx";
+
+// helper function imports
 import {
   convertDateReadability,
   convertMilitaryTime,
-} from "../../util/formatting.js";
+} from "../../util/formatting.jsx";
+import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
-import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.js";
-
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
-  
   const handleEdit = () => {
     setModalContent(
       <EditEvent

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import "./header.css";
-import Menu from "../Menu/Menu.js";
+
+// component imports
+import Menu from "../Menu/Menu.jsx";
+
+// image imports
 import logo from "../../assets/images/logo-black.png";
 
-// animation-hooks
+// animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Header = () => {

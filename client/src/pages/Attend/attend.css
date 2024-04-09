@@ -1,6 +1,6 @@
 .attend-container {
   display: flex;
-  font-family: "Poppins", sans-serif;
+
   box-sizing: border-box;
   height: calc(100vh - 110px);
 }
@@ -16,9 +16,10 @@
 
 .attend-text {
   width: 235px;
+  margin-top: 0;
   margin-bottom: 16px;
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+
   line-height: 1.5;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
@@ -34,7 +35,6 @@
   flex-direction: column;
   font-weight: 400;
   margin: 0 0 32px 0;
-  
 }
 
 .subscribe-container {
