@@ -55,15 +55,15 @@ const About = () => {
         <div className="about-info-container">
           <div className="about-text">
             <p className="paragraph-1">
-              For 15 years I have been cooking and eating my way through New
-              York City, a heavenly playground for food fanatics. You can dine
-              at hundreds of restaurants, but there’s something undeniably
-              special about a home-cooked meal.
+              For 15 years I’ve been cooking and eating my way through New York
+              City, a heavenly playground for food fanatics. The thing is, you
+              can dine at hundreds of restaurants, but there’s something
+              undeniably special about a home-cooked meal.
             </p>
             <p className="paragraph-2">
-              You’ll never leave hungry after visiting a Filipino household
-              since food and family are central to our culture. So I invite you
-              to Dobo - an unforgettable Filipino-American dining experience
+              Since food and family are central to our culture, you’ll never
+              leave hungry after visiting a Filipino household. So I invite you
+              to Dobo - an intimate Filipino-American dining experience
               highlighting the recipes and flavors I was raised on.
             </p>
             <p className="paragraph-3">- Sean Arguelles, creator of DOBO</p>
