@@ -45,6 +45,15 @@ const Attend = () => {
   useAnimateForm(".form-element-container");
 
   useEffect(() => {
+    /*
+    toast(<Toast message={toastMessage} />, {
+      autoClose: 10000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    */
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
     setImage(randomImageArray1[randomIndex]);
   }, []);
@@ -122,16 +131,6 @@ const Attend = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            style: {
-              borderRadius: "0px",
-              border: "1px solid black",
-              color: "black",
-              backgroundColor: "#efefef",
-              boxShadow: "10px 10px 5px black",
-              fontWeight: "500",
-              width: "300px",
-              height: "auto",
-            },
           });
 
           //handleSubmit(e);

@@ -1,6 +1,5 @@
 .attend-container {
   display: flex;
-
   box-sizing: border-box;
   height: calc(100vh - 110px);
 }

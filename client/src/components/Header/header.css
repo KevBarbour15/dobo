@@ -9,12 +9,17 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1.5px solid black;
-  background: #efefef;
-  border-bottom: 1.5px solid black;
+  background: linear-gradient(
+    to bottom,
+    #efefef,
+    transparent
+  );
+
+  //border-bottom: 1.5px solid black;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.55);
-  background-image: url("../../assets/images/background.jpg");
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  //background: rgba(255, 255, 255, 0.55);
+  //background-image: url("../../assets/images/background.jpg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

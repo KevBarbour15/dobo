@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .toastContainer p {
+  color: black;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   width: 100%;

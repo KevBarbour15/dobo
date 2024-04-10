@@ -8,7 +8,7 @@ const PageTitle = ({ title }) => {
 
   return (
     <div className="title-container">
-      <div className="title">{title.toUpperCase()}</div>
+      <h2 className="title">{title.toUpperCase()}</h2>
     </div>
   );
 };
