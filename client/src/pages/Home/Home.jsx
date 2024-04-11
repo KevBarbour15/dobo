@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Menu from "../../components/Menu/Menu.jsx";
 
 // image imports
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-cream.png";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";

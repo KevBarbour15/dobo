@@ -16,7 +16,7 @@
   width: 100%;
   background-image: url("../../assets/images/dobo-7-7.jpg");
   background-size: cover;
-  border: 1.5px solid black;
+  //border: 1.5px solid black;
   box-sizing: border-box;
 }
 
@@ -46,7 +46,7 @@
   background-color: transparent;
   border: none;
   padding-left: 14px;
-  color: white;
+  color: #f2f1f0;
   transition: all 0.25s ease-in-out;
 }
 
@@ -104,10 +104,10 @@
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  color: #efefef;
+  color: #f2f1f0;
   border-radius: 5px;
   font-size: 14px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.25px;
   width: 117.5px;
   height: 35px;
   transition: all 0.25s ease-in-out;
@@ -115,9 +115,9 @@
 
 .home-button:hover {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.95);
+  color: black;
   text-shadow: none;
-  background: #bd9c72;
+  background: #f2f1f0;
   box-shadow: 1.5px 1.5px 3.25px black;
 }
 
@@ -168,6 +168,7 @@
   }
 
   .home-button:hover {
+    color: #f2f1f0;
     background: none;
     box-shadow: none;
   }

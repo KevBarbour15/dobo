@@ -1,6 +1,7 @@
 /* GLOBAL STYLES */
 .page-left,
 .page-right {
+  height: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -8,23 +9,21 @@
 }
 
 .page-left {
-  box-sizing: border-box;
-  //border-right: 1.5px solid black;
+  min-height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .page-right {
-  height: 100%;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .image-container {
-  margin: 32px 0 32px 0;
-  height: 100%;
-  width: 65%;
+  margin: 64px 0 64px 0;
+  width: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +34,8 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 /* For the contact icons */
@@ -82,11 +82,11 @@
 }
 
 .item.email:before {
-  background: linear-gradient(to bottom, #efefef, #bd9c72);
+  background: linear-gradient(to bottom, #efefef, black);
 }
 
 .item.ig:before {
-  background: linear-gradient(to bottom, #efefef, #bd9c72);
+  background: linear-gradient(to bottom, #efefef, black);
 }
 
 .item:hover:before {
@@ -97,24 +97,27 @@
 .button {
   box-sizing: border-box;
   font-size: 14px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.25px;
   width: 117.5px;
   height: 35px;
-  border: 2px solid #bd9c72;
-  border-radius: 5px;
-  color: #bd9c72;
-  background: rgba(255, 255, 255, 0.5);
+  //border: 2px solid black;
+  border: 1px solid black;
+  border-radius: 3px;
+  //color: black;
+  color: black;
+  //background: rgba(255, 255, 255, 0.5);
+  background: #f2f1f0;
   transition: all 0.25s ease-in-out;
   text-transform: lowercase;
   font-weight: 400;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .button:hover {
   cursor: pointer;
   color: #efefef;
-  background: #bd9c72;
+  background: black;
   transition: all 0.25s ease-in-out;
   box-shadow: 1.25px 3px 6px rgba(0, 0, 0, 0.75);
 }
@@ -138,15 +141,17 @@ label {
 .form-element {
   opacity: 1;
   box-sizing: border-box;
-  width: 235px;
-  border: 2px solid #bd9c72;
+  width: 265px;
+  //border: 2px solid black;
+  border: 1px solid black;
   font-family: "Poppins", sans-serif;
   margin-bottom: 16px;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: all 0.25s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.5);
+  //background-color: rgba(255, 255, 255, 0.5);
+  background-color: #f2f1f0;
   font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -224,7 +229,7 @@ select {
 /* for label styling */
 label {
   font-size: 14px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.25px;
   color: black;
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
@@ -241,7 +246,7 @@ label {
 }
 
 .Toastify__progress-bar {
-  background: #bd9c72 !important;
+  background: black !important;
 }
 
 @media (max-width: 768px) {
@@ -255,12 +260,12 @@ label {
 
   .button:hover {
     color: #efefef;
-    background: #bd9c72;
+    background: black;
   }
 
   .button:active {
     color: #efefef;
-    background: #bd9c72;
+    background: black;
     box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
   }
 }

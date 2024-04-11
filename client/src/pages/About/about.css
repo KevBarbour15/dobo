@@ -1,7 +1,8 @@
 .about-container {
   display: flex;
   box-sizing: border-box;
-  height: calc(100vh - 110px);
+  min-height: calc(100vh - 110px);
+  overflow-y: auto;
 }
 
 .about-info-container {
@@ -12,7 +13,7 @@
   font-size: 17px;
   line-height: 1.35;
   text-align: left;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .about-text p {

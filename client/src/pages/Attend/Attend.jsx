@@ -34,7 +34,7 @@ const Attend = () => {
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [image, setImage] = useState("");
-  const [state, handleSubmit] = useForm("xeqypkbj");
+  const [state, handleSubmit] = useForm("xdoqpwrb");
   const toastMessage =
     "Thank you for inquiry. We will reach out with details shortly.";
 
@@ -45,15 +45,6 @@ const Attend = () => {
   useAnimateForm(".form-element-container");
 
   useEffect(() => {
-    /*
-    toast(<Toast message={toastMessage} />, {
-      autoClose: 10000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-    */
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
     setImage(randomImageArray1[randomIndex]);
   }, []);
@@ -133,7 +124,14 @@ const Attend = () => {
             progress: undefined,
           });
 
-          //handleSubmit(e);
+          const formData = {
+            "Name:": firstName + " " + lastName,
+            "Email:": email,
+            "Event date:": convertedDate,
+            "Message:": message,
+          };
+
+          handleSubmit(formData);
 
           if (!isChecked) {
             resetForm();
@@ -202,7 +200,7 @@ const Attend = () => {
             <form
               onSubmit={handleFormSubmit}
               acceptCharset="utf-8"
-              action="https://formspree.io/f/xeqypkbj"
+              action="https://formspree.io/f/xdoqpwrb"
               method="post"
             >
               <div className="form-element-container">
@@ -233,7 +231,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
-                  name="First Name"
+                  //name="First Name"
                   value={firstName}
                   placeholder="first name:"
                   onChange={(e) => setFirstName(e.target.value)}
@@ -249,7 +247,7 @@ const Attend = () => {
                 <input
                   className="form-element"
                   type="text"
-                  name="Last Name"
+                  //name="Last Name"
                   value={lastName}
                   placeholder="last name:"
                   onChange={(e) => setLastName(e.target.value)}
@@ -284,7 +282,7 @@ const Attend = () => {
                   value={message}
                   name="message"
                   required
-                  placeholder="please include numbers of guests and any other questions:"
+                  placeholder="please include numbers of guests, allergies and any other questions:"
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>

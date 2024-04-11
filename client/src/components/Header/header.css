@@ -8,21 +8,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1.5px solid black;
-  background: linear-gradient(
-    to bottom,
-    #efefef,
-    transparent
-  );
-
-  //border-bottom: 1.5px solid black;
-  box-sizing: border-box;
-  //background: rgba(255, 255, 255, 0.55);
-  //background-image: url("../../assets/images/background.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  //background: linear-gradient(to bottom, #f2f1f0, transparent);
+  background: linear-gradient(to bottom, #a39d92, transparent);
 }
 
 .header-overlay {
@@ -76,7 +63,7 @@
 }
 
 .header-title {
-  height: 35px;
+  height: 32px;
   transition: all 0.5s ease-in-out;
   z-index: 702;
 }

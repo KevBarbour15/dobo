@@ -1,7 +1,9 @@
 .attend-container {
   display: flex;
   box-sizing: border-box;
-  height: calc(100vh - 110px);
+  min-height: calc(100vh - 110px);
+  width: 100vw;
+  overflow-y: auto;
 }
 
 .attend-info-container {
@@ -14,12 +16,14 @@
 }
 
 .attend-text {
-  width: 235px;
+  color: black;
+  width: 265px;
   margin-top: 0;
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: justify;
 }
 
 .inquiry-form {
@@ -37,17 +41,17 @@
 
 .subscribe-container {
   box-sizing: border-box;
-  width: 235px;
+  width: 265px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .subscribe-text {
   width: 70%;
-  font-size: 11px;
+  font-size: 12px;
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 input[type="checkbox"] {
@@ -58,11 +62,12 @@ input[type="checkbox"] {
   cursor: pointer;
   width: 60px;
   height: 32px;
-  border-radius: 5px;
+  border-radius: 3px;
   z-index: 2;
   transition: all 0.25s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.5);
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  //background-color: rgba(255, 255, 255, 0.5);
+  background: #f2f1f0;
 }
 
 input[type="checkbox"]:focus {
@@ -76,7 +81,8 @@ input[type="checkbox"]:focus {
   display: inline-block;
   position: relative;
   margin: 0;
-  border: 2px solid #bd9c72;
+  //border: 2px solid black;
+  border: 1px solid black;
   cursor: pointer;
 }
 
@@ -85,18 +91,18 @@ input[type="checkbox"]:focus {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
   border: 1px solid #d3d3d3;
-  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.35);
+  //box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.35);
   transition: all 0.15s ease-in-out;
   background: linear-gradient(to bottom, #efefef, #d3d3d3);
 }
 
 input[type="checkbox"].toggle:checked:after {
-  border: 1px solid #bd9c72;
-  background: linear-gradient(to bottom, #efefef, #bd9c72);
+  border: 1px solid black;
+  background: linear-gradient(to bottom, #efefef, black);
   transition: all 0.15s ease-in-out;
   transform: translateX(26px);
 }
