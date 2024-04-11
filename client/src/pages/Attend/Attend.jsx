@@ -282,7 +282,7 @@ const Attend = () => {
                   value={message}
                   name="message"
                   required
-                  placeholder="please include numbers of guests, allergies and any other questions:"
+                  placeholder="please include number of guests, allergies and any other questions:"
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
