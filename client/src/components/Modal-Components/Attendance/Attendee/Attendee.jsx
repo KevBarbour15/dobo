@@ -101,7 +101,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               className="item email"
               href={`mailto:${
                 attendee.email
-              }?subject=Dobo ${convertDateReadability(date)}`}
+              }?subject=Dinner ${convertDateReadability(date)}`}
             >
               <FontAwesomeIcon className="icon" icon={faEnvelope} />
             </a>
