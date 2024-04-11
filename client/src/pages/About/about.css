@@ -46,12 +46,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 315px;
   }
 
   .about-text {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 15px;
   }
 }
