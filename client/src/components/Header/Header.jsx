@@ -26,7 +26,6 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <div className="header-overlay">
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
       <div className="header-menu-container">
         <div className="header-menu">
@@ -41,10 +40,8 @@ const Header = () => {
       <div className={`header-title-container ${isMenuOpen ? "open" : ""}`}>
         <img className="header-title" src={logo} alt="DOBO" />
       </div>
-        <div className="invisible-element"></div>
-        </div>
+      <div className="invisible-element"></div>
     </header>
-  
   );
 };
 

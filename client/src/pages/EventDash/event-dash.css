@@ -1,31 +1,15 @@
-.dash-layout {
-  background-image: url("../../assets/images/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
 
 .dash-container {
-  border-left: 1.5px solid black;
-  border-right: 1.5px solid black;
-  border-bottom: 1.5px solid black;
   margin-left: auto;
   margin-right: auto;
   background-size: cover;
   box-sizing: border-box;
-  min-height: calc(100vh - 90px);
 }
 
 .events-container {
   min-height: calc(100vh - 90px);
   overflow-y: scroll;
   box-sizing: border-box;
-}
-
-@media (min-width: 1025px) {
-  .dash-container {
-    max-width: 1100px;
-  }
 }
 
 @media (max-width: 768px) {

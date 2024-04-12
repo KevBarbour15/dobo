@@ -1,10 +1,8 @@
 .create-event-container {
   min-height: calc(100vh - 90px);
   display: flex;
-}
-
-.page-left.create {
-  height: calc(100vh - 90px);
+  flex-direction: column;
+  align-items: center;
 }
 
 .create-event-form {

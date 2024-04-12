@@ -5,9 +5,6 @@ import "./create-event.css";
 
 // notification imports
 
-// image imports
-import { imageArray } from "../../assets/images/imageArray.js";
-
 // component imports
 import PageTitle from "../PageTitle/PageTitle.jsx";
 
@@ -21,18 +18,11 @@ const CreateEvent = ({ onEventCreated }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
-  const [image, setImage] = useState("");
 
   useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".create-event-form", 0.5, 0.25, 25);
   useAnimateForm(".form-element-container");
-
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * imageArray.length);
-
-    setImage(imageArray[randomIndex]);
-  }, []);
 
   const notes = "";
 
@@ -69,78 +59,71 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <div className="page-left create">
-        <div className="image-container">
-          <img src={image} alt="dobo" />
-        </div>
-      </div>
-      <div className="page-right">
-        <PageTitle title={"create event"} />
-        <div className="create-event-form">
-          <form onSubmit={handleSubmit}>
-            <div className="form-element-container">
-              <label>event name:</label>
-              <input
-                className="form-element"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-element-container">
-              <label>price:</label>
-              <input
-                className="form-element"
-                type="number"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-element-container">
-              <label>date:</label>
-              <input
-                className="form-element"
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-element-container">
-              <label>time:</label>
-              <input
-                className="form-element"
-                type="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-element-container">
-              <label>seats:</label>
-              <select
-                className="form-element"
-                placeholder="Seats"
-                value={seats}
-                onChange={(e) => setSeats(formatDate(e.target.value))}
-                required
-              >
-                {[...Array(20)].map((_, i) => (
-                  <option key={i} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="form-element-container">
-              <button className="button" type="submit">
-                Create
-              </button>
-            </div>
-          </form>
-        </div>
+      <PageTitle title={"create event"} />
+      <div className="create-event-form">
+        <form onSubmit={handleSubmit}>
+          <div className="form-element-container">
+            <label>event name:</label>
+            <input
+              className="form-element"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-element-container">
+            <label>price:</label>
+            <input
+              className="form-element"
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-element-container">
+            <label>date:</label>
+            <input
+              className="form-element"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-element-container">
+            <label>time:</label>
+            <input
+              className="form-element"
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-element-container">
+            <label>seats:</label>
+            <select
+              className="form-element"
+              placeholder="Seats"
+              value={seats}
+              onChange={(e) => setSeats(formatDate(e.target.value))}
+              required
+            >
+              {[...Array(20)].map((_, i) => (
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-element-container">
+            <button className="button" type="submit">
+              Create
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

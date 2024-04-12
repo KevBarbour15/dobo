@@ -12,15 +12,6 @@
   background: linear-gradient(to bottom, #a39d92, transparent);
 }
 
-.header-overlay {
-  //background: rgba(255, 255, 255, 0.45);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
 .header-menu-container {
   z-index: 702;
