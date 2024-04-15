@@ -100,18 +100,12 @@
   letter-spacing: 1.25px;
   width: 117.5px;
   height: 35px;
-  //border:   1px solid black;
   border: 1px solid black;
-  border-radius: 3px;
-  //color: black;
   color: black;
-  //background: rgba(255, 255, 255, 0.5);
   background: #f2f1f0;
   transition: all 0.25s ease-in-out;
   text-transform: lowercase;
-  font-weight: 400;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
 }
 
 .button:hover {
@@ -146,13 +140,11 @@ label {
   border: 1px solid black;
   font-family: "Poppins", sans-serif;
   margin-bottom: 16px;
-  border-radius: 3px;
+  //border-radius: 3px;
   transition: all 0.25s ease-in-out;
-  //background-color: rgba(255, 255, 255, 0.5);
   background-color: #f2f1f0;
   font-size: 14px;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .form-element:focus {

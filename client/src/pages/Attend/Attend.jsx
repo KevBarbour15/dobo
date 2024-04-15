@@ -14,7 +14,8 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateForm from "../../animation-hooks/animateForm.js";
+import useAnimateItems from "../../animation-hooks/animateItems.js";
+import useAnimateImages from "../../animation-hooks/animateImages.js";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
@@ -40,9 +41,9 @@ const Attend = () => {
 
   // animate images and content
   useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
-  useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
-  useAnimateForm(".form-element-container");
+  useAnimateItems(".form-element-container");
+  useAnimateImages(true, ".image-container");
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);

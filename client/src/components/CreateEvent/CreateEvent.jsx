@@ -10,7 +10,7 @@ import PageTitle from "../PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateForm from "../../animation-hooks/animateForm.js";
+import useAnimateItems from "../../animation-hooks/animateItems.js";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const CreateEvent = ({ onEventCreated }) => {
   useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
   useFadeIn(true, ".create-event-form", 0.5, 0.25, 25);
-  useAnimateForm(".form-element-container");
+  useAnimateItems(".form-element-container");
 
   const notes = "";
 

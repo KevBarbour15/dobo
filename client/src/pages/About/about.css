@@ -12,6 +12,7 @@
   font-size: 17px;
   line-height: 1.35;
   text-align: left;
+  text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
 }
 
 .about-text p {
@@ -27,17 +28,6 @@
 }
 
 @media (max-width: 768px) {
-  .about-title-img {
-    height: 100%;
-    width: 50%;
-    background-image: url("../../assets/thumbnail-images/dobo-1-thumb.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid black;
-    box-shadow: 1.25px 1.25px 2.5px black;
-  }
-
   .about-info-container {
     height: auto;
     display: flex;
