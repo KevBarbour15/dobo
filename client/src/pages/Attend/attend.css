@@ -1,9 +1,7 @@
 .attend-container {
   display: flex;
   box-sizing: border-box;
-  min-height: calc(100vh - 110px);
-  width: 100vw;
-  overflow-y: auto;
+  height: calc(100vh - 110px);
 }
 
 .attend-info-container {

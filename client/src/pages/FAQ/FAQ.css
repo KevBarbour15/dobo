@@ -1,0 +1,20 @@
+.faq-container {
+  display: flex;
+  box-sizing: border-box;
+  height: calc(100vh - 110px);
+  overflow-y: hidden;
+}
+
+.faq-info-container {
+  width: 70%;
+  font-size: 16px;
+  line-height: 1.35;
+  margin-bottom: 32px;
+}
+
+.faq-info-container li {
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 0;
+}
+

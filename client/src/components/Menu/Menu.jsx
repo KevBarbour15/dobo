@@ -65,6 +65,12 @@ const Menu = ({ isOpen, onClose }) => {
               <span>GALLERY</span>
             </div>
           </Link>
+
+          <Link className="menu-link" to="/FAQ" onClick={onClose}>
+            <div className="link-wrapper">
+              <span>FAQ</span>
+            </div>
+          </Link>
         </div>
         <div className="login-button-container">
           <button onClick={handleOpenModal} className="menu-login-button">

@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease;
-  //background: linear-gradient(to bottom, #a39d92, #e3d6c9);
-  background: #e3d6c9;
+  background: linear-gradient(to bottom, #a39d92, #e3d6c9);
+  //background: #e3d6c9;
   border-top: 1px solid black;
 }
 

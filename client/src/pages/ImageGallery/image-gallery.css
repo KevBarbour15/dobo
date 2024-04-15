@@ -29,7 +29,6 @@
 
 .image-loaded {
   border: 1px solid black;
-  border-radius: 3px;
   cursor: pointer;
   width: 100%;
   height: auto;

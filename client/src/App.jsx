@@ -6,6 +6,7 @@ import EventDash from "./pages/EventDash/EventDash";
 
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import FAQ from "./pages/FAQ/FAQ";
 import Attend from "./pages/Attend/Attend";
 import ImageGallery from "./pages/ImageGallery/ImageGallery";
 
@@ -40,6 +41,7 @@ function App() {
 
             <Route path="/" element={<Layout />}>
               <Route path="About" element={<About />} />
+              <Route path="FAQ" element={<FAQ />} />
               <Route path="Attend" element={<Attend />} />
               <Route path="Gallery" element={<ImageGallery />} />
             </Route>

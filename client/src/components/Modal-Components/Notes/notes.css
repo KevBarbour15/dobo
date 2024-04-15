@@ -28,7 +28,7 @@
 }
 
 .notes-text-form textarea {
-  border: 2px solid black;
+  border: 1px solid black;
   width: 85%;
   flex-grow: 1;
   font-size: 14px;

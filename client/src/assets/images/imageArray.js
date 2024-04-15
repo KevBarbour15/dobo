@@ -26,7 +26,8 @@ const imageArray = [
   img12,
 ];
 
-const randomImageArray1 = [img1, img2, img4, img5, img6];
-const randomImageArray2 = [img8, img9, img10, img11, img12];
+const randomImageArray1 = [img1, img2, img4, img5];
+const randomImageArray2 = [img6, img8, img9];
+const randomImageArray3 = [img10, img11, img12];
 
-export { imageArray, randomImageArray1, randomImageArray2 };
+export { imageArray, randomImageArray1, randomImageArray2, randomImageArray3 };
