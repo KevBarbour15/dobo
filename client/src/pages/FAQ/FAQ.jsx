@@ -63,7 +63,7 @@ const FAQ = () => {
             <p className="list-item">
               Please let me know if you have any food allergies.
             </p>
-            <li v>What if I have dietary restrictions?</li>
+            <li className="list-item">What if I have dietary restrictions?</li>
             <p className="list-item">
               We're happy to accommodate most allergies and no-pork preferences.
               Please note, our menu primarily features beef, chicken, and

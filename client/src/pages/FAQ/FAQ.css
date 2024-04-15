@@ -6,15 +6,40 @@
 }
 
 .faq-info-container {
+  height: auto;
   width: 70%;
   font-size: 16px;
   line-height: 1.35;
-  margin-bottom: 32px;
+  margin-top: 0;
+  margin-bottom: 64px;
+  padding: 0;
+}
+
+.faq-info-container ul {
+  margin: 0;
 }
 
 .faq-info-container li {
   font-size: 17px;
   font-weight: 500;
   margin-top: 0;
+  padding: 0;
+  width: 100%;
 }
 
+@media (max-width: 768px) {
+  .faq-info-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+    font-size: 15px;
+  }
+
+  .faq-info-container li {
+    font-size: 16px;
+    width: 315px;
+  }
+}

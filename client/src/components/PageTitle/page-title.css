@@ -19,14 +19,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 16px 0 16px 0;
+    margin: 24px 0 24px 0;
     width: 300px;
     top: 0;
   }
 
   .title {
     width: 100%;
-    font-size: 23px;
+    font-size: 22px;
     text-align: center;
   }
 }

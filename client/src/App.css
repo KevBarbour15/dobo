@@ -9,7 +9,6 @@
 }
 
 .page-left {
-  min-height: calc(100vh - 110px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,11 +139,10 @@ label {
   border: 1px solid black;
   font-family: "Poppins", sans-serif;
   margin-bottom: 16px;
-  //border-radius: 3px;
+  border-radius: 0px;
   transition: all 0.25s ease-in-out;
   background-color: #f2f1f0;
   font-size: 14px;
-  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .form-element:focus {
