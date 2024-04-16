@@ -91,16 +91,16 @@ input[type="checkbox"]:focus {
   width: 24px;
   height: 24px;
   border-radius: 3px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid transparent;
   transition: all 0.25s ease-in-out;
   background: linear-gradient(to bottom, #f2f1f0, #e3d6c9);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.35);
 }
 
 input[type="checkbox"].toggle:checked:after {
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-radius: 3px;
-  background: black;
+  background: linear-gradient(to bottom, #36454f, black);
   transition: all 0.15s ease-in-out;
   transform: translateX(26px);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.45);

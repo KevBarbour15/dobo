@@ -212,7 +212,7 @@ const Attend = () => {
                   required
                 >
                   <option className="default-option" value="" disabled hidden>
-                    select a date
+                    select a date:
                   </option>
                   {futureEvents.map((event) => (
                     <option

@@ -160,7 +160,7 @@ label {
 
 .form-element::placeholder,
 textarea::placeholder,
-.default-option {
+.default-option::placeholder {
   font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   text-transform: lowercase;
@@ -183,8 +183,8 @@ textarea::active {
 
 input::placeholder,
 textarea::placeholder {
-  color: grey;
   font-size: 14px;
+  color: black;
 }
 
 input[type="date"],
