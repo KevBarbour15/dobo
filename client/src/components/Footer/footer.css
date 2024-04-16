@@ -8,8 +8,9 @@
   height: 55px;
   width: 100%;
   background: linear-gradient(to top, #a39d92, #e3d6c9);
-  border-top: 1px solid black;
+  border: 1px solid black;
   text-shadow: none;
+  box-sizing: border-box;
 }
 
 .footer-title {

@@ -1,5 +1,5 @@
 .header-container {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 700;
   height: 55px;
@@ -9,7 +9,8 @@
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to bottom, #a39d92, #e3d6c9);
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 .header-menu-container {

@@ -1,3 +1,6 @@
+.layout{
+  min-height: 100vh;
+}
 .main-page-content {
   height: calc(100vh - 110px);
 }

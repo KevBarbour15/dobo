@@ -1,9 +1,9 @@
 .menu-container {
   position: fixed;
   height: 100vh;
-  transform: translateY(-100%);
+  transform: translateY(-100%) translateX(-1px);
   height: 100%;
-  width: 25%;
+  width: calc(25% + 1px);
   transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.65);
   z-index: -1;
@@ -12,10 +12,12 @@
   justify-content: flex-start;
   align-items: center;
   top: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 
 .menu-container.open {
-  transform: translateY(0);
+  transform: translateY(0) translateX(-1px);
   z-index: 975;
 }
 

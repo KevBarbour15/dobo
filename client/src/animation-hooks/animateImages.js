@@ -5,7 +5,7 @@ const useAnimateImages = (shouldAnimate, element) => {
   useGSAP(() => {
     if (!shouldAnimate) return;
     gsap.from(element, {
-      delay: 0.5,
+      delay: 0.65,
       opacity: 0,
       scale: 0.9,
       ease: "sine.inOut",
