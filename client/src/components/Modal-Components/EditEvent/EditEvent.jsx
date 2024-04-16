@@ -8,6 +8,8 @@ import axios from "../../../axiosConfig.jsx";
 import { formatDate } from "../../../util/formatting.jsx";
 
 // notification imports
+import { toast } from "react-toastify";
+import Toast from "../../Toast/Toast.jsx";
 
 const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [title, setTitle] = useState(event.title);
@@ -17,6 +19,9 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
   const committed = event.seats - event.seatsRemaining;
+
+  const successMessage = "Event updated successfully!";
+  const errorMessage = "Error updating event. Please try again.";
 
   const handleTitleChange = (e) => setTitle(e.target.value);
   const handleDateChange = (e) => setDate(e.target.value);
@@ -47,11 +52,31 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       if (response.status === 200 || response.status === 201) {
         onUpdateEvent(response.data);
         onClose();
+
+        toast(<Toast message={successMessage} />, {
+          position: "top-left",
+          autoClose: 10000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         console.error("Error updating event: ", response);
+
       }
     } catch (error) {
       console.error("Error updating event: ", error);
+      toast(<Toast message={errorMessage} />, {
+        position: "top-left",
+        autoClose: 10000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 

@@ -4,6 +4,8 @@ import { formatDate } from "../../util/formatting.jsx";
 import "./create-event.css";
 
 // notification imports
+import { toast } from "react-toastify";
+import Toast from "../Toast/Toast.jsx";
 
 // component imports
 import PageTitle from "../PageTitle/PageTitle.jsx";
@@ -18,6 +20,7 @@ const CreateEvent = ({ onEventCreated }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
+  const toastMessage = "Event created successfully!";
 
   useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
   useFadeIn(true, ".image-container", 1, 0, 0);
@@ -48,6 +51,17 @@ const CreateEvent = ({ onEventCreated }) => {
         setDate("");
         setTime("");
         setPrice(0);
+        
+        toast(<Toast message={toastMessage} />, {
+          position: "top-left",
+          autoClose: 10000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
       } else {
         console.error("Error creating event:", response);
       }

@@ -34,12 +34,12 @@
 }
 
 .event-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: -0.15px;
   width: 75%;
+  text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
 }
 
 .event-details-container {
@@ -55,8 +55,8 @@
   flex-direction: column;
   text-align: left;
   font-size: 16px;
-  letter-spacing: 1.25px;
   text-transform: lowercase;
+  text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
 }
 
 .button-group {

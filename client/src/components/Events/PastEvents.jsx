@@ -49,17 +49,26 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
           <span className="event-title">{event.title}</span>
         </div>
         <div className="event-details-container">
-          <div className="event-details">
-            <span>- {convertDateReadability(event.date)}</span>
-            <span>- {convertMilitaryTime(event.time)}</span>
-            <span>- {event.seats} seats</span>
-
-            <span>- {event.seats - event.seatsRemaining} attendees</span>
-
-            <span>- ${event.price}</span>
-          </div>
+          <ul className="event-details">
+            <li>
+              <span>{convertDateReadability(event.date)}</span>
+            </li>
+            <li>
+              <span>{convertMilitaryTime(event.time)}</span>
+            </li>
+            <li>
+              <span>{event.seats} seats</span>
+            </li>
+            <li>
+              <span>{event.seats - event.seatsRemaining} attendees</span>
+            </li>
+            <li>
+              <span>${event.price}</span>
+            </li>
+          </ul>
         </div>
       </div>
+
       <div className="event-options">
         <div className="button-group past">
           <button

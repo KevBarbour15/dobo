@@ -105,9 +105,8 @@
   cursor: pointer;
   text-decoration: none;
   color: #f2f1f0;
-  border-radius: 5px;
-  font-size: 14px;
-  letter-spacing: 1.25px;
+  border-radius: 3px;
+  font-size: 16px;
   width: 117.5px;
   height: 35px;
   transition: all 0.25s ease-in-out;
@@ -118,7 +117,7 @@
   color: black;
   text-shadow: none;
   background: #f2f1f0;
-  box-shadow: 1.5px 1.5px 3.25px black;
+  box-shadow: 2.25px 4.25px 6px rgba(0, 0, 0, 0.75);
 }
 
 .home-button:active {

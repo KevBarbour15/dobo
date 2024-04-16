@@ -74,20 +74,31 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
           <span className="event-title">{event.title}</span>
         </div>
         <div className="event-details-container">
-          <div className="event-details">
-            <span>- {convertDateReadability(event.date)}</span>
-            <span>- {convertMilitaryTime(event.time)}</span>
-            <span>- {event.seats} seats total</span>
+          <ul className="event-details">
+            <li>
+              <span>{convertDateReadability(event.date)}</span>
+            </li>
+            <li>
+              <span>{convertMilitaryTime(event.time)}</span>
+            </li>
+            <li>
+              <span>{event.seats} seats total</span>
+            </li>
             {event.seatsRemaining >= 0 ? (
-              <span>- {event.seatsRemaining} seats left</span>
+              <li>
+                <span>{event.seatsRemaining} seats left</span>
+              </li>
             ) : (
-              <span className="negative-seats">
-                - {event.seatsRemaining} seats available(Overbooked)
-              </span>
+              <li>
+                <span className="negative-seats">
+                  {event.seatsRemaining} seats available(Overbooked)
+                </span>
+              </li>
             )}
-
-            <span>- ${event.price}</span>
-          </div>
+            <li>
+              <span>${event.price}</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="event-options">

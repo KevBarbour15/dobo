@@ -3,15 +3,22 @@ import "./login.css";
 
 import { useNavigate } from "react-router-dom";
 
+// notification imports
+import { toast } from "react-toastify";
+import Toast from "../../Toast/Toast.jsx";
+
 // component imports
 import axios from "../../../axiosConfig.jsx";
 import AuthContext from "../../../context/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const successMessage = "Login successful! Redirecting...";
+  const errorMessage = "Login failed. Please try again.";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,10 +31,30 @@ const Login = () => {
 
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
+
+      toast(<Toast message={successMessage} />, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setTimeout(() => {
         navigate("/EventDash");
       }, 1500);
-    } catch (error) {}
+    } catch (error) {
+      toast(<Toast message={errorMessage} />, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   return (
