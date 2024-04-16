@@ -19,7 +19,7 @@
   margin-top: 0;
   margin-bottom: 16px;
   font-size: 15px;
-  line-height: 1.35;
+  line-height: 1.5;
   text-align: justify;
   text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
 }
@@ -49,7 +49,7 @@
 .subscribe-text {
   width: 70%;
   font-size: 12px;
-  line-height: 1.35;
+  line-height: 1.5;
   text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
 }
 
@@ -80,7 +80,7 @@ input[type="checkbox"]:focus {
   margin: 0;
   border: 1px solid black;
   cursor: pointer;
-  box-shadow: 1.25px 2.25px 3.25px rgba(0, 0, 0, 0.5);
+  box-shadow: 2.25px 3.25px 3.25px rgba(0, 0, 0, 0.65);
 }
 
 .toggle:after {
@@ -103,7 +103,7 @@ input[type="checkbox"].toggle:checked:after {
   background: black;
   transition: all 0.15s ease-in-out;
   transform: translateX(26px);
-  box-shadow: 1.25px 2.25px 3.25px rgba(0, 0, 0, 0.5);
+  box-shadow: 2.25px 3.25px 3.25px rgba(0, 0, 0, 0.65);
 }
 
 @media (max-width: 768px) {
