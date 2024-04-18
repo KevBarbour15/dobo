@@ -15,26 +15,22 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
 
     tl.from(
       ".header-menu",
       {
-        duration: 0.85,
-        y: -25,
+        delay: 0.5,
         opacity: 0,
-        stagger: 0.05,
-        rotationX: -90,
+        duration: 0.75,
       },
       0
     ).from(
       ".header-title-container",
       {
-        duration: 0.85,
-        y: -25,
+        delay: 0.5,
         opacity: 0,
-        stagger: 0.05,
-        rotationX: -90,
+        duration: 0.75,
       },
       0
     );

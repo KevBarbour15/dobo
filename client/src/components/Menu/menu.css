@@ -112,4 +112,9 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.85);
   }
+
+  .menu-link {
+    font-size: 21px;
+    margin: -0.3rem;
+  }
 }

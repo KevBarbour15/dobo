@@ -11,26 +11,22 @@ import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
 
     tl.from(
       ".footer-title",
       {
-        duration: 0.85,
-        y: 25,
+        delay: 0.5,
         opacity: 0,
-        stagger: 0.05,
-        rotationX: 90,
+        duration: 0.75,
       },
       0
     ).from(
       ".footer-icons",
       {
-        duration: 0.85,
-        y: 25,
+        delay: 0.5,
         opacity: 0,
-        stagger: 0.05,
-        rotationX: 90,
+        duration: 0.75,
       },
       0
     );
