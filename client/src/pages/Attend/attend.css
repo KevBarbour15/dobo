@@ -18,10 +18,10 @@
   width: 265px;
   margin-top: 0;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   text-align: justify;
-  text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
+
 }
 
 .inquiry-form {
@@ -33,7 +33,6 @@
 .inquiry-form form {
   display: flex;
   flex-direction: column;
-  font-weight: 400;
   margin: 0 0 32px 0;
 }
 
@@ -50,7 +49,7 @@
   width: 70%;
   font-size: 12px;
   line-height: 1.5;
-  text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
+  //text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
 }
 
 input[type="checkbox"] {
@@ -80,7 +79,7 @@ input[type="checkbox"]:focus {
   margin: 0;
   border: 1px solid black;
   cursor: pointer;
-  box-shadow: 1.5px 2.75px 2.75px rgba(0, 0, 0, 0.65);
+  box-shadow: 1.25px 2.25px 2.25px rgba(0, 0, 0, 0.5);
 }
 
 .toggle:after {
@@ -93,7 +92,7 @@ input[type="checkbox"]:focus {
   border-radius: 3px;
   border: 1px solid transparent;
   transition: all 0.25s ease-in-out;
-  background: linear-gradient(to bottom, #f2f1f0, #e3d6c9);
+  background: linear-gradient(to bottom, #f2f1f0, #eee6de);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.35);
 }
 
@@ -122,6 +121,7 @@ input[type="checkbox"].toggle:checked:after {
   .attend-text {
     width: 300px;
     text-align: justify;
+    line-height: 1.35;
   }
 
   .inquiry-form form {
@@ -141,5 +141,6 @@ input[type="checkbox"].toggle:checked:after {
   .subscribe-text {
     width: 75%;
     font-size: 14px;
+    line-height: 1.35;
   }
 }

@@ -58,7 +58,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               className="item email"
               href={`mailto:${
                 attendee.email
-              }?subject=Dobo ${convertDateReadability(date)}`}
+              }?subject=Dinner ${convertDateReadability(date)}`}
             >
               <FontAwesomeIcon className="icon" icon={faEnvelope} />
             </a>
@@ -109,7 +109,6 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
           <p>Seats: {attendee.seats}</p>
         </div>
       ) : (
-        // Render "No Attendees" if no one was confirmed for the event
         <div className="no-attendees-container">
           <p>No Attendees</p>
         </div>

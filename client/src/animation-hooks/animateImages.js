@@ -8,6 +8,7 @@ const useAnimateImages = (shouldAnimate, element) => {
       delay: 0.65,
       opacity: 0,
       scale: 0.9,
+      stagger: 0.05,
       ease: "sine.inOut",
     });
   }, []);

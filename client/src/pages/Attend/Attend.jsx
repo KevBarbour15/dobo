@@ -212,7 +212,7 @@ const Attend = () => {
                   required
                 >
                   <option className="default-option" value="" disabled hidden>
-                    select a date:
+                    Select a date:
                   </option>
                   {futureEvents.map((event) => (
                     <option
@@ -234,7 +234,7 @@ const Attend = () => {
                   type="text"
                   //name="First Name"
                   value={firstName}
-                  placeholder="first name:"
+                  placeholder="First name:"
                   onChange={(e) => setFirstName(e.target.value)}
                   required
                 />
@@ -250,7 +250,7 @@ const Attend = () => {
                   type="text"
                   //name="Last Name"
                   value={lastName}
-                  placeholder="last name:"
+                  placeholder="Last name:"
                   onChange={(e) => setLastName(e.target.value)}
                   required
                 />
@@ -266,7 +266,7 @@ const Attend = () => {
                   type="email"
                   name="email"
                   value={email}
-                  placeholder="email:"
+                  placeholder="Email:"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
@@ -283,7 +283,7 @@ const Attend = () => {
                   value={message}
                   name="message"
                   required
-                  placeholder="please include number of guests, allergies and any other questions:"
+                  placeholder="Please include number of guests, allergies and any other questions:"
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>

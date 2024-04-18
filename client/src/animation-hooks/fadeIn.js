@@ -9,7 +9,6 @@ const useFadeIn = (shouldFadeIn, element, duration, delay, y) => {
       delay: delay,
       opacity: 0,
       y: y,
-      ease: "sine.inOut",
     });
   }, [shouldFadeIn, element, duration, delay, y]);
 };

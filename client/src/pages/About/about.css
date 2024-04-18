@@ -10,15 +10,20 @@
 }
 
 .about-text {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.5;
   text-align: left;
   margin-bottom: 32px;
-  text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
 }
 
 .about-text p {
   margin-top: 0;
+}
+
+.about-text img {
+  height: auto;
+  width: 165px;
+  margin-bottom: 8px;
 }
 
 .paragraph-1 {
@@ -39,5 +44,6 @@
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    line-height: 1.35;
   }
 }

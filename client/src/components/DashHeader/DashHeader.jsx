@@ -21,22 +21,22 @@ const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
               className={linkClass("create")}
               onClick={() => setActiveSection("create")}
             >
-              <button>new</button>
+              <button>NEW</button>
             </div>
             <div
               className={linkClass("view")}
               onClick={() => setActiveSection("view")}
             >
-              <button>upcoming</button>
+              <button>UPCOMING</button>
             </div>
             <div
               className={linkClass("past")}
               onClick={() => setActiveSection("past")}
             >
-              <button>past</button>
+              <button>PAST</button>
             </div>
             <div className="dash-link-container" onClick={onLogout}>
-              <button>logout</button>
+              <button>LOGOUT</button>
             </div>
           </nav>
         </div>

@@ -10,9 +10,9 @@
 .title {
   color: black;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
-  text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
+  //text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 768px) {

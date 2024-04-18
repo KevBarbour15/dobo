@@ -61,7 +61,7 @@ const Home = () => {
           </div>
           <div className="button-wrapper">
             <Link className="home-button" to="/Attend">
-              attend
+              ATTEND
             </Link>
           </div>
         </div>

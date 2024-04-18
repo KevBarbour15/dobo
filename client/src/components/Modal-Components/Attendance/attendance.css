@@ -27,5 +27,5 @@
 .no-attendees-container p {
   font-size: 20px;
   color: black;
-  text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
+  //text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
 }

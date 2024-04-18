@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-title">
-        <span>© 2024 DOBO</span>
+        <span>© 2024 DOBO NYC</span>
       </div>
       <div className="footer-icons">
         <div className="footer-icon">
