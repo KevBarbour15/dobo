@@ -8,13 +8,37 @@ import Menu from "../Menu/Menu.jsx";
 import logo from "../../assets/images/logo-black.png";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".header-menu", 0.5, 0.25, -5, 0);
-  useFadeIn(true, ".header-title-container", 0.5, 0.25, -5, 0);
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(
+      ".header-menu",
+      {
+        duration: 0.85,
+        y: -25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: -90,
+      },
+      0
+    ).from(
+      ".header-title-container",
+      {
+        duration: 0.85,
+        y: -25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: -90,
+      },
+      0
+    );
+  });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

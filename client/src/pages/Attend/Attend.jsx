@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import "./attend.css";
 import axios from "../../axiosConfig.jsx";
 import {
@@ -14,8 +14,10 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateItems from "../../animation-hooks/animateItems.js";
 import useAnimateImages from "../../animation-hooks/animateImages.js";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
@@ -40,10 +42,57 @@ const Attend = () => {
     "Thank you for inquiry. We will reach out with details shortly.";
 
   // animate images and content
-  useFadeIn(true, ".attend-container", 0.5, 0.05, 0);
-  useFadeIn(true, ".attend-info-container", 0.5, 0.25, 25);
-  useAnimateItems(".form-element-container");
+  useFadeIn(true, ".attend-container", 0.25, 0.05, 0);
+  useFadeIn(true, ".attend-info-container", 0.25, 0.05, 0);
   useAnimateImages(true, ".image-container");
+
+  useGSAP(() => {
+    const p = new SplitText(".attend-text", {
+      type: "lines",
+      position: "relative",
+    });
+
+    const p2 = new SplitText(".subscribe-text", {
+      type: "lines",
+      position: "relative",
+    });
+
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(
+      p.lines,
+      {
+        duration: 0.85,
+        y: 25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: 90,
+      },
+      0
+    )
+      .from(
+        ".form-element-container",
+        {
+          duration: 0.85,
+          y: 25,
+          opacity: 0,
+          stagger: 0.05,
+          rotationX: 90,
+        },
+        0
+      )
+      .from(
+        p2.lines,
+        {
+          duration: 0.85,
+          y: 25,
+          opacity: 0,
+          stagger: 0.05,
+          rotationX: 90,
+        },
+        0
+      );
+  });
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray1.length);

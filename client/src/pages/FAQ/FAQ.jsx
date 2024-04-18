@@ -9,17 +9,33 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateItems from "../../animation-hooks/animateItems.js";
-import useAnimateImages from "../../animation-hooks/animateImages.js"
+import useAnimateImages from "../../animation-hooks/animateImages.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const FAQ = () => {
   const [image, setImage] = useState("");
 
   // animate images and content
-  useFadeIn(true, ".faq-container", 0.5, 0.25, 0);
-  useFadeIn(true, ".faq-info-container", 0.5, 0.25, 25);
-  useAnimateItems(".list-item");
+  useFadeIn(true, ".faq-container", 0.25, 0.05, 0);
+  useFadeIn(true, ".faq-info-container", 0.25, 0.05, 0);
   useAnimateImages(true, ".image-container");
+
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(
+      ".list-item",
+      {
+        duration: 0.85,
+        y: 25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: 90,
+      },
+      0
+    );
+  });
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * randomImageArray3.length);
@@ -60,8 +76,8 @@ const FAQ = () => {
               beef, pasture-raised chicken, coconut, white rice, and peanuts.
               There’s a single course that includes pork.
             </p>
-            <p className="list-item">
-              Please let me know if you have any food allergies.
+            <p className="list-item" style={{fontStyle: "italic", fontWeight: "bold"}}>
+              * Please let me know if you have any food allergies.
             </p>
             <li className="list-item">What if I have dietary restrictions?</li>
             <p className="list-item">

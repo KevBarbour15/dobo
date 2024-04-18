@@ -22,13 +22,15 @@ const Menu = ({ isOpen, onClose }) => {
   useGSAP(() => {
     const links = gsap.utils.toArray(".link-wrapper");
     if (isOpen) {
-      gsap.set(links, { y: 25, opacity: 0 });
-      gsap.to(links, {
-        delay: 0.15,
-        y: 0,
-        opacity: 1,
+      let tl = gsap.timeline();
+
+      tl.from(links, {
+        duration: 0.85,
+        y: 25,
+        opacity: 0,
         ease: "sine.inOut",
-        stagger: 0.1,
+        rotationX: 90,
+        stagger: 0.025,
       });
     }
   }, [isOpen]);

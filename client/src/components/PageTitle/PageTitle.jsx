@@ -1,11 +1,20 @@
 import "./page-title.css";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const PageTitle = ({ title }) => {
-  useFadeIn(true, ".title", .5, 0.05, 25);
-  
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    tl.from(".title", {
+      duration: 0.85,
+      y: -25,
+      opacity: 0,
+      ease: "sine.inOut",
+      rotationX: -90,
+    });
+  });
 
   return (
     <div className="title-container">

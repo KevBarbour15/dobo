@@ -6,11 +6,35 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
-  useFadeIn(true, ".footer-title", 0.5, 0.25, 5);
-  useFadeIn(true, ".footer-icons", 0.5, 0.25, 5);
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(
+      ".footer-title",
+      {
+        duration: 0.85,
+        y: 25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: 90,
+      },
+      0
+    ).from(
+      ".footer-icons",
+      {
+        duration: 0.85,
+        y: 25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: 90,
+      },
+      0
+    );
+  });
 
   return (
     <div className="footer-container">

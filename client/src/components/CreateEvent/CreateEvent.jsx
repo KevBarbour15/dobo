@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "../../axiosConfig.jsx";
 import { formatDate } from "../../util/formatting.jsx";
 import "./create-event.css";
@@ -12,7 +12,8 @@ import PageTitle from "../PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateItems from "../../animation-hooks/animateItems.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -22,10 +23,19 @@ const CreateEvent = ({ onEventCreated }) => {
   const [price, setPrice] = useState(0);
   const toastMessage = "Event created successfully!";
 
-  useFadeIn(true, ".create-event-container", 0.75, 0.05, 0);
-  useFadeIn(true, ".image-container", 1, 0, 0);
-  useFadeIn(true, ".create-event-form", 0.5, 0.25, 25);
-  useAnimateItems(".form-element-container");
+  useFadeIn(true, ".create-event-container", 0.25, 0.05, 0);
+
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(".form-element-container", {
+      duration: 0.85,
+      y: 25,
+      opacity: 0,
+      stagger: 0.05,
+      rotationX: 90,
+    });
+  });
 
   const notes = "";
 
@@ -51,7 +61,7 @@ const CreateEvent = ({ onEventCreated }) => {
         setDate("");
         setTime("");
         setPrice(0);
-        
+
         toast(<Toast message={toastMessage} />, {
           position: "top-left",
           autoClose: 10000,
@@ -61,7 +71,6 @@ const CreateEvent = ({ onEventCreated }) => {
           draggable: true,
           progress: undefined,
         });
-
       } else {
         console.error("Error creating event:", response);
       }

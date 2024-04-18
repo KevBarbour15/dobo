@@ -9,14 +9,49 @@ import Menu from "../../components/Menu/Menu.jsx";
 import logo from "../../assets/images/logo-cream.png";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".home-header-menu", 0.5, 0.25, -5, 0);
-  useFadeIn(true, ".logo-wrapper", 0.5, 0.25, 25);
-  useFadeIn(true, ".button-wrapper", 0.5, 0.5, 25);
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+
+    tl.from(
+      ".home-header-menu",
+      {
+        duration: 0.85,
+        y: -25,
+        opacity: 0,
+        stagger: 0.05,
+        rotationX: -90,
+      },
+      0
+    )
+      .from(
+        ".logo-wrapper",
+        {
+          duration: 0.85,
+          y: -100,
+          opacity: 0,
+          stagger: 0.05,
+          rotationX: -90,
+        },
+        0
+      )
+      .from(
+        ".button-wrapper",
+        {
+          duration: 0.85,
+          y: 100,
+          opacity: 0,
+          stagger: 0.05,
+          rotationX: 90,
+        },
+        0
+      );
+  });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

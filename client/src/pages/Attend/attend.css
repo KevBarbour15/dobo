@@ -92,14 +92,14 @@ input[type="checkbox"]:focus {
   border-radius: 3px;
   border: 1px solid transparent;
   transition: all 0.25s ease-in-out;
-  background: linear-gradient(to bottom, #f2f1f0, #eee6de);
+  background: linear-gradient(to top right, #eee6de, #a39d92);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.35);
 }
 
 input[type="checkbox"].toggle:checked:after {
   border: 1px solid transparent;
   border-radius: 3px;
-  background: linear-gradient(to bottom, #36454f, black);
+  background: linear-gradient(to top right, black, #a39d92);
   transition: all 0.15s ease-in-out;
   transform: translateX(26px);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.45);

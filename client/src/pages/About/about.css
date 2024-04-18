@@ -6,7 +6,7 @@
 }
 
 .about-info-container {
-  width: 55%;
+  width: 60%;
 }
 
 .about-text {
@@ -20,7 +20,7 @@
   margin-top: 0;
 }
 
-.about-text img {
+.signature {
   height: auto;
   width: 165px;
   margin-bottom: 8px;

@@ -3,16 +3,17 @@
   align-items: center;
   justify-content: center;
   width: 80%;
-  margin: 48px 0 32px 0;
+  margin: 64px 0 32px 0;
   justify-content: center;
 }
 
 .title {
+  text-align: center;
   color: black;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
-  //text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
+  line-height: 0.75;
 }
 
 @media screen and (max-width: 768px) {
@@ -29,5 +30,6 @@
     width: 100%;
     font-size: 22px;
     text-align: center;
+    line-height: 1
   }
 }
