@@ -267,12 +267,12 @@ label {
   }
 
   .button:hover {
-    color: none;
-    background: black;
+    color: black;
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .button:active {
-    color: #f2f1f0;
+    color: black;
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
   }
