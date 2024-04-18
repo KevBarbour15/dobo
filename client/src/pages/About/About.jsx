@@ -81,7 +81,7 @@ const About = () => {
               highlighting the recipes and flavors I was raised on.
             </p>
             <img className="signature" src={signature} alt="signature" />
-            <p className="paragraph">Sean Arguelles, creator of DOBO</p>
+            <p className="paragraph">Sean Arguelles, creator of Dobo</p>
           </div>
         </div>
       </div>
