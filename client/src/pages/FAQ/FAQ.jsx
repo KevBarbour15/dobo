@@ -28,7 +28,7 @@ const FAQ = () => {
       ".list-item",
       {
         duration: 0.85,
-        y: 25,
+        //y: 25,
         opacity: 0,
         stagger: 0.05,
         rotationX: 90,

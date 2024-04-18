@@ -21,11 +21,8 @@ const Home = () => {
     tl.from(
       ".home-header-menu",
       {
-        duration: 0.85,
-        y: -25,
+        duration: 1.25,
         opacity: 0,
-        stagger: 0.05,
-        rotationX: -90,
       },
       0
     )
@@ -33,10 +30,11 @@ const Home = () => {
         ".logo-wrapper",
         {
           duration: 0.85,
-          y: -100,
+          y: -75,
           opacity: 0,
-          stagger: 0.05,
-          rotationX: -90,
+          ease: "sine.inOut",
+          rotationX: -45,
+          rotationY: -90,
         },
         0
       )
@@ -44,10 +42,11 @@ const Home = () => {
         ".button-wrapper",
         {
           duration: 0.85,
-          y: 100,
+          y: 75,
           opacity: 0,
-          stagger: 0.05,
-          rotationX: 90,
+          ease: "sine.inOut",
+          rotationX: 45,
+          rotationY: 90,
         },
         0
       );

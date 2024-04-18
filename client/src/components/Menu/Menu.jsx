@@ -25,12 +25,12 @@ const Menu = ({ isOpen, onClose }) => {
       let tl = gsap.timeline();
 
       tl.from(links, {
-        duration: 0.85,
-        y: 25,
+        duration: 0.65,
+        delay: 0.25,
         opacity: 0,
         ease: "sine.inOut",
         rotationX: 90,
-        stagger: 0.025,
+        stagger: 0.05,
       });
     }
   }, [isOpen]);

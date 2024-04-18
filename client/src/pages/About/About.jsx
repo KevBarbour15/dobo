@@ -34,7 +34,7 @@ const About = () => {
       p.lines,
       {
         duration: 0.85,
-        y: 25,
+        //y: 25,
         opacity: 0,
         stagger: 0.05,
         rotationX: 90,
@@ -44,7 +44,7 @@ const About = () => {
       ".signature",
       {
         duration: 0.75,
-        x: 75,
+        x: 50,
         rotationX: 90,
         opacity: 0,
       },

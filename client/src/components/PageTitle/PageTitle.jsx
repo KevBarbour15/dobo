@@ -9,10 +9,11 @@ const PageTitle = ({ title }) => {
     let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
     tl.from(".title", {
       duration: 0.85,
-      y: -25,
+      y: -50,
       opacity: 0,
       ease: "sine.inOut",
-      rotationX: -90,
+      rotationX: -45,
+      rotationY: -90,
     });
   });
 
