@@ -20,16 +20,6 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
 
-  const handleViewAttendance = () => {
-    setModalContent(
-      <Attendance
-        event={event}
-        onClose={() => setModalOpen(false)}
-        eventTiming={"past"}
-      />
-    );
-    setModalOpen(true);
-  };
 
   const handleViewNotes = () => {
     setModalContent(
@@ -37,6 +27,18 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
         event={event}
         onUpdateEvent={() => onUpdateEvent(event._id)}
         onClose={() => setModalOpen(false)}
+      />
+    );
+    setModalOpen(true);
+  };
+
+  const handleViewAttendance = () => {
+    setModalContent(
+      <Attendance
+        event={event}
+        onUpdateEvent={() => onUpdateEvent(event._id)}
+        onClose={() => setModalOpen(false)}
+        eventTiming={"past"}
       />
     );
     setModalOpen(true);
@@ -99,22 +101,21 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
 };
 
 const PastEvents = ({ events, onUpdateEvent }) => {
+  // do not filter out public/private events
   const filterPublicEvents = false;
   const pastEvents = filterPastEventsNYC(events, filterPublicEvents);
 
   useFadeIn(true, ".events-list", 0.5);
 
   return (
-    <div className="event-form">
-      <div className="events-list">
-        {pastEvents.map((event) => (
-          <EventDetailsPast
-            key={event._id}
-            event={event}
-            onUpdateEvent={onUpdateEvent}
-          />
-        ))}
-      </div>
+    <div className="events-list">
+      {pastEvents.map((event) => (
+        <EventDetailsPast
+          key={event._id}
+          event={event}
+          onUpdateEvent={onUpdateEvent}
+        />
+      ))}
     </div>
   );
 };

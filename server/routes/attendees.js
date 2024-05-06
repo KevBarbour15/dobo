@@ -46,8 +46,13 @@ router.put("/update-status", async (req, res) => {
 
     if (status === "Not Attending") {
       await Attendee.findByIdAndDelete(attendeeId);
+
+      // Remove attendee ID from the event
+      await Event.findByIdAndUpdate(eventId, {
+        $pull: { attendees: attendeeId },
+      });
     }
-      
+
     await Attendee.findByIdAndUpdate(attendeeId, { status, seats });
 
     if (status === "Confirmed" && ogStatus !== "Confirmed") {

@@ -66,3 +66,15 @@ input[type="checkbox"].toggle:checked:after {
   transform: translateX(26px);
   box-shadow: 1.15px 1.15px 1.15px rgba(0, 0, 0, 0.45);
 }
+
+@media (max-width: 768px) {
+  .checkbox-container {
+    width: 300px;
+  }
+
+  .checkbox-text {
+    width: 75%;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+}

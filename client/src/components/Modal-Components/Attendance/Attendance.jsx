@@ -22,7 +22,13 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
           attendeeIds: event.attendees,
         });
 
-        setAttendees(response.data);
+        let filteredAttendees = response.data;
+        if (eventTiming === "past") {
+          filteredAttendees = filteredAttendees.filter(
+            (attendee) => attendee.status.trim().toLowerCase() === "confirmed"
+          );
+        }
+        setAttendees(filteredAttendees);
       } catch (error) {
         console.error("Error fetching events: ", error);
       } finally {
@@ -85,11 +91,8 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
       ) : (
         <>
           {attendees.length > 0 ? (
-            <div
-              className={`attendees-container ${
-                !shouldDisplayLoading ? "visible" : ""
-              }`}
-            >
+            <div className="attendees-container">
+              {console.log(attendees)}
               {attendees.map((attendee) => (
                 <Attendee
                   key={attendee._id}
@@ -103,7 +106,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
             </div>
           ) : (
             <div className="no-attendees-container">
-              <p>No Attendees Yet.</p>
+              <p>No Attendees.</p>
             </div>
           )}
         </>

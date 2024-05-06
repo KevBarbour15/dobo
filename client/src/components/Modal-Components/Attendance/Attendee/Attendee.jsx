@@ -50,7 +50,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
 
   return (
     <div className="attendee-container">
-      {eventTiming === "upcoming" && (
+      {eventTiming === "upcoming" ? (
         <div className="attendee-info">
           <div className="contact-icon">
             <span className="attendee-name">
@@ -94,6 +94,25 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
           <button className="button" onClick={handleSave}>
             Update
           </button>
+        </div>
+      ) : (
+        <div className="attendee-info">
+          <div className="contact-icon">
+            <span className="attendee-name">
+              {attendee.firstName + " " + attendee.lastName}
+            </span>
+            <a
+              className="item email"
+              href={`mailto:${
+                attendee.email
+              }?subject=Dinner ${convertDateReadability(date)}`}
+            >
+              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+            </a>
+          </div>
+          <div className="attendee-message">
+            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
+          </div>
         </div>
       )}
     </div>
