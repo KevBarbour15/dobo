@@ -46,9 +46,11 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     onStatusChange(attendee._id, status, ogStatus, seats);
   };
 
+  /// maybe make a past attendees component
+
   return (
     <div className="attendee-container">
-      {eventTiming === "upcoming" ? (
+      {eventTiming === "upcoming" && (
         <div className="attendee-info">
           <div className="contact-icon">
             <span className="attendee-name">
@@ -92,25 +94,6 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
           <button className="button" onClick={handleSave}>
             Update
           </button>
-        </div>
-      ) : attendee.status === "Confirmed" ? (
-        <div className="attendee-info">
-          <div className="contact-icon">
-            <p className="attendee-name">{attendee.name}</p>
-            <a
-              className="item email"
-              href={`mailto:${
-                attendee.email
-              }?subject=Dinner ${convertDateReadability(date)}`}
-            >
-              <FontAwesomeIcon className="icon" icon={faEnvelope} />
-            </a>
-          </div>
-          <p>Seats: {attendee.seats}</p>
-        </div>
-      ) : (
-        <div className="no-attendees-container">
-          <p>No Attendees</p>
         </div>
       )}
     </div>

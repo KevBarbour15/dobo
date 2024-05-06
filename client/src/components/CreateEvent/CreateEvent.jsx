@@ -21,6 +21,9 @@ const CreateEvent = ({ onEventCreated }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
+  const [isPublicEvent, setIsPublicEvent] = useState(false);
+
+  // for toast notification
   const toastMessage = "Event created successfully!";
 
   useFadeIn(true, ".create-event-container", 0.25, 0.05, 0);
@@ -36,8 +39,8 @@ const CreateEvent = ({ onEventCreated }) => {
     });
   });
 
+  //initialize empty notes
   const notes = "";
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(date);
@@ -49,6 +52,7 @@ const CreateEvent = ({ onEventCreated }) => {
       time,
       price,
       notes,
+      isPublicEvent,
     };
 
     try {
@@ -60,6 +64,7 @@ const CreateEvent = ({ onEventCreated }) => {
         setDate("");
         setTime("");
         setPrice(0);
+        setIsPublicEvent(false);
 
         toast(<Toast message={toastMessage} />, {
           position: "top-left",
@@ -77,6 +82,10 @@ const CreateEvent = ({ onEventCreated }) => {
       const errorData = error.response ? error.response.data : error.message;
       console.error("There was an error sending the data:", errorData);
     }
+  };
+
+  const handlePublicEventChange = () => {
+    setIsPublicEvent(!isPublicEvent);
   };
 
   return (
@@ -139,6 +148,19 @@ const CreateEvent = ({ onEventCreated }) => {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="form-element-container">
+            <div className="subscribe-container">
+              <div className="subscribe-text">
+                Make this event public
+              </div>
+              <input
+                type="checkbox"
+                className="toggle"
+                checked={isPublicEvent}
+                onChange={handlePublicEventChange}
+              />
+            </div>
           </div>
           <div className="form-element-container">
             <button className="button" type="submit">

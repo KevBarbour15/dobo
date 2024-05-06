@@ -29,10 +29,11 @@ export const filterAccessibleEventsNYC = (events) => {
   return events.filter((event) => {
     const eventDate = event.date.split("T")[0];
     const eventTime = event.time;
+    const isPublicEvent = event.isPublicEvent;
 
     return (
-      eventDate > dateInNYC ||
-      (eventDate === dateInNYC && eventTime >= timeInNYC)
+      (eventDate > dateInNYC && isPublicEvent) ||
+      (eventDate === dateInNYC && eventTime >= timeInNYC && isPublicEvent)
     );
   });
 };

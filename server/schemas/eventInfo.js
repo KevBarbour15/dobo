@@ -29,6 +29,10 @@ const DoboEventSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  isPublicEvent: {
+    type: Boolean,
+    required: true,
+  },
   attendees: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -104,6 +104,7 @@ const Attend = () => {
       try {
         const response = await axios.get("/events/get-all");
         let events = response.data;
+        // filter events to only show future events that are set to public
         const futureEvents = filterAccessibleEventsNYC(events);
         setFutureEvents(futureEvents);
       } catch (error) {
