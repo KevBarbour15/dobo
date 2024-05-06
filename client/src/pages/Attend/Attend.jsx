@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./attend.css";
+
+// axios imports
 import axios from "../../axiosConfig.jsx";
+
+// helper function imports
 import {
   convertDateReadability,
   convertMilitaryTime,
@@ -11,6 +15,7 @@ import { randomImageArray1 } from "../../assets/images/imageArray.js";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import Checkbox from "../../components/Checkbox/Checkbox.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
@@ -104,8 +109,14 @@ const Attend = () => {
       try {
         const response = await axios.get("/events/get-all");
         let events = response.data;
+
         // filter events to only show future events that are set to public
-        const futureEvents = filterAccessibleEventsNYC(events);
+        const filterPublicEvents = true;
+        const futureEvents = filterAccessibleEventsNYC(
+          events,
+          filterPublicEvents
+        );
+
         setFutureEvents(futureEvents);
       } catch (error) {
         const errorData = error.response ? error.response.data : error.message;
@@ -339,17 +350,15 @@ const Attend = () => {
               </div>
               <input type="hidden" name="Date" />
               <div className="form-element-container">
-                <div className="subscribe-container">
-                  <div className="subscribe-text">
-                    Subscribe to receive alerts when new events are posted.
-                  </div>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={isChecked}
-                    onChange={handleCheckboxChange}
+                {
+                  <Checkbox
+                    text={
+                      "Subscribe to receive alerts when new events are posted."
+                    }
+                    isSelected={isChecked}
+                    onCheckboxChange={handleCheckboxChange}
                   />
-                </div>
+                }
               </div>
               <div className="form-element-container">
                 <button className="button" type="submit">

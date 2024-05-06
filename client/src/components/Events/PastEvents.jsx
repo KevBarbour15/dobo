@@ -99,7 +99,8 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
 };
 
 const PastEvents = ({ events, onUpdateEvent }) => {
-  const pastEvents = filterPastEventsNYC(events);
+  const filterPublicEvents = false;
+  const pastEvents = filterPastEventsNYC(events, filterPublicEvents);
 
   useFadeIn(true, ".events-list", 0.5);
 

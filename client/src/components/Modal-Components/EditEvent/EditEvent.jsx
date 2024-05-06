@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import "./edit-event.css";
 
-// component imports
+// axios imports
 import axios from "../../../axiosConfig.jsx";
+
+// component imports
+import Checkbox from "../../Checkbox/Checkbox.jsx";
 
 // helper function imports
 import { formatDate } from "../../../util/formatting.jsx";
@@ -18,6 +21,8 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seats, setSeats] = useState(event.seats);
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
+  const [isPublicEvent, setIsPublicEvent] = useState(event.isPublicEvent);
+  const [checkboxText, setCheckboxText] = useState("");
   const committed = event.seats - event.seatsRemaining;
 
   const successMessage = "Event updated successfully!";
@@ -29,8 +34,13 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const handlePriceChange = (e) => setPrice(e.target.value);
 
   useEffect(() => {
+    // set checkbox text based on current state
+    setCheckboxText(
+      isPublicEvent ? "Make event private?" : "Make event public?"
+    );
+
     setSeatsRemaining(seats - committed);
-  }, [seats, committed]);
+  }, [seats, committed, checkboxText, isPublicEvent]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +53,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       date,
       time,
       price,
+      isPublicEvent,
     };
     try {
       const response = await axios.put(
@@ -64,7 +75,6 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
         });
       } else {
         console.error("Error updating event: ", response);
-
       }
     } catch (error) {
       console.error("Error updating event: ", error);
@@ -78,6 +88,10 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
         progress: undefined,
       });
     }
+  };
+
+  const handlePublicEventChange = () => {
+    setIsPublicEvent(!isPublicEvent);
   };
 
   return (
@@ -139,6 +153,13 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
             <label>attendees: {committed}</label>
           </div>
 
+          {
+            <Checkbox
+              text={checkboxText}
+              isSelected={isPublicEvent}
+              onCheckboxChange={handlePublicEventChange}
+            />
+          }
           <button className="button" type="submit">
             Update
           </button>

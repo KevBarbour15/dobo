@@ -9,6 +9,7 @@ import Toast from "../Toast/Toast.jsx";
 
 // component imports
 import PageTitle from "../PageTitle/PageTitle.jsx";
+import Checkbox from "../Checkbox/Checkbox.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
@@ -150,17 +151,13 @@ const CreateEvent = ({ onEventCreated }) => {
             </select>
           </div>
           <div className="form-element-container">
-            <div className="subscribe-container">
-              <div className="subscribe-text">
-                Make this event public
-              </div>
-              <input
-                type="checkbox"
-                className="toggle"
-                checked={isPublicEvent}
-                onChange={handlePublicEventChange}
+            {
+              <Checkbox
+                text={"Make this a public event?"}
+                isSelected={isPublicEvent}
+                onCheckboxChange={handlePublicEventChange}
               />
-            </div>
+            }
           </div>
           <div className="form-element-container">
             <button className="button" type="submit">

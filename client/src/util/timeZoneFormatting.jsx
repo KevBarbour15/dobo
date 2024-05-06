@@ -22,7 +22,7 @@ function getCurrentTimeInNYC() {
   return `${hour}:${minute}`;
 }
 
-export const filterAccessibleEventsNYC = (events) => {
+export const filterAccessibleEventsNYC = (events, filterPubicEvents) => {
   const dateInNYC = getCurrentDateInNYC();
   const timeInNYC = getCurrentTimeInNYC();
 
@@ -31,10 +31,19 @@ export const filterAccessibleEventsNYC = (events) => {
     const eventTime = event.time;
     const isPublicEvent = event.isPublicEvent;
 
-    return (
-      (eventDate > dateInNYC && isPublicEvent) ||
-      (eventDate === dateInNYC && eventTime >= timeInNYC && isPublicEvent)
-    );
+    if (filterPubicEvents) {
+      // return only public events that are in the future
+      return (
+        (eventDate > dateInNYC && isPublicEvent) ||
+        (eventDate === dateInNYC && eventTime >= timeInNYC && isPublicEvent)
+      );
+    } else {
+      // return all events that are in the future
+      return (
+        eventDate > dateInNYC ||
+        (eventDate === dateInNYC && eventTime >= timeInNYC)
+      );
+    }
   });
 };
 

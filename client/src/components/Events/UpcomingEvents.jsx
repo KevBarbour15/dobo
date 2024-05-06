@@ -91,12 +91,15 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
             ) : (
               <li>
                 <span className="negative-seats">
-                  {event.seatsRemaining} seats available(Overbooked)
+                  {event.seatsRemaining} seats available (Overbooked)
                 </span>
               </li>
             )}
             <li>
               <span>${event.price}</span>
+            </li>
+            <li>
+              {event.isPublicEvent ? <span>Public</span> : <span>Private</span>}
             </li>
           </ul>
         </div>
@@ -139,7 +142,8 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
 };
 
 const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
-  const futureEvents = filterAccessibleEventsNYC(events);
+  const filterPublicEvents = false;
+  const futureEvents = filterAccessibleEventsNYC(events, filterPublicEvents);
 
   useFadeIn(true, ".events-list", 0.5, 0.25);
 
