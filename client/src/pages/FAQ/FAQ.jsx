@@ -35,6 +35,15 @@ const FAQ = () => {
       },
       0
     );
+
+    let imageTl = gsap.timeline();
+
+    imageTl.from(".image-container img", {
+      duration: 1.25,
+      opacity: 0,
+      scale: 1.75,
+      ease: "sine.inOut",
+    });
   });
 
   useEffect(() => {
