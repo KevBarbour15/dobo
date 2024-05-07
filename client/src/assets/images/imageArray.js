@@ -26,7 +26,7 @@ const imageArray = [
   img12,
 ];
 
-const randomImageArray1 = [img1, img2, img4];
+const randomImageArray1 = [img1, img3, img4];
 const randomImageArray2 = [img8, img5];
 const randomImageArray3 = [img11, img12];
 
