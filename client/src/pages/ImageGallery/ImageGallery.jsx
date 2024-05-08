@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./image-gallery.css";
+import "./image-gallery.scss";
 
 // image imports
 import { imageArray } from "../../assets/images/imageArray.js";
@@ -20,7 +20,7 @@ const ImageGallery = () => {
 
   // animate images populating the gallery
   useFadeIn(true, ".masonry-grid", 0.5, 0.5, 25);
-  useAnimateImages(true,".masonry-image");
+  useAnimateImages(true, ".masonry-image");
 
   const breakpointColumnsObj = {
     default: 4,

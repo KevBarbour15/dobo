@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./view-events.css";
+import "./view-events.scss";
 
 // component imports
 import Modal from "../Modal/Modal.jsx";
@@ -19,7 +19,6 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
-
 
   const handleViewNotes = () => {
     setModalContent(

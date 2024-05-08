@@ -1,4 +1,4 @@
-import "./cancel-event.css";
+import "./cancel-event.scss";
 
 // component imports
 import axios from "../../../axiosConfig.jsx";

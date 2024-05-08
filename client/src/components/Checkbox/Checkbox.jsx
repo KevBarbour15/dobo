@@ -1,4 +1,4 @@
-import "./checkbox.css";
+import "./checkbox.scss";
 
 const Checkbox = ({ text, isSelected, onCheckboxChange }) => {
   return (

@@ -8,13 +8,13 @@ const StageOverlay = () => {
     const staggerEach = 0.19;
     let tl = gsap.timeline();
 
-    tl.from(".grads__row", {
+    tl.from(".grads-row", {
       opacity: 0,
       duration: 1,
       stagger: staggerEach,
       ease: "sine.inOut",
     }).fromTo(
-      ".grads__row",
+      ".grads-row",
       {
         x: "-35%",
       },
@@ -34,43 +34,35 @@ const StageOverlay = () => {
 
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.4" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-        </defs>
-      </svg>
-      <div className="stage">
-        <div className="stage__overlay"></div>
+      <div className="animation-container">
+        <div className="animation-container-overlay"></div>
         <div className="grads">
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
-          <div className="grads__row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
+          <div className="grads-row"></div>
         </div>
       </div>
     </>

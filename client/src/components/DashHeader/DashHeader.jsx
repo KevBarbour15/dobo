@@ -1,4 +1,4 @@
-import "./dash-header.css";
+import "./dash-header.scss";
 
 const DashHeader = ({ setActiveSection, onLogout, activeSection }) => {
   const linkClass = (sectionId) => {

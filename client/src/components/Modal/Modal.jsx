@@ -1,4 +1,4 @@
-import "./modal.css";
+import "./modal.scss";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn";

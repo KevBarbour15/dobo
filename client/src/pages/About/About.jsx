@@ -1,4 +1,4 @@
-import "./about.css";
+import "./about.scss";
 import { useEffect, useState } from "react";
 
 // image imports
@@ -67,7 +67,6 @@ const About = () => {
   }, []);
 
   return (
-    
     <div id="about" className="about-container">
       <div className="page-left">
         <div className="image-container">

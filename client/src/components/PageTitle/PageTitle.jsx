@@ -1,4 +1,4 @@
-import "./page-title.css";
+import "./page-title.scss";
 
 // animation imports
 import gsap from "gsap";

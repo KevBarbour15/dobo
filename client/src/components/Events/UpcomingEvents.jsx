@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./view-events.css";
+import "./view-events.scss";
 
 // component imports
 import Modal from "../Modal/Modal.jsx";

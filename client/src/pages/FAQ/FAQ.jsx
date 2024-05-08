@@ -1,4 +1,4 @@
-import "./FAQ.css";
+import "./FAQ.scss";
 import { useEffect, useState } from "react";
 
 // image imports
@@ -85,7 +85,10 @@ const FAQ = () => {
               beef, pasture-raised chicken, coconut, white rice, and peanuts.
               There’s a single course that includes pork.
             </p>
-            <p className="list-item" style={{fontStyle: "italic", fontWeight: "bold"}}>
+            <p
+              className="list-item"
+              style={{ fontStyle: "italic", fontWeight: "bold" }}
+            >
               * Please let me know if you have any food allergies.
             </p>
             <li className="list-item">What if I have dietary restrictions?</li>

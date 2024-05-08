@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./event-dash.css";
+import "./event-dash.scss";
 
 // component imports
 import AuthContext from "../../context/AuthContext.jsx";

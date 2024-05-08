@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./edit-event.css";
+import "./edit-event.scss";
 
 // axios imports
 import axios from "../../../axiosConfig.jsx";

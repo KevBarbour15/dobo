@@ -1,6 +1,6 @@
 $light: white;
 
-.stage {
+.animation-container {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -9,18 +9,12 @@ $light: white;
   z-index: 0;
 }
 
-svg {
-  display: none;
-}
-
-.stage__overlay {
+.animation-container-overlay {
   position: absolute;
   width: 100%;
   height: 100vh;
   background: transparent;
   z-index: 2;
-  //filter: url("#noise");
-  mix-blend-mode: overlay;
 }
 
 .grads {
@@ -29,7 +23,7 @@ svg {
   overflow: hidden;
 }
 
-.grads__row {
+.grads-row {
   height: 36px;
   background: linear-gradient(
     90deg,
@@ -68,7 +62,8 @@ svg {
 }
 
 @media (max-width: 768px) {
-  .stage, .stage__overlay {
+  .animation-container,
+  .animation-container__overlay {
     position: fixed;
   }
 }

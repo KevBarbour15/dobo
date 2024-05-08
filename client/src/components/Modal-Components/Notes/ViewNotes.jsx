@@ -1,11 +1,10 @@
 import { useState } from "react";
-import "./notes.css";
+import "./notes.scss";
 
 // component imports
 import axios from "../../../axiosConfig.jsx";
 
 // notification imports
-
 
 const ViewNotes = ({ event, onClose, onUpdateEvent }) => {
   const [notes, setNotes] = useState(event.notes);

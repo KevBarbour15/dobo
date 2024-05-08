@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./attend.css";
+import "./attend.scss";
 
 // axios imports
 import axios from "../../axiosConfig.jsx";
@@ -96,8 +96,8 @@ const Attend = () => {
           rotationX: 90,
         },
         0
-    );
-    
+      );
+
     let imageTl = gsap.timeline();
 
     imageTl.from(".image-container img", {

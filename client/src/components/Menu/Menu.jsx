@@ -1,4 +1,4 @@
-import "./menu.css";
+import "./menu.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

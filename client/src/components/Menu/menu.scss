@@ -3,7 +3,7 @@
   height: 100vh;
   transform: translateY(-100%) translateX(-1px);
   height: 100%;
-  width: calc(25% + 1px);
+  width: 350px;
   transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.65);
   z-index: -1;
@@ -45,6 +45,7 @@
   color: #f2f1f0;
   cursor: pointer;
   margin: 0;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 }
 
 .menu-close-button span:hover,
@@ -71,6 +72,7 @@
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   font-weight: 600;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 }
 
 .menu-link:active,

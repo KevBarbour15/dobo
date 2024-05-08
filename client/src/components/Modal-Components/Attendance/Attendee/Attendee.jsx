@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./attendee.css";
+import "./attendee.scss";
 
 // icon imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,4 +1,4 @@
-import "./toast.css";
+import "./toast.scss";
 
 const Toast = ({ closeToast, message }) => {
   const toastStyle = {

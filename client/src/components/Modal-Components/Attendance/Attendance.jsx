@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./attendance.css";
+import "./attendance.scss";
 
 // component imports
 import axios from "../../../axiosConfig.jsx";
@@ -10,7 +10,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
   const [attendees, setAttendees] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [minLoadTimePassed, setMinLoadTimePassed] = useState(false);
-  const minLoadingTime = 100000;
+  const minLoadingTime = 1000;
 
   useEffect(() => {
     let timer = null;

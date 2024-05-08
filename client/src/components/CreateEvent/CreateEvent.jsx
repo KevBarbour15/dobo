@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "../../axiosConfig.jsx";
 import { formatDate } from "../../util/formatting.jsx";
-import "./create-event.css";
+import "./create-event.scss";
 
 // notification imports
 import { toast } from "react-toastify";
