@@ -8,12 +8,10 @@ const PASSWORD = process.env.DOBO_PASSWORD;
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
-  console.log("Hitting login route");
   if (username === USERNAME && password === PASSWORD) {
     const token = jwt.sign({ username }, SECRET_KEY, {
       expiresIn: "1h",
     });
-
     res.json({ token });
   } else {
     console.log("Invalid username or password");
@@ -22,7 +20,6 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/validate-token", verifyToken, (req, res) => {
-  console.log("Hit validate-token route");
   res.status(200).send({ valid: true });
 });
 

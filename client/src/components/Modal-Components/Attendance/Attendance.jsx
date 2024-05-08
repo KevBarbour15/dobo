@@ -92,7 +92,6 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
         <>
           {attendees.length > 0 ? (
             <div className="attendees-container">
-              {console.log(attendees)}
               {attendees.map((attendee) => (
                 <Attendee
                   key={attendee._id}

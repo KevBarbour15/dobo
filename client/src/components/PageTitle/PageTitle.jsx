@@ -3,16 +3,15 @@ import "./page-title.scss";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
 const PageTitle = ({ title }) => {
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
     tl.from(".title", {
-      duration: 0.85,
-      y: -75,
+      duration: 0.75,
       opacity: 0,
-      ease: "sine.inOut",
-      rotationX: -45,
+      rotationX: 90,
     });
   });
 

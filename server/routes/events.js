@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Event = require("../schemas/eventInfo");
 const Attendee = require("../schemas/attendees");
+const verifyToken = require("../middleware");
 
 // creates a new event
-router.post("/new", async (req, res) => {
+router.post("/new", verifyToken, async (req, res) => {
   try {
     const event = new Event(req.body);
     const savedEvent = await event.save();
@@ -29,7 +30,7 @@ router.get("/get-all", async (req, res) => {
 });
 
 // deletes event
-router.delete("/delete-event", async (req, res) => {
+router.delete("/delete-event", verifyToken, async (req, res) => {
   try {
     const event = await Event.findByIdAndDelete(req.body.eventId);
     const attendeeIds = req.body.attendeeIds;
@@ -49,7 +50,7 @@ router.delete("/delete-event", async (req, res) => {
 });
 
 // updates event changes
-router.put("/update-event", async (req, res) => {
+router.put("/update-event", verifyToken, async (req, res) => {
   try {
     const event = await Event.findByIdAndUpdate(req.body._id, req.body, {
       new: true,

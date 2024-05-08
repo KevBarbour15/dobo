@@ -1,4 +1,5 @@
 const express = require("express");
+const verifyToken = require("../middleware");
 const router = express.Router();
 const Attendee = require("../schemas/attendees");
 const Event = require("../schemas/eventInfo");
@@ -23,7 +24,7 @@ router.post("/new", async (req, res) => {
 });
 
 // gets all attendees by the eventId
-router.post("/get-by-ids", async (req, res) => {
+router.post("/get-by-ids", verifyToken, async (req, res) => {
   try {
     const attendeeIds = req.body.attendeeIds;
     const attendees = await Attendee.find({ _id: { $in: attendeeIds } });
@@ -35,7 +36,7 @@ router.post("/get-by-ids", async (req, res) => {
   }
 });
 
-router.put("/update-status", async (req, res) => {
+router.put("/update-status", verifyToken, async (req, res) => {
   let { status, ogStatus, attendeeId, eventId, seats } = req.body;
   seats = parseInt(seats, 10); // Ensure seats is an integer
 

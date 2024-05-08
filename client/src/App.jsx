@@ -13,7 +13,9 @@ import ImageGallery from "./pages/ImageGallery/ImageGallery";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import AuthContext from "./context/AuthContext";
+// security
+import AuthProvider from "./context/AuthProvider";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import gsap from "gsap";
@@ -21,21 +23,13 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
-    <Router>
-      <ToastContainer />
-      <AuthContext.Provider
-        value={{
-          isAuthenticated,
-          setIsAuthenticated,
-        }}
-      >
+    <AuthProvider>
+      <Router>
+        <ToastContainer />
         <div>
           <Routes>
             <Route index element={<Home />} />
-
             <Route path="/" element={<Layout />}>
               <Route path="About" element={<About />} />
               <Route path="FAQ" element={<FAQ />} />
@@ -45,8 +39,8 @@ function App() {
             <Route path="/EventDash" element={<EventDash />} />
           </Routes>
         </div>
-      </AuthContext.Provider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

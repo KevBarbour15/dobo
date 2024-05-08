@@ -9,17 +9,12 @@ import signature from "../../assets/images/signature.png";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 const About = () => {
   const [image, setImage] = useState("");
-
-  // animate images and content
-  useFadeIn(true, ".about-container", 0.25, 0.05, 0);
-  useFadeIn(true, ".about-info-container", 0.25, 0.05, 0);
 
   useGSAP(() => {
     const p = new SplitText(".paragraph", {
@@ -34,19 +29,17 @@ const About = () => {
         duration: 0.75,
         y: 75,
         opacity: 0,
-        stagger: 0.05,
+        stagger: 0.025,
         rotationX: 45,
       },
       0
     ).from(
       ".signature",
       {
-        duration: 0.5,
-        x: 150,
-        rotationY: 90,
+        duration: 1,
         opacity: 0,
       },
-      0.8
+      0.65
     );
 
     let imageTl = gsap.timeline();

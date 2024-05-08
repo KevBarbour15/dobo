@@ -8,16 +8,11 @@ import { randomImageArray3 } from "../../assets/images/imageArray.js";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const FAQ = () => {
   const [image, setImage] = useState("");
-
-  // animate images and content
-  useFadeIn(true, ".faq-container", 0.25, 0.05, 0);
-  useFadeIn(true, ".faq-info-container", 0.25, 0.05, 0);
 
   useGSAP(() => {
     let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
@@ -26,9 +21,9 @@ const FAQ = () => {
       ".list-item",
       {
         duration: 0.75,
-        y: 75,
+        y: 50,
         opacity: 0,
-        stagger: 0.05,
+        stagger: 0.025,
         rotationX: 45,
       },
       0

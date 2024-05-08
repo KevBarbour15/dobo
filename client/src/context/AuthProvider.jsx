@@ -10,8 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     console.log("Hit this route");
     const validateToken = async () => {
-      const token = localStorage.getItem("token");
-      console.log("Stored token:", token); // Check what token is stored
+      const token = sessionStorage.getItem("token");
 
       if (token) {
         try {
@@ -21,7 +20,6 @@ const AuthProvider = ({ children }) => {
             },
           });
 
-          console.log("Validation response:", response.data); // Inspect the full response
           if (response.data.valid) {
             console.log("Token is valid");
             setIsAuthenticated(true);
@@ -29,7 +27,7 @@ const AuthProvider = ({ children }) => {
             throw new Error("Token validation failed at server");
           }
         } catch (err) {
-          localStorage.removeItem("token");
+          sessionStorage.removeItem("token");
           setIsAuthenticated(false);
           console.error("Error during token validation:", err);
         }

@@ -112,9 +112,8 @@
 
 .button:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.1);
-  transition: all 0.25s ease-in-out;
-  box-shadow: 2.25px 4.25px 6px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.65);
 }
 
 .button:active {
@@ -148,7 +147,7 @@
   outline: none;
   background: rgba(255, 255, 255, 0.75);
   color: black;
-  box-shadow: 2.25px 4.25px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.65);
 }
 
 .form-element:hover {
@@ -206,13 +205,13 @@ select {
   padding: 0 10px;
   color: black;
   background-color: #f2f1f0;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .select-option {
   color: black;
-  font-size: 12px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 /* for label styling */
@@ -226,7 +225,7 @@ label {
 }
 
 .Toastify__toast {
-  //text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
   background: #f2f1f0 !important;
   border: 1px solid black !important;
   border-radius: 3px !important;

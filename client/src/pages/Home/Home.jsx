@@ -11,9 +11,12 @@ import logo from "../../assets/images/logo-cream.png";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useFadeIn(true, ".home-container", 0.5, 0.25);
 
   useGSAP(() => {
     let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
@@ -21,8 +24,10 @@ const Home = () => {
     tl.from(
       ".home-header-menu",
       {
-        duration: 1.25,
+        duration: 1.1,
         opacity: 0,
+        rotationX: -45,
+        rotationY: -90,
       },
       0
     )
@@ -30,13 +35,12 @@ const Home = () => {
         ".logo-wrapper",
         {
           duration: 0.85,
-          y: -75,
           opacity: 0,
           ease: "sine.inOut",
           rotationX: -45,
           rotationY: -90,
         },
-        0
+        0.15
       )
       .from(
         ".button-wrapper",
@@ -48,7 +52,7 @@ const Home = () => {
           rotationX: 45,
           rotationY: 90,
         },
-        0
+        0.15
       );
   });
 

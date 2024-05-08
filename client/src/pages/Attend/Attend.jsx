@@ -18,7 +18,6 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import Checkbox from "../../components/Checkbox/Checkbox.jsx";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -45,10 +44,6 @@ const Attend = () => {
   const toastMessage =
     "Thank you for inquiry. We will reach out with details shortly.";
 
-  // animate images and content
-  useFadeIn(true, ".attend-container", 0.25, 0.05, 0);
-  useFadeIn(true, ".attend-info-container", 0.25, 0.05, 0);
-
   useGSAP(() => {
     const p = new SplitText(".attend-text", {
       type: "lines",
@@ -68,7 +63,7 @@ const Attend = () => {
         duration: 0.75,
         y: 75,
         opacity: 0,
-        stagger: 0.05,
+        stagger: 0.025,
         rotationX: 45,
       },
       0
@@ -79,10 +74,10 @@ const Attend = () => {
           duration: 0.75,
           y: 75,
           opacity: 0,
-          stagger: 0.05,
+          stagger: 0.025,
           rotationX: 45,
         },
-        0
+        0.15
       )
       .from(
         p2.lines,
@@ -90,10 +85,10 @@ const Attend = () => {
           duration: 0.75,
           y: 75,
           opacity: 0,
-          stagger: 0.05,
+          stagger: 0.025,
           rotationX: 45,
         },
-        0
+        0.05
       );
 
     let imageTl = gsap.timeline();

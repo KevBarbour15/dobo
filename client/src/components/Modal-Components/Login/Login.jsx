@@ -29,7 +29,7 @@ const Login = () => {
         password,
       });
 
-      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
 
       toast(<Toast message={successMessage} />, {
