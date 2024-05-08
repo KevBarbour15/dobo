@@ -67,6 +67,7 @@ const About = () => {
   }, []);
 
   return (
+    
     <div id="about" className="about-container">
       <div className="page-left">
         <div className="image-container">

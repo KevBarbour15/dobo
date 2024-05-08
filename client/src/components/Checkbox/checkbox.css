@@ -11,7 +11,7 @@
   width: 70%;
   font-size: 12px;
   line-height: 1.5;
-  //text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1.5px 1.75px rgba(0, 0, 0, 0.35);
 }
 
 input[type="checkbox"] {
@@ -41,7 +41,7 @@ input[type="checkbox"]:focus {
   margin: 0;
   border: 1px solid black;
   cursor: pointer;
-  box-shadow: 1.25px 2.25px 2.25px rgba(0, 0, 0, 0.5);
+  box-shadow: 1.25px 1.5px 1.5px rgba(0, 0, 0, 0.5);
 }
 
 .toggle:after {

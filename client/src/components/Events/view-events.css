@@ -39,7 +39,7 @@
   text-transform: uppercase;
   text-align: center;
   width: 75%;
-  //text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 }
 
 .event-details-container {
@@ -56,7 +56,7 @@
   text-align: left;
   font-size: 16px;
   text-transform: lowercase;
-  //text-shadow: 1.15px 1.15px 2.5px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 }
 
 .button-group {

@@ -1,8 +1,10 @@
 .layout {
   min-height: 100vh;
 }
+
 .main-page-content {
   margin: 0 auto;
   height: calc(100vh - 110px);
   max-width: 1300px;
+  z-index: 5;
 }

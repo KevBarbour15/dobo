@@ -13,24 +13,26 @@
   margin-top: 0;
   margin-bottom: 32px;
   padding: 0;
-}
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 
-.faq-info-container ul {
-  margin: 0;
-}
+  ul {
+    margin: 0;
+    padding-left: 0; 
+    list-style-position: inside;
+  }
 
-.faq-info-container li {
-  font-size: 17px;
-  font-weight: 600;
-  margin-top: 0;
-  margin-left: 0;
-  padding: 0;
-}
+  li {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0;
+  }
 
-.faq-info-container p {
-  align-text: left;
+  p {
+    align-text: left;
+  }
 }
-
 
 @media (max-width: 768px) {
   .faq-container {
