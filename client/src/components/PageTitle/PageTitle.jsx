@@ -12,8 +12,7 @@ const PageTitle = ({ title }) => {
       y: -50,
       opacity: 0,
       ease: "sine.inOut",
-      rotationX: -45,
-      rotationY: -90,
+      rotationX: -90,
     });
   });
 

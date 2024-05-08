@@ -8,7 +8,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  //background: linear-gradient(to bottom,  #a39d92, #e5dace, #ebe2d9);
   background: #ebe2d9;
   border: 1px solid black;
   box-sizing: border-box;
@@ -31,6 +30,7 @@
   padding-left: 14px;
   color: black;
   transition: all 0.5s ease-in-out;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
 }
 
 .menu-button span {
@@ -56,9 +56,10 @@
 }
 
 .header-title {
-  height: 28px;
+  height: 32px;
   transition: all 0.5s ease-in-out;
   z-index: 702;
+  filter: drop-shadow(0 1.25px 1.5px rgba(0, 0, 0, 0.3));
 }
 
 .invisible-element {
