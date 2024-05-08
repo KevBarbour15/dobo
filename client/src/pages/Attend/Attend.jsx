@@ -60,16 +60,16 @@ const Attend = () => {
       position: "relative",
     });
 
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
 
     tl.from(
       p.lines,
       {
         duration: 0.75,
-        y: 50,
+        y: 75,
         opacity: 0,
         stagger: 0.05,
-        rotationX: 90,
+        rotationX: 45,
       },
       0
     )
@@ -77,10 +77,10 @@ const Attend = () => {
         ".form-element-container",
         {
           duration: 0.75,
-          y: 50,
+          y: 75,
           opacity: 0,
           stagger: 0.05,
-          rotationX: 90,
+          rotationX: 45,
         },
         0
       )
@@ -88,10 +88,10 @@ const Attend = () => {
         p2.lines,
         {
           duration: 0.75,
-          y: 50,
+          y: 75,
           opacity: 0,
           stagger: 0.05,
-          rotationX: 90,
+          rotationX: 45,
         },
         0
       );

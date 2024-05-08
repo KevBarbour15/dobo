@@ -27,26 +27,26 @@ const About = () => {
       position: "relative",
     });
 
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
     tl.from(
       p.lines,
       {
         duration: 0.75,
-        y: 50,
+        y: 75,
         opacity: 0,
         stagger: 0.05,
-        rotationX: 90,
+        rotationX: 45,
       },
       0
     ).from(
       ".signature",
       {
         duration: 0.5,
-        x: 100,
+        x: 150,
         rotationY: 90,
         opacity: 0,
       },
-      0.75
+      0.8
     );
 
     let imageTl = gsap.timeline();

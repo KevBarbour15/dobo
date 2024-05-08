@@ -36,7 +36,7 @@ const CreateEvent = ({ onEventCreated }) => {
       duration: 0.85,
       opacity: 0,
       stagger: 0.05,
-      rotationX: 90,
+      rotationX: 45,
     });
   });
 

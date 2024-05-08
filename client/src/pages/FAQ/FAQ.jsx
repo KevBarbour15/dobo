@@ -20,16 +20,16 @@ const FAQ = () => {
   useFadeIn(true, ".faq-info-container", 0.25, 0.05, 0);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
 
     tl.from(
       ".list-item",
       {
         duration: 0.75,
-        y: 50,
+        y: 75,
         opacity: 0,
         stagger: 0.05,
-        rotationX: 90,
+        rotationX: 45,
       },
       0
     );

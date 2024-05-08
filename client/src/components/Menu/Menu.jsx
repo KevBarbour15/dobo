@@ -29,7 +29,7 @@ const Menu = ({ isOpen, onClose }) => {
         delay: 0.25,
         opacity: 0,
         ease: "sine.inOut",
-        rotationX: 90,
+        rotationX: 45,
         stagger: 0.05,
       });
     }
