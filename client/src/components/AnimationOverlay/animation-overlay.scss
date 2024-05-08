@@ -24,7 +24,7 @@ $light: white;
 }
 
 .grads-row {
-  height: 36px;
+  height: calc(100vh / 26);
   background: linear-gradient(
     90deg,
     rgba($light, 0) 0%,

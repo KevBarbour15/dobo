@@ -19,7 +19,6 @@ import Checkbox from "../../components/Checkbox/Checkbox.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateImages from "../../animation-hooks/animateImages.js";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -49,7 +48,6 @@ const Attend = () => {
   // animate images and content
   useFadeIn(true, ".attend-container", 0.25, 0.05, 0);
   useFadeIn(true, ".attend-info-container", 0.25, 0.05, 0);
-  useAnimateImages(true, ".image-container");
 
   useGSAP(() => {
     const p = new SplitText(".attend-text", {
@@ -67,8 +65,8 @@ const Attend = () => {
     tl.from(
       p.lines,
       {
-        duration: 0.85,
-        //y: 25,
+        duration: 0.75,
+        y: 50,
         opacity: 0,
         stagger: 0.05,
         rotationX: 90,
@@ -78,8 +76,8 @@ const Attend = () => {
       .from(
         ".form-element-container",
         {
-          duration: 0.85,
-          //y: 25,
+          duration: 0.75,
+          y: 50,
           opacity: 0,
           stagger: 0.05,
           rotationX: 90,
@@ -89,8 +87,8 @@ const Attend = () => {
       .from(
         p2.lines,
         {
-          duration: 0.85,
-          y: 25,
+          duration: 0.75,
+          y: 50,
           opacity: 0,
           stagger: 0.05,
           rotationX: 90,
@@ -101,9 +99,10 @@ const Attend = () => {
     let imageTl = gsap.timeline();
 
     imageTl.from(".image-container img", {
-      duration: 1,
+      delay: 0.5,
+      duration: 0.75,
       opacity: 0,
-      scale: 1.75,
+      scale: 1.15,
       ease: "sine.inOut",
     });
   });

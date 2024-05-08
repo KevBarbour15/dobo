@@ -1,9 +1,11 @@
 import "./animation-overlay.scss";
 
+//animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const StageOverlay = () => {
+
   useGSAP(() => {
     const staggerEach = 0.19;
     let tl = gsap.timeline();

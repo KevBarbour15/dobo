@@ -21,7 +21,6 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
@@ -29,8 +28,6 @@ function App() {
       <ToastContainer />
       <AuthContext.Provider
         value={{
-          isLoggedIn,
-          setIsLoggedIn,
           isAuthenticated,
           setIsAuthenticated,
         }}

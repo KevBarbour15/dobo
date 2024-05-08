@@ -9,7 +9,6 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-import useAnimateImages from "../../animation-hooks/animateImages.js";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -19,7 +18,6 @@ const FAQ = () => {
   // animate images and content
   useFadeIn(true, ".faq-container", 0.25, 0.05, 0);
   useFadeIn(true, ".faq-info-container", 0.25, 0.05, 0);
-  useAnimateImages(true, ".image-container");
 
   useGSAP(() => {
     let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
@@ -27,8 +25,8 @@ const FAQ = () => {
     tl.from(
       ".list-item",
       {
-        duration: 0.85,
-        //y: 25,
+        duration: 0.75,
+        y: 50,
         opacity: 0,
         stagger: 0.05,
         rotationX: 90,
@@ -39,9 +37,10 @@ const FAQ = () => {
     let imageTl = gsap.timeline();
 
     imageTl.from(".image-container img", {
-      duration: 1.25,
+      delay: 0.5,
+      duration: 0.75,
       opacity: 0,
-      scale: 1.75,
+      scale: 1.15,
       ease: "sine.inOut",
     });
   });

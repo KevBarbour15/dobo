@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    console.log("Hit this route");
     const validateToken = async () => {
       const token = localStorage.getItem("token");
       if (token) {
@@ -19,6 +20,7 @@ const AuthProvider = ({ children }) => {
           });
 
           if (response.data.valid) {
+            console.log("Token is valid");
             setIsAuthenticated(true);
           }
         } catch (err) {
