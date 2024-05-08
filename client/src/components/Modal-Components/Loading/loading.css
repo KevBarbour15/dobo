@@ -4,8 +4,7 @@
   align-items: center;
   height: 300px;
   width: 100%;
-}
-
-@media (max-width: 768px) {
-  
+  position: relative;
+  background : transparent;
+  z-index: 15;
 }

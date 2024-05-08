@@ -22,7 +22,6 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
   const [isPublicEvent, setIsPublicEvent] = useState(event.isPublicEvent);
-  const [checkboxText, setCheckboxText] = useState("");
   const committed = event.seats - event.seatsRemaining;
 
   const successMessage = "Event updated successfully!";
@@ -34,13 +33,8 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const handlePriceChange = (e) => setPrice(e.target.value);
 
   useEffect(() => {
-    // set checkbox text based on current state
-    setCheckboxText(
-      isPublicEvent ? "Make event private?" : "Make event public?"
-    );
-
     setSeatsRemaining(seats - committed);
-  }, [seats, committed, checkboxText, isPublicEvent]);
+  }, [seats, committed, isPublicEvent]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -155,7 +149,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
 
           {
             <Checkbox
-              text={checkboxText}
+              text={"Make this event public?"}
               isSelected={isPublicEvent}
               onCheckboxChange={handlePublicEventChange}
             />

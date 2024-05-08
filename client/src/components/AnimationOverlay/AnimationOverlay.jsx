@@ -42,35 +42,35 @@ const StageOverlay = () => {
           </filter>
         </defs>
       </svg>
-      <div class="stage">
-        <div class="stage__overlay"></div>
-        <div class="grads">
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
-          <div class="grads__row"></div>
+      <div className="stage">
+        <div className="stage__overlay"></div>
+        <div className="grads">
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
+          <div className="grads__row"></div>
         </div>
       </div>
     </>
