@@ -15,6 +15,7 @@
   height: auto;
   width: 100%;
   display: flex;
+  z-index: 2;
 }
 
 .masonry-grid_column {
@@ -34,7 +35,7 @@
   width: 100%;
   height: auto;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 1.5px 1.5px rgba(0, 0, 0, 0.35);
+  box-shadow: 1.25px 1.5px 1.5px rgba(0, 0, 0, 0.5);
   border-radius: 3px;
 }
 

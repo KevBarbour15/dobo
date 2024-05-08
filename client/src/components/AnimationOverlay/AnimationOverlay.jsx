@@ -4,9 +4,9 @@ import "./animation-overlay.scss";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const StageOverlay = () => {
+const AnimationOverlay = () => {
   useGSAP(() => {
-    const staggerEach = 0.19;
+    const staggerEach = 0.1;
     let tl = gsap.timeline();
 
     tl.from(".grads-row", {
@@ -35,14 +35,6 @@ const StageOverlay = () => {
 
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" className="animation-svg">
-        <defs>
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-        </defs>
-      </svg>
       <div className="animation-container">
         <div className="animation-container-overlay"></div>
         <div className="grads">
@@ -78,4 +70,4 @@ const StageOverlay = () => {
   );
 };
 
-export default StageOverlay;
+export default AnimationOverlay;
