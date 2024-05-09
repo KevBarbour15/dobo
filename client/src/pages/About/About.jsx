@@ -47,10 +47,10 @@ const About = () => {
     let imageTl = gsap.timeline();
 
     imageTl.from(".image-container img", {
-      delay: 0.5,
-      duration: 0.75,
+      delay: 0.75,
+      duration: 0.25,
       opacity: 0,
-      scale: 1.15,
+      scale: 1.05,
       ease: "sine.inOut",
     });
   });
