@@ -22,10 +22,10 @@ const ImageGallery = () => {
   useGSAP(() => {
     if (loadedCount !== thumbnailArray.length) return;
     gsap.to(".masonry-image", {
-      x: 0,
       opacity: 1,
       stagger: 0.1,
       ease: "sine.inOut",
+      scale: 1,
     });
   }, [loadedCount]);
 
