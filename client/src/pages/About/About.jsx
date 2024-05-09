@@ -29,17 +29,19 @@ const About = () => {
         duration: 0.75,
         y: 75,
         opacity: 0,
-        stagger: 0.025,
+        stagger: 0.01,
         rotationX: 45,
       },
       0
     ).from(
       ".signature",
       {
-        duration: 1,
+        duration: 0.75,
+        y: 75,
         opacity: 0,
+        rotationX: 45,
       },
-      0.65
+      0.2
     );
 
     let imageTl = gsap.timeline();

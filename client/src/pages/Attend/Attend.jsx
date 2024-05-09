@@ -63,7 +63,7 @@ const Attend = () => {
         duration: 0.75,
         y: 75,
         opacity: 0,
-        stagger: 0.025,
+        stagger: 0.01,
         rotationX: 45,
       },
       0
@@ -74,10 +74,10 @@ const Attend = () => {
           duration: 0.75,
           y: 75,
           opacity: 0,
-          stagger: 0.025,
+          stagger: 0.01,
           rotationX: 45,
         },
-        0.15
+        0.1
       )
       .from(
         p2.lines,
@@ -85,10 +85,10 @@ const Attend = () => {
           duration: 0.75,
           y: 75,
           opacity: 0,
-          stagger: 0.025,
+          stagger: 0.01,
           rotationX: 45,
         },
-        0.05
+        0.1
       );
 
     let imageTl = gsap.timeline();
@@ -158,7 +158,6 @@ const Attend = () => {
       lastName,
       email,
       eventId: selectedEventId,
-      date: convertedDate,
       status: "Inquired",
       message,
       subscribe: isChecked,
@@ -181,7 +180,7 @@ const Attend = () => {
           // success notification
           toast(<Toast message={toastMessage} />, {
             position: "top-left",
-            autoClose: 10000,
+            autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,

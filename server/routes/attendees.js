@@ -36,6 +36,7 @@ router.post("/get-by-ids", verifyToken, async (req, res) => {
   }
 });
 
+//
 router.put("/update-status", verifyToken, async (req, res) => {
   let { status, ogStatus, attendeeId, eventId, seats } = req.body;
   seats = parseInt(seats, 10); // Ensure seats is an integer
@@ -77,6 +78,28 @@ router.put("/update-status", verifyToken, async (req, res) => {
       message: "Error updating attendee status",
       error: error.message,
     });
+  }
+});
+
+// manually add an attendee
+router.post("/add", verifyToken, async (req, res) => {
+  try {
+    const attendee = new Attendee(req.body);
+    const savedAttendee = await attendee.save();
+
+    const eventId = req.body.eventId;
+    const seats = req.body.seats;
+
+    await Event.findByIdAndUpdate(eventId, {
+      $push: { attendees: savedAttendee._id, },
+      $inc: { seatsRemaining: -seats }
+    });
+
+    res.status(201).json(savedAttendee);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating attendee", error: error.message });
   }
 });
 

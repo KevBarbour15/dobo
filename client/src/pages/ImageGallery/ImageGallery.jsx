@@ -11,16 +11,23 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 // animation imports
-import useAnimateImages from "../../animation-hooks/animateImages.js";
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const ImageGallery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [loadedCount, setLoadedCount] = useState(0);
 
-  // animate images populating the gallery
-  useFadeIn(true, ".masonry-grid", 0.5, 0.25);
-  useAnimateImages(true,".masonry-image");
+  useGSAP(() => {
+    if (loadedCount !== thumbnailArray.length) return;
+    gsap.to(".masonry-image", {
+      x: 0,
+      opacity: 1,
+      stagger: 0.1,
+      ease: "sine.inOut",
+    });
+  }, [loadedCount]);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -48,7 +55,10 @@ const ImageGallery = () => {
             <img
               src={thumbnail}
               alt="dobo"
-              onLoad={(e) => e.target.classList.add("image-loaded")}
+              onLoad={(e) => {
+                e.target.classList.add("image-loaded");
+                setLoadedCount((prevCount) => prevCount + 1);
+              }}
             />
           </div>
         ))}

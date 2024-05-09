@@ -22,6 +22,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   const [seatsRemaining, setSeatsRemaining] = useState(event.seatsRemaining);
   const [price, setPrice] = useState(event.price);
   const [isPublicEvent, setIsPublicEvent] = useState(event.isPublicEvent);
+  const [deleteEvent, setDeleteEvent] = useState(false);
   const committed = event.seats - event.seatsRemaining;
 
   const successMessage = "Event updated successfully!";
@@ -36,8 +37,53 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
     setSeatsRemaining(seats - committed);
   }, [seats, committed, isPublicEvent]);
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.delete("/events/delete-event", {
+        data: {
+          eventId: event._id,
+          attendeeIds: event.attendees,
+        },
+      });
+
+      if (response.status === 200 || response.status === 201) {
+        onUpdateEvent(event._id);
+        toast(<Toast message={successMessage} />, {
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {
+      const errorData = error.response ? error.response.data : error.message;
+      console.error("There was an error deleting the event:", errorData);
+
+      toast(<Toast message={errorMessage} />, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (deleteEvent) {
+      handleDelete(e);
+      onClose();
+      return;
+    }
 
     const updatedEventData = {
       ...event,
@@ -49,18 +95,20 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       price,
       isPublicEvent,
     };
+    
     try {
       const response = await axios.put(
         "/events/update-event",
         updatedEventData
       );
+
       if (response.status === 200 || response.status === 201) {
         onUpdateEvent(response.data);
         onClose();
 
         toast(<Toast message={successMessage} />, {
           position: "top-left",
-          autoClose: 10000,
+          autoClose: 2000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -74,7 +122,7 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
       console.error("Error updating event: ", error);
       toast(<Toast message={errorMessage} />, {
         position: "top-left",
-        autoClose: 10000,
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -86,6 +134,10 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
 
   const handlePublicEventChange = () => {
     setIsPublicEvent(!isPublicEvent);
+  };
+
+  const handleDeleteEventChange = () => {
+    setDeleteEvent(!deleteEvent);
   };
 
   return (
@@ -154,8 +206,16 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
               onCheckboxChange={handlePublicEventChange}
             />
           }
+
+          {
+            <Checkbox
+              text={"Delete event? This cannot be undone."}
+              isSelected={deleteEvent}
+              onCheckboxChange={handleDeleteEventChange}
+            />
+          }
           <button className="button" type="submit">
-            Update
+            Save
           </button>
         </form>
       </div>

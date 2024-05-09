@@ -11,12 +11,9 @@ import logo from "../../assets/images/logo-cream.png";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useFadeIn(true, ".home-container", 0.5, 0.25);
 
   useGSAP(() => {
     let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });

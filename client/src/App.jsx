@@ -1,9 +1,8 @@
 import "./App.scss";
 
-import { useState } from "react";
+// page imports
 import Layout from "./pages/Layout/Layout";
 import EventDash from "./pages/EventDash/EventDash";
-
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";

@@ -23,7 +23,7 @@ const FAQ = () => {
         duration: 0.75,
         y: 50,
         opacity: 0,
-        stagger: 0.025,
+        stagger: 0.01,
         rotationX: 45,
       },
       0

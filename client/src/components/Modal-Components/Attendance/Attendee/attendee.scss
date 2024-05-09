@@ -28,7 +28,8 @@
 
 .attendee-name {
   font-weight: 600;
-  //text-shadow: 1.5px 1.5px 3.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-transform: capitalize;
   font-size: 22px;
   margin: 16px 0;
 }

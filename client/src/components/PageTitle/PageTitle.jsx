@@ -3,7 +3,6 @@ import "./page-title.scss";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/all";
 
 const PageTitle = ({ title }) => {
   useGSAP(() => {

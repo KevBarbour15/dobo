@@ -5,7 +5,7 @@ import "./view-events.scss";
 import Modal from "../Modal/Modal.jsx";
 import EditEvent from "../Modal-Components/EditEvent/EditEvent.jsx";
 import Attendance from "../Modal-Components/Attendance/Attendance.jsx";
-import Cancel from "../Modal-Components/CancelEvent/CancelEvent.jsx";
+import AddGuest from "../Modal-Components/AddGuest/AddGuest.jsx";
 import ViewNotes from "../Modal-Components/Notes/ViewNotes.jsx";
 
 // helper function imports
@@ -33,11 +33,11 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
     setModalOpen(true);
   };
 
-  const handleDelete = () => {
+  const handleAddGuest = () => {
     setModalContent(
-      <Cancel
+      <AddGuest
         event={event}
-        onDeleteEvent={() => onDeleteEvent(event._id)}
+        onUpdateEvent={() => onUpdateEvent(event._id)}
         onClose={() => setModalOpen(false)}
       />
     );
@@ -116,15 +116,19 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
           <button
             className="button event"
             type="button"
+            onClick={handleAddGuest}
+          >
+            Add Guest
+          </button>
+          <button
+            className="button event"
+            type="button"
             onClick={handleViewNotes}
           >
             Notes
           </button>
           <button className="button event" type="button" onClick={handleEdit}>
             Edit
-          </button>
-          <button className="button event" type="button" onClick={handleDelete}>
-            Cancel
           </button>
         </div>
       </div>

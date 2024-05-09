@@ -69,7 +69,7 @@ const CreateEvent = ({ onEventCreated }) => {
 
         toast(<Toast message={toastMessage} />, {
           position: "top-left",
-          autoClose: 10000,
+          autoClose: 2000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,

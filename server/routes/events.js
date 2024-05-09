@@ -36,7 +36,6 @@ router.delete("/delete-event", verifyToken, async (req, res) => {
     const attendeeIds = req.body.attendeeIds;
 
     // delete all associated attendees
-    // send email to all attendees that the event has been Not Attending *** TO DO ***
     for (let attendee of attendeeIds) {
       await Attendee.findByIdAndDelete(attendee);
     }

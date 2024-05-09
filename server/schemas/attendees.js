@@ -12,7 +12,7 @@ const AttendeeSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: false,
+    required: true,
   },
   email: {
     type: String,
@@ -29,7 +29,7 @@ const AttendeeSchema = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: false,
+    required: true,
   },
   seats: {
     type: Number,
