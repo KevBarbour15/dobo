@@ -7,6 +7,7 @@ import signature from "../../assets/images/signature.png";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
 // animation imports
 import gsap from "gsap";
@@ -61,34 +62,37 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="about-container">
-      <div className="page-left">
-        <div className="image-container">
-          <img src={image} alt="dobo" />
+    <>
+      <PageTransition />
+      <div id="about" className="about-container">
+        <div className="page-left">
+          <div className="image-container">
+            <img src={image} alt="dobo" />
+          </div>
         </div>
-      </div>
-      <div className="page-right">
-        <PageTitle title={"about"} />
-        <div className="about-info-container">
-          <div className="about-text">
-            <p className="paragraph">
-              For 15 years I’ve been cooking and eating my way through New York
-              City, a heavenly playground for food fanatics. The thing is, you
-              can dine at hundreds of restaurants, but there’s something
-              undeniably special about a home-cooked meal.
-            </p>
-            <p className="paragraph">
-              Since food and family are central to our culture, you’ll never
-              leave hungry after visiting a Filipino household. So I invite you
-              to Dobo - an intimate Filipino-American dining experience
-              highlighting the recipes and flavors I was raised on.
-            </p>
-            <img className="signature" src={signature} alt="signature" />
-            <p className="paragraph">Sean Arguelles, creator of Dobo</p>
+        <div className="page-right">
+          <PageTitle title={"about"} />
+          <div className="about-info-container">
+            <div className="about-text">
+              <p className="paragraph">
+                For 15 years I’ve been cooking and eating my way through New
+                York City, a heavenly playground for food fanatics. The thing
+                is, you can dine at hundreds of restaurants, but there’s
+                something undeniably special about a home-cooked meal.
+              </p>
+              <p className="paragraph">
+                Since food and family are central to our culture, you’ll never
+                leave hungry after visiting a Filipino household. So I invite
+                you to Dobo - an intimate Filipino-American dining experience
+                highlighting the recipes and flavors I was raised on.
+              </p>
+              <img className="signature" src={signature} alt="signature" />
+              <p className="paragraph">Sean Arguelles, creator of Dobo</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
