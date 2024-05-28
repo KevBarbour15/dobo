@@ -21,7 +21,7 @@ const AttendeeSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ["Confirmed", "Inquired", "Contacted", "Not Attending"],
+    enum: ["Confirmed", "Inquired", "Contacted", "Not Attending", "Waitlisted"],
   },
   inquiryDate: {
     type: Date,
