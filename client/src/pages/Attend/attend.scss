@@ -1,31 +1,27 @@
-.attend-container {
-  display: flex;
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 55px 0;
-  //z-index: 5;
-}
-
 .attend-info-container {
-  width: 80%;
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
 }
 
 .attend-text {
-  width: 265px;
-  margin-top: 0;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  padding: 0 32px 32px 32px;
+  margin: 0;
   font-size: 16px;
   line-height: 1.5;
-  text-align: justify;
+  text-align: left;
   text-shadow: 0 1.5px 1.75px rgba(0, 0, 0, 0.35);
 }
 
 .inquiry-form {
+  opacity: 1;
   display: flex;
   flex-direction: column;
   margin-bottom: auto;
@@ -38,22 +34,19 @@
 }
 
 @media (max-width: 768px) {
-  .attend-container {
-    height: auto;
-  }
-
   .attend-info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 315px;
+    width: 300px;
   }
 
   .attend-text {
-    width: 300px;
+    width: 100%;
     text-align: justify;
     line-height: 1.35;
+    font-size: 16px;
   }
 
   .inquiry-form form {

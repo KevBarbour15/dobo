@@ -1,6 +1,6 @@
 .checkbox-container {
   box-sizing: border-box;
-  width: 265px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,8 +8,8 @@
 }
 
 .checkbox-text {
-  width: 70%;
-  font-size: 12px;
+  width: 80%;
+  font-size: 14px;
   line-height: 1.5;
   text-shadow: 0 1.5px 1.75px rgba(0, 0, 0, 0.35);
 }
@@ -74,7 +74,7 @@ input[type="checkbox"].toggle:checked:after {
 
   .checkbox-text {
     width: 75%;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.35;
   }
 }

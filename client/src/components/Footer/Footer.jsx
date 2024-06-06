@@ -13,23 +13,12 @@ const Footer = () => {
   useGSAP(() => {
     let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
 
-    tl.from(
-      ".footer-title",
-      {
-        delay: 0.5,
-        opacity: 0,
-        duration: 0.75,
-      },
-      0
-    ).from(
-      ".footer-icons",
-      {
-        delay: 0.5,
-        opacity: 0,
-        duration: 0.75,
-      },
-      0
-    );
+    tl.from(".footer-container", {
+      delay: 0.25,
+      opacity: 0,
+      duration: 0.75,
+      ease: "sine.inOut",
+    });
   });
 
   return (

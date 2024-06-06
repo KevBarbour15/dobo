@@ -1,22 +1,9 @@
 import "./page-title.scss";
 
-// animation imports
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 const PageTitle = ({ title }) => {
-  useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
-    tl.from(".title", {
-      duration: 0.75,
-      opacity: 0,
-      rotationX: 90,
-    });
-  });
-
   return (
     <div className="title-container">
-      <h2 className="title">{title.toUpperCase()}</h2>
+      <h1 className="title">{title.toUpperCase()}</h1>
     </div>
   );
 };

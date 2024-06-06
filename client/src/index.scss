@@ -10,13 +10,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  //font-family: "Nunito Sans", sans-serif;
+  //font-family: "Friz Quadrata", sans-serif;
   background: #eee6de;
   //background: #ebe2d9;
   letter-spacing: 1px;
+  scroll-behavior: smooth;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: 'Friz Quadrata';
+  src: url('./assets/fonts/friz.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }

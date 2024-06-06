@@ -47,7 +47,7 @@
   color: #f2f1f0;
   cursor: pointer;
   margin: 0;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .menu-close-button span:hover,
@@ -73,8 +73,8 @@
   margin: -0.4rem;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
-  font-weight: 600;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .menu-link:active,
@@ -83,6 +83,7 @@
   font-weight: normal;
   -webkit-text-stroke: 0.75px #f2f1f0;
   color: transparent;
+  font-weight: 700;
 }
 
 .link-wrapper {

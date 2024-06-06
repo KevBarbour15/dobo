@@ -1,42 +1,19 @@
 /* GLOBAL STYLES */
-.page-left,
-.page-right {
+.page-bottom {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.page-left {
-  display: flex;
-  height: calc(100vh - 110px);
-}
-
-.page-right {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  height: calc(100vh - 110px);
-  overflow-y: auto;
-}
-
-.image-container {
-  margin: 64px 0;
-  width: 40vw;
-  max-height: 65vh;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: calc(100vh - 108px);
   position: relative;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border: 1px solid black;
-    box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
-  }
+}
+
+.page-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* For the contact icons */
@@ -97,9 +74,9 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  font-size: 15px;
+  font-size: 14px;
   width: 117.5px;
-  height: 35px;
+  height: 38px;
   border: 1px solid black;
   border-radius: 3px;
   color: black;
@@ -107,7 +84,8 @@
   transition: all 0.25s ease-in-out;
   text-transform: uppercase;
   box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
-  font-weight: 500;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
 }
 
 .button:hover {
@@ -132,9 +110,9 @@
   appearance: none;
   opacity: 1;
   box-sizing: border-box;
-  width: 265px;
+  width: 300px;
   border: 1px solid black;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 16px;
   border-radius: 3px;
   transition: all 0.25s ease-in-out;
@@ -157,13 +135,13 @@
 .form-element::placeholder,
 textarea::placeholder,
 .default-option::placeholder {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
 }
 
 input {
   padding: 0 10px;
-  height: 32px;
+  height: 40px;
 }
 
 input::-webkit-outer-spin-button,
@@ -185,7 +163,7 @@ textarea::placeholder {
 input[type="date"],
 input[type="time"] {
   padding: 0 10px;
-  height: 32px;
+  height: 40px;
   background-color: #f2f1f0;
   font-size: 14px;
   color: black;
@@ -194,14 +172,14 @@ input[type="time"] {
 
 textarea {
   padding: 10px;
-  height: 150px;
+  height: 165px;
   color: black;
   resize: vertical;
   overflow: auto;
 }
 
 select {
-  height: 32px;
+  height: 40px;
   padding: 0 10px;
   color: black;
   background-color: #f2f1f0;
@@ -221,11 +199,11 @@ label {
   margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: 600;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .Toastify__toast {
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
   background: #f2f1f0 !important;
   border: 1px solid black !important;
   border-radius: 3px !important;
@@ -256,7 +234,7 @@ label {
     display: none;
   }
 
-  .page-right {
+  .page-bottom {
     height: auto;
   }
 

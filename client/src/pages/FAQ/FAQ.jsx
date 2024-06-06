@@ -1,59 +1,57 @@
 import "./FAQ.scss";
 import { useEffect, useState } from "react";
 
-// image imports
-import { randomImageArray3 } from "../../assets/images/imageArray.js";
-
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+
+//
+import useParallax from "../../animation-hooks/parallax.js";
+import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const FAQ = () => {
-  const [image, setImage] = useState("");
+  // custom parallax hook
+  // custom fade and parallax hooks
+  useFadeIn(true, ".page-container", 1.25, 0);
+  useParallax();
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
-
+    let tl = gsap.timeline({ ease: "sine.out" });
     tl.from(
       ".list-item",
       {
-        duration: 0.75,
-        y: 50,
+        x: function (i) {
+          if (i % 2 === 0) {
+            return -100;
+          }
+          return 100;
+        },
         opacity: 0,
-        stagger: 0.01,
-        rotationX: 45,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".faq-info-container",
+          start: "top 70%",
+          end: "top +=300",
+          scrub: 5,
+        },
       },
       0
     );
-
-    let imageTl = gsap.timeline();
-
-    imageTl.from(".image-container img", {
-      delay: 0.75,
-      duration: 0.25,
-      opacity: 0,
-      scale: 1.05,
-      ease: "sine.inOut",
-    });
   });
 
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * randomImageArray3.length);
-    setImage(randomImageArray3[randomIndex]);
-  }, []);
-
   return (
-    <div id="faq" className="faq-container">
-      <div className="page-left">
-        <div className="image-container">
-          <img src={image} alt="dobo" />
-        </div>
+    <div className="page-container">
+      <div className="parallax">
+        <div className="faq-layer image-layer"></div>
+        <div className="page-title">FAQ</div>
       </div>
-      <div className="page-right">
-        <PageTitle title={"faq"} />
+
+      <div className="page-bottom">
+        <PageTitle title={"FAQ"} />
         <div className="faq-info-container">
           <ul>
             <li className="list-item">Where is the dinner located?</li>

@@ -31,8 +31,8 @@
   font-size: 25px;
   text-transform: uppercase;
   color: black;
-  font-weight: 600;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .dash-header-links-container {
@@ -62,9 +62,10 @@
   color: black;
   background-color: transparent;
   font-size: 17px;
+  font-weight: 700;
   border: none;
   transition: all 0.25s ease-in-out;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .dash-link-container:hover {

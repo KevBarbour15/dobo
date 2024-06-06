@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./image-gallery.scss";
+import PhotoAlbum from "react-photo-album";
 
 // image imports
-import { imageArray } from "../../assets/images/imageArray.js";
-import { thumbnailArray } from "../../assets/thumbnail-images/thumbnailArray.js";
+import { imageArray } from "./imageArray.js";
 
 // component imports
 import Masonry from "react-masonry-css";
@@ -19,31 +19,38 @@ const ImageGallery = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [loadedCount, setLoadedCount] = useState(0);
 
-  useGSAP(() => {
-    if (loadedCount !== thumbnailArray.length) return;
+  useEffect(() => {
+    if (loadedCount !== imageArray.length) return;
+    gsap.set(".masonry-image", {
+      opacity: 0,
+      y: 50,
+    });
     gsap.to(".masonry-image", {
       opacity: 1,
-      stagger: 0.1,
-      ease: "sine.inOut",
+      stagger: 0.025,
+      ease: "slow(0.1, 0.1, false)",
       scale: 1,
+      y: 0,
     });
   }, [loadedCount]);
 
   const breakpointColumnsObj = {
-    default: 4,
-    1100: 4,
-    700: 3,
+    default: 3,
+    1100: 3,
+    700: 2,
     500: 2,
   };
 
   return (
     <div className="gallery-container">
+      {/*  <PhotoAlbum layout="rows" photos={images} />    */}
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="masonry-grid"
         columnClassName="masonry-grid_column"
       >
-        {thumbnailArray.map((thumbnail, index) => (
+        {imageArray.map((thumbnail, index) => (
           <div
             key={"thumbnail-" + index}
             className="masonry-image"
@@ -55,6 +62,7 @@ const ImageGallery = () => {
             <img
               src={thumbnail}
               alt="dobo"
+              lazy="loading"
               onLoad={(e) => {
                 e.target.classList.add("image-loaded");
                 setLoadedCount((prevCount) => prevCount + 1);

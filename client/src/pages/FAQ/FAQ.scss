@@ -1,8 +1,8 @@
-.faq-container {
+.page-container {
   display: flex;
   box-sizing: border-box;
-  height: 100vh;
-  padding: 55px 0;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .faq-info-container {
@@ -13,11 +13,11 @@
   margin-top: 0;
   margin-bottom: 32px;
   padding: 0;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 
   ul {
     margin: 0;
-    padding-left: 0; 
+    padding-left: 0;
     list-style-position: inside;
   }
 

@@ -10,17 +10,16 @@ import {
   convertMilitaryTime,
 } from "../../util/formatting.jsx";
 
-// image imports
-import { randomImageArray1 } from "../../assets/images/imageArray.js";
-
 // component imports
-import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import Checkbox from "../../components/Checkbox/Checkbox.jsx";
+import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import useParallax from "../../animation-hooks/parallax.js";
+import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
@@ -39,73 +38,77 @@ const Attend = () => {
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [image, setImage] = useState("");
   const [state, handleSubmit] = useForm("xdoqpwrb");
   const toastMessage =
     "Thank you for inquiry. We will reach out with details shortly.";
 
+  // custom fade and parallax hooks
+  useFadeIn(true, ".page-container", 1.25, 0);
+  useParallax();
+
   useGSAP(() => {
+    // attend form and text animation
     const p = new SplitText(".attend-text", {
       type: "lines",
-      position: "relative",
     });
 
     const p2 = new SplitText(".subscribe-text", {
-      type: "lines",
-      position: "relative",
+      type: "words",
     });
 
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
+    let formTl = gsap.timeline({ease: "sine.out"});
 
-    tl.from(
-      p.lines,
-      {
-        duration: 0.75,
-        y: 75,
-        opacity: 0,
-        stagger: 0.01,
-        rotationX: 45,
-      },
-      0
-    )
+    formTl
+      .from(
+        p.lines,
+        {
+          x: function (i) {
+            if (i % 2 === 0) {
+              return -100;
+            }
+            return 100;
+          },
+          opacity: 0,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: ".attend-text",
+            start: "top 70%",
+            end: "top 40%",
+            scrub: 5,
+          },
+        },
+        0
+      )
       .from(
         ".form-element-container",
         {
-          duration: 0.75,
-          y: 75,
           opacity: 0,
-          stagger: 0.01,
-          rotationX: 45,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: ".form-element-container",
+            start: "top 70%",
+            end: "top 40%",
+            scrub: 5,
+          },
+          x: function (i) {
+            if (i % 2 === 0) {
+              return 100;
+            }
+            return -100;
+          },
         },
-        0.1
+        0
       )
       .from(
-        p2.lines,
+        p2.words,
         {
-          duration: 0.75,
           y: 75,
           opacity: 0,
-          stagger: 0.01,
-          rotationX: 45,
+          stagger: 0.1,
         },
-        0.1
+        0
       );
-
-    let imageTl = gsap.timeline();
-
-    imageTl.from(".image-container img", {
-      delay: 0.75,
-      duration: 0.25,
-      opacity: 0,
-      scale: 1.05,
-      ease: "sine.inOut",
-    });
   });
-
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * randomImageArray1.length);
-    setImage(randomImageArray1[randomIndex]);
-  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -246,18 +249,18 @@ const Attend = () => {
   };
 
   return (
-    <div className="attend-container">
-      <div className="page-left">
-        <div className="image-container">
-          <img src={image} alt="dobo" />
-        </div>
+    <div className="page-container">
+      <div className="parallax">
+        <div className="attend-layer image-layer"></div>
+        <div className="page-title">ATTEND</div>
       </div>
-      <div className="page-right">
+
+      <div className="page-bottom">
         <PageTitle title={"attend"} />
         <div className="attend-info-container">
           <div className="attend-text">
-            Please fill out the form below to attend. We will reach out with
-            details. Seating is limited.
+            Please fill out the form if you would like to attend a Dobo event.
+            We will reach out to you with details. Seating is limited.
           </div>
 
           <div className="inquiry-form">
