@@ -8,7 +8,6 @@ import signature from "../../assets/images/signature.png";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
-
 // animation imports
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
@@ -65,8 +64,6 @@ const About = () => {
   });
 
   return (
-    <>
-      <PageTransition />
     <div className="page-container">
       <div className="parallax">
         <div className="about-layer image-layer"></div>
@@ -94,7 +91,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
