@@ -23,14 +23,18 @@ const Menu = ({ isOpen, onClose }) => {
     const links = gsap.utils.toArray(".link-wrapper");
     if (isOpen) {
       let tl = gsap.timeline();
-
       tl.from(links, {
-        duration: 0.75,
+        duration: 0.5,
         delay: 0.25,
         opacity: 0,
-        ease: "sine.inOut",
-        rotationX: 90,
-        stagger: 0.05,
+        ease: "sine.out",
+        stagger: 0.1,
+        x: function (i) {
+          if (i % 2 === 0) {
+            return 75;
+          }
+          return -75;
+        },
       });
     }
   }, [isOpen]);

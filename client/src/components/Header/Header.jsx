@@ -18,22 +18,14 @@ const Header = () => {
     let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
 
     tl.from(
-      ".header-menu",
+      ".header-container",
       {
-        delay: 0.5,
+        delay: 0.25,
         opacity: 0,
         duration: 0.75,
+        ease: "sine.inOut",
       },
-      0
-    ).from(
-      ".header-title-container",
-      {
-        delay: 0.5,
-        opacity: 0,
-        duration: 0.75,
-      },
-      0
-    );
+      0)
   });
 
   const toggleMenu = () => {

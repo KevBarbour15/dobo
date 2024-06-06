@@ -1,10 +1,15 @@
 .layout {
-  min-height: 100vh;
+  //min-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .main-page-content {
   margin: 0 auto;
-  height: calc(100vh - 110px);
-  max-width: 1300px;
   z-index: 5;
+  width: 100vw;
+  flex: 1;
+  flex-grow: 1;
 }

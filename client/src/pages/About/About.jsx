@@ -2,72 +2,75 @@ import "./about.scss";
 import { useEffect, useState } from "react";
 
 // image imports
-import { randomImageArray2 } from "../../assets/images/imageArray.js";
 import signature from "../../assets/images/signature.png";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import logo from "../../assets/images/logo-black.png";
 
 // animation imports
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import useParallax from "../../animation-hooks/parallax.js";
+import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const About = () => {
-  const [image, setImage] = useState("");
+  // custom fade and parallax hooks
+  useFadeIn(true, ".page-container", 1.25, 0);
+  useParallax();
 
   useGSAP(() => {
-    const p = new SplitText(".paragraph", {
+    const p = new SplitText(".about-text p", {
       type: "lines",
-      position: "relative",
     });
 
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
+    let tl = gsap.timeline({ ease: "sine.out" });
     tl.from(
       p.lines,
       {
-        duration: 0.75,
-        y: 75,
+        x: function (i) {
+          if (i % 2 === 0) {
+            return -100;
+          }
+          return 100;
+        },
         opacity: 0,
-        stagger: 0.01,
+        stagger: 0.1,
         rotationX: 45,
+        scrollTrigger: {
+          trigger: ".about-text",
+          start: "top 70%",
+          end: "top 40%",
+          scrub: 5,
+        },
       },
       0
     ).from(
       ".signature",
       {
-        duration: 0.75,
-        y: 75,
         opacity: 0,
-        rotationX: 45,
+        delay: 0.5,
+        rotationX: 90,
+        scrollTrigger: {
+          trigger: ".about-text",
+          start: "top 50%",
+          end: "top +=100",
+          scrub: 5,
+        },
       },
-      0.2
+      1
     );
-
-    let imageTl = gsap.timeline();
-
-    imageTl.from(".image-container img", {
-      delay: 0.75,
-      duration: 0.25,
-      opacity: 0,
-      scale: 1.05,
-      ease: "sine.inOut",
-    });
   });
 
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * randomImageArray2.length);
-    setImage(randomImageArray2[randomIndex]);
-  }, []);
-
   return (
-    <div id="about" className="about-container">
-      <div className="page-left">
-        <div className="image-container">
-          <img src={image} alt="dobo" />
-        </div>
+    <div className="page-container">
+      <div className="parallax">
+        <div className="about-layer image-layer"></div>
+        <div className="page-title">ABOUT</div>
       </div>
-      <div className="page-right">
+
+      <div className="page-bottom">
         <PageTitle title={"about"} />
         <div className="about-info-container">
           <div className="about-text">

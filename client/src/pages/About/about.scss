@@ -1,21 +1,15 @@
-.about-container {
-  display: flex;
-  box-sizing: border-box;
-  height: 100vh;
-  padding: 55px 0;
-  z-index: 2;
-}
-
 .about-info-container {
-  width: 60%;
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .about-text {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.5;
   text-align: left;
   margin-bottom: 32px;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .about-text p {
