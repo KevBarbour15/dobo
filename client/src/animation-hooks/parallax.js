@@ -20,7 +20,7 @@ const useParallax = () => {
       opacity: 0,
       stagger: 0.1,
       duration: 1,
-      x: (i) => (i % 2 === 0 ? 250 : -250),
+      x: (i) => (i % 2 === 0 ? 125 : -125),
       onComplete: () => {
         let scrollTl = gsap.timeline({
           ease: "linear",
@@ -49,7 +49,7 @@ const useParallax = () => {
           .to(
             titleSplitUpper.chars,
             {
-              x: (i) => (i % 2 === 0 ? 250 : -250),
+              x: (i) => (i % 2 === 0 ? 125 : -125),
               opacity: 0,
               stagger: 0.15,
               scrollTrigger: {
@@ -62,11 +62,9 @@ const useParallax = () => {
             0
           )
           .from(
-            titleSplitLower.chars,
+            ".title-container",
             {
               opacity: 0,
-              stagger: 0.15,
-              x: (i) => (i % 2 === 0 ? 250 : -250),
               scrollTrigger: {
                 trigger: ".title-container",
                 start: "top center",
@@ -74,7 +72,22 @@ const useParallax = () => {
                 scrub: 2,
               },
             },
-            0
+            0.15
+          )
+          .from(
+            titleSplitLower.chars,
+            {
+              opacity: 0,
+              stagger: 0.15,
+              x: (i) => (i % 2 === 0 ? 125 : -125),
+              scrollTrigger: {
+                trigger: ".title-container",
+                start: "top center",
+                end: "+=150",
+                scrub: 2,
+              },
+            },
+            0.5
           );
       },
     });

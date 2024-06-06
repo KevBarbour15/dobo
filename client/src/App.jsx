@@ -8,7 +8,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";
 import Attend from "./pages/Attend/Attend";
-import ImageGallery from "./pages/ImageGallery/ImageGallery2";
+import ImageGallery from "./pages/ImageGallery/ImageGallery";
 import ScrollToTop from "./components/ScrollToTop";
 
 // toastify

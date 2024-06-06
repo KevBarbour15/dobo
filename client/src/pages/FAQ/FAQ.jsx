@@ -24,19 +24,14 @@ const FAQ = () => {
     tl.from(
       ".list-item",
       {
-        x: function (i) {
-          if (i % 2 === 0) {
-            return -100;
-          }
-          return 100;
-        },
+        x: (i) => (i % 2 === 0 ? 50 : -50),
         opacity: 0,
         stagger: 0.1,
         scrollTrigger: {
           trigger: ".faq-info-container",
           start: "top 70%",
           end: "top +=300",
-          scrub: 5,
+          scrub: 3,
         },
       },
       0

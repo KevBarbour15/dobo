@@ -56,25 +56,20 @@ const Attend = () => {
       type: "words",
     });
 
-    let formTl = gsap.timeline({ease: "sine.out"});
+    let formTl = gsap.timeline({ ease: "sine.out" });
 
     formTl
       .from(
         p.lines,
         {
-          x: function (i) {
-            if (i % 2 === 0) {
-              return -100;
-            }
-            return 100;
-          },
+          x: (i) => (i % 2 === 0 ? 50 : -50),
           opacity: 0,
           stagger: 0.1,
           scrollTrigger: {
             trigger: ".attend-text",
             start: "top 70%",
             end: "top 40%",
-            scrub: 5,
+            scrub: 3,
           },
         },
         0
@@ -88,14 +83,9 @@ const Attend = () => {
             trigger: ".form-element-container",
             start: "top 70%",
             end: "top 40%",
-            scrub: 5,
+            scrub: 3,
           },
-          x: function (i) {
-            if (i % 2 === 0) {
-              return 100;
-            }
-            return -100;
-          },
+          x: (i) => (i % 2 === 0 ? 50 : -50),
         },
         0
       )

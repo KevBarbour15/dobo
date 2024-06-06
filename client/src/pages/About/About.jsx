@@ -1,5 +1,4 @@
 import "./about.scss";
-import { useEffect, useState } from "react";
 
 // image imports
 import signature from "../../assets/images/signature.png";
@@ -29,12 +28,7 @@ const About = () => {
     tl.from(
       p.lines,
       {
-        x: function (i) {
-          if (i % 2 === 0) {
-            return -100;
-          }
-          return 100;
-        },
+        x: (i) => (i % 2 === 0 ? 50 : -50),
         opacity: 0,
         stagger: 0.1,
         rotationX: 45,

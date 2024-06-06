@@ -27,14 +27,9 @@ const Menu = ({ isOpen, onClose }) => {
         duration: 0.5,
         delay: 0.25,
         opacity: 0,
-        ease: "sine.out",
+        ease: "linear",
         stagger: 0.1,
-        x: function (i) {
-          if (i % 2 === 0) {
-            return 75;
-          }
-          return -75;
-        },
+        x: (i) => (i % 2 === 0 ? 50 : -50),
       });
     }
   }, [isOpen]);

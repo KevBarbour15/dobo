@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import Menu from "../../components/Menu/Menu.jsx";
 
 // image imports
-import logo from "../../assets/images/logo-cream.png";
+import D from "../../assets/images/D.png";
+import O from "../../assets/images/O.png";
+import B from "../../assets/images/B.png";
 
 // animation imports
 import gsap from "gsap";
@@ -19,36 +21,18 @@ const Home = () => {
   useFadeIn(true, ".home-image-container", 1.25, 0);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.inOut" });
+    const letters = gsap.utils.toArray(".home-logo");
+    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 125 : -125) });
 
-    tl.from(
+    let tl = gsap.timeline({ delay: 0.25, ease: "linear" });
+    tl.fromTo(
       ".home-header-menu",
-      {
-        duration: 1,
-        opacity: 0,
-      },
-      0
+      { opacity: 0 },
+      { duration: 1, opacity: 1 },
+      1.25
     )
-      .from(
-        ".logo-wrapper",
-        {
-          duration: 0.85,
-          opacity: 0,
-          ease: "sine.inOut",
-          x: -125,
-        },
-        0.15
-      )
-      .from(
-        ".button-wrapper",
-        {
-          duration: 0.85,
-          x: 125,
-          opacity: 0,
-          ease: "sine.inOut",
-        },
-        0.15
-      );
+      .to(letters, { opacity: 1, x: 0, stagger: 0.1, duration: 1 }, 0)
+      .from(".button-wrapper", { opacity: 0, duration: 1 }, 1.25);
   });
 
   const toggleMenu = () => {
@@ -90,7 +74,10 @@ const Home = () => {
         </header>
         <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
           <div className="logo-wrapper">
-            <img className="home-logo" src={logo} alt="DOBO"></img>
+            <img className="home-logo" src={D} alt="DOBO"></img>
+            <img className="home-logo" src={O} alt="DOBO"></img>
+            <img className="home-logo" src={B} alt="DOBO"></img>
+            <img className="home-logo" src={O} alt="DOBO"></img>
           </div>
           <div className="button-wrapper">
             <Link className="home-button" to="/Attend">

@@ -1,97 +1,75 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import "./image-gallery.scss";
 import PhotoAlbum from "react-photo-album";
+import { images } from "./imageArray.js";
 
-// image imports
-import { imageArray } from "./imageArray.js";
-
-// component imports
-import Masonry from "react-masonry-css";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-
-// animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const ImageGallery = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [loadedCount, setLoadedCount] = useState(0);
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+const ImageGallery2 = () => {
+  const [index, setIndex] = useState(-1);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (loadedCount !== imageArray.length) return;
-    gsap.set(".masonry-image", {
-      opacity: 0,
-      y: 50,
+    const imageElements = images.map((image) => {
+      const img = new Image();
+      img.src = image.src;
+      return img;
     });
-    gsap.to(".masonry-image", {
-      opacity: 1,
-      stagger: 0.025,
-      ease: "slow(0.1, 0.1, false)",
-      scale: 1,
-      y: 0,
-    });
-  }, [loadedCount]);
 
-  const breakpointColumnsObj = {
-    default: 3,
-    1100: 3,
-    700: 2,
-    500: 2,
-  };
+    const checkImagesLoaded = () => {
+      const allImagesLoaded = imageElements.every((img) => img.complete);
+      if (allImagesLoaded) {
+        setLoaded(true);
+      }
+    };
+
+    imageElements.forEach((img) => {
+      img.onload = checkImagesLoaded;
+      img.onerror = checkImagesLoaded;
+    });
+
+    // Check initially in case some images are already cached
+    checkImagesLoaded();
+  }, [images]);
+
+  useGSAP(() => {
+    if (!loaded) return;
+    gsap.set(".gallery-container img", {
+      opacity: 1,
+    });
+    gsap.from(".react-photo-album--row", {
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1,
+      delay: 0.25,
+      ease: "sine.out",
+      x: (i) => (i % 2 === 0 ? 150 : -150),
+    });
+  }, [loaded]);
 
   return (
     <div className="gallery-container">
-      {/*  <PhotoAlbum layout="rows" photos={images} />    */}
+      <PhotoAlbum
+        photos={images}
+        onClick={({ index }) => setIndex(index)}
+        layout="rows"
+      />
 
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="masonry-grid"
-        columnClassName="masonry-grid_column"
-      >
-        {imageArray.map((thumbnail, index) => (
-          <div
-            key={"thumbnail-" + index}
-            className="masonry-image"
-            onClick={() => {
-              setPhotoIndex(index);
-              setIsOpen(true);
-            }}
-          >
-            <img
-              src={thumbnail}
-              alt="dobo"
-              lazy="loading"
-              onLoad={(e) => {
-                e.target.classList.add("image-loaded");
-                setLoadedCount((prevCount) => prevCount + 1);
-              }}
-            />
-          </div>
-        ))}
-      </Masonry>
-
-      {isOpen && (
-        <Lightbox
-          mainSrc={imageArray[photoIndex]}
-          nextSrc={imageArray[(photoIndex + 1) % imageArray.length]}
-          prevSrc={
-            imageArray[(photoIndex + imageArray.length - 1) % imageArray.length]
-          }
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex(
-              (photoIndex + imageArray.length - 1) % imageArray.length
-            )
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % imageArray.length)
-          }
-        />
-      )}
+      <Lightbox
+        slides={images}
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+        plugins={[Thumbnails]}
+      />
     </div>
   );
 };
 
-export default ImageGallery;
+export default ImageGallery2;
