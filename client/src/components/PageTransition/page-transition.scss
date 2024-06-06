@@ -1,9 +1,10 @@
 .page-transition {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: white;
   z-index: 20;
+  background-color: black;
 }

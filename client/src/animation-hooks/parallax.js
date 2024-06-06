@@ -17,6 +17,7 @@ const useParallax = () => {
 
     // Initial animation for titleSplitUpper on page load
     gsap.from(titleSplitUpper.chars, {
+      delay: 0.75,
       opacity: 0,
       stagger: 0.1,
       duration: 1,

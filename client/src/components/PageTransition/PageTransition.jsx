@@ -1,20 +1,18 @@
 import "./page-transition.scss";
-
-// animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const PageTransition = () => {
   useGSAP(() => {
-    let tl = gsap.timeline({ ease: "sine.inOut", blur: 0 });
-    tl.to(
-      ".page-transition",
-      {
-        //duration: 1.75,
-        //blur: 0,
-      },
-      0
-    );
+    let tl = gsap.timeline({ ease: "linear" });
+    tl.to(".page-transition", {
+      duration: 0.5,
+      backgroundColor: "black",
+      opacity: 1,
+      rotationX: 90,
+    }).to(".page-transition", {
+      duration: 0.25,
+    });
   });
 
   return <div className="page-transition"></div>;

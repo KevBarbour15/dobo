@@ -8,7 +8,6 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    console.log("Hit this route");
     const validateToken = async () => {
       const token = sessionStorage.getItem("token");
 
@@ -21,7 +20,6 @@ const AuthProvider = ({ children }) => {
           });
 
           if (response.data.valid) {
-            console.log("Token is valid");
             setIsAuthenticated(true);
           } else {
             throw new Error("Token validation failed at server");
@@ -31,8 +29,6 @@ const AuthProvider = ({ children }) => {
           setIsAuthenticated(false);
           console.error("Error during token validation:", err);
         }
-      } else {
-        console.log("No token found in storage.");
       }
     };
 

@@ -6,12 +6,15 @@ import { images } from "./imageArray.js";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+import PageTransition from "../../components/PageTransition/PageTransition.jsx";
+import Loading from "../../components/Modal-Components/Loading/Loading.jsx";
+
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-const ImageGallery2 = () => {
+const ImageGallery = () => {
   const [index, setIndex] = useState(-1);
   const [loaded, setLoaded] = useState(false);
 
@@ -39,37 +42,75 @@ const ImageGallery2 = () => {
   }, [images]);
 
   useGSAP(() => {
-    if (!loaded) return;
-    gsap.set(".gallery-container img", {
-      opacity: 1,
-    });
-    gsap.from(".react-photo-album--row", {
-      opacity: 0,
-      stagger: 0.15,
-      duration: 1,
-      delay: 0.25,
-      ease: "sine.out",
-      x: (i) => (i % 2 === 0 ? 150 : -150),
-    });
+    if (loaded) {
+      setTimeout(() => {
+        gsap.set(".gallery-container img", {
+          opacity: 1,
+        });
+        gsap.from(".gallery-container ", {
+          opacity: 0,
+          duration: 0.5,
+          ease: "sine.out",
+        });
+        gsap.from(".react-photo-album--row", {
+          opacity: 0,
+          stagger: 0.1,
+          duration: 1,
+          delay: 0.5,
+          ease: "linear",
+          x: (i) => (i % 2 === 0 ? 150 : -150),
+        });
+      }, 100);
+    }
   }, [loaded]);
 
   return (
-    <div className="gallery-container">
-      <PhotoAlbum
-        photos={images}
-        onClick={({ index }) => setIndex(index)}
-        layout="rows"
-      />
+    <>
+      <PageTransition />
+      {!loaded ? (
+        <div className="loading">
+          <Loading />
+        </div>
+      ) : (
+        <div className="gallery-container">
+          <PhotoAlbum
+            photos={images}
+            onClick={({ index }) => setIndex(index)}
+            layout="rows"
+          />
 
-      <Lightbox
-        slides={images}
-        open={index >= 0}
-        index={index}
-        close={() => setIndex(-1)}
-        plugins={[Thumbnails]}
-      />
-    </div>
+          <Lightbox
+            slides={images}
+            open={index >= 0}
+            index={index}
+            close={() => setIndex(-1)}
+            plugins={[Thumbnails]}
+          />
+        </div>
+      )}
+      {!loaded ? (
+        <div className="loading">
+          <Loading />
+        </div>
+      ) : (
+        <div className="gallery-container">
+          <PhotoAlbum
+            photos={images}
+            onClick={({ index }) => setIndex(index)}
+            layout="rows"
+          />
+
+          <Lightbox
+            slides={images}
+            open={index >= 0}
+            index={index}
+            close={() => setIndex(-1)}
+            plugins={[Thumbnails]}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
-export default ImageGallery2;
+export default ImageGallery;

@@ -9,6 +9,7 @@ import DashHeader from "../../components/DashHeader/DashHeader.jsx";
 import UpcomingEvents from "../../components/Events/UpcomingEvents.jsx";
 import PastEvents from "../../components/Events/PastEvents.jsx";
 import CreateEvent from "../../components/CreateEvent/CreateEvent.jsx";
+import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
 const EventDash = () => {
   const navigate = useNavigate();
@@ -62,34 +63,37 @@ const EventDash = () => {
   };
 
   return (
-    <div className="dash-container">
-      <DashHeader
-        setActiveSection={setActiveSection}
-        onLogout={handleLogout}
-        activeSection={activeSection}
-      />
-      <div className="events-container">
-        {activeSection === "create" && (
-          <div className="create-container">
-            <CreateEvent onEventCreated={addNewEvent} />
-          </div>
-        )}
-        {activeSection === "view" && (
-          <div className="view-container">
-            <UpcomingEvents
-              events={events}
-              onUpdateEvent={updateEvent}
-              onDeleteEvent={deleteEvent}
-            />
-          </div>
-        )}
-        {activeSection === "past" && (
-          <div className="view-container">
-            <PastEvents events={events} onUpdateEvent={updateEvent} />
-          </div>
-        )}
+    <>
+      <PageTransition />
+      <div className="dash-container">
+        <DashHeader
+          setActiveSection={setActiveSection}
+          onLogout={handleLogout}
+          activeSection={activeSection}
+        />
+        <div className="events-container">
+          {activeSection === "create" && (
+            <div className="create-container">
+              <CreateEvent onEventCreated={addNewEvent} />
+            </div>
+          )}
+          {activeSection === "view" && (
+            <div className="view-container">
+              <UpcomingEvents
+                events={events}
+                onUpdateEvent={updateEvent}
+                onDeleteEvent={deleteEvent}
+              />
+            </div>
+          )}
+          {activeSection === "past" && (
+            <div className="view-container">
+              <PastEvents events={events} onUpdateEvent={updateEvent} />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
