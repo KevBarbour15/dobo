@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const PageTransition = () => {
+  /*
   useGSAP(() => {
     let tl = gsap.timeline({ ease: "linear" });
     tl.to(".page-transition", {
@@ -16,6 +17,7 @@ const PageTransition = () => {
   });
 
   return <div className="page-transition"></div>;
+  */
 };
 
 export default PageTransition;
