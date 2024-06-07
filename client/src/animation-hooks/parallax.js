@@ -25,12 +25,7 @@ const useParallax = () => {
       onComplete: () => {
         let scrollTl = gsap.timeline({
           ease: "linear",
-          scrollTrigger: {
-            trigger: ".page-title",
-            start: "center center-=100",
-            end: "+=100",
-            scrub: 1,
-          },
+          
         });
 
         scrollTl
@@ -57,7 +52,8 @@ const useParallax = () => {
                 scrub: 2,
                 trigger: ".page-title",
                 start: "center center-=100",
-                end: "+=100",
+                end: "+=150",
+                //markers: true,
               },
             },
             0

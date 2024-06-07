@@ -12,6 +12,7 @@ import { useGSAP } from "@gsap/react";
 
 const Layout = () => {
   useEffect(() => {
+    /*
     const handleResize = () => {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -21,6 +22,23 @@ const Layout = () => {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
+    */
+    
+    /*
+    function adjustViewportHeight() {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    }
+
+    // Adjust viewport height on load and resize
+    window.addEventListener("resize", adjustViewportHeight);
+    window.addEventListener("load", adjustViewportHeight);
+
+    // Call the function initially
+    adjustViewportHeight();
+    */
   }, []);
 
   useGSAP(() => {
@@ -48,7 +66,6 @@ const Layout = () => {
         {
           color: "black",
           textShadow: "0 1.25px 1.75px rgba(0, 0, 0, 0.35)",
-          fontSize: "20px",
         },
         0
       )
@@ -60,7 +77,7 @@ const Layout = () => {
         },
         0
       );
-    
+
     let arrowTl = gsap.timeline({ repeat: -1, repeatDelay: 0.25, yoyo: true });
 
     arrowTl.to(".material-symbols-outlined", {

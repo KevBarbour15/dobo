@@ -88,27 +88,6 @@ const ImageGallery = () => {
           />
         </div>
       )}
-      {!loaded ? (
-        <div className="loading">
-          <Loading />
-        </div>
-      ) : (
-        <div className="gallery-container">
-          <PhotoAlbum
-            photos={images}
-            onClick={({ index }) => setIndex(index)}
-            layout="rows"
-          />
-
-          <Lightbox
-            slides={images}
-            open={index >= 0}
-            index={index}
-            close={() => setIndex(-1)}
-            plugins={[Thumbnails]}
-          />
-        </div>
-      )}
     </>
   );
 };
