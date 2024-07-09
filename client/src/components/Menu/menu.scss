@@ -108,7 +108,7 @@
 
 @media (max-width: 768px) {
   .menu-container {
-    width: 100%;
+    width: calc(100% + 4px);
     background: rgba(0, 0, 0, 0.85);
   }
 
