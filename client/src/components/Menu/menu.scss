@@ -2,6 +2,7 @@
   position: fixed;
   height: 100vh;
   transform: translateY(-100%);
+  transform: translateX(-1px);
   height: 100%;
   width: 350px;
   transition: all 0.3s ease-in-out;
@@ -12,13 +13,13 @@
   justify-content: flex-start;
   align-items: center;
   top: 0;
-  box-sizing: border-box;
   border: 1px solid black;
   opacity: 0;
 }
 
 .menu-container.open {
   transform: translateY(0);
+  transform: translateX(-1px);
   z-index: 975;
   opacity: 1;
 }
@@ -108,7 +109,7 @@
 
 @media (max-width: 768px) {
   .menu-container {
-    width: calc(100% + 4px);
+    width: calc(100% + 2px);
     background: rgba(0, 0, 0, 0.85);
   }
 
