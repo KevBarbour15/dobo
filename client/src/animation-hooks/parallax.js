@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const useParallax = () => {
   useGSAP(() => {
+    // starting point varies for mobile and desktop
+    const start = window.matchMedia("(max-width: 768px)").matches ? "center 45%" : "center center";
+
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
     let titleSplitUpper = new SplitText(".page-title", {
@@ -28,44 +31,37 @@ const useParallax = () => {
         });
 
         scrollTl
-          .to(
-            ".image-layer",
-            {
-              opacity: 0,
-              scale: 1.15,
-              scrollTrigger: {
-                scrub: 2,
-                trigger: ".image-layer",
-                start: "center center",
-                end: "+=850",
-                pin: true,
-              },
+          .to(".image-layer", {
+            opacity: 0,
+            scale: 1.35,
+            scrollTrigger: {
+              scrub: 1,
+              trigger: ".image-layer",
+              start: "center center",
+              end: "+=850",
+              pin: true,
             },
-            0
-          )
-          .to(
-            titleSplitUpper.chars,
-            {
-              x: (i) => (i % 2 === 0 ? 75 : -75),
-              opacity: 0,
-              stagger: 0.1,
-              scrollTrigger: {
-                scrub: true,
-                trigger: ".page-title",
-                pin: true,
-                start: "center center",
-                end: "center top",
-              },
+          })
+          .to(titleSplitUpper.chars, {
+            x: (i) => (i % 2 === 0 ? 75 : -75),
+            opacity: 0,
+            stagger: 0.1,
+            scrollTrigger: {
+              scrub: true,
+              trigger: ".page-title",
+              pin: true,
+              start: start,
+              end: "center top",
+              scrub: 1,
             },
-            0
-          )
+          })
           .from(".title-container", {
             opacity: 0,
             scrollTrigger: {
               trigger: ".title-container",
-              start: "top 75%",
+              start: "top bottom",
               end: "top center",
-              scrub: true,
+              scrub: 1,
             },
           })
           .from(titleSplitLower.chars, {
@@ -74,9 +70,9 @@ const useParallax = () => {
             x: (i) => (i % 2 === 0 ? 75 : -75),
             scrollTrigger: {
               trigger: ".title-container",
-              start: "top 75%",
+              start: "top bottom",
               end: "top center",
-              scrub: true,
+              scrub: 1,
             },
           });
       },
