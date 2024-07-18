@@ -23,17 +23,17 @@ const Home = () => {
 
   useGSAP(() => {
     const letters = gsap.utils.toArray(".home-logo");
-    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 125 : -125) });
+    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 75 : -75) });
 
-    let tl = gsap.timeline({ delay: 0.5, ease: "linear" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.out" });
     tl.fromTo(
       ".home-header-menu",
       { opacity: 0 },
-      { duration: 1, opacity: 1 },
-      1.25
+      { duration: 0.5, opacity: 1 },
+      0.75
     )
-      .to(letters, { opacity: 1, x: 0, stagger: 0.1, duration: 1 }, 0)
-      .from(".button-wrapper", { opacity: 0, duration: 1 }, 1.25);
+      .to(letters, { opacity: 1, x: 0, stagger: 0.1, duration: 0.75 }, 0)
+      .from(".button-wrapper", { opacity: 0, duration: 0.5 }, 0.75);
   });
 
   const toggleMenu = () => {

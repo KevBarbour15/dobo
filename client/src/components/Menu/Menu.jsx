@@ -24,11 +24,11 @@ const Menu = ({ isOpen, onClose }) => {
     if (isOpen) {
       let tl = gsap.timeline();
       tl.from(links, {
-        duration: 0.5,
-        delay: 0.25,
+        duration: 0.35,
+        delay: 0.125,
         opacity: 0,
-        ease: "linear",
-        stagger: 0.1,
+        ease: "sine.out",
+        stagger: 0.075,
         x: (i) => (i % 2 === 0 ? 50 : -50),
       });
     }

@@ -15,7 +15,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.05, ease: "sine.outOut" });
 
     tl.from(
       ".header-container",
@@ -23,9 +23,10 @@ const Header = () => {
         delay: 0.25,
         opacity: 0,
         duration: 0.75,
-        ease: "sine.inOut",
+        ease: "sine.outOut",
       },
-      0)
+      0
+    );
   });
 
   const toggleMenu = () => {

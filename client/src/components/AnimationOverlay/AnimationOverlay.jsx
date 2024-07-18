@@ -13,7 +13,7 @@ const AnimationOverlay = () => {
       opacity: 0,
       duration: 1,
       stagger: staggerEach,
-      ease: "sine.inOut",
+      ease: "sine.outOut",
     }).fromTo(
       ".grads-row",
       {
@@ -22,7 +22,7 @@ const AnimationOverlay = () => {
       {
         x: "35%",
         duration: 2.75,
-        ease: "sine.inOut",
+        ease: "sine.outOut",
         stagger: {
           each: staggerEach,
           yoyo: true,

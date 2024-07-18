@@ -17,15 +17,14 @@ const useParallax = () => {
 
     // Initial animation for titleSplitUpper on page load
     gsap.from(titleSplitUpper.chars, {
-      delay: 0.75,
+      delay: 0.25,
       opacity: 0,
       stagger: 0.1,
-      duration: 1,
-      x: (i) => (i % 2 === 0 ? 125 : -125),
+      duration: 0.35,
+      x: (i) => (i % 2 === 0 ? 75 : -75),
       onComplete: () => {
         let scrollTl = gsap.timeline({
-          ease: "linear",
-          
+          ease: "sine.out",
         });
 
         scrollTl
@@ -33,11 +32,13 @@ const useParallax = () => {
             ".image-layer",
             {
               opacity: 0,
+              scale: 1.15,
               scrollTrigger: {
-                scrub: 1,
+                scrub: 2,
                 trigger: ".image-layer",
                 start: "center center",
                 end: "+=850",
+                pin: true,
               },
             },
             0
@@ -45,47 +46,39 @@ const useParallax = () => {
           .to(
             titleSplitUpper.chars,
             {
-              x: (i) => (i % 2 === 0 ? 125 : -125),
+              x: (i) => (i % 2 === 0 ? 75 : -75),
               opacity: 0,
-              stagger: 0.15,
+              stagger: 0.1,
               scrollTrigger: {
-                scrub: 2,
+                scrub: true,
                 trigger: ".page-title",
-                start: "center center-=100",
-                end: "+=150",
-                //markers: true,
+                pin: true,
+                start: "center center",
+                end: "center top",
               },
             },
             0
           )
-          .from(
-            ".title-container",
-            {
-              opacity: 0,
-              scrollTrigger: {
-                trigger: ".title-container",
-                start: "top center",
-                end: "+=150",
-                scrub: 2,
-              },
+          .from(".title-container", {
+            opacity: 0,
+            scrollTrigger: {
+              trigger: ".title-container",
+              start: "top 75%",
+              end: "top center",
+              scrub: true,
             },
-            0.15
-          )
-          .from(
-            titleSplitLower.chars,
-            {
-              opacity: 0,
-              stagger: 0.15,
-              x: (i) => (i % 2 === 0 ? 125 : -125),
-              scrollTrigger: {
-                trigger: ".title-container",
-                start: "top center",
-                end: "+=150",
-                scrub: 2,
-              },
+          })
+          .from(titleSplitLower.chars, {
+            opacity: 0,
+            stagger: 0.15,
+            x: (i) => (i % 2 === 0 ? 75 : -75),
+            scrollTrigger: {
+              trigger: ".title-container",
+              start: "top 75%",
+              end: "top center",
+              scrub: true,
             },
-            0.5
-          );
+          });
       },
     });
   });

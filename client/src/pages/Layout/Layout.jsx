@@ -23,7 +23,6 @@ const Layout = () => {
 
     return () => window.removeEventListener("resize", handleResize);
     */
-    
     /*
     function adjustViewportHeight() {
       document.documentElement.style.setProperty(
@@ -84,7 +83,7 @@ const Layout = () => {
       duration: 0.75,
       y: -15,
       opacity: 0,
-      ease: "sine.inOut",
+      ease: "sine.outOut",
     });
   }, []);
 

@@ -28,15 +28,15 @@ const About = () => {
     tl.from(
       p.lines,
       {
-        x: (i) => (i % 2 === 0 ? 50 : -50),
+        x: (i) => (i % 2 === 0 ? 25 : -25),
         opacity: 0,
         stagger: 0.1,
-        rotationX: 45,
+        //rotationX: 45,
         scrollTrigger: {
           trigger: ".about-text",
           start: "top 70%",
           end: "top 40%",
-          scrub: 5,
+          scrub: 1,
         },
       },
       0
@@ -50,7 +50,7 @@ const About = () => {
           trigger: ".about-text",
           start: "top 50%",
           end: "top +=100",
-          scrub: 5,
+          scrub: 1,
         },
       },
       1

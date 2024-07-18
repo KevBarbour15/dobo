@@ -49,16 +49,16 @@ const ImageGallery = () => {
         });
         gsap.from(".gallery-container ", {
           opacity: 0,
-          duration: 0.5,
-          ease: "sine.out",
+          duration: 0.25,
+          ease: "linear",
         });
         gsap.from(".react-photo-album--row", {
           opacity: 0,
-          stagger: 0.1,
+          stagger: 0.125,
+          delay: 0.35,
           duration: 1,
-          delay: 0.5,
-          ease: "linear",
-          x: (i) => (i % 2 === 0 ? 150 : -150),
+          ease: "sine.out",
+          x: (i) => (i % 2 === 0 ? 275 : -275),
         });
       }, 100);
     }

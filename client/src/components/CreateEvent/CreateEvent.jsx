@@ -30,7 +30,7 @@ const CreateEvent = ({ onEventCreated }) => {
   useFadeIn(true, ".create-event-container", 0.25, 0.05, 0);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.outOut" });
 
     tl.from(".form-element-container", {
       duration: 0.85,

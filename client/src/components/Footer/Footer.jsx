@@ -11,13 +11,13 @@ import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.05, ease: "sine.inOut" });
+    let tl = gsap.timeline({ delay: 0.05, ease: "sine.outOut" });
 
     tl.from(".footer-container", {
       delay: 0.25,
       opacity: 0,
       duration: 0.75,
-      ease: "sine.inOut",
+      ease: "sine.outOut",
     });
   });
 

@@ -70,7 +70,7 @@ const Attend = () => {
             trigger: ".attend-text",
             start: "top 70%",
             end: "top 40%",
-            scrub: 3,
+            scrub: 2,
           },
         },
         0
@@ -84,7 +84,7 @@ const Attend = () => {
             trigger: ".form-element-container",
             start: "top 70%",
             end: "top 40%",
-            scrub: 3,
+            scrub: 2,
           },
           x: (i) => (i % 2 === 0 ? 50 : -50),
         },
