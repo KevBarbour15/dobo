@@ -7,7 +7,7 @@
   width: 350px;
   transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.65);
-  z-index: -1;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,6 +15,7 @@
   top: 0;
   border: 1px solid black;
   opacity: 0;
+  visibility: hidden;
 }
 
 .menu-container.open {
@@ -22,6 +23,7 @@
   transform: translateX(-1px);
   z-index: 975;
   opacity: 1;
+  visibility: visible;
 }
 
 .menu-close-button-container,
