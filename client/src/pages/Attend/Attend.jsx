@@ -69,7 +69,7 @@ const Attend = () => {
           scrollTrigger: {
             trigger: ".attend-text",
             start: "top 70%",
-            end: "top 40%",
+            end: "top 50%",
             scrub: 2,
           },
         },
@@ -83,7 +83,7 @@ const Attend = () => {
           scrollTrigger: {
             trigger: ".form-element-container",
             start: "top 70%",
-            end: "top 40%",
+            end: "top 50%",
             scrub: 2,
           },
           x: (i) => (i % 2 === 0 ? 50 : -50),
