@@ -252,8 +252,11 @@ const Attend = () => {
           <PageTitle title={"attend"} />
           <div className="attend-info-container">
             <div className="attend-text">
-              Please fill out the form if you would like to attend a Dobo event.
-              We will reach out to you with details. Seating is limited.
+              Please fill out the form to secure your place at a Dobo event.
+              We’ll follow up with more information.{" "}
+              <span className="attend-text-italic">
+                Limited seating available.
+              </span>
             </div>
 
             <div className="inquiry-form">
