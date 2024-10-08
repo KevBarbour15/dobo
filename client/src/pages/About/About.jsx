@@ -71,19 +71,22 @@ const About = () => {
           <div className="about-info-container">
             <div className="about-text">
               <p className="paragraph">
-                For 15 years I’ve been cooking and eating my way through New
-                York City, a heavenly playground for food fanatics. The thing
-                is, you can dine at hundreds of restaurants, but there’s
-                something undeniably special about a home-cooked meal.
+                Sean’s culinary journey, inspired by his upbringing in NYC and
+                Texas, reflects a deep connection to Filipino traditions and a
+                passion for exceptional food. After cooking for 15 years and
+                experiencing the highs and lows of fine dining, Sean founded
+                Dobo as a tribute to his heritage, aiming to combine his
+                culinary skills with a mission to highlight Filipino food. Join
+                us for a special evening of elevated Filipino dishes and
+                heartfelt hospitality, where each meal is crafted to make you
+                feel like family.
               </p>
               <p className="paragraph">
                 Since food and family are central to our culture, you’ll never
-                leave hungry after visiting a Filipino household. So I invite
+                leave hungry after visiting a Filipino household. So we invite
                 you to Dobo - an intimate Filipino-American dining experience
-                highlighting the recipes and flavors I was raised on.
+                highlighting the recipes and flavors Sean was raised on.
               </p>
-              <img className="signature" src={signature} alt="signature" />
-              <p className="paragraph">Sean Arguelles, creator of Dobo</p>
             </div>
           </div>
         </div>
