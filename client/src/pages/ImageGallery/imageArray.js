@@ -2,8 +2,6 @@ import img1 from "../../assets/images/1.jpg";
 import img2 from "../../assets/images/2.jpg";
 import img3 from "../../assets/images/3.jpg";
 import img4 from "../../assets/images/4.jpg";
-import img5 from "../../assets/images/5.jpg";
-import img6 from "../../assets/images/6.jpg";
 import img7 from "../../assets/images/7.jpg";
 import img8 from "../../assets/images/8.jpg";
 import img9 from "../../assets/images/9.jpg";
@@ -13,8 +11,6 @@ import img12 from "../../assets/images/12.jpg";
 import img13 from "../../assets/images/13.jpg";
 import img14 from "../../assets/images/14.jpg";
 import img15 from "../../assets/images/15.jpg";
-import img16 from "../../assets/images/16.jpg";
-import img17 from "../../assets/images/17.jpg";
 import img18 from "../../assets/images/18.jpg";
 import img19 from "../../assets/images/19.jpg";
 import img20 from "../../assets/images/20.jpg";
@@ -51,16 +47,6 @@ const images = [
     src: img4,
     height: 2395,
     width: 3583,
-  },
-  {
-    src: img5,
-    height: 540,
-    width: 808,
-  },
-  {
-    src: img6,
-    height: 540,
-    width: 808,
   },
   {
     src: img7,
@@ -106,16 +92,6 @@ const images = [
     src: img15,
     height: 540,
     width: 808,
-  },
-  {
-    src: img16,
-    height: 2016,
-    width: 1512,
-  },
-  {
-    src: img17,
-    height: 2016,
-    width: 1512,
   },
   {
     src: img18,
