@@ -11,35 +11,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const Layout = () => {
-  useEffect(() => {
-    /*
-    const handleResize = () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-    */
-    /*
-    function adjustViewportHeight() {
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight * 0.01}px`
-      );
-    }
-
-    // Adjust viewport height on load and resize
-    window.addEventListener("resize", adjustViewportHeight);
-    window.addEventListener("load", adjustViewportHeight);
-
-    // Call the function initially
-    adjustViewportHeight();
-    */
-  }, []);
-
   useGSAP(() => {
     let tl = gsap.timeline({
       scrollTrigger: {

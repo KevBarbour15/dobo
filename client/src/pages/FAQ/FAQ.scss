@@ -14,24 +14,6 @@
   margin-bottom: 32px;
   padding: 0;
   text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
-
-  ul {
-    margin: 0;
-    padding-left: 0;
-    list-style-position: inside;
-  }
-
-  li {
-    font-size: 17px;
-    font-weight: 600;
-    margin-top: 0;
-    margin-left: 0;
-    padding: 0;
-  }
-
-  p {
-    text-align: justify;
-  }
 }
 
 @media (max-width: 768px) {
@@ -47,9 +29,5 @@
     width: 315px;
     font-size: 15px;
     line-height: 1.35;
-  }
-
-  .faq-info-container li {
-    font-size: 16px;
   }
 }

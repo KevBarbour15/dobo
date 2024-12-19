@@ -7,25 +7,22 @@ import Menu from "../../components/Menu/Menu.jsx";
 import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
 // image imports
-import D from "../../assets/images/D.png";
-import O from "../../assets/images/O.png";
-import B from "../../assets/images/B.png";
+import D from "../../assets/images/logo-letters/D.png";
+import O from "../../assets/images/logo-letters/O.png";
+import B from "../../assets/images/logo-letters/B.png";
 
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useFadeIn(true, ".home-image-container", 1, 0);
-
   useGSAP(() => {
     const letters = gsap.utils.toArray(".home-logo");
-    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 75 : -75) });
+    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 15 : -15) });
 
-    let tl = gsap.timeline({ delay: 0.5, ease: "sine.out" });
+    let tl = gsap.timeline({ delay: 0.25, ease: "sine.out" });
     tl.fromTo(
       ".home-header-menu",
       { opacity: 0 },
@@ -33,7 +30,8 @@ const Home = () => {
       0.75
     )
       .to(letters, { opacity: 1, x: 0, stagger: 0.1, duration: 0.75 }, 0)
-      .from(".button-wrapper", { opacity: 0, duration: 0.5 }, 0.75);
+      .from(".home-text", { opacity: 0, duration: 0.25 }, 0.25)
+      .from(".button-wrapper", { opacity: 0, duration: 0.25 }, 0.5);
   });
 
   const toggleMenu = () => {
@@ -60,36 +58,37 @@ const Home = () => {
   return (
     <>
       <PageTransition />
+      <Menu isOpen={isMenuOpen} onClose={closeMenu} />
       <div className="home-container">
-        <div className="home-image-container">
-          <header className="home-header-container">
-            <Menu isOpen={isMenuOpen} onClose={closeMenu} />
-            <div className="home-header-menu-container">
-              <div className="home-header-menu">
-                <button
-                  onClick={toggleMenu}
-                  className={`home-menu-button ${isMenuOpen ? "open" : ""}`}
-                >
-                  <span className="material-icons">menu</span>
-                </button>
-              </div>
-            </div>
-          </header>
-          <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
-            <div className="logo-wrapper">
-              <img className="home-logo" src={D} alt="DOBO"></img>
-              <img className="home-logo" src={O} alt="DOBO"></img>
-              <img className="home-logo" src={B} alt="DOBO"></img>
-              <img className="home-logo" src={O} alt="DOBO"></img>
-            </div>
-            <div className="button-wrapper">
-              <Link className="home-button" to="/Attend">
-                ATTEND
-              </Link>
-            </div>
+        <button
+          onClick={toggleMenu}
+          className={`home-menu-button ${isMenuOpen ? "open" : ""}`}
+        >
+          <span className="material-icons">menu</span>
+        </button>
+
+        <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
+          <div className="logo-wrapper">
+            <img className="home-logo" src={D} alt="DOBO"></img>
+            <img className="home-logo" src={O} alt="DOBO"></img>
+            <img className="home-logo" src={B} alt="DOBO"></img>
+            <img className="home-logo" src={O} alt="DOBO"></img>
+          </div>
+          <p className="home-text">
+            Join us for a unique Filipino dining experience, featuring
+            time-honored recipes elevated to new heights.
+          </p>
+          <div className="button-wrapper">
+            <Link
+              className="home-button"
+              to="/attend"
+              aria-label="Book a time to attend."
+              role="button"
+            >
+              ATTEND
+            </Link>
           </div>
         </div>
-        <div className="home-empty-footer"></div>
       </div>
     </>
   );

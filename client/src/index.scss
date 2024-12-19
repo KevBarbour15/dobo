@@ -10,14 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  //font-family: "Nunito Sans", sans-serif;
-  //font-family: "Friz Quadrata", sans-serif;
-  //background: #eee6de;
-  //background: #ebe2d9;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.025em;
   background: black;
-  letter-spacing: 1px;
   scroll-behavior: smooth;
+  text-wrap: pretty;
 }
 
 code {
@@ -25,9 +22,46 @@ code {
     monospace;
 }
 
-@font-face {
-  font-family: 'Friz Quadrata';
-  src: url('./assets/fonts/friz.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+// Reset box-sizing for all elements
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Improve text rendering
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+// Make images responsive by default
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Better link underlines
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  color: inherit;
+}
+
+// Improve form element consistency
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+// Remove list styles by default
+ul,
+ol {
+  list-style: none;
 }

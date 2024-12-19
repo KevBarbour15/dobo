@@ -1,23 +1,23 @@
 .attend-info-container {
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 0 32px 0;
 }
 
 .attend-text {
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
-  padding: 0 32px 32px 32px;
-  margin: 0;
-  font-size: 16px;
+  gap: 16px;
+  font-size: 20px;
   line-height: 1.5;
   text-align: justify;
   text-shadow: 0 1.5px 1.75px rgba(0, 0, 0, 0.35);
+  padding: 32px 0;
 }
 
 .attend-text-italic {
@@ -25,51 +25,19 @@
 }
 
 .inquiry-form {
-  opacity: 1;
+  width: 500px;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
-}
-
-.inquiry-form form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 32px 0;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
-  .attend-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-  }
-
   .attend-text {
     width: 100%;
-    text-align: justify;
-    line-height: 1.35;
-    font-size: 16px;
+    padding: 16px 0;
   }
 
-  .inquiry-form form {
-    align-items: center;
-    justify-content: center;
-    width: 315px;
-  }
-
-  .inquiry-form textarea {
-    height: 150px;
-  }
-
-  .subscribe-container {
-    width: 300px;
-  }
-
-  .subscribe-text {
-    width: 75%;
-    font-size: 14px;
-    line-height: 1.35;
+  .inquiry-form {
+    width: 100%;
   }
 }

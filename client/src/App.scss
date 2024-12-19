@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
-  min-height: calc(100vh - 108px);
+  min-height: 100dvh;
   position: relative;
 }
 
@@ -13,7 +12,7 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* For the contact icons */
@@ -75,22 +74,19 @@
   align-items: center;
   box-sizing: border-box;
   font-size: 14px;
-  width: 117.5px;
-  height: 38px;
+  padding: 8px 20px;
   border: 1px solid black;
   border-radius: 3px;
   color: black;
   background: #f2f1f0;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-transform: uppercase;
   box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
 }
 
 .button:hover {
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
   box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.65);
 }
 
@@ -102,7 +98,6 @@
 .form-element-container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 }
 
 .form-element {
@@ -110,15 +105,14 @@
   appearance: none;
   opacity: 1;
   box-sizing: border-box;
-  width: 300px;
   border: 1px solid black;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 16px;
   border-radius: 3px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: #f2f1f0;
   font-size: 14px;
   box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 500px;
 }
 
 .form-element:focus {
@@ -130,13 +124,6 @@
 
 .form-element:hover {
   cursor: pointer;
-}
-
-.form-element::placeholder,
-textarea::placeholder,
-.default-option::placeholder {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
 }
 
 input {
@@ -223,12 +210,6 @@ label {
   }
 }
 
-@media (min-width: 1600px) {
-  .image-container {
-    width: 75%;
-  }
-}
-
 @media (max-width: 768px) {
   .page-left {
     display: none;
@@ -236,10 +217,6 @@ label {
 
   .page-bottom {
     height: auto;
-  }
-
-  .form-element {
-    width: 300px;
   }
 
   .button:hover {
@@ -251,5 +228,38 @@ label {
     color: black;
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
   }
 }

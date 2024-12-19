@@ -26,36 +26,36 @@
   visibility: visible;
 }
 
-.menu-close-button-container,
-.login-button-container {
-  display: flex;
-  width: 100%;
-}
-
 .menu-close-button,
 .menu-login-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
+  position: absolute;
+  left: 16px;
   background: none;
-  height: 55px;
-  width: 40px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-close-button {
+  top: 16px;
+}
+
+.menu-login-button {
+  bottom: 16px;
 }
 
 .menu-close-button span,
 .menu-login-button span {
-  font-size: 20px;
-  transition: all 0.35s ease-in-out;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
   color: #f2f1f0;
-  cursor: pointer;
   margin: 0;
   text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .menu-close-button span:hover,
 .menu-login-button span:hover {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 .menu-links-container {

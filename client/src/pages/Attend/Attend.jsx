@@ -54,7 +54,7 @@ const Attend = () => {
     });
 
     const p2 = new SplitText(".subscribe-text", {
-      type: "words",
+      type: "lines",
     });
 
     let formTl = gsap.timeline({ ease: "sine.out" });
@@ -91,7 +91,7 @@ const Attend = () => {
         0
       )
       .from(
-        p2.words,
+        p2.lines,
         {
           y: 75,
           opacity: 0,
@@ -250,124 +250,123 @@ const Attend = () => {
 
         <div className="page-bottom">
           <PageTitle title={"attend"} />
-          <div className="attend-info-container">
+          <div className="attend-info-container container">
             <div className="attend-text">
-              Please fill out the form to secure your place at a Dobo event.
-              We’ll follow up with more information.{" "}
-              <span className="attend-text-italic">
-                Limited seating available.
-              </span>
+              <p>
+                Please fill out the form to secure your place at a Dobo event.
+                We’ll follow up with more information.{" "}
+              </p>
+              <p className="attend-text-italic">Limited seating available.</p>
             </div>
 
-            <div className="inquiry-form">
-              <form
-                onSubmit={handleFormSubmit}
-                acceptCharset="utf-8"
-                action="https://formspree.io/f/xdoqpwrb"
-                method="post"
-              >
-                <div className="form-element-container">
-                  <select
-                    className="form-element"
-                    value={selectedEventId}
-                    onChange={handleSelectChange}
-                    required
-                  >
-                    <option className="default-option" value="" disabled hidden>
-                      Select a date:
+            <form
+              className="inquiry-form"
+              onSubmit={handleFormSubmit}
+              acceptCharset="utf-8"
+              action="https://formspree.io/f/xdoqpwrb"
+              method="post"
+            >
+              <div className="form-element-container">
+                <select
+                  className="form-element"
+                  value={selectedEventId}
+                  onChange={handleSelectChange}
+                  required
+                >
+                  <option className="default-option" value="" disabled hidden>
+                    Select a date:
+                  </option>
+                  {futureEvents.map((event) => (
+                    <option
+                      className="selected-option"
+                      key={event._id}
+                      value={event._id}
+                    >
+                      {convertDateReadability(event.date)}
+                      {event.seatsRemaining > 0
+                        ? " at " + convertMilitaryTime(event.time)
+                        : " - SOLD OUT"}
                     </option>
-                    {futureEvents.map((event) => (
-                      <option
-                        className="selected-option"
-                        key={event._id}
-                        value={event._id}
-                      >
-                        {convertDateReadability(event.date)}
-                        {event.seatsRemaining > 0
-                          ? " at " + convertMilitaryTime(event.time)
-                          : " - SOLD OUT"}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="First Name"
-                    value={firstName}
-                    placeholder="First name:"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="firstName"
-                  field="firstName"
-                  errors={state.errors}
+                  ))}
+                </select>
+              </div>
+              <div className="form-element-container">
+                <input
+                  className="form-element"
+                  type="text"
+                  //name="First Name"
+                  value={firstName}
+                  placeholder="First name:"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="Last Name"
-                    value={lastName}
-                    placeholder="Last name:"
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="lastName"
-                  field="lastName"
-                  errors={state.errors}
+              </div>
+              <ValidationError
+                prefix="firstName"
+                field="firstName"
+                errors={state.errors}
+              />
+              <div className="form-element-container">
+                <input
+                  className="form-element"
+                  type="text"
+                  //name="Last Name"
+                  value={lastName}
+                  placeholder="Last name:"
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
                 />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="Email:"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
+              </div>
+              <ValidationError
+                prefix="lastName"
+                field="lastName"
+                errors={state.errors}
+              />
+              <div className="form-element-container">
+                <input
+                  className="form-element"
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="Email:"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
-                <div className="form-element-container">
-                  <textarea
-                    className="form-element"
-                    type="text"
-                    value={message}
-                    name="message"
-                    required
-                    placeholder="Please include number of guests, allergies and any other questions:"
-                    onChange={(e) => setMessage(e.target.value)}
+              </div>
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+              <div className="form-element-container">
+                <textarea
+                  className="form-element"
+                  type="text"
+                  value={message}
+                  name="message"
+                  required
+                  placeholder="Please include number of guests, allergies and any other questions:"
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
+              <input type="hidden" name="Date" />
+              <div className="form-element-container checkbox-container">
+                {
+                  <Checkbox
+                    text={
+                      "Subscribe to receive alerts when new events are posted."
+                    }
+                    isSelected={isChecked}
+                    onCheckboxChange={handleCheckboxChange}
                   />
-                </div>
-                <input type="hidden" name="Date" />
-                <div className="form-element-container">
-                  {
-                    <Checkbox
-                      text={
-                        "Subscribe to receive alerts when new events are posted."
-                      }
-                      isSelected={isChecked}
-                      onCheckboxChange={handleCheckboxChange}
-                    />
-                  }
-                </div>
-                <div className="form-element-container">
-                  <button className="button" type="submit">
-                    submit
-                  </button>
-                </div>
-              </form>
-            </div>
+                }
+              </div>
+              <div className="form-element-container">
+                <button className="button" type="submit">
+                  submit
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

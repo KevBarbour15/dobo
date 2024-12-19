@@ -21,40 +21,22 @@ const About = () => {
 
   useGSAP(() => {
     const p = new SplitText(".about-text p", {
-      type: "lines",
+      type: "words",
     });
 
     let tl = gsap.timeline({ ease: "sine.out" });
-    tl.from(
-      p.lines,
-      {
-        x: (i) => (i % 2 === 0 ? 25 : -25),
-        opacity: 0,
-        stagger: 0.1,
-        //rotationX: 45,
-        scrollTrigger: {
-          trigger: ".about-text",
-          start: "top 70%",
-          end: "top 40%",
-          scrub: 1,
-        },
+    tl.from(p.words, {
+      x: (i) => (i % 2 === 0 ? 25 : -25),
+      opacity: 0,
+      stagger: 0.1,
+      //rotationX: 45,
+      scrollTrigger: {
+        trigger: ".about-text",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: 1,
       },
-      0
-    ).from(
-      ".signature",
-      {
-        opacity: 0,
-        delay: 0.5,
-        rotationX: 90,
-        scrollTrigger: {
-          trigger: ".about-text",
-          start: "top 50%",
-          end: "top +=100",
-          scrub: 1,
-        },
-      },
-      1
-    );
+    });
   });
 
   return (
@@ -68,9 +50,9 @@ const About = () => {
 
         <div className="page-bottom">
           <PageTitle title={"about"} />
-          <div className="about-info-container">
+          <div className="about-info-container container">
             <div className="about-text">
-              <p className="paragraph">
+              <p>
                 Sean’s culinary journey, inspired by his upbringing in NYC and
                 Texas, reflects a deep connection to Filipino traditions and a
                 passion for exceptional food. After cooking for 15 years and
@@ -81,7 +63,7 @@ const About = () => {
                 heartfelt hospitality, where each meal is crafted to make you
                 feel like family.
               </p>
-              <p className="paragraph">
+              <p>
                 Since food and family are central to our culture, you’ll never
                 leave hungry after visiting a Filipino household. So we invite
                 you to Dobo - an intimate Filipino-American dining experience

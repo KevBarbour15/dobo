@@ -72,7 +72,7 @@ const ImageGallery = () => {
           <Loading />
         </div>
       ) : (
-        <div className="gallery-container">
+        <div className="gallery-container container">
           <PhotoAlbum
             photos={images}
             onClick={({ index }) => setIndex(index)}

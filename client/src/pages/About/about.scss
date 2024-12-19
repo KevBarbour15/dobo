@@ -1,46 +1,10 @@
-.about-info-container {
-  width: 50%;
-  display: flex;
-  align-items: center;
-}
-
 .about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   font-size: 18px;
-  line-height: 1.5;
   text-align: left;
   margin-bottom: 32px;
   text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
-}
-
-.about-text p {
-  margin-top: 0;
-}
-
-.signature {
-  height: auto;
-  width: 225px;
-  margin-bottom: 8px;
-  filter: drop-shadow(0 1.25px 1.5px rgba(0, 0, 0, 0.3));
-}
-
-.paragraph-1 {
-  margin-top: 0;
-}
-
-.paragraph-3 {
-  margin: 50px 0;
-}
-
-@media (max-width: 768px) {
-  .about-info-container {
-    height: auto;
-    width: 315px;
-  }
-
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    line-height: 1.35;
-  }
+  line-height: 1.5;
 }
