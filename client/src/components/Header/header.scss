@@ -27,10 +27,7 @@
   border: none;
   padding-left: 14px;
   color: #f2f1f0;
-  text-shadow: 0 2.25px 2.5px rgba(0, 0, 0, 0.5);
-  span {
-    font-size: 24px;
-  }
+  text-shadow: 0 1.75px 2.75px rgba(0, 0, 0, 1);
 }
 
 .menu-button.open {
@@ -50,7 +47,6 @@
 
 .header-title-container.open .header-title {
   filter: blur(50px);
-  
 }
 
 .header-title {

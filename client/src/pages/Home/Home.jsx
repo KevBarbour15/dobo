@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 // component imports
 import Menu from "../../components/Menu/Menu.jsx";
-import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
 // image imports
 import D from "../../assets/images/logo-letters/D.png";
@@ -57,7 +56,6 @@ const Home = () => {
 
   return (
     <>
-      <PageTransition />
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
       <div className="home-container">
         <button

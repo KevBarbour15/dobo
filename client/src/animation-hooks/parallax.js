@@ -5,75 +5,101 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const useParallax = () => {
   useGSAP(() => {
-    // starting point varies for mobile and desktop
-    const start = window.matchMedia("(max-width: 768px)").matches ? "center 45%" : "center center";
-
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    let titleSplitUpper = new SplitText(".page-title", {
-      type: "chars",
-    });
-
-    let titleSplitLower = new SplitText(".title", {
-      type: "chars",
-    });
-
     // Initial animation for titleSplitUpper on page load
-    gsap.from(titleSplitUpper.chars, {
-      delay: 0.25,
-      opacity: 0,
-      stagger: 0.1,
-      duration: 0.5,
-      x: (i) => (i % 2 === 0 ? 75 : -75),
-      onComplete: () => {
-        let scrollTl = gsap.timeline({
-          ease: "sine.out",
-        });
+    let tl = gsap.timeline({
+      ease: "linear",
+    });
 
-        scrollTl
-          .to(".image-layer", {
-            opacity: 0,
-            scale: 1.35,
-            scrollTrigger: {
-              scrub: 1,
-              trigger: ".image-layer",
-              start: "center center",
-              end: "+=850",
-              pin: true,
-            },
-          })
-          .to(titleSplitUpper.chars, {
-            x: (i) => (i % 2 === 0 ? 75 : -75),
-            opacity: 0,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: ".page-title",
-              pin: true,
-              start: start,
-              end: "center top",
-              scrub: 1,
-            },
-          })
-          .from(".title-container", {
-            opacity: 0,
-            scrollTrigger: {
-              trigger: ".title-container",
-              start: "top bottom",
-              end: "top center",
-              scrub: 1,
-            },
-          })
-          .from(titleSplitLower.chars, {
-            opacity: 0,
-            stagger: 0.15,
-            x: (i) => (i % 2 === 0 ? 75 : -75),
-            scrollTrigger: {
-              trigger: ".title-container",
-              start: "top bottom",
-              end: "top center",
-              scrub: 1,
-            },
+    tl.to(".title", {
+      scrollTrigger: {
+        trigger: ".title-container",
+        start: "top bottom",
+        end: "center center",
+        scrub: 1,
+        onLeave: function () {
+          gsap.set(".title", {
+            position: "absolute",
           });
+          let titleTl = gsap.timeline({
+            ease: "linear",
+          });
+          titleTl
+            .to(".splash-image", {
+              clipPath: "inset(0 100% 0 100%)",
+            })
+            .to(
+              ".title",
+              {
+                color: "black",
+                textShadow: "0 0px 0px rgba(0, 0, 0, 0)",
+                duration: 0.5,
+                fontSize: "64px",
+              },
+              0
+            )
+            .to(
+              ".title-container",
+              {
+                borderTop: "1px solid black",
+                borderBottom: "1px solid black",
+                duration: 0.5,
+              },
+              0
+            )
+            .to(
+              ".menu-button",
+              {
+                color: "black",
+                duration: 0.3,
+              },
+              0
+            );
+        },
+        onEnterBack: function () {
+          let titleTl = gsap.timeline({
+            ease: "linear",
+          });
+          titleTl
+            .to(".splash-image", {
+              clipPath: "inset(0 0% 0 0%)",
+            })
+            .set(
+              ".title",
+              {
+                position: "fixed",
+              },
+              0
+            )
+            .to(
+              ".title",
+              {
+                color: "#f2f1f0",
+                duration: 0.3,
+                textShadow: "0 1.75px 2.75px rgba(0, 0, 0, 0.75)",
+                fontSize: "98px",
+              },
+              0
+            )
+            .to(
+              ".title-container",
+              {
+                borderTop: "1px solid transparent",
+                borderBottom: "1px solid transparent",
+                duration: 0.3,
+              },
+              0
+            )
+            .to(
+              ".menu-button",
+              {
+                color: "#f2f1f0",
+                duration: 0.3,
+              },
+              0
+            );
+        },
       },
     });
   });

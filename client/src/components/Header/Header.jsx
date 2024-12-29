@@ -7,6 +7,8 @@ import Menu from "../Menu/Menu.jsx";
 // image imports
 import logo from "../../assets/images/logo-black.png";
 
+import { Menu as MenuIcon } from "lucide-react";
+
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -46,14 +48,13 @@ const Header = () => {
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <span className="material-icons">menu</span>
+            <MenuIcon />
           </button>
         </div>
       </div>
       <div className={`header-title-container ${isMenuOpen ? "open" : ""}`}>
         <img className="header-title" src={logo} alt="DOBO" />
       </div>
-      <div className="invisible-element"></div>
     </header>
   );
 };
