@@ -1,7 +1,9 @@
 /* GLOBAL STYLES */
 .page-container {
-  display: block;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .splash-image {
@@ -9,24 +11,13 @@
   height: 100dvh;
   background-position: center;
   background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .page-content {
   padding-top: 32px;
   padding-bottom: 32px;
-  min-height: calc(100dvh - 100px);
-  height: auto;
-  margin-top: 100dvh;
-}
-
-.page-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100dvh;
+  height: auto;
 }
 
 /* For the contact icons */

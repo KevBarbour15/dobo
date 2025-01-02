@@ -28,7 +28,7 @@ const faqData = [
   {
     question: "What is the cost of the dinner?",
     answer:
-      "The dinner costs $150 per person. If you'd like to enjoy wine pairing with your meal, it's an additional $20.",
+      "The dinner costs $160 per person. If you'd like to enjoy wine pairing with your meal, it's an additional $20.",
   },
   {
     question: "Does the cost include a tip?",

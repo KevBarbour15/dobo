@@ -83,7 +83,7 @@ const Home = () => {
               aria-label="Book a time to attend."
               role="button"
             >
-              ATTEND
+              <span>Attend</span>
             </Link>
           </div>
         </div>

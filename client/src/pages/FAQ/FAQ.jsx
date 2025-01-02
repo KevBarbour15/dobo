@@ -30,24 +30,20 @@ const FAQ = () => {
 
     faqItems.forEach((item, index) => {
       gsap.set(item, {
-        x: () => {
-          if (index % 2 === 0) {
-            return "-150%";
-          } else {
-            return "150%";
-          }
-        },
+        y: 25,
+        opacity: 0,
       });
     });
 
     faqItems.forEach((item) => {
       gsap.to(item, {
         delay: 0.15,
-        duration: 0.75,
-        x: 0,
+        duration: 0.5,
+        y: 0,
+        opacity: 1,
         scrollTrigger: {
           trigger: item,
-          start: "top bottom-=100",
+          start: "top bottom-=25",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -63,7 +59,6 @@ const FAQ = () => {
         >
           &nbsp;
         </div>
-
         <PageTitle title={"FAQ"} />
         <div className="container">
           <div className="page-content">

@@ -69,24 +69,20 @@
 }
 
 .menu-link {
-  font-size: 25px;
-  line-height: 1.95;
+  font-size: 24px;
+  line-height: 2;
   color: #f2f1f0;
   text-decoration: none;
   margin: -0.4rem;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   font-weight: 700;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.5);
 }
 
 .menu-link:active,
 .menu-link:hover {
-  transform: scale(1.45);
-  font-weight: normal;
-  -webkit-text-stroke: 0.75px #f2f1f0;
-  color: transparent;
-  font-weight: 700;
+  transform: scale(1.5);
 }
 
 .link-wrapper {

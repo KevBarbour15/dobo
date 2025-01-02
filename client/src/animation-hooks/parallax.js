@@ -15,7 +15,7 @@ const useParallax = () => {
     tl.to(".title", {
       scrollTrigger: {
         trigger: ".title-container",
-        start: "top bottom",
+        start: "center bottom",
         end: "center center",
         scrub: 1,
         onLeave: function () {
@@ -26,9 +26,6 @@ const useParallax = () => {
             ease: "linear",
           });
           titleTl
-            .to(".splash-image", {
-              clipPath: "inset(0 100% 0 100%)",
-            })
             .to(
               ".title",
               {
@@ -62,9 +59,6 @@ const useParallax = () => {
             ease: "linear",
           });
           titleTl
-            .to(".splash-image", {
-              clipPath: "inset(0 0% 0 0%)",
-            })
             .set(
               ".title",
               {

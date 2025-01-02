@@ -4,6 +4,10 @@ import "./attend.scss";
 // axios imports
 import axios from "../../axiosConfig.jsx";
 
+// image imports
+import attendImage from "../../assets/images/attend.jpg";
+import attendVert from "../../assets/images/about-vert.jpg";
+
 // helper function imports
 import {
   convertDateReadability,
@@ -241,130 +245,146 @@ const Attend = () => {
   return (
     <>
       <div className="page-container">
-        <div className="parallax">
-          <div className="attend-layer image-layer"></div>
+        <div
+          className="splash-image"
+          style={{ backgroundImage: `url(${attendImage})` }}
+        >
+          &nbsp;
         </div>
 
-        <div className="page-bottom">
-          <PageTitle title={"attend"} />
-          <div className="container">
-            <div className="page-content">
-              <div className="attend-text">
-                <p>
-                  Please fill out the form to secure your place at a Dobo event.
-                  We’ll follow up with more information.{" "}
-                </p>
-                <p className="attend-text-italic">Limited seating available.</p>
-              </div>
+        <PageTitle title={"Attend"} />
 
-              <form
-                className="inquiry-form"
-                onSubmit={handleFormSubmit}
-                acceptCharset="utf-8"
-                action="https://formspree.io/f/xdoqpwrb"
-                method="post"
-              >
-                <div className="form-element-container">
-                  <select
-                    className="form-element"
-                    value={selectedEventId}
-                    onChange={handleSelectChange}
-                    required
-                  >
-                    <option className="default-option" value="" disabled hidden>
-                      Select a date:
-                    </option>
-                    {futureEvents.map((event) => (
+        <div className="container">
+          <div className="page-content">
+            <div className="attend-container">
+              <div className="attend-image">
+                <img src={attendVert} alt="attend" />
+              </div>
+              <div className="attend-info-container">
+                <div className="attend-text">
+                  <p>
+                    Please fill out the form to secure your place at a Dobo
+                    event. We’ll follow up with more information.{" "}
+                  </p>
+                  <p className="attend-text-italic">
+                    Limited seating available.
+                  </p>
+                </div>
+
+                <form
+                  className="inquiry-form"
+                  onSubmit={handleFormSubmit}
+                  acceptCharset="utf-8"
+                  action="https://formspree.io/f/xdoqpwrb"
+                  method="post"
+                >
+                  <div className="form-element-container">
+                    <select
+                      className="form-element"
+                      value={selectedEventId}
+                      onChange={handleSelectChange}
+                      required
+                    >
                       <option
-                        className="selected-option"
-                        key={event._id}
-                        value={event._id}
+                        className="default-option"
+                        value=""
+                        disabled
+                        hidden
                       >
-                        {convertDateReadability(event.date)}
-                        {event.seatsRemaining > 0
-                          ? " at " + convertMilitaryTime(event.time)
-                          : " - SOLD OUT"}
+                        Select a date:
                       </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="First Name"
-                    value={firstName}
-                    placeholder="First name:"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="firstName"
-                  field="firstName"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="Last Name"
-                    value={lastName}
-                    placeholder="Last name:"
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="lastName"
-                  field="lastName"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="Email:"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <textarea
-                    className="form-element"
-                    type="text"
-                    value={message}
-                    name="message"
-                    required
-                    placeholder="Please include number of guests, allergies and any other questions:"
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
-                <input type="hidden" name="Date" />
-                <div className="form-element-container checkbox-container">
-                  {
-                    <Checkbox
-                      text={
-                        "Subscribe to receive alerts when new events are posted."
-                      }
-                      isSelected={isChecked}
-                      onCheckboxChange={handleCheckboxChange}
+                      {futureEvents.map((event) => (
+                        <option
+                          className="selected-option"
+                          key={event._id}
+                          value={event._id}
+                        >
+                          {convertDateReadability(event.date)}
+                          {event.seatsRemaining > 0
+                            ? " at " + convertMilitaryTime(event.time)
+                            : " - SOLD OUT"}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="text"
+                      //name="First Name"
+                      value={firstName}
+                      placeholder="First name:"
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
                     />
-                  }
-                </div>
-                <div className="form-element-container">
-                  <button className="button" type="submit">
-                    submit
-                  </button>
-                </div>
-              </form>
+                  </div>
+                  <ValidationError
+                    prefix="firstName"
+                    field="firstName"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="text"
+                      //name="Last Name"
+                      value={lastName}
+                      placeholder="Last name:"
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <ValidationError
+                    prefix="lastName"
+                    field="lastName"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="email"
+                      name="email"
+                      value={email}
+                      placeholder="Email:"
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <textarea
+                      className="form-element"
+                      type="text"
+                      value={message}
+                      name="message"
+                      required
+                      placeholder="Please include number of guests, allergies and any other questions:"
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                  </div>
+                  <input type="hidden" name="Date" />
+                  <div className="form-element-container checkbox-container">
+                    {
+                      <Checkbox
+                        text={
+                          "Subscribe to receive alerts when new events are posted."
+                        }
+                        isSelected={isChecked}
+                        onCheckboxChange={handleCheckboxChange}
+                      />
+                    }
+                  </div>
+                  <div className="form-element-container">
+                    <button className="button" type="submit">
+                      submit
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
