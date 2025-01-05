@@ -1,23 +1,40 @@
-.attend-info-container {
+.attend-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  position: relative;
+}
+
+.attend-image {
+  padding-right: 16px;
+  flex-basis: 50%;
+}
+
+.attend-image img {
+  margin: auto;
+  border: 1px solid black;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.attend-info-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-basis: 50%;
+  padding: 0 32px;
 }
 
 .attend-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
-  padding: 0 32px 32px 32px;
-  margin: 0;
-  font-size: 16px;
+  gap: 16px;
+  font-size: 22px;
   line-height: 1.5;
-  text-align: justify;
-  text-shadow: 0 1.5px 1.75px rgba(0, 0, 0, 0.35);
+  text-wrap: pretty;
+  margin-bottom: 16px;
 }
 
 .attend-text-italic {
@@ -25,51 +42,32 @@
 }
 
 .inquiry-form {
-  opacity: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
-}
-
-.inquiry-form form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 32px 0;
+  gap: 8px;
 }
 
 @media (max-width: 768px) {
-  .attend-info-container {
-    display: flex;
+  .attend-container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
+  }
+
+  .attend-image {
+    padding-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .attend-info-container {
+    flex-basis: 100%;
+    padding: 0;
   }
 
   .attend-text {
     width: 100%;
-    text-align: justify;
-    line-height: 1.35;
-    font-size: 16px;
+    font-size: 18px;
   }
 
-  .inquiry-form form {
-    align-items: center;
-    justify-content: center;
-    width: 315px;
-  }
-
-  .inquiry-form textarea {
-    height: 150px;
-  }
-
-  .subscribe-container {
-    width: 300px;
-  }
-
-  .subscribe-text {
-    width: 75%;
-    font-size: 14px;
-    line-height: 1.35;
+  .inquiry-form {
+    width: 100%;
   }
 }

@@ -1,5 +1,4 @@
 import "./App.scss";
-import "./parallax.scss";
 
 // page imports
 import Layout from "./pages/Layout/Layout";
@@ -36,12 +35,12 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/" element={<Layout />}>
-              <Route path="About" element={<About />} />
-              <Route path="FAQ" element={<FAQ />} />
-              <Route path="Attend" element={<Attend />} />
-              <Route path="Gallery" element={<ImageGallery />} />
+              <Route path="about" element={<About />} />
+              <Route path="faq" element={<FAQ />} />
+              <Route path="attend" element={<Attend />} />
+              <Route path="gallery" element={<ImageGallery />} />
             </Route>
-            <Route path="/EventDash" element={<EventDash />} />
+            <Route path="/eventdash" element={<EventDash />} />
           </Routes>
         </div>
       </Router>

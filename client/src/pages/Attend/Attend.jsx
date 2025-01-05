@@ -4,6 +4,10 @@ import "./attend.scss";
 // axios imports
 import axios from "../../axiosConfig.jsx";
 
+// image imports
+import attendImage from "../../assets/images/attend.jpg";
+import attendVert from "../../assets/images/attend-vert.jpg";
+
 // helper function imports
 import {
   convertDateReadability,
@@ -13,13 +17,12 @@ import {
 // component imports
 import Checkbox from "../../components/Checkbox/Checkbox.jsx";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
-import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 
 // animation imports
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/parallax.js";
+import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 // notifications imports
@@ -45,61 +48,7 @@ const Attend = () => {
 
   // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
-  useParallax();
-
-  useGSAP(() => {
-    // attend form and text animation
-    const p = new SplitText(".attend-text", {
-      type: "lines",
-    });
-
-    const p2 = new SplitText(".subscribe-text", {
-      type: "words",
-    });
-
-    let formTl = gsap.timeline({ ease: "sine.out" });
-
-    formTl
-      .from(
-        p.lines,
-        {
-          x: (i) => (i % 2 === 0 ? 50 : -50),
-          opacity: 0,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: ".attend-text",
-            start: "top 70%",
-            end: "top 50%",
-            scrub: 2,
-          },
-        },
-        0
-      )
-      .from(
-        ".form-element-container",
-        {
-          opacity: 0,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: ".form-element-container",
-            start: "top 70%",
-            end: "top 50%",
-            scrub: 2,
-          },
-          x: (i) => (i % 2 === 0 ? 50 : -50),
-        },
-        0
-      )
-      .from(
-        p2.words,
-        {
-          y: 75,
-          opacity: 0,
-          stagger: 0.1,
-        },
-        0
-      );
-  });
+  usePageScroll();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -239,134 +188,218 @@ const Attend = () => {
     setIsChecked(!isChecked);
   };
 
+  useGSAP(() => {
+    const p = new SplitText(".attend-text p", {
+      type: "lines",
+    });
+
+    gsap.set(".attend-image", {
+      y: 50,
+      opacity: 0,
+    });
+
+    gsap.set(".form-element-container", {
+      y: 50,
+      opacity: 0,
+    });
+
+    p.lines.forEach((line) => {
+      gsap.set(line, {
+        y: 50,
+        opacity: 0,
+      });
+    });
+
+    gsap.to(".attend-image", {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      delay: 0.35,
+      ease: "sine.inOut",
+      scrollTrigger: {
+        trigger: ".attend-image",
+        start: "top bottom-=100",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    // Animate text lines
+    p.lines.forEach((line) => {
+      gsap.to(line, {
+        opacity: 1,
+        y: 0,
+        duration: 0.35,
+        delay: 0.35,
+        ease: "sine.inOut",
+        scrollTrigger: {
+          trigger: line,
+          start: "top bottom-=100",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    });
+
+    // Animate form elements
+    gsap.to(".form-element-container", {
+      opacity: 1,
+      y: 0,
+      duration: 0.35,
+      delay: 0.35,
+      ease: "sine.inOut",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".inquiry-form",
+        start: "top bottom-=100",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+  });
+
   return (
     <>
-      <PageTransition />
       <div className="page-container">
-        <div className="parallax">
-          <div className="attend-layer image-layer"></div>
-          <div className="page-title">ATTEND</div>
+        <div className="splash-image-container">
+          <div
+            className="splash-image"
+            style={{ backgroundImage: `url(${attendImage})` }}
+          >
+            &nbsp;
+          </div>
         </div>
 
-        <div className="page-bottom">
-          <PageTitle title={"attend"} />
-          <div className="attend-info-container">
-            <div className="attend-text">
-              Please fill out the form to secure your place at a Dobo event.
-              We’ll follow up with more information.{" "}
-              <span className="attend-text-italic">
-                Limited seating available.
-              </span>
-            </div>
+        <PageTitle title={"Attend"} />
 
-            <div className="inquiry-form">
-              <form
-                onSubmit={handleFormSubmit}
-                acceptCharset="utf-8"
-                action="https://formspree.io/f/xdoqpwrb"
-                method="post"
-              >
-                <div className="form-element-container">
-                  <select
-                    className="form-element"
-                    value={selectedEventId}
-                    onChange={handleSelectChange}
-                    required
-                  >
-                    <option className="default-option" value="" disabled hidden>
-                      Select a date:
-                    </option>
-                    {futureEvents.map((event) => (
+        <div className="container">
+          <div className="page-content">
+            <div className="attend-container">
+              <div className="attend-image">
+                <img src={attendVert} alt="attend" />
+              </div>
+              <div className="attend-info-container">
+                <div className="attend-text">
+                  <p>
+                    Please fill out the form to secure your place at a Dobo
+                    event. We’ll follow up with more information.{" "}
+                  </p>
+                  <p className="attend-text-italic">
+                    Limited seating available. $160 per seat.
+                  </p>
+                </div>
+
+                <form
+                  className="inquiry-form"
+                  onSubmit={handleFormSubmit}
+                  acceptCharset="utf-8"
+                  action="https://formspree.io/f/xdoqpwrb"
+                  method="post"
+                >
+                  <div className="form-element-container">
+                    <select
+                      className="form-element"
+                      value={selectedEventId}
+                      onChange={handleSelectChange}
+                      required
+                    >
                       <option
-                        className="selected-option"
-                        key={event._id}
-                        value={event._id}
+                        className="default-option"
+                        value=""
+                        disabled
+                        hidden
                       >
-                        {convertDateReadability(event.date)}
-                        {event.seatsRemaining > 0
-                          ? " at " + convertMilitaryTime(event.time)
-                          : " - SOLD OUT"}
+                        Select a date:
                       </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="First Name"
-                    value={firstName}
-                    placeholder="First name:"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="firstName"
-                  field="firstName"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="text"
-                    //name="Last Name"
-                    value={lastName}
-                    placeholder="Last name:"
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="lastName"
-                  field="lastName"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <input
-                    className="form-element"
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="Email:"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                />
-                <div className="form-element-container">
-                  <textarea
-                    className="form-element"
-                    type="text"
-                    value={message}
-                    name="message"
-                    required
-                    placeholder="Please include number of guests, allergies and any other questions:"
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
-                <input type="hidden" name="Date" />
-                <div className="form-element-container">
-                  {
-                    <Checkbox
-                      text={
-                        "Subscribe to receive alerts when new events are posted."
-                      }
-                      isSelected={isChecked}
-                      onCheckboxChange={handleCheckboxChange}
+                      {futureEvents.map((event) => (
+                        <option
+                          className="selected-option"
+                          key={event._id}
+                          value={event._id}
+                        >
+                          {convertDateReadability(event.date)}
+                          {event.seatsRemaining > 0
+                            ? " at " + convertMilitaryTime(event.time)
+                            : " - SOLD OUT"}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="text"
+                      //name="First Name"
+                      value={firstName}
+                      placeholder="First name:"
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
                     />
-                  }
-                </div>
-                <div className="form-element-container">
-                  <button className="button" type="submit">
-                    submit
-                  </button>
-                </div>
-              </form>
+                  </div>
+                  <ValidationError
+                    prefix="firstName"
+                    field="firstName"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="text"
+                      //name="Last Name"
+                      value={lastName}
+                      placeholder="Last name:"
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <ValidationError
+                    prefix="lastName"
+                    field="lastName"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <input
+                      className="form-element"
+                      type="email"
+                      name="email"
+                      value={email}
+                      placeholder="Email:"
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
+                  <div className="form-element-container">
+                    <textarea
+                      className="form-element"
+                      type="text"
+                      value={message}
+                      name="message"
+                      required
+                      placeholder="Please include number of guests, allergies and any other questions:"
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                  </div>
+                  <input type="hidden" name="Date" />
+                  <div className="form-element-container checkbox-container">
+                    {
+                      <Checkbox
+                        text={
+                          "Subscribe to receive alerts when new events are posted."
+                        }
+                        isSelected={isChecked}
+                        onCheckboxChange={handleCheckboxChange}
+                      />
+                    }
+                  </div>
+                  <div className="form-element-container">
+                    <button className="button" type="submit">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

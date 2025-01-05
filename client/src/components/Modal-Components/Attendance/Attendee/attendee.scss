@@ -1,12 +1,10 @@
 .attendee-container {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  width: 300px;
-  padding: 0 16px;
+  width: 100%;
+  padding: 8px;
   height: auto;
-  margin-top: auto;
-  background: #eee6de;
+  border-bottom: 1px solid black;
 }
 
 .attendee-info {
@@ -15,7 +13,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  gap: 8px;
 }
 
 .contact-icon {
@@ -23,15 +22,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 16px 0;
 }
 
 .attendee-name {
   font-weight: 600;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
   text-transform: capitalize;
-  font-size: 22px;
-  margin: 16px 0;
+  font-size: 24px;
 }
 
 .attendee-email:hover {

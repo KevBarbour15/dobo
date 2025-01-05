@@ -17,6 +17,18 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 const ImageGallery = () => {
   const [index, setIndex] = useState(-1);
   const [loaded, setLoaded] = useState(false);
+  const [maxPhotos, setMaxPhotos] = useState(window.innerWidth <= 768 ? 2 : 3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMaxPhotos(window.innerWidth <= 768 ? 2 : 3);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const imageElements = images.map((image) => {
@@ -73,19 +85,24 @@ const ImageGallery = () => {
         </div>
       ) : (
         <div className="gallery-container">
-          <PhotoAlbum
-            photos={images}
-            onClick={({ index }) => setIndex(index)}
-            layout="rows"
-          />
+          <div className="container">
+            <PhotoAlbum
+              photos={images}
+              onClick={({ index }) => setIndex(index)}
+              layout="rows"
+              rowConstraints={{
+                maxPhotos: maxPhotos,
+              }}
+            />
 
-          <Lightbox
-            slides={images}
-            open={index >= 0}
-            index={index}
-            close={() => setIndex(-1)}
-            plugins={[Thumbnails]}
-          />
+            <Lightbox
+              slides={images}
+              open={index >= 0}
+              index={index}
+              close={() => setIndex(-1)}
+              plugins={[Thumbnails]}
+            />
+          </div>
         </div>
       )}
     </>

@@ -6,9 +6,19 @@ import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal.jsx";
 import Login from "../Modal-Components/Login/Login.jsx";
 
+import { CircleX, LogIn } from "lucide-react";
+
 // GSAP animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
+const MENU_LINKS = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/attend", label: "Attend" },
+  { path: "/gallery", label: "Gallery" },
+  { path: "/faq", label: "FAQ" },
+];
 
 const Menu = ({ isOpen, onClose }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -37,47 +47,23 @@ const Menu = ({ isOpen, onClose }) => {
   return (
     <>
       <div className={`menu-container ${isOpen ? "open" : ""}`}>
-        <div className="menu-close-button-container">
-          <button onClick={onClose} className="menu-close-button">
-            <span className="material-icons">close</span>
-          </button>
-        </div>
+        <button onClick={onClose} className="menu-close-button">
+          <CircleX strokeWidth={1.25} size={24} />
+        </button>
+
         <div className="menu-links-container">
-          <Link className="menu-link" to="/" onClick={onClose}>
-            <div className="link-wrapper">
-              <span>HOME</span>
-            </div>
-          </Link>
-
-          <Link className="menu-link" to="/About" onClick={onClose}>
-            <div className="link-wrapper">
-              <span>ABOUT</span>
-            </div>
-          </Link>
-
-          <Link className="menu-link" to="/Attend" onClick={onClose}>
-            <div className="link-wrapper">
-              <span>ATTEND</span>
-            </div>
-          </Link>
-
-          <Link className="menu-link" to="/Gallery" onClick={onClose}>
-            <div className="link-wrapper">
-              <span>GALLERY</span>
-            </div>
-          </Link>
-
-          <Link className="menu-link" to="/FAQ" onClick={onClose}>
-            <div className="link-wrapper">
-              <span>FAQ</span>
-            </div>
-          </Link>
+          {MENU_LINKS.map(({ path, label }) => (
+            <Link key={path} className="menu-link" to={path} onClick={onClose}>
+              <div className="link-wrapper">
+                <span>{label}</span>
+              </div>
+            </Link>
+          ))}
         </div>
-        <div className="login-button-container">
-          <button onClick={handleOpenModal} className="menu-login-button">
-            <span className="material-icons">login</span>
-          </button>
-        </div>
+
+        <button onClick={handleOpenModal} className="menu-login-button">
+          <LogIn strokeWidth={1.25} size={24} />
+        </button>
       </div>
       <Modal
         title={"Owner"}

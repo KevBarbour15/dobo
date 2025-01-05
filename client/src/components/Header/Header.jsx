@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import "./header.scss";
 
 // component imports
@@ -7,27 +9,15 @@ import Menu from "../Menu/Menu.jsx";
 // image imports
 import logo from "../../assets/images/logo-black.png";
 
-// animation imports
-import gsap from "gsap";
+import { Menu as MenuIcon } from "lucide-react";
+
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.05, ease: "sine.outOut" });
-
-    tl.from(
-      ".header-container",
-      {
-        delay: 0.25,
-        opacity: 0,
-        duration: 0.75,
-        ease: "sine.outOut",
-      },
-      0
-    );
-  });
+  const [isGallery, setIsGallery] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -37,24 +27,56 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    setIsGallery(location.pathname === "/gallery");
+  }, [location]);
+
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.05, duration: 0.05, ease: "power4.in" });
+
+    if (isGallery) {
+      tl.to(".header-title", { opacity: 1 }, 0)
+        .to(".menu-button", { color: "black" }, 0)
+        .to(
+          ".header-container",
+          {
+            borderTop: "1px solid black",
+            borderBottom: "1px solid black",
+            backgroundColor: "#f2f1f0",
+          },
+          0
+        );
+    } else {
+      tl.to(".header-title", { opacity: 0 }, 0)
+        .to(".menu-button", { color: "#f2f1f0" }, 0)
+        .to(
+          ".header-container",
+          {
+            borderTop: "1px solid transparent",
+            borderBottom: "1px solid transparent",
+            backgroundColor: "transparent",
+          },
+          0
+        );
+    }
+  }, [isGallery]);
+
   return (
-    <header className="header-container">
+    <>
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
-      <div className="header-menu-container">
+      <header className="header-container">
         <div className="header-menu">
           <button
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <span className="material-icons">menu</span>
+            <MenuIcon size={24} strokeWidth={1.25} />
           </button>
         </div>
-      </div>
-      <div className={`header-title-container ${isMenuOpen ? "open" : ""}`}>
+
         <img className="header-title" src={logo} alt="DOBO" />
-      </div>
-      <div className="invisible-element"></div>
-    </header>
+      </header>
+    </>
   );
 };
 

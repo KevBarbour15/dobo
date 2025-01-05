@@ -1,15 +1,21 @@
 .edit-event-form {
-  margin: 16px;
-}
-
-.edit-event-form form {
+  padding: 8px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
 }
+
+
 
 .event-label {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+@media (max-width: 768px) {
 }

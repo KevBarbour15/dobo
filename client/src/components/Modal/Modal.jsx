@@ -3,6 +3,9 @@ import "./modal.scss";
 // animation imports
 import useFadeIn from "../../animation-hooks/fadeIn";
 
+// component imports
+import { CircleX } from "lucide-react";
+
 const Modal = ({ isVisible, title, children, onClose }) => {
   useFadeIn(isVisible, ".modal-content", 0.25);
   useFadeIn(isVisible, ".modal-overlay", 0.5);
@@ -13,10 +16,9 @@ const Modal = ({ isVisible, title, children, onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <header className="modal-header">
-          <div className="invisible-element"></div>
-          <p>{title}</p>
+          <p className="modal-title">{title}</p>
           <button onClick={onClose} className="close-button">
-            <span className="material-icons">close</span>
+            <CircleX strokeWidth={0.75} size={24} />
           </button>
         </header>
         <div className="modal-body">{children}</div>

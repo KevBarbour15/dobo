@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 14px;
+  gap: 16px;
+  padding: 16px;
 }
 
 .login-form {
@@ -19,14 +20,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.form-element.login {
-  margin-bottom: 7px;
-}
-
-.button.login {
-  margin-top: 7px;
 }
 
 @media (max-width: 768px) {

@@ -1,13 +1,11 @@
 .menu-container {
   position: fixed;
-  height: 100vh;
-  transform: translateY(-100%);
-  transform: translateX(-1px);
-  height: 100%;
+  height: 100dvh;
   width: 350px;
   transition: all 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.85);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  z-index: 975;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,47 +13,37 @@
   top: 0;
   border: 1px solid black;
   opacity: 0;
-  visibility: hidden;
 }
 
 .menu-container.open {
-  transform: translateY(0);
-  transform: translateX(-1px);
-  z-index: 975;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   opacity: 1;
-  visibility: visible;
-}
-
-.menu-close-button-container,
-.login-button-container {
-  display: flex;
-  width: 100%;
 }
 
 .menu-close-button,
 .menu-login-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
+  position: absolute;
+  left: 16px;
   background: none;
-  height: 55px;
-  width: 40px;
-}
-
-.menu-close-button span,
-.menu-login-button span {
-  font-size: 20px;
-  transition: all 0.35s ease-in-out;
-  color: #f2f1f0;
+  border: none;
   cursor: pointer;
-  margin: 0;
+  padding: 0;
+  color: #f2f1f0;
   text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
-.menu-close-button span:hover,
-.menu-login-button span:hover {
-  transform: scale(1.5);
+.menu-close-button {
+  top: 16px;
+}
+
+.menu-login-button {
+  bottom: 16px;
+}
+
+.menu-close-button:hover,
+.menu-login-button:hover {
+  transform: scale(1.25);
 }
 
 .menu-links-container {
@@ -69,24 +57,20 @@
 }
 
 .menu-link {
-  font-size: 25px;
-  line-height: 1.95;
+  font-size: 20px;
+  line-height: 2;
   color: #f2f1f0;
   text-decoration: none;
-  margin: -0.4rem;
+  margin: -0.2rem;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  font-weight: 700;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  font-weight: 400;
+  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.5);
 }
 
 .menu-link:active,
 .menu-link:hover {
-  transform: scale(1.45);
-  font-weight: normal;
-  -webkit-text-stroke: 0.75px #f2f1f0;
-  color: transparent;
-  font-weight: 700;
+  transform: scale(1.5);
 }
 
 .link-wrapper {
@@ -112,11 +96,10 @@
 @media (max-width: 768px) {
   .menu-container {
     width: calc(100% + 2px);
-    background: rgba(0, 0, 0, 0.85);
   }
 
   .menu-link {
     font-size: 22px;
-    margin: -0.3rem;
+    margin: -0.2rem;
   }
 }
