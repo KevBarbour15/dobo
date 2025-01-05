@@ -16,7 +16,7 @@
   font-size: 64px;
   text-align: center;
   color: #f2f1f0;
-  filter: drop-shadow(0.025em 0.025em black);
+  filter: drop-shadow(0.03em 0.03em black);
 }
 
 @media (max-width: 768px) {
@@ -25,5 +25,6 @@
   }
   .title {
     font-size: 32px;
+    filter: drop-shadow(0.03em 0.03em black);
   }
 }

@@ -38,7 +38,7 @@ const usePageScroll = () => {
 
             .to(".title-container", {
               borderBottom: "1px solid black",
-              duration: 0.3,
+              duration: 0.5,
             })
             .to(
               ".title-dark",
@@ -52,8 +52,8 @@ const usePageScroll = () => {
               ".title",
               {
                 color: "black",
-                filter: "drop-shadow(0.025em 0.025em transparent)",
-                duration: 0.3,
+                filter: "drop-shadow(0.03em 0.03em transparent)",
+                duration: 0.5,
               },
               0
             )
@@ -63,7 +63,7 @@ const usePageScroll = () => {
                 borderTop: "1px solid black",
                 borderBottom: "1px solid black",
                 backgroundColor: "#f2f1f0",
-                duration: 0.3,
+                duration: 0.5,
               },
               0
             )
@@ -78,7 +78,7 @@ const usePageScroll = () => {
               ".header-title",
               {
                 opacity: 1,
-                duration: 0.3,
+                duration: 0.5,
               },
               0
             );
@@ -106,9 +106,9 @@ const usePageScroll = () => {
             .to(
               ".title",
               {
-                filter: "drop-shadow(0.025em 0.025em black)",
+                filter: "drop-shadow(0.03em 0.03em black)",
                 color: "#f2f1f0",
-                duration: 0.3,
+                duration: 0.5,
               },
               0
             )
@@ -119,7 +119,7 @@ const usePageScroll = () => {
                 borderTop: "1px solid transparent",
                 borderBottom: "1px solid transparent",
                 backgroundColor: "transparent",
-                duration: 0.3,
+                duration: 0.5,
               },
               0
             )
@@ -134,7 +134,7 @@ const usePageScroll = () => {
               ".header-title",
               {
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.5,
               },
               0
             );
