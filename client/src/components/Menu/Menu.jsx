@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal.jsx";
 import Login from "../Modal-Components/Login/Login.jsx";
 
+import { CircleX, LogIn } from "lucide-react";
+
 // GSAP animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const MENU_LINKS = [
-  { path: "/", label: "HOME" },
-  { path: "/about", label: "ABOUT" },
-  { path: "/attend", label: "ATTEND" },
-  { path: "/gallery", label: "GALLERY" },
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/attend", label: "Attend" },
+  { path: "/gallery", label: "Gallery" },
   { path: "/faq", label: "FAQ" },
 ];
 
@@ -46,17 +48,12 @@ const Menu = ({ isOpen, onClose }) => {
     <>
       <div className={`menu-container ${isOpen ? "open" : ""}`}>
         <button onClick={onClose} className="menu-close-button">
-          <span className="material-icons">close</span>
+          <CircleX strokeWidth={1.25} size={24} />
         </button>
 
         <div className="menu-links-container">
           {MENU_LINKS.map(({ path, label }) => (
-            <Link
-              key={path}
-              className="menu-link"
-              to={path}
-              onClick={onClose}
-            >
+            <Link key={path} className="menu-link" to={path} onClick={onClose}>
               <div className="link-wrapper">
                 <span>{label}</span>
               </div>
@@ -65,7 +62,7 @@ const Menu = ({ isOpen, onClose }) => {
         </div>
 
         <button onClick={handleOpenModal} className="menu-login-button">
-          <span className="material-icons">login</span>
+          <LogIn strokeWidth={1.25} size={24} />
         </button>
       </div>
       <Modal

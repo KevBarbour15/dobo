@@ -1,90 +1,138 @@
 import "./home.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // component imports
-import Menu from "../../components/Menu/Menu.jsx";
-
-// image imports
-import D from "../../assets/images/logo-letters/D.png";
-import O from "../../assets/images/logo-letters/O.png";
-import B from "../../assets/images/logo-letters/B.png";
+import Header from "../../components/Header/Header.jsx";
+import logo from "../../assets/images/logo.png";
+import homeVideo from "../../assets/images/home-video.mov";
+import homeImage from "../../assets/images/home-portrait.jpg";
 
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
 const Home = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [homeMedia, setHomeMedia] = useState(null);
+  const containerRef = useRef(null);
+  const homeImageRef = useRef(null);
+  const homeVideoRef = useRef(null);
 
   useGSAP(() => {
-    const letters = gsap.utils.toArray(".home-logo");
-    gsap.set(letters, { x: (i) => (i % 2 === 0 ? 15 : -15) });
+    if (!containerRef.current || !homeMedia) {
+      return;
+    }
 
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.out" });
-    tl.fromTo(
-      ".home-header-menu",
-      { opacity: 0 },
-      { duration: 0.5, opacity: 1 },
-      0.75
-    )
-      .to(letters, { opacity: 1, x: 0, stagger: 0.1, duration: 0.75 }, 0)
-      .from(".home-text", { opacity: 0, duration: 0.25 }, 0.25)
-      .from(".button-wrapper", { opacity: 0, duration: 0.25 }, 0.5);
-  });
+    const p = new SplitText(".home-text-container p", {
+      type: "words",
+    });
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    p.words.forEach((word) => {
+      gsap.set(word, {
+        opacity: 0,
+        x: -20,
+      });
+    });
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+    let tl = gsap.timeline({});
+
+    tl.set(homeMedia, {
+      opacity: 0,
+    })
+      .set(".home-logo img", {
+        opacity: 0,
+      })
+      .set(".home-text-container", {
+        opacity: 1,
+      })
+      .to(".home-logo img", {
+        delay: 0.25,
+        opacity: 1,
+        duration: 1,
+      })
+      .to(
+        homeMedia,
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 0.3,
+          opacity: 1,
+        },
+        0.5
+      )
+      .to(
+        p.words,
+        {
+          opacity: 1,
+          duration: 0.35,
+          ease: "power1.out",
+          stagger: 0.05,
+          x: 0,
+        },
+        1
+      )
+      .to(".home-button", {
+        opacity: 1,
+        duration: 0.25,
+      });
+  }, [isMobile, homeMedia]);
 
   useEffect(() => {
+    if (isMobile) {
+      setHomeMedia(homeImageRef.current);
+    } else {
+      setHomeMedia(homeVideoRef.current);
+    }
+
     const handleResize = () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      setIsMobile(window.innerWidth < 768);
     };
 
     window.addEventListener("resize", handleResize);
 
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
+    // Cleanup the event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
     <>
-      <Menu isOpen={isMenuOpen} onClose={closeMenu} />
-      <div className="home-container">
-        <button
-          onClick={toggleMenu}
-          className={`home-menu-button ${isMenuOpen ? "open" : ""}`}
-        >
-          <span className="material-icons">menu</span>
-        </button>
-
-        <div className={`home-text-container ${isMenuOpen ? "open" : ""}`}>
-          <div className="logo-wrapper">
-            <img className="home-logo" src={D} alt="DOBO"></img>
-            <img className="home-logo" src={O} alt="DOBO"></img>
-            <img className="home-logo" src={B} alt="DOBO"></img>
-            <img className="home-logo" src={O} alt="DOBO"></img>
-          </div>
-          <p className="home-text">
-            Join us for a unique Filipino dining experience, featuring
-            time-honored recipes elevated to new heights.
-          </p>
-          <div className="button-wrapper">
-            <Link
-              className="home-button"
-              to="/attend"
-              aria-label="Book a time to attend."
-              role="button"
-            >
-              <span>Attend</span>
-            </Link>
+      <Header />
+      <div className="home-container" ref={containerRef}>
+        {isMobile ? (
+          <img
+            ref={homeImageRef}
+            src={homeImage}
+            alt="DOBO NYC"
+            className="home-image"
+          />
+        ) : (
+          <video
+            ref={homeVideoRef}
+            src={homeVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="home-video"
+          />
+        )}
+        <div className="container">
+          <div className="home-text-container">
+            <div className="home-logo">
+              <img src={logo} alt="DOBO NYC" />
+            </div>
+            <p className="home-text">
+              A unique Filipino dining experience, featuring time-honored
+              recipes elevated to new heights.
+            </p>
+            <div className="button-wrapper">
+              <Link to="/attend">
+                <button className="home-button">Join Us</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

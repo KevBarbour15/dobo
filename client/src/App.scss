@@ -16,60 +16,8 @@
 .page-content {
   padding-top: 32px;
   padding-bottom: 32px;
-  min-height: 100dvh;
   height: auto;
-}
-
-/* For the contact icons */
-.item {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 30px;
-  display: flex;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid black;
-  z-index: 1;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
-}
-
-.icon {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  color: black;
-  transition: 0.5s;
-  z-index: 3;
-}
-
-.item:hover .icon {
-  color: black;
-  transform: rotateY(360deg);
-}
-
-.item:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 0.25s ease-in-out;
-  z-index: 2;
-}
-
-.item.email:before,
-.item.ig:before {
-  background: linear-gradient(to bottom, #a39d92, #e5dace, #ebe2d9);
-}
-
-.item:hover:before {
-  top: 0;
+  min-height: calc(100dvh - 85px - 55px);
 }
 
 /* For button styling */
@@ -260,16 +208,16 @@ label {
   .container {
     max-width: 540px;
   }
+
+  .page-content {
+    padding-top: 16px;
+    min-height: calc(100dvh - 65px - 55px);
+  }
 }
 
 @media (max-width: 576px) {
   .container {
     max-width: 100%;
     padding: 0 16px;
-  }
-
-  .page-content {
-    padding-top: 16px;
-    padding-bottom: 16px;
   }
 }

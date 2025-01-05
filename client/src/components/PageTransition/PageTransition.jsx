@@ -7,7 +7,7 @@ const PageTransition = () => {
   useGSAP(() => {
     let tl = gsap.timeline({ ease: "linear" });
     tl.to(".page-transition", {
-      duration: 0.5,
+      duration: 0.3,
       backgroundColor: "black",
       opacity: 1,
       rotationX: 90,

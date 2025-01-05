@@ -1,9 +1,7 @@
 import "./footer.scss";
 
 // icon imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Instagram, Mail } from "lucide-react";
 
 // animation imports
 import gsap from "gsap";
@@ -22,29 +20,36 @@ const Footer = () => {
   });
 
   return (
-    <div className="footer-container">
+    <footer
+      className="footer-container"
+      role="contentinfo"
+      aria-label="Site footer"
+    >
       <div className="footer-title">
-        <span>© 2025 DOBO NYC</span>
+        <p>© 2025 DOBO NYC</p>
       </div>
-      <div className="footer-icons">
+      <nav className="footer-icons" aria-label="Social media links">
         <div className="footer-icon">
           <a
-            className="item footer"
             href="https://www.instagram.com/dobonyc"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit DOBO NYC on Instagram"
           >
-            <FontAwesomeIcon className="icon" icon={faInstagram} />
+            <Instagram strokeWidth={1.25} color="black" size={24} />
           </a>
         </div>
 
         <div className="footer-icon">
-          <a className="item footer" href="mailto:dobonyc@gmail.com">
-            <FontAwesomeIcon className="icon" icon={faEnvelope} />
+          <a
+            href="mailto:dobonyc@gmail.com"
+            aria-label="Send email to DOBO NYC"
+          >
+            <Mail strokeWidth={1.25} color="black" size={24} />
           </a>
         </div>
-      </div>
-    </div>
+      </nav>
+    </footer>
   );
 };
 

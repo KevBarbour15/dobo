@@ -7,57 +7,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import AnimationOverlay from "../../components/AnimationOverlay/AnimationOverlay";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 const Layout = () => {
-  useGSAP(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".image-layer",
-        start: "+=250",
-        end: "+=250",
-        scrub: true,
-        //markers: true,
-      },
-    });
-
-    tl.to(
-      ".header-container",
-      {
-        background: "#ebe2d9",
-        border: "1px solid black",
-        boxShadow: "0 1.25px 1.75px rgba(0, 0, 0, 0.35)",
-      },
-      0
-    )
-      .to(
-        ".menu-button",
-        {
-          color: "black",
-          textShadow: "0 1.25px 1.75px rgba(0, 0, 0, 0.35)",
-        },
-        0
-      )
-      .to(
-        ".header-title-container",
-        {
-          y: 0,
-          opacity: 1,
-        },
-        0
-      );
-
-    let arrowTl = gsap.timeline({ repeat: -1, repeatDelay: 0.25, yoyo: true });
-
-    arrowTl.to(".material-symbols-outlined", {
-      duration: 0.75,
-      y: -15,
-      opacity: 0,
-      ease: "sine.outOut",
-    });
-  }, []);
-
   return (
     <div className="layout">
       <AnimationOverlay />

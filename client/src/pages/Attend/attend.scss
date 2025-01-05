@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: row;
   height: 100%;
+  position: relative;
 }
 
 .attend-image {
   padding-right: 16px;
   flex-basis: 50%;
+  
 }
 
 .attend-image img {
@@ -23,7 +25,6 @@
   flex-direction: column;
   flex-basis: 50%;
   align-items: center;
-  background-color: #f0f0f0;
 }
 
 .attend-text {
@@ -32,9 +33,9 @@
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.5;
-  text-align: justify;
+  text-wrap: pretty;
 }
 
 .attend-text-italic {
@@ -51,6 +52,10 @@
 @media (max-width: 768px) {
   .attend-text {
     width: 100%;
+  }
+
+  .attend-image {
+    display: none;
   }
 
   .inquiry-form {

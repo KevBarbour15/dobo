@@ -1,7 +1,9 @@
 .title-container {
   width: 100%;
-  height: 100px;
+  height: 84px;
   position: relative;
+  border-top: 1px solid black;
+  overflow: hidden;
 }
 
 .title {
@@ -10,12 +12,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 96px;
-  font-weight: 700;
-  text-shadow: 0 1.75px 2.75px rgba(0, 0, 0, 1);
+  font-size: 64px;
   text-align: center;
-  text-transform: uppercase;
   color: #f2f1f0;
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
+  filter: drop-shadow(0.025em 0.025em black);
+}
+
+@media (max-width: 768px) {
+  .title-container {
+    height: 64px;
+  }
+  .title {
+    font-size: 32px;
+  }
 }

@@ -6,7 +6,7 @@ import axios from "../../axiosConfig.jsx";
 
 // image imports
 import attendImage from "../../assets/images/attend.jpg";
-import attendVert from "../../assets/images/about-vert.jpg";
+import attendVert from "../../assets/images/attend-vert.jpg";
 
 // helper function imports
 import {
@@ -22,7 +22,7 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/parallax.js";
+import useParallax from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 // notifications imports
@@ -267,7 +267,7 @@ const Attend = () => {
                     event. We’ll follow up with more information.{" "}
                   </p>
                   <p className="attend-text-italic">
-                    Limited seating available.
+                    Limited seating available. $160 per seat.
                   </p>
                 </div>
 

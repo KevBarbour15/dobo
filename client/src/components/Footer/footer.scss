@@ -7,49 +7,30 @@
   bottom: 0;
   height: 55px;
   width: 100%;
-  background: linear-gradient(to top, #a39d92, #e5dace, #ebe2d9);
   background: #ebe2d9;
-  border: 1px solid black;
-  text-shadow: none;
-  box-sizing: border-box;
-  box-shadow: 0 -1.25px 1.75px rgba(0, 0, 0, 0.35);
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   z-index: 10;
+  padding: 0 16px;
 }
 
 .footer-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0px;
-  padding-left: 14px;
   text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .footer-icons {
   display: flex;
   flex-direction: row;
-  padding-right: 10px;
   color: black;
+  gap: 16px;
 }
 
-.footer-icons .item {
-  height: 30px;
-  width: 30px;
-  margin: 0 4px;
-  box-shadow: none;
+.footer-icon {
+  transition: all 0.3s ease-in-out;
 }
 
-.footer-icons .icon {
-  font-size: 20px;
-}
-
-.item.footer {
-  border: none;
-  background-color: transparent;
-  filter: drop-shadow(0 1.25px 1.5px rgba(0, 0, 0, 0.3));
-}
-
-@media (max-width: 768px) {
-  .footer-icons .item {
-    height: 28px;
-    width: 28px;
-  }
+.footer-icon:hover {
+  transform: scale(1.15);
 }

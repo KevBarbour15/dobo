@@ -16,7 +16,7 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/parallax.js";
+import useParallax from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const FAQ = () => {
@@ -38,7 +38,7 @@ const FAQ = () => {
     faqItems.forEach((item) => {
       gsap.to(item, {
         delay: 0.15,
-        duration: 0.5,
+        duration: 0.3,
         y: 0,
         opacity: 1,
         scrollTrigger: {

@@ -149,7 +149,7 @@ const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
   const filterPublicEvents = false;
   const futureEvents = filterAccessibleEventsNYC(events, filterPublicEvents);
 
-  useFadeIn(true, ".events-list", 0.5, 0.25);
+  useFadeIn(true, ".events-list", 0.3, 0.25);
 
   return (
     <div className="events-list">

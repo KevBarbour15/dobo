@@ -11,7 +11,7 @@ import aboutVert from "../../assets/images/about-vert.jpg";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/parallax.js";
+import useParallax from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const About = () => {
@@ -25,13 +25,13 @@ const About = () => {
     });
 
     gsap.set(".about-image", {
+      y: 50,
       opacity: 0,
-      y: 25,
     });
 
     p.lines.forEach((line) => {
       gsap.set(line, {
-        y: 25,
+        y: 50,
         opacity: 0,
       });
     });
@@ -40,10 +40,11 @@ const About = () => {
       opacity: 1,
       y: 0,
       duration: 0.5,
-      delay: 0.15,
+      delay: 0.35,
+      ease: "sine.inOut",
       scrollTrigger: {
         trigger: ".about-image",
-        start: "top bottom-=25",
+        start: "top bottom-=100",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -52,11 +53,12 @@ const About = () => {
       gsap.to(line, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        delay: 0.15,
+        duration: 0.35,
+        delay: 0.35,
+        ease: "sine.inOut",
         scrollTrigger: {
           trigger: line,
-          start: "top bottom-=25",
+          start: "top bottom-=100",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -73,7 +75,7 @@ const About = () => {
           &nbsp;
         </div>
 
-        <PageTitle title={"about"} />
+        <PageTitle title={"About"} />
         <div className="container">
           <div className="page-content">
             <div className="about-container">
@@ -91,12 +93,6 @@ const About = () => {
                   Join us for a special evening of elevated Filipino dishes and
                   heartfelt hospitality, where each meal is crafted to make you
                   feel like family.
-                </p>
-                <p>
-                  Since food and family are central to our culture, you’ll never
-                  leave hungry after visiting a Filipino household. So we invite
-                  you to Dobo - an intimate Filipino-American dining experience
-                  highlighting the recipes and flavors Sean was raised on.
                 </p>
               </div>
             </div>

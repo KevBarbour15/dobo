@@ -72,20 +72,22 @@ const ImageGallery = () => {
           <Loading />
         </div>
       ) : (
-        <div className="gallery-container container">
-          <PhotoAlbum
-            photos={images}
-            onClick={({ index }) => setIndex(index)}
-            layout="rows"
-          />
+        <div className="container">
+          <div className="gallery-container">
+            <PhotoAlbum
+              photos={images}
+              onClick={({ index }) => setIndex(index)}
+              layout="rows"
+            />
 
-          <Lightbox
-            slides={images}
-            open={index >= 0}
-            index={index}
-            close={() => setIndex(-1)}
-            plugins={[Thumbnails]}
-          />
+            <Lightbox
+              slides={images}
+              open={index >= 0}
+              index={index}
+              close={() => setIndex(-1)}
+              plugins={[Thumbnails]}
+            />
+          </div>
         </div>
       )}
     </>
