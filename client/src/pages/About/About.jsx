@@ -17,20 +17,18 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const About = () => {
   useFadeIn(true, ".page-container", 1, 0);
   usePageScroll();
-
+  /*
   useGSAP(() => {
     const p = new SplitText(".about-text p", {
       type: "lines",
     });
 
     gsap.set(".about-image", {
-      y: 50,
       opacity: 0,
     });
 
     p.lines.forEach((line) => {
       gsap.set(line, {
-        y: 50,
         opacity: 0,
       });
     });
@@ -43,7 +41,7 @@ const About = () => {
       ease: "sine.inOut",
       scrollTrigger: {
         trigger: ".about-image",
-        start: "top bottom-=100",
+        start: "top bottom-=50",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -57,21 +55,23 @@ const About = () => {
         ease: "sine.inOut",
         scrollTrigger: {
           trigger: line,
-          start: "top bottom-=100",
+          start: "top bottom-=50",
           toggleActions: "play reverse play reverse",
         },
       });
     });
   });
-
+*/
   return (
     <>
       <div className="page-container">
-        <div
-          className="splash-image-container"
-          
-        >
-          <div className="splash-image" style={{ backgroundImage: `url(${aboutImage})` }}>&nbsp;</div>
+        <div className="splash-image-container">
+          <div
+            className="splash-image"
+            style={{ backgroundImage: `url(${aboutImage})` }}
+          >
+            &nbsp;
+          </div>
         </div>
 
         <PageTitle title={"About"} />

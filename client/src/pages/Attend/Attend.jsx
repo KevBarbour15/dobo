@@ -187,7 +187,7 @@ const Attend = () => {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
-
+  /*
   useGSAP(() => {
     const p = new SplitText(".attend-text p", {
       type: "lines",
@@ -254,7 +254,7 @@ const Attend = () => {
       },
     });
   });
-
+*/
   return (
     <>
       <div className="page-container">
