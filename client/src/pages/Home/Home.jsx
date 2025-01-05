@@ -32,7 +32,7 @@ const Home = () => {
     p.words.forEach((word) => {
       gsap.set(word, {
         opacity: 0,
-        x: -20,
+        x: -45,
       });
     });
 
@@ -65,9 +65,9 @@ const Home = () => {
         p.words,
         {
           opacity: 1,
-          duration: 0.35,
+          duration: 0.25,
           ease: "power1.out",
-          stagger: 0.05,
+          stagger: 0.025,
           x: 0,
         },
         1
@@ -130,7 +130,7 @@ const Home = () => {
             </p>
             <div className="button-wrapper">
               <Link to="/attend">
-                <button className="home-button">Join Us</button>
+                <button className="home-button">Join us</button>
               </Link>
             </div>
           </div>

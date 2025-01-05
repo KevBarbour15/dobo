@@ -10,7 +10,6 @@ import AnimationOverlay from "../../components/AnimationOverlay/AnimationOverlay
 const Layout = () => {
   return (
     <div className="layout">
-      <AnimationOverlay />
       <Header />
       <div className="main-page-content">
         <Outlet />

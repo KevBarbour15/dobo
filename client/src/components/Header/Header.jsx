@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import "./header.scss";
 
 // component imports
@@ -9,8 +11,13 @@ import logo from "../../assets/images/logo-black.png";
 
 import { Menu as MenuIcon } from "lucide-react";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isGallery, setIsGallery] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,6 +26,40 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    setIsGallery(location.pathname === "/gallery");
+  }, [location]);
+
+  useGSAP(() => {
+    let tl = gsap.timeline({ delay: 0.05, duration: 0.05, ease: "power4.in" });
+
+    if (isGallery) {
+      tl.to(".header-title", { opacity: 1 }, 0)
+        .to(".menu-button", { color: "black" }, 0)
+        .to(
+          ".header-container",
+          {
+            borderTop: "1px solid black",
+            borderBottom: "1px solid black",
+            backgroundColor: "#f2f1f0",
+          },
+          0
+        );
+    } else {
+      tl.to(".header-title", { opacity: 0 }, 0)
+        .to(".menu-button", { color: "#f2f1f0" }, 0)
+        .to(
+          ".header-container",
+          {
+            borderTop: "1px solid transparent",
+            borderBottom: "1px solid transparent",
+            backgroundColor: "transparent",
+          },
+          0
+        );
+    }
+  }, [isGallery]);
 
   return (
     <>

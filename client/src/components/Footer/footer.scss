@@ -7,7 +7,7 @@
   bottom: 0;
   height: 55px;
   width: 100%;
-  background: #ebe2d9;
+  background: #f2f1f0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   z-index: 10;
@@ -17,7 +17,6 @@
 .footer-title {
   font-size: 12px;
   letter-spacing: 0px;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .footer-icons {
@@ -32,5 +31,5 @@
 }
 
 .footer-icon:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }

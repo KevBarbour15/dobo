@@ -11,13 +11,12 @@ import aboutVert from "../../assets/images/about-vert.jpg";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/pageScroll.js";
+import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const About = () => {
-  // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
-  useParallax();
+  usePageScroll();
 
   useGSAP(() => {
     const p = new SplitText(".about-text p", {
@@ -69,10 +68,10 @@ const About = () => {
     <>
       <div className="page-container">
         <div
-          className="splash-image"
-          style={{ backgroundImage: `url(${aboutImage})` }}
+          className="splash-image-container"
+          
         >
-          &nbsp;
+          <div className="splash-image" style={{ backgroundImage: `url(${aboutImage})` }}>&nbsp;</div>
         </div>
 
         <PageTitle title={"About"} />

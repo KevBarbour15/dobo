@@ -14,7 +14,7 @@
 .modal-content {
   border: 1px solid black;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.75);
-  background-color: #eee6de;
+  background-color: #f2f1f0;
   overflow-y: scroll;
 }
 
@@ -22,19 +22,14 @@
   position: relative;
   height: 50px;
   border-bottom: 1px solid black;
-  box-shadow: 0 1.25px 1.75px rgba(0, 0, 0, 0.35);
-  background-color: #ebe2d9;
+  background-color: #f2f1f0;
   font-size: 20px;
-  text-transform: uppercase;
   font-weight: 500;
-  box-shadow: 0 1.25px 1.75px rgba(0, 0, 0, 0.35);
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .modal-title {
   font-size: 20px;
   font-weight: 500;
-  text-transform: uppercase;
   position: absolute;
   top: 50%;
   left: 50%;

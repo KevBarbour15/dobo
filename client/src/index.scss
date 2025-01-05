@@ -80,6 +80,19 @@
   }
 }
 
+@font-face {
+  font-family: "Laygrotesk";
+  src: url("./fonts/laygrotesk-black.otf") format("opentype");
+  src: url("./fonts/laygrotesk-bold.otf") format("opentype");
+  src: url("./fonts/laygrotesk-medium.otf") format("opentype");
+  src: url("./fonts/laygrotesk-regular.otf") format("opentype");
+  src: url("./fonts/laygrotesk-semibold.otf") format("opentype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -92,7 +105,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-family: "Playfair Display", serif;
+  //font-family: "Playfair Display", serif;
+  font-family: "Laygrotesk", sans-serif;
   letter-spacing: 0.025em;
   background: black;
   scroll-behavior: smooth;

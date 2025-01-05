@@ -1,5 +1,4 @@
 import "./App.scss";
-import "./parallax.scss";
 
 // page imports
 import Layout from "./pages/Layout/Layout";

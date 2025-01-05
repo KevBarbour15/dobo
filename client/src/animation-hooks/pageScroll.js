@@ -7,11 +7,20 @@ const usePageScroll = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    // Initial animation for titleSplitUpper on page load
     let tl = gsap.timeline({
       ease: "linear",
     });
-    tl.to(".title", {
+
+    tl.to(".splash-image", {
+      yPercent: 50,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".splash-image",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    }).to(".title", {
       scrollTrigger: {
         trigger: ".title-container",
         start: "center bottom",
@@ -53,7 +62,7 @@ const usePageScroll = () => {
               {
                 borderTop: "1px solid black",
                 borderBottom: "1px solid black",
-                backgroundColor: "#ebe2d9",
+                backgroundColor: "#f2f1f0",
                 duration: 0.3,
               },
               0

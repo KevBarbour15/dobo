@@ -4,6 +4,16 @@ import "./attend.scss";
 // axios imports
 import axios from "../../axiosConfig.jsx";
 
+import {
+  Button,
+  Form,
+  Label,
+  Input,
+  Textarea,
+  Switch,
+  Select,
+} from "../../components/ui/button.jsx";
+
 // image imports
 import attendImage from "../../assets/images/attend.jpg";
 import attendVert from "../../assets/images/attend-vert.jpg";
@@ -22,7 +32,7 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/pageScroll.js";
+import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 // notifications imports
@@ -48,61 +58,7 @@ const Attend = () => {
 
   // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
-  useParallax();
-
-  useGSAP(() => {
-    // attend form and text animation
-    const p = new SplitText(".attend-text", {
-      type: "lines",
-    });
-
-    const p2 = new SplitText(".subscribe-text", {
-      type: "lines",
-    });
-
-    let formTl = gsap.timeline({ ease: "sine.out" });
-
-    formTl
-      .from(
-        p.lines,
-        {
-          x: (i) => (i % 2 === 0 ? 50 : -50),
-          opacity: 0,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: ".attend-text",
-            start: "top 70%",
-            end: "top 50%",
-            scrub: 2,
-          },
-        },
-        0
-      )
-      .from(
-        ".form-element-container",
-        {
-          opacity: 0,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: ".form-element-container",
-            start: "top 70%",
-            end: "top 50%",
-            scrub: 2,
-          },
-          x: (i) => (i % 2 === 0 ? 50 : -50),
-        },
-        0
-      )
-      .from(
-        p2.lines,
-        {
-          y: 75,
-          opacity: 0,
-          stagger: 0.1,
-        },
-        0
-      );
-  });
+  usePageScroll();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -245,11 +201,13 @@ const Attend = () => {
   return (
     <>
       <div className="page-container">
-        <div
-          className="splash-image"
-          style={{ backgroundImage: `url(${attendImage})` }}
-        >
-          &nbsp;
+        <div className="splash-image-container">
+          <div
+            className="splash-image"
+            style={{ backgroundImage: `url(${attendImage})` }}
+          >
+            &nbsp;
+          </div>
         </div>
 
         <PageTitle title={"Attend"} />

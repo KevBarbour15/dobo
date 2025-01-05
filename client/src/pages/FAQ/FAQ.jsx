@@ -16,14 +16,14 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import useParallax from "../../animation-hooks/pageScroll.js";
+import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const FAQ = () => {
   // custom parallax hook
   // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
-  useParallax();
+  usePageScroll();
 
   useGSAP(() => {
     let faqItems = document.querySelectorAll(".faq-item");
@@ -53,11 +53,13 @@ const FAQ = () => {
   return (
     <>
       <div className="page-container">
-        <div
-          className="splash-image"
-          style={{ backgroundImage: `url(${faqImage})` }}
-        >
-          &nbsp;
+        <div className="splash-image-container">
+          <div
+            className="splash-image"
+            style={{ backgroundImage: `url(${faqImage})` }}
+          >
+            &nbsp;
+          </div>
         </div>
         <PageTitle title={"FAQ"} />
         <div className="container">
