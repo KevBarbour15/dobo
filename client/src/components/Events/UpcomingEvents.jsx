@@ -76,17 +76,17 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <div className="event-details-container">
           <ul className="event-details">
             <li>
-              <span>{convertDateReadability(event.date)}</span>
+              <span>- {convertDateReadability(event.date)}</span>
             </li>
             <li>
-              <span>{convertMilitaryTime(event.time)}</span>
+              <span>- {convertMilitaryTime(event.time)}</span>
             </li>
             <li>
-              <span>{event.seats} seats total</span>
+              <span>- {event.seats} seats total</span>
             </li>
             {event.seatsRemaining >= 0 ? (
               <li>
-                <span>{event.seatsRemaining} seats left</span>
+                <span>- {event.seatsRemaining} seats left</span>
               </li>
             ) : (
               <li>
@@ -96,10 +96,10 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
               </li>
             )}
             <li>
-              <span>${event.price}</span>
+              <span>- ${event.price}</span>
             </li>
             <li>
-              {event.isPublicEvent ? <span>Public</span> : <span>Private</span>}
+              {event.isPublicEvent ? <span>- Public</span> : <span>- Private</span>}
             </li>
           </ul>
         </div>

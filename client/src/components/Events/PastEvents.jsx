@@ -52,19 +52,19 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
         <div className="event-details-container">
           <ul className="event-details">
             <li>
-              <span>{convertDateReadability(event.date)}</span>
+              <span>- {convertDateReadability(event.date)}</span>
             </li>
             <li>
-              <span>{convertMilitaryTime(event.time)}</span>
+              <span>- {convertMilitaryTime(event.time)}</span>
             </li>
             <li>
-              <span>{event.seats} seats</span>
+              <span>- {event.seats} seats</span>
             </li>
             <li>
-              <span>{event.seats - event.seatsRemaining} attendees</span>
+              <span>- {event.seats - event.seatsRemaining} attendees</span>
             </li>
             <li>
-              <span>${event.price}</span>
+              <span>- ${event.price}</span>
             </li>
           </ul>
         </div>

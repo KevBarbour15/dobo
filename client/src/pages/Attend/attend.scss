@@ -8,7 +8,6 @@
 .attend-image {
   padding-right: 16px;
   flex-basis: 50%;
-  
 }
 
 .attend-image img {
@@ -24,11 +23,10 @@
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
-  align-items: center;
+  padding: 0 32px;
 }
 
 .attend-text {
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,6 +34,7 @@
   font-size: 22px;
   line-height: 1.5;
   text-wrap: pretty;
+  margin-bottom: 16px;
 }
 
 .attend-text-italic {
@@ -43,19 +42,29 @@
 }
 
 .inquiry-form {
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 @media (max-width: 768px) {
-  .attend-text {
-    width: 100%;
+  .attend-container {
+    flex-direction: column;
   }
 
   .attend-image {
-    display: none;
+    padding-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .attend-info-container {
+    flex-basis: 100%;
+    padding: 0;
+  }
+
+  .attend-text {
+    width: 100%;
+    font-size: 18px;
   }
 
   .inquiry-form {

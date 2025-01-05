@@ -48,9 +48,6 @@
   color: black;
   background: #f2f1f0;
   transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
-  font-weight: 700;
 }
 
 .button:hover {
@@ -78,16 +75,14 @@
   transition: all 0.3s ease-in-out;
   background-color: #f2f1f0;
   font-size: 14px;
-  box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
   width: 100%;
-  max-width: 500px;
 }
 
 .form-element:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.75);
   color: black;
-  box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.5);
 }
 
 .form-element:hover {
@@ -129,8 +124,6 @@ textarea {
   padding: 10px;
   height: 165px;
   color: black;
-  resize: vertical;
-  overflow: auto;
 }
 
 select {
@@ -153,12 +146,10 @@ label {
   color: black;
   margin-bottom: 10px;
   text-transform: uppercase;
-  font-weight: 600;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
 }
 
 .Toastify__toast {
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
   background: #f2f1f0 !important;
   border: 1px solid black !important;
   border-radius: 3px !important;
@@ -201,7 +192,7 @@ label {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1536px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
@@ -209,21 +200,27 @@ label {
   z-index: 10;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1536px) {
   .container {
-    max-width: 960px;
+    max-width: 1280px;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1280px) {
   .container {
-    max-width: 720px;
+    max-width: 1024px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    max-width: 540px;
+    max-width: 640px;
   }
 
   .page-content {
@@ -232,9 +229,8 @@ label {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .container {
     max-width: 100%;
-    padding: 0 16px;
   }
 }

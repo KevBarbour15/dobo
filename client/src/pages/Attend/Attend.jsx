@@ -4,16 +4,6 @@ import "./attend.scss";
 // axios imports
 import axios from "../../axiosConfig.jsx";
 
-import {
-  Button,
-  Form,
-  Label,
-  Input,
-  Textarea,
-  Switch,
-  Select,
-} from "../../components/ui/button.jsx";
-
 // image imports
 import attendImage from "../../assets/images/attend.jpg";
 import attendVert from "../../assets/images/attend-vert.jpg";
@@ -198,6 +188,73 @@ const Attend = () => {
     setIsChecked(!isChecked);
   };
 
+  useGSAP(() => {
+    const p = new SplitText(".attend-text p", {
+      type: "lines",
+    });
+
+    gsap.set(".attend-image", {
+      y: 50,
+      opacity: 0,
+    });
+
+    gsap.set(".form-element-container", {
+      y: 50,
+      opacity: 0,
+    });
+
+    p.lines.forEach((line) => {
+      gsap.set(line, {
+        y: 50,
+        opacity: 0,
+      });
+    });
+
+    gsap.to(".attend-image", {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      delay: 0.35,
+      ease: "sine.inOut",
+      scrollTrigger: {
+        trigger: ".attend-image",
+        start: "top bottom-=100",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    // Animate text lines
+    p.lines.forEach((line) => {
+      gsap.to(line, {
+        opacity: 1,
+        y: 0,
+        duration: 0.35,
+        delay: 0.35,
+        ease: "sine.inOut",
+        scrollTrigger: {
+          trigger: line,
+          start: "top bottom-=100",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    });
+
+    // Animate form elements
+    gsap.to(".form-element-container", {
+      opacity: 1,
+      y: 0,
+      duration: 0.35,
+      delay: 0.35,
+      ease: "sine.inOut",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".inquiry-form",
+        start: "top bottom-=100",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+  });
+
   return (
     <>
       <div className="page-container">
@@ -338,7 +395,7 @@ const Attend = () => {
                   </div>
                   <div className="form-element-container">
                     <button className="button" type="submit">
-                      submit
+                      Submit
                     </button>
                   </div>
                 </form>

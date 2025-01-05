@@ -91,7 +91,6 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <PageTitle title={"create event"} />
       <div className="create-event-form">
         <form onSubmit={handleSubmit}>
           <div className="form-element-container">
