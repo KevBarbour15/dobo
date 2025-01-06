@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // component imports
 import Header from "../../components/Header/Header.jsx";
 import logo from "../../assets/images/logo.png";
-import homeVideo from "../../assets/images/home-video.mov";
+import homeVideo from "../../assets/images/home-video.mp4";
 import homeImage from "../../assets/images/home-portrait.jpg";
 
 // animation imports
