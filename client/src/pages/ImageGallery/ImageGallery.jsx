@@ -26,7 +26,6 @@ const ImageGallery = () => {
 
     window.addEventListener("resize", handleResize);
 
-  
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -68,9 +67,9 @@ const ImageGallery = () => {
           opacity: 0,
           stagger: 0.125,
           delay: 0.35,
-          duration: 1,
+          duration: 0.5,
           ease: "sine.out",
-          x: (i) => (i % 2 === 0 ? 275 : -275),
+          x: (i) => (i % 2 === 0 ? 100 : -100),
         });
       }, 100);
     }
