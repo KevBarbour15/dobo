@@ -21,7 +21,7 @@ input[type="checkbox"] {
   cursor: pointer;
   width: 60px;
   height: 32px;
-  border-radius: 3px;
+  border-radius: 30px;
   z-index: 2;
   transition: all 0.25s ease-in-out;
   background: #f2f1f0;
@@ -40,7 +40,6 @@ input[type="checkbox"]:focus {
   margin: 0;
   border: 1px solid black;
   cursor: pointer;
-  box-shadow: 1.25px 2px 2.5px rgba(0, 0, 0, 0.4);
 }
 
 .toggle:after {
@@ -50,7 +49,7 @@ input[type="checkbox"]:focus {
   left: 2px;
   width: 24px;
   height: 24px;
-  border-radius: 3px;
+  border-radius: 30px;
   border: 1px solid transparent;
   transition: all 0.25s ease-in-out;
   background: #f2f1f0;
@@ -60,7 +59,7 @@ input[type="checkbox"]:focus {
 
 input[type="checkbox"].toggle:checked:after {
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 30px;
   background: black;
   transition: all 0.15s ease-in-out;
   transform: translateX(26px);
