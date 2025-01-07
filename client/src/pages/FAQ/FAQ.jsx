@@ -12,6 +12,7 @@ import faqImage from "../../assets/images/faq.jpg";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import { MoveDown } from "lucide-react";
 
 // animation imports
 import gsap from "gsap";
@@ -48,6 +49,16 @@ const FAQ = () => {
         },
       });
     });
+
+    gsap.to(".scroll-down-container", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".scroll-down-container",
+        start: "bottom bottom",
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
   }, []);
 
   return (
@@ -59,6 +70,10 @@ const FAQ = () => {
             style={{ backgroundImage: `url(${faqImage})` }}
           >
             &nbsp;
+          </div>
+
+          <div className="scroll-down-container">
+            <MoveDown strokeWidth={1.25} size={40} />
           </div>
         </div>
         <PageTitle title={"FAQ"} />

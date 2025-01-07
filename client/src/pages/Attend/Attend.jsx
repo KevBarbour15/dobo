@@ -20,13 +20,14 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 // notifications imports
 import { useForm, ValidationError } from "@formspree/react";
+
+import { MoveDown } from "lucide-react";
 
 import { toast } from "react-toastify";
 import Toast from "../../components/Toast/Toast.jsx";
@@ -202,6 +203,16 @@ const Attend = () => {
         scrub: 1,
       },
     });
+
+    gsap.to(".scroll-down-container", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".scroll-down-container",
+        start: "bottom bottom",
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
   }, []);
 
   return (
@@ -213,6 +224,10 @@ const Attend = () => {
             style={{ backgroundImage: `url(${attendImage})` }}
           >
             &nbsp;
+          </div>
+
+          <div className="scroll-down-container">
+            <MoveDown strokeWidth={1.25} size={40} />
           </div>
         </div>
 

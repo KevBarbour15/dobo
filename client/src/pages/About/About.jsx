@@ -9,10 +9,11 @@ import aboutVert from "../../assets/images/about-vert.jpg";
 
 // animation imports
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
+
+import { MoveDown } from "lucide-react";
 
 const About = () => {
   useFadeIn(true, ".page-container", 1, 0);
@@ -32,6 +33,16 @@ const About = () => {
         scrub: 1,
       },
     });
+
+    gsap.to(".scroll-down-container", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".scroll-down-container",
+        start: "bottom bottom",
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
   }, []);
 
   return (
@@ -43,6 +54,9 @@ const About = () => {
             style={{ backgroundImage: `url(${aboutImage})` }}
           >
             &nbsp;
+          </div>
+          <div className="scroll-down-container">
+            <MoveDown strokeWidth={1.25} size={40} />
           </div>
         </div>
 

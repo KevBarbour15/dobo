@@ -9,6 +9,7 @@
   justify-content: center;
   background-color: #f2f1f0;
   opacity: 0;
+  position: relative;
 }
 
 .splash-image-container {
@@ -25,6 +26,14 @@
   height: 100%;
   background-position: center;
   background-size: cover;
+}
+
+.scroll-down-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f2f1f0;
+  bottom: 32px;
 }
 
 .page-content {
