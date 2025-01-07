@@ -9,7 +9,7 @@ import aboutVert from "../../assets/images/about-vert.jpg";
 
 // animation imports
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
@@ -17,51 +17,23 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const About = () => {
   useFadeIn(true, ".page-container", 1, 0);
   usePageScroll();
-  /*
+
   useGSAP(() => {
-    const p = new SplitText(".about-text p", {
-      type: "lines",
+    gsap.set(".about-image img", {
+      yPercent: -65,
     });
 
-    gsap.set(".about-image", {
-      opacity: 0,
-    });
-
-    p.lines.forEach((line) => {
-      gsap.set(line, {
-        opacity: 0,
-      });
-    });
-
-    gsap.to(".about-image", {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      delay: 0.35,
-      ease: "sine.inOut",
+    gsap.to(".about-image img", {
+      yPercent: 0,
       scrollTrigger: {
-        trigger: ".about-image",
-        start: "top bottom-=50",
-        toggleActions: "play reverse play reverse",
+        trigger: ".about-image img",
+        start: "top bottom",
+        end: "bottom center",
+        scrub: 1,
       },
     });
+  }, []);
 
-    p.lines.forEach((line) => {
-      gsap.to(line, {
-        opacity: 1,
-        y: 0,
-        duration: 0.35,
-        delay: 0.35,
-        ease: "sine.inOut",
-        scrollTrigger: {
-          trigger: line,
-          start: "top bottom-=50",
-          toggleActions: "play reverse play reverse",
-        },
-      });
-    });
-  });
-*/
   return (
     <>
       <div className="page-container">
@@ -78,8 +50,10 @@ const About = () => {
         <div className="container">
           <div className="page-content">
             <div className="about-container">
-              <div className="about-image">
-                <img src={aboutVert} alt="about" />
+              <div className="about-image-container">
+                <div className="about-image">
+                  <img src={aboutVert} alt="about" />
+                </div>
               </div>
               <div className="about-text">
                 <p>

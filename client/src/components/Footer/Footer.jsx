@@ -3,22 +3,7 @@ import "./footer.scss";
 // icon imports
 import { Instagram, Mail } from "lucide-react";
 
-// animation imports
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 const Footer = () => {
-  useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.05, ease: "sine.outOut" });
-
-    tl.from(".footer-container", {
-      delay: 0.25,
-      opacity: 0,
-      duration: 0.75,
-      ease: "sine.outOut",
-    });
-  });
-
   return (
     <footer
       className="footer-container"

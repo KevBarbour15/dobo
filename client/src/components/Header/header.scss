@@ -14,8 +14,6 @@
 
 .menu-button {
   display: flex;
-  background-color: transparent;
-  border: none;
   padding-left: 14px;
   color: white;
   text-shadow: 0 1.75px 2.75px rgba(0, 0, 0, 1);
@@ -30,7 +28,6 @@
 }
 
 .header-title {
-  filter: drop-shadow(0 1.25px 1.5px rgba(0, 0, 0, 0.3));
   position: absolute;
   left: 50%;
   top: 50%;

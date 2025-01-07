@@ -32,21 +32,22 @@ const Header = () => {
   }, [location]);
 
   useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.05, duration: 0.05, ease: "power4.in" });
-
     if (isGallery) {
-      tl.to(".header-title", { opacity: 1 }, 0)
-        .to(".menu-button", { color: "black" }, 0)
-        .to(
-          ".header-container",
-          {
-            borderTop: "1px solid black",
-            borderBottom: "1px solid black",
-            backgroundColor: "#f2f1f0",
-          },
-          0
-        );
+      let tl = gsap.timeline({ duration: 0.25, ease: "linear" });
+
+      tl.to(
+        ".header-container",
+        {
+          borderTop: "1px solid black",
+          borderBottom: "1px solid black",
+          backgroundColor: "#f2f1f0",
+        },
+        0
+      )
+        .to(".header-title", { opacity: 1 }, 0)
+        .to(".menu-button", { color: "black" }, 0);
     } else {
+      let tl = gsap.timeline({ duration: 0, ease: "linear" });
       tl.to(".header-title", { opacity: 0 }, 0)
         .to(".menu-button", { color: "#f2f1f0" }, 0)
         .to(

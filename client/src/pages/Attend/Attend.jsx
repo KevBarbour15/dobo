@@ -187,74 +187,23 @@ const Attend = () => {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
-  /*
+
   useGSAP(() => {
-    const p = new SplitText(".attend-text p", {
-      type: "lines",
+    gsap.set(".attend-image img", {
+      yPercent: -65,
     });
 
-    gsap.set(".attend-image", {
-      y: 50,
-      opacity: 0,
-    });
-
-    gsap.set(".form-element-container", {
-      y: 50,
-      opacity: 0,
-    });
-
-    p.lines.forEach((line) => {
-      gsap.set(line, {
-        y: 50,
-        opacity: 0,
-      });
-    });
-
-    gsap.to(".attend-image", {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      delay: 0.35,
-      ease: "sine.inOut",
+    gsap.to(".attend-image img", {
+      yPercent: 0,
       scrollTrigger: {
-        trigger: ".attend-image",
-        start: "top bottom-=100",
-        toggleActions: "play reverse play reverse",
+        trigger: ".attend-image img",
+        start: "top bottom",
+        end: "bottom center",
+        scrub: 1,
       },
     });
+  }, []);
 
-    // Animate text lines
-    p.lines.forEach((line) => {
-      gsap.to(line, {
-        opacity: 1,
-        y: 0,
-        duration: 0.35,
-        delay: 0.35,
-        ease: "sine.inOut",
-        scrollTrigger: {
-          trigger: line,
-          start: "top bottom-=100",
-          toggleActions: "play reverse play reverse",
-        },
-      });
-    });
-
-    // Animate form elements
-    gsap.to(".form-element-container", {
-      opacity: 1,
-      y: 0,
-      duration: 0.35,
-      delay: 0.35,
-      ease: "sine.inOut",
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: ".inquiry-form",
-        start: "top bottom-=100",
-        toggleActions: "play reverse play reverse",
-      },
-    });
-  });
-*/
   return (
     <>
       <div className="page-container">
@@ -272,8 +221,10 @@ const Attend = () => {
         <div className="container">
           <div className="page-content">
             <div className="attend-container">
-              <div className="attend-image">
-                <img src={attendVert} alt="attend" />
+              <div className="attend-image-container">
+                <div className="attend-image">
+                  <img src={attendVert} alt="Attend" />
+                </div>
               </div>
               <div className="attend-info-container">
                 <div className="attend-text">

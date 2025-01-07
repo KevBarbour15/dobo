@@ -5,16 +5,19 @@
   position: relative;
 }
 
-.attend-image {
-  padding-right: 16px;
+.attend-image-container {
   flex-basis: 50%;
 }
 
-.attend-image img {
-  margin: auto;
-  border: 1px solid black;
+.attend-image {
+  overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: calc(100dvh - 100px);
+  border: 1px solid black;
+}
+
+.attend-image img {
   object-fit: cover;
   object-position: center;
 }

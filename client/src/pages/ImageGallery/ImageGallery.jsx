@@ -56,22 +56,26 @@ const ImageGallery = () => {
     if (loaded) {
       setTimeout(() => {
         gsap.set(".gallery-container img", {
+          x: (i) => {
+            i = i % 2 === 0 ? 200 : -200;
+            return (Math.random() - 0.5) * i;
+          },
+          y: (i) => {
+            i = i % 2 === 0 ? 200 : -200;
+            return (Math.random() - 0.5) * i;
+          },
+          opacity: 0,
+        });
+        gsap.to(".gallery-container img", {
           opacity: 1,
-        });
-        gsap.from(".gallery-container ", {
-          opacity: 0,
-          duration: 0.25,
-          ease: "linear",
-        });
-        gsap.from(".react-photo-album--row", {
-          opacity: 0,
-          stagger: 0.125,
-          delay: 0.35,
+          stagger: 0.1,
+          delay: 0.15,
           duration: 0.5,
           ease: "sine.out",
-          x: (i) => (i % 2 === 0 ? 100 : -100),
+          x: 0,
+          y: 0,
         });
-      }, 100);
+      }, 0.5);
     }
   }, [loaded]);
 

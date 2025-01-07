@@ -28,7 +28,7 @@ const FAQ = () => {
   useGSAP(() => {
     let faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach((item, index) => {
+    faqItems.forEach((item) => {
       gsap.set(item, {
         y: 25,
         opacity: 0,
