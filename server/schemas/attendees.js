@@ -29,7 +29,7 @@ const AttendeeSchema = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: true,
+    required: false,
   },
   seats: {
     type: Number,

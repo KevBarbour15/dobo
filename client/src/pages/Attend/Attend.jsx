@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "./attend.scss";
 
 // axios imports
@@ -15,7 +15,7 @@ import {
 } from "../../util/formatting.jsx";
 
 // component imports
-import Checkbox from "../../components/Checkbox/Checkbox.jsx";
+import CheckoutButton from "../../components/CheckoutButton/CheckoutButton.jsx";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
@@ -34,16 +34,39 @@ import Toast from "../../components/Toast/Toast.jsx";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
+let initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  selectedEventId: "",
+  date: "",
+  message: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "update_firstName":
+      return { ...state, firstName: action.payload };
+    case "update_lastName":
+      return { ...state, lastName: action.payload };
+    case "update_email":
+      return { ...state, email: action.payload };
+    case "update_selectedEventId":
+      return { ...state, selectedEventId: action.payload };
+    case "update_date":
+      return { ...state, date: action.payload };
+    case "update_message":
+      return { ...state, message: action.payload };
+    default:
+      return state;
+  }
+}
+
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [selectedEventId, setSelectedEventId] = useState("");
-  const [date, setDate] = useState("");
-  const [message, setMessage] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
-  const [state, handleSubmit] = useForm("xdoqpwrb");
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [submit, handleSubmit] = useForm("xdoqpwrb");
   const toastMessage =
     "Thank you for inquiry. We will reach out with details shortly.";
 
@@ -80,8 +103,14 @@ const Attend = () => {
     );
 
     if (selectedEvent) {
-      setSelectedEventId(selectedEvent._id);
-      setDate(selectedEvent.date);
+      dispatch({
+        type: "update_selectedEventId",
+        payload: selectedEvent._id,
+      });
+      dispatch({
+        type: "update_date",
+        payload: selectedEvent.date,
+      });
       selectElement.classList.remove("default-option");
       selectElement.classList.add("select-option");
     } else {
@@ -93,28 +122,25 @@ const Attend = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    if (!selectedEventId) return;
+    if (!state.selectedEventId) return;
 
-    let convertedDate = convertDateReadability(date);
+    let convertedDate = convertDateReadability(state.date);
 
     const attendeeData = {
-      firstName,
-      lastName,
-      email,
-      eventId: selectedEventId,
-      status: "Inquired",
-      message,
-      subscribe: isChecked,
+      eventId: state.selectedEventId,
+      firstName: state.firstName,
+      lastName: state.lastName,
+      email: state.email,
+      message: state.message,
     };
 
     const resetForm = () => {
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setIsChecked(false);
-      setSelectedEventId("");
-      setDate("");
-      setMessage("");
+      dispatch({ type: "update_firstName", payload: "" });
+      dispatch({ type: "update_lastName", payload: "" });
+      dispatch({ type: "update_email", payload: "" });
+      dispatch({ type: "update_selectedEventId", payload: "" });
+      dispatch({ type: "update_date", payload: "" });
+      dispatch({ type: "update_message", payload: "" });
     };
 
     const postAttendeeData = async () => {
@@ -133,24 +159,22 @@ const Attend = () => {
           });
 
           const formData = {
-            "Name:": firstName + " " + lastName,
-            "Email:": email,
+            "Name:": state.firstName + " " + state.lastName,
+            "Email:": state.email,
             "Event date:": convertedDate,
-            "Message:": message,
+            "Message:": state.message,
           };
 
           handleSubmit(formData);
 
-          if (!isChecked) {
-            resetForm();
-          }
+          resetForm();
         }
       } catch (error) {
         const errorData = error.response ? error.response.data : error.message;
         console.error("There was an error sending the data:", errorData);
       }
     };
-
+    /*
     const postSubscriptionData = async () => {
       if (isChecked) {
         try {
@@ -172,22 +196,17 @@ const Attend = () => {
           resetForm();
         }
       }
-    };
+    };*/
 
     await postAttendeeData();
-    await postSubscriptionData();
   };
 
   useEffect(() => {
     const selectElement = document.querySelector("select");
-    if (selectElement && selectedEventId === "") {
+    if (selectElement && state.selectedEventId === "") {
       selectElement.classList.add("default-");
     }
-  }, [selectedEventId]);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
+  }, [state.selectedEventId]);
 
   useGSAP(() => {
     gsap.set(".attend-image img", {
@@ -244,8 +263,9 @@ const Attend = () => {
               <div className="attend-info-container">
                 <div className="attend-text">
                   <p>
-                    Please fill out the form to secure your place at a Dobo
-                    event. We’ll follow up with more information.{" "}
+                    Please fill out the form and complete the purchase to secure
+                    your place at a Dobo event. We will follow up with more
+                    information.{" "}
                   </p>
                   <p className="attend-text-italic">
                     Limited seating available. $160 per seat.
@@ -262,7 +282,7 @@ const Attend = () => {
                   <div className="form-element-container">
                     <select
                       className="form-element"
-                      value={selectedEventId}
+                      value={state.selectedEventId}
                       onChange={handleSelectChange}
                       required
                     >
@@ -290,12 +310,18 @@ const Attend = () => {
                   </div>
                   <div className="form-element-container">
                     <input
+                      aria-label="First Name"
                       className="form-element"
                       type="text"
-                      //name="First Name"
-                      value={firstName}
+                      name="First Name"
+                      value={state.firstName}
                       placeholder="First name:"
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_firstName",
+                          payload: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
@@ -309,9 +335,14 @@ const Attend = () => {
                       className="form-element"
                       type="text"
                       //name="Last Name"
-                      value={lastName}
+                      value={state.lastName}
                       placeholder="Last name:"
-                      onChange={(e) => setLastName(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_lastName",
+                          payload: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
@@ -325,9 +356,14 @@ const Attend = () => {
                       className="form-element"
                       type="email"
                       name="email"
-                      value={email}
+                      value={state.email}
                       placeholder="Email:"
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_email",
+                          payload: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
@@ -340,30 +376,32 @@ const Attend = () => {
                     <textarea
                       className="form-element"
                       type="text"
-                      value={message}
+                      value={state.message}
                       name="message"
-                      required
-                      placeholder="Please include number of guests, allergies and any other questions:"
-                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Optional message:"
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_message",
+                          payload: e.target.value,
+                        })
+                      }
                     />
                   </div>
-                  <input type="hidden" name="Date" />
-                  <div className="form-element-container checkbox-container">
-                    {
-                      <Checkbox
-                        text={
-                          "Subscribe to receive alerts when new events are posted."
-                        }
-                        isSelected={isChecked}
-                        onCheckboxChange={handleCheckboxChange}
+                  {state.selectedEventId &&
+                  state.firstName &&
+                  state.lastName &&
+                  state.email ? (
+                    <div className="form-element-container">
+                      <CheckoutButton
+                        eventId={state.selectedEventId}
+                        attendee={state}
                       />
-                    }
-                  </div>
-                  <div className="form-element-container">
-                    <button className="button" type="submit" aria-label="Submit">
-                      Submit
-                    </button>
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="form-element-container">
+                      <div className="checkout-button-disabled"></div>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

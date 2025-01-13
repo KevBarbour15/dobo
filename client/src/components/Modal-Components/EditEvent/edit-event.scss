@@ -1,20 +1,15 @@
-.edit-event-form {
-  padding: 8px;
+.edit-event-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 8px;
-  justify-content: center;
+  background-color: red;
 }
 
-
-
-.event-label {
+.edit-event-form {
+  padding: 8px;
+  width: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 8px;
 }
 
 @media (max-width: 768px) {
