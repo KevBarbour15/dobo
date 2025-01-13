@@ -360,7 +360,7 @@ const Attend = () => {
                     }
                   </div>
                   <div className="form-element-container">
-                    <button className="button" type="submit">
+                    <button className="button" type="submit" aria-label="Submit">
                       Submit
                     </button>
                   </div>

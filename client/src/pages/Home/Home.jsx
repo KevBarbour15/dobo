@@ -94,7 +94,7 @@ const Home = () => {
           <img
             ref={homeImageRef}
             src={homeImage}
-            alt="DOBO NYC"
+            alt="DOBO NYC - Modern Filipino Food"
             className="home-image"
           />
         ) : (
@@ -106,6 +106,7 @@ const Home = () => {
             muted
             playsInline
             className="home-video"
+            alt="DOBO NYC - Modern Filipino Food"
           />
         )}
         <div className="container">
@@ -119,7 +120,12 @@ const Home = () => {
             </p>
             <div className="button-wrapper">
               <Link to="/attend">
-                <button className="home-button">Join us</button>
+                <button
+                  className="home-button"
+                  aria-label="Navigate to the Attend page"
+                >
+                  Join us
+                </button>
               </Link>
             </div>
           </div>
