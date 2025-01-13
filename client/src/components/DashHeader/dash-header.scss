@@ -9,7 +9,6 @@
   justify-content: center;
   transition: all 0.25s ease;
   background-color: #f2f1f0;
-  box-shadow: 0 1.25px 1.75px rgba(0, 0, 0, 0.35);
   border-top: 1px solid black;
 }
 
@@ -32,7 +31,6 @@
   text-transform: uppercase;
   color: black;
   font-weight: 700;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .dash-header-links-container {
@@ -65,7 +63,6 @@
   font-weight: 700;
   border: none;
   transition: all 0.25s ease-in-out;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .dash-link-container:hover {
