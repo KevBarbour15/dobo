@@ -27,11 +27,12 @@ router.post("/update", (request, response) => {
 
   const session = event.data.object;
   const eventId = session.metadata.eventId;
+  const eventMetadata = session.metadata;
 
   switch (event.type) {
     // handling successful checkout and seating
     case "checkout.session.completed":
-      updateEventSeats("success", eventId)
+      updateEventSeats("success", eventMetadata, eventId)
         .then(() => {
           console.log("Seat decremented successfully due to purchase!");
           response.json({ received: true });
@@ -52,7 +53,7 @@ router.post("/update", (request, response) => {
           const eventId = paymentIntent.metadata.eventId;
 
           if (eventId) {
-            updateEventSeats("refund", eventId)
+            updateEventSeats("refund", eventMetadata, eventId)
               .then(() => {
                 console.log("Seat incremented successfully due to refund!");
                 response.json({ received: true });
@@ -79,7 +80,7 @@ router.post("/update", (request, response) => {
 });
 
 // adjust event seats accordingly
-async function updateEventSeats(type, eventId) {
+async function updateEventSeats(type, eventMetadata, eventId) {
   try {
     const event = await Event.findById(eventId);
     if (!event) {
@@ -89,9 +90,20 @@ async function updateEventSeats(type, eventId) {
     if (type === "success") {
       console.log("Subtracted one seat from event");
       event.seatsRemaining -= 1;
+
+      const attendee = {
+        firstName: eventMetadata.firstName,
+        lastName: eventMetadata.lastName,
+        email: eventMetadata.email,
+        phone: eventMetadata.phone,
+        seats: eventMetadata.seats,
+        status: "Confirmed",
+      };
     } else if (type === "refund") {
       console.log("Added one seat back to event");
       event.seatsRemaining += 1;
+
+      //eventually add a user to the event
     }
 
     await event.save();

@@ -91,80 +91,78 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <div className="create-event-form">
-        <form onSubmit={handleSubmit}>
-          <div className="form-element-container">
-            <label>event name:</label>
-            <input
-              className="form-element"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
+      <form className="create-event-form" onSubmit={handleSubmit}>
+        <div className="form-element-container">
+          <label>event name:</label>
+          <input
+            className="form-element"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-element-container">
+          <label>price:</label>
+          <input
+            className="form-element"
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-element-container">
+          <label>date:</label>
+          <input
+            className="form-element"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-element-container">
+          <label>time:</label>
+          <input
+            className="form-element"
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-element-container">
+          <label>seats:</label>
+          <select
+            className="form-element"
+            placeholder="Seats"
+            value={seats}
+            onChange={(e) => setSeats(formatDate(e.target.value))}
+            required
+          >
+            {[...Array(20)].map((_, i) => (
+              <option key={i} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-element-container">
+          {
+            <Checkbox
+              text={"Make this a public event?"}
+              isSelected={isPublicEvent}
+              onCheckboxChange={handlePublicEventChange}
             />
-          </div>
-          <div className="form-element-container">
-            <label>price:</label>
-            <input
-              className="form-element"
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-element-container">
-            <label>date:</label>
-            <input
-              className="form-element"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-element-container">
-            <label>time:</label>
-            <input
-              className="form-element"
-              type="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-element-container">
-            <label>seats:</label>
-            <select
-              className="form-element"
-              placeholder="Seats"
-              value={seats}
-              onChange={(e) => setSeats(formatDate(e.target.value))}
-              required
-            >
-              {[...Array(20)].map((_, i) => (
-                <option key={i} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-element-container">
-            {
-              <Checkbox
-                text={"Make this a public event?"}
-                isSelected={isPublicEvent}
-                onCheckboxChange={handlePublicEventChange}
-              />
-            }
-          </div>
-          <div className="form-element-container">
-            <button className="button" type="submit">
-              Create
-            </button>
-          </div>
-        </form>
-      </div>
+          }
+        </div>
+        <div className="form-element-container">
+          <button className="button" type="submit">
+            Create
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

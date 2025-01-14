@@ -4,7 +4,7 @@ import "./modal.scss";
 import useFadeIn from "../../animation-hooks/fadeIn";
 
 // component imports
-import { CircleX } from "lucide-react";
+import { X } from "lucide-react";
 
 const Modal = ({ isVisible, title, children, onClose }) => {
   useFadeIn(isVisible, ".modal-content", 0.25);
@@ -18,7 +18,7 @@ const Modal = ({ isVisible, title, children, onClose }) => {
         <header className="modal-header">
           <p className="modal-title">{title}</p>
           <button onClick={onClose} className="close-button">
-            <CircleX strokeWidth={0.75} size={24} />
+            <X strokeWidth={0.75} size={24} />
           </button>
         </header>
         <div className="modal-body">{children}</div>

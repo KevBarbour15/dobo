@@ -23,7 +23,7 @@ const DoboEventSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: false,
+    required: true,
   },
   notes: {
     type: String,

@@ -1,12 +1,10 @@
 .edit-event-container {
   width: 100%;
   display: flex;
-  background-color: red;
+  padding: 8px;
 }
 
 .edit-event-form {
-  padding: 8px;
-  width: auto;
   display: flex;
   flex-direction: column;
   gap: 8px;

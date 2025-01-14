@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
   background-color: #f2f1f0;
   border-top: 1px solid black;
 }
@@ -40,7 +39,6 @@
 .dash-header-links nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   height: 100%;
   width: 100%;
 }
@@ -63,6 +61,7 @@
   font-weight: 700;
   border: none;
   transition: all 0.25s ease-in-out;
+  cursor: pointer;
 }
 
 .dash-link-container:hover {
@@ -72,7 +71,6 @@
 
 .dash-link-container:hover button {
   color: #f2f1f0;
-  cursor: pointer;
 }
 
 .dash-active-link {
