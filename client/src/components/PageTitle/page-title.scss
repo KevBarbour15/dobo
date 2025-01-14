@@ -19,6 +19,18 @@
   filter: drop-shadow(0.03em 0.03em black);
 }
 
+.title-dark {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  text-align: center;
+  color: black;
+  opacity: 0;
+}
+
 @media (max-width: 768px) {
   .title-container {
     height: 64px;
