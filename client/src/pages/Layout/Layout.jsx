@@ -7,15 +7,6 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 const Layout = () => {
-  const setVHVariable = () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  };
-
-  useEffect(() => {
-    setVHVariable();
-  }, []);
-
   return (
     <div className="layout">
       <Header />
