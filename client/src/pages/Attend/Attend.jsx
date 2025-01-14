@@ -24,13 +24,7 @@ import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
-// notifications imports
-import { useForm, ValidationError } from "@formspree/react";
-
 import { MoveDown } from "lucide-react";
-
-import { toast } from "react-toastify";
-import Toast from "../../components/Toast/Toast.jsx";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
@@ -39,8 +33,10 @@ let initialState = {
   lastName: "",
   email: "",
   selectedEventId: "",
-  date: "",
   message: "",
+  seats: 1,
+  date: "",
+  time: "",
 };
 
 function reducer(state, action) {
@@ -53,10 +49,14 @@ function reducer(state, action) {
       return { ...state, email: action.payload };
     case "update_selectedEventId":
       return { ...state, selectedEventId: action.payload };
-    case "update_date":
-      return { ...state, date: action.payload };
     case "update_message":
       return { ...state, message: action.payload };
+    case "update_date":
+      return { ...state, date: action.payload };
+    case "update_time":
+      return { ...state, time: action.payload };
+    case "update_seats":
+      return { ...state, seats: parseInt(action.payload) };
     default:
       return state;
   }
@@ -65,10 +65,7 @@ function reducer(state, action) {
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const [submit, handleSubmit] = useForm("xdoqpwrb");
-  const toastMessage =
-    "Thank you for inquiry. We will reach out with details shortly.";
+  const [seatsRemaining, setSeatsRemaining] = useState(1);
 
   // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
@@ -102,109 +99,38 @@ const Attend = () => {
       (event) => event._id === e.target.value
     );
 
+    setSeatsRemaining(selectedEvent.seatsRemaining);
+
     if (selectedEvent) {
+      // format date and time for readability in stripe display
+      const date = convertDateReadability(selectedEvent.date);
+      const time = convertMilitaryTime(selectedEvent.time);
+
       dispatch({
         type: "update_selectedEventId",
         payload: selectedEvent._id,
       });
       dispatch({
         type: "update_date",
-        payload: selectedEvent.date,
+        payload: date,
       });
+      dispatch({
+        type: "update_time",
+        payload: time,
+      });
+
       selectElement.classList.remove("default-option");
-      selectElement.classList.add("select-option");
+      selectElement.classList.add("selected-option");
     } else {
       selectElement.classList.add("default-option");
-      selectElement.classList.remove("select-option");
+      selectElement.classList.remove("selected-option");
     }
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!state.selectedEventId) return;
-
-    let convertedDate = convertDateReadability(state.date);
-
-    const attendeeData = {
-      eventId: state.selectedEventId,
-      firstName: state.firstName,
-      lastName: state.lastName,
-      email: state.email,
-      message: state.message,
-    };
-
-    const resetForm = () => {
-      dispatch({ type: "update_firstName", payload: "" });
-      dispatch({ type: "update_lastName", payload: "" });
-      dispatch({ type: "update_email", payload: "" });
-      dispatch({ type: "update_selectedEventId", payload: "" });
-      dispatch({ type: "update_date", payload: "" });
-      dispatch({ type: "update_message", payload: "" });
-    };
-
-    const postAttendeeData = async () => {
-      try {
-        const response = await axios.post("/attendees/new", attendeeData);
-        if (response.status === 200 || response.status === 201) {
-          // success notification
-          toast(<Toast message={toastMessage} />, {
-            position: "top-left",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-
-          const formData = {
-            "Name:": state.firstName + " " + state.lastName,
-            "Email:": state.email,
-            "Event date:": convertedDate,
-            "Message:": state.message,
-          };
-
-          handleSubmit(formData);
-
-          resetForm();
-        }
-      } catch (error) {
-        const errorData = error.response ? error.response.data : error.message;
-        console.error("There was an error sending the data:", errorData);
-      }
-    };
-    /*
-    const postSubscriptionData = async () => {
-      if (isChecked) {
-        try {
-          const response = await axios.post("/subscribe/new", {
-            email,
-            firstName,
-            lastName,
-          });
-
-          if (response.status === 200 || response.status === 201) {
-            resetForm();
-          }
-        } catch (error) {
-          if (error.response.status === 400) {
-            console.log("User email already subscribed.");
-          } else {
-            console.error("There was an error subscribing the user: ", error);
-          }
-          resetForm();
-        }
-      }
-    };*/
-
-    await postAttendeeData();
   };
 
   useEffect(() => {
     const selectElement = document.querySelector("select");
     if (selectElement && state.selectedEventId === "") {
-      selectElement.classList.add("default-");
+      selectElement.classList.add("default-option");
     }
   }, [state.selectedEventId]);
 
@@ -233,6 +159,12 @@ const Attend = () => {
       },
     });
   }, []);
+
+  // Add email validation function
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <>
@@ -272,137 +204,138 @@ const Attend = () => {
                   </p>
                 </div>
 
-                <form
-                  className="inquiry-form"
-                  onSubmit={handleFormSubmit}
-                  acceptCharset="utf-8"
-                  action="https://formspree.io/f/xdoqpwrb"
-                  method="post"
-                >
-                  <div className="form-element-container">
-                    <select
-                      className="form-element"
-                      value={state.selectedEventId}
-                      onChange={handleSelectChange}
-                      required
-                    >
+                <div className="inquiry-form">
+                  <select
+                    className="form-element"
+                    value={state.selectedEventId}
+                    onChange={handleSelectChange}
+                    required
+                  >
+                    <option className="default-option" value="" disabled hidden>
+                      Select a date:
+                    </option>
+                    {futureEvents.map((event) => (
                       <option
-                        className="default-option"
-                        value=""
-                        disabled
-                        hidden
+                        className="selected-option"
+                        key={event._id}
+                        value={event._id}
                       >
-                        Select a date:
+                        {convertDateReadability(event.date)}
+                        {event.seatsRemaining > 0
+                          ? " at " + convertMilitaryTime(event.time)
+                          : " - SOLD OUT"}
                       </option>
-                      {futureEvents.map((event) => (
-                        <option
-                          className="selected-option"
-                          key={event._id}
-                          value={event._id}
-                        >
-                          {convertDateReadability(event.date)}
-                          {event.seatsRemaining > 0
-                            ? " at " + convertMilitaryTime(event.time)
-                            : " - SOLD OUT"}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-element-container">
-                    <input
-                      aria-label="First Name"
-                      className="form-element"
-                      type="text"
-                      name="First Name"
-                      value={state.firstName}
-                      placeholder="First name:"
-                      onChange={(e) =>
-                        dispatch({
-                          type: "update_firstName",
-                          payload: e.target.value,
-                        })
-                      }
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="firstName"
-                    field="firstName"
-                    errors={state.errors}
+                    ))}
+                  </select>
+
+                  <input
+                    aria-label="First Name"
+                    className="form-element"
+                    type="text"
+                    name="First Name"
+                    value={state.firstName}
+                    placeholder="First name:"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_firstName",
+                        payload: e.target.value,
+                      })
+                    }
+                    required
                   />
-                  <div className="form-element-container">
-                    <input
-                      className="form-element"
-                      type="text"
-                      //name="Last Name"
-                      value={state.lastName}
-                      placeholder="Last name:"
-                      onChange={(e) =>
-                        dispatch({
-                          type: "update_lastName",
-                          payload: e.target.value,
-                        })
-                      }
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="lastName"
-                    field="lastName"
-                    errors={state.errors}
+
+                  <input
+                    className="form-element"
+                    type="text"
+                    name="Last Name"
+                    value={state.lastName}
+                    placeholder="Last name:"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_lastName",
+                        payload: e.target.value,
+                      })
+                    }
+                    required
                   />
-                  <div className="form-element-container">
-                    <input
-                      className="form-element"
-                      type="email"
-                      name="email"
-                      value={state.email}
-                      placeholder="Email:"
-                      onChange={(e) =>
-                        dispatch({
-                          type: "update_email",
-                          payload: e.target.value,
-                        })
+
+                  <input
+                    className="form-element"
+                    type="email"
+                    Name="email"
+                    required
+                    value={state.email}
+                    placeholder="Email:"
+                    onChange={(e) => {
+                      dispatch({
+                        type: "update_email",
+                        payload: e.target.value,
+                      });
+                    }}
+                    onBlur={(e) => {
+                      if (
+                        !isValidEmail(e.target.value) &&
+                        e.target.value !== ""
+                      ) {
+                        e.target.setCustomValidity(
+                          "Please enter a valid email address"
+                        );
+                      } else {
+                        e.target.setCustomValidity("");
                       }
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="Email"
-                    field="email"
-                    errors={state.errors}
+                    }}
                   />
-                  <div className="form-element-container">
-                    <textarea
-                      className="form-element"
-                      type="text"
-                      value={state.message}
-                      name="message"
-                      placeholder="Optional message:"
-                      onChange={(e) =>
-                        dispatch({
-                          type: "update_message",
-                          payload: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
+
+                  <select
+                    className="form-element"
+                    value={state.seats}
+                    disabled={!state.selectedEventId}
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_seats",
+                        payload: e.target.value,
+                      })
+                    }
+                  >
+                    {Array.from(
+                      { length: seatsRemaining },
+                      (_, i) => i + 1
+                    ).map((seat) => (
+                      <option key={seat} value={seat}>
+                        {seat} ticket{seat > 1 ? "s" : ""}
+                      </option>
+                    ))}
+                  </select>
+
+                  <textarea
+                    className="form-element"
+                    type="text"
+                    value={state.message}
+                    name="message"
+                    placeholder="Message (optional):"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_message",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
+
                   {state.selectedEventId &&
                   state.firstName &&
                   state.lastName &&
-                  state.email ? (
+                  isValidEmail(state.email) ? (
                     <div className="form-element-container">
-                      <CheckoutButton
-                        eventId={state.selectedEventId}
-                        attendee={state}
-                      />
+                      <CheckoutButton attendee={state} />
                     </div>
                   ) : (
                     <div className="form-element-container">
-                      <div className="checkout-button-disabled"></div>
+                      <div className="checkout-button-disabled">
+                        Purchase seat
+                      </div>
                     </div>
                   )}
-                </form>
+                </div>
               </div>
             </div>
           </div>

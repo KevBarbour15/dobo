@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const Event = require("../schemas/eventInfo");
+const Attendee = require("../schemas/attendees");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 
@@ -12,8 +13,6 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 // stripe trigger charge.refunded
 
 router.post("/update", (request, response) => {
-  console.log("Received webhook request!");
-
   const sig = request.headers["stripe-signature"];
   let event;
 
@@ -26,15 +25,12 @@ router.post("/update", (request, response) => {
   }
 
   const session = event.data.object;
-  const eventId = session.metadata.eventId;
   const eventMetadata = session.metadata;
 
   switch (event.type) {
-    // handling successful checkout and seating
     case "checkout.session.completed":
-      updateEventSeats("success", eventMetadata, eventId)
+      updateEventSeats("success", eventMetadata, session)
         .then(() => {
-          console.log("Seat decremented successfully due to purchase!");
           response.json({ received: true });
         })
         .catch((error) => {
@@ -42,18 +38,15 @@ router.post("/update", (request, response) => {
           console.error("Error decrementing seat:", error);
         });
       break;
-    // handling refunds and seating
+
     case "charge.refunded":
-      console.log("Refund completed successfully!");
       const charge = event.data.object;
 
       stripe.paymentIntents
         .retrieve(charge.payment_intent)
         .then((paymentIntent) => {
-          const eventId = paymentIntent.metadata.eventId;
-
-          if (eventId) {
-            updateEventSeats("refund", eventMetadata, eventId)
+          if (eventMetadata.eventId) {
+            updateEventSeats("refund", eventMetadata, session)
               .then(() => {
                 console.log("Seat incremented successfully due to refund!");
                 response.json({ received: true });
@@ -74,36 +67,64 @@ router.post("/update", (request, response) => {
       break;
 
     default:
-      console.log(`Unhandled event type ${event.type}`);
+      //console.log(`Unhandled event type ${event.type}`);
       response.send();
   }
 });
 
 // adjust event seats accordingly
-async function updateEventSeats(type, eventMetadata, eventId) {
+async function updateEventSeats(type, eventMetadata, session) {
   try {
-    const event = await Event.findById(eventId);
+    const event = await Event.findById(eventMetadata.eventId);
     if (!event) {
       throw new Error("Event not found");
     }
 
     if (type === "success") {
-      console.log("Subtracted one seat from event");
-      event.seatsRemaining -= 1;
+      event.seatsRemaining -= eventMetadata.seats;
 
       const attendee = {
+        eventId: eventMetadata.eventId,
         firstName: eventMetadata.firstName,
         lastName: eventMetadata.lastName,
         email: eventMetadata.email,
-        phone: eventMetadata.phone,
         seats: eventMetadata.seats,
+        message: eventMetadata.message,
         status: "Confirmed",
       };
-    } else if (type === "refund") {
-      console.log("Added one seat back to event");
-      event.seatsRemaining += 1;
 
-      //eventually add a user to the event
+      const newAttendee = new Attendee(attendee);
+      const savedAttendee = await newAttendee.save();
+
+      await stripe.paymentIntents.update(session.payment_intent, {
+        metadata: {
+          ...eventMetadata,
+          attendeeId: savedAttendee._id.toString(),
+        },
+      });
+
+      await Event.findByIdAndUpdate(eventMetadata.eventId, {
+        $push: { attendees: savedAttendee._id },
+      });
+    } else if (type === "refund") {
+      const attendee = await Attendee.findOne({
+        eventId: eventMetadata.eventId,
+        status: "Confirmed",
+      });
+
+      if (!attendee) {
+        throw new Error("Attendee not found");
+      }
+
+      event.seatsRemaining += parseInt(attendee.seats);
+      console.log("Added " + attendee.seats + " seats back to event");
+
+      attendee.status = "Refunded";
+      await attendee.save();
+
+      await Event.findByIdAndUpdate(eventMetadata.eventId, {
+        $pull: { attendees: attendee._id },
+      });
     }
 
     await event.save();

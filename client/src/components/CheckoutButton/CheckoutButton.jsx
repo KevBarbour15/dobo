@@ -15,12 +15,12 @@ const stripePromise = loadStripe(
   Expiration, CVC and Zip can be anything
 */
 
-const CheckoutButton = ({ eventId, attendee }) => {
+const CheckoutButton = ({ attendee }) => {
   const handleClick = async () => {
     try {
       const { data: session } = await axios.post(
         "/checkout/create-checkout-session",
-        { eventId, attendee }
+        { attendee }
       );
 
       const stripe = await stripePromise;
@@ -30,22 +30,21 @@ const CheckoutButton = ({ eventId, attendee }) => {
 
       if (result.error) {
         console.error("Stripe redirect error:", result.error);
-        alert(result.error.message);
+        throw new Error(result.error.message);
       }
     } catch (error) {
-      // Improved error handling
       console.error("Error during checkout:", error);
       const errorMessage =
         error.response?.data?.message ||
         error.message ||
         "An unknown error occurred";
-      alert(`Checkout error: ${errorMessage}`);
+      throw new Error(errorMessage);
     }
   };
 
   return (
     <button className="checkout-button" role="link" onClick={handleClick}>
-      Purchase Ticket
+      Purchase seat
     </button>
   );
 };

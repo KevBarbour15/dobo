@@ -78,6 +78,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
             <option value="Contacted">Contacted</option>
             <option value="Not Attending">Not Attending</option>
             <option value="Waitlisted">Waitlisted</option>
+            <option value="Refunded">Refunded</option>
           </select>
           {status === "Confirmed" && (
             <select
