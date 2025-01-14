@@ -35,8 +35,8 @@
   .title-container {
     height: 64px;
   }
-  .title {
+  .title,
+  .title-dark {
     font-size: 32px;
-    filter: drop-shadow(0.03em 0.03em black);
   }
 }
