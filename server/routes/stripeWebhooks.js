@@ -12,15 +12,15 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 // stripe trigger checkout.session.completed
 // stripe trigger charge.refunded
 
-router.post("/update", (request, response) => {
-  const sig = request.headers["stripe-signature"];
+router.post("/update", (req, res) => {
+  const sig = req.headers["stripe-signature"];
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(request.body, sig, ENDPOINT_SECRET);
+    event = stripe.webhooks.constructEvent(req.body, sig, ENDPOINT_SECRET);
   } catch (err) {
     console.log("Error", err.message);
-    response.status(400).send(`Webhook Error: ${err.message}`);
+    res.status(400).send(`Webhook Error: ${err.message}`);
     return;
   }
 
@@ -31,15 +31,16 @@ router.post("/update", (request, response) => {
     case "checkout.session.completed":
       updateEventSeats("success", eventMetadata, session)
         .then(() => {
-          response.json({ received: true });
+          res.json({ received: true });
         })
         .catch((error) => {
-          response.status(500).send();
+          res.status(500).send();
           console.error("Error decrementing seat:", error);
         });
       break;
 
     case "charge.refunded":
+      break;
       const charge = event.data.object;
 
       stripe.paymentIntents
@@ -49,26 +50,26 @@ router.post("/update", (request, response) => {
             updateEventSeats("refund", eventMetadata, session)
               .then(() => {
                 console.log("Seat incremented successfully due to refund!");
-                response.json({ received: true });
+                res.json({ received: true });
               })
               .catch((error) => {
                 console.error("Error incrementing seat:", error);
-                response.status(500).send();
+                res.status(500).send();
               });
           } else {
             console.error("Event ID not found in metadata.");
-            response.status(500).send("Metadata not found");
+            res.status(500).send("Metadata not found");
           }
         })
         .catch((err) => {
           console.error("Error retrieving PaymentIntent:", err);
-          response.status(500).send("Error retrieving PaymentIntent");
+          res.status(500).send("Error retrieving PaymentIntent");
         });
       break;
 
     default:
       //console.log(`Unhandled event type ${event.type}`);
-      response.send();
+      res.send();
   }
 });
 

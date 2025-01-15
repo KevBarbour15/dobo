@@ -12,14 +12,10 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [seats, setSeats] = useState(1);
+  const [winePairings, setWinePairings] = useState(0);
   const toastMessage = "Guest added successfully!";
   const errorMessage = "Error adding guest. Please try again.";
-
-  const handleSeatsChange = (e) => {
-    setSeats(e.target.value);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +24,8 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
       firstName,
       lastName,
       email,
-      message,
       seats,
+      winePairings,
       status: "Confirmed",
       eventId: event._id,
     };
@@ -76,6 +72,7 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
+
         <input
           className="form-element"
           type="text"
@@ -95,32 +92,37 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
           required
         />
 
-        <textarea
+        <select
           className="form-element"
-          type="text"
-          value={message}
-          name="message"
-          required
-          placeholder="Add a message:"
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <div className="event-label">
-          <label>seats:</label>
-          <select
-            className="form-element"
-            value={seats}
-            onChange={handleSeatsChange}
-          >
-            {[...Array(20)].map((_, i) => (
-              <option key={i} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button className="button" type="submit">
-          Add Guest
-        </button>
+          value={seats}
+          onChange={(e) => setSeats(Number(e.target.value))}
+        >
+          {[...Array(event.seatsRemaining)].map((_, i) => (
+            <option key={i} value={i + 1}>
+              {i + 1} {i + 1 === 1 ? "seat" : "seats"}
+            </option>
+          ))}
+        </select>
+
+        <select
+          className="form-element"
+          value={winePairings}
+          onChange={(e) => setWinePairings(e.target.value)}
+        >
+          <option value={Number(0)}>0 wine pairings</option>
+          {[...Array(Number(seats))].map((_, i) => (
+            <option key={i} value={i + 1}>
+              {i + 1} {i + 1 === 1 ? "wine pairing" : "wine pairings"}
+            </option>
+          ))}
+        </select>
+        {firstName && lastName && email && seats ? (
+          <button className="button" type="submit">
+            Add Guest
+          </button>
+        ) : (
+          <div className="checkout-button-disabled">Add guest</div>
+        )}
       </form>
     </div>
   );

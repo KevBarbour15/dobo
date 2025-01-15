@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./header.scss";
 
@@ -17,6 +18,7 @@ import gsap from "gsap";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGallery, setIsGallery] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -29,10 +31,11 @@ const Header = () => {
 
   useEffect(() => {
     setIsGallery(location.pathname === "/gallery");
+    setIsSuccess(location.pathname === "/success");
   }, [location]);
 
   useGSAP(() => {
-    if (isGallery) {
+    if (isGallery || isSuccess) {
       let tl = gsap.timeline({ duration: 0.25, ease: "linear" });
 
       tl.to(
@@ -60,7 +63,7 @@ const Header = () => {
           0
         );
     }
-  }, [isGallery]);
+  }, [isGallery, isSuccess]);
 
   return (
     <>
@@ -74,8 +77,9 @@ const Header = () => {
             <MenuIcon size={24} strokeWidth={1.25} />
           </button>
         </div>
-
-        <img className="header-title" src={logo} alt="DOBO" />
+        <Link to="/" aria-label="DOBO">
+          <img className="header-title" src={logo} alt="DOBO" />
+        </Link>
       </header>
     </>
   );

@@ -39,9 +39,15 @@ const EventDash = () => {
   }, [isAuthenticated, navigate]);
 
   const addNewEvent = (newEvent) => {
+    fetchEvents();
     setEvents(
       [...events, newEvent].sort((a, b) => new Date(a.date) - new Date(b.date))
     );
+  };
+
+  const updateActiveSection = (section) => {
+    setActiveSection(section);
+    fetchEvents();
   };
 
   const updateEvent = (updatedEvent) => {
@@ -57,7 +63,7 @@ const EventDash = () => {
   };
 
   const handleLogout = () => {
-    navigate("/Attend");
+    navigate("/attend");
     sessionStorage.removeItem("token");
     setIsAuthenticated(false);
   };
@@ -67,10 +73,11 @@ const EventDash = () => {
       <PageTransition />
       <div className="dash-container">
         <DashHeader
-          setActiveSection={setActiveSection}
+          setActiveSection={updateActiveSection}
           onLogout={handleLogout}
           activeSection={activeSection}
         />
+
         <div className="events-container">
           {activeSection === "create" && (
             <div className="create-container">

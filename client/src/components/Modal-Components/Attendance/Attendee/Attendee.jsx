@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import "./attendee.scss";
 
-// icon imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Mail } from "lucide-react";
 
 // helper function imports
 import { convertDateReadability } from "../../../../util/formatting.jsx";
 
 const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
   const [status, setStatus] = useState(attendee.status);
-  const [seats, setSeats] = useState(attendee.seats);
   const [ogStatus, setOgStatus] = useState("");
+  const [seats, setSeats] = useState(attendee.seats);
+  const [ogSeats, setOgSeats] = useState("");
+  const [winePairings, setWinePairings] = useState(attendee.winePairings || 0);
+  const [ogWinePairings, setOgWinePairings] = useState("");
 
   useEffect(() => {
+    console.log(attendee);
     setOgStatus(attendee.status);
     setSeats(attendee.seats);
   }, [attendee.status, attendee.seats, event]);
@@ -37,16 +39,9 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     }
   };
 
-  const handleSeatsChange = (e) => {
-    setSeats(e.target.value);
-  };
-
   const handleSave = () => {
-    console.log("Seats: ", seats);
-    onStatusChange(attendee._id, status, ogStatus, seats);
+    onStatusChange(attendee._id, status, ogStatus, seats, winePairings);
   };
-
-  /// maybe make a past attendees component
 
   return (
     <div className="attendee-container">
@@ -62,12 +57,14 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
                 attendee.email
               }?subject=Dinner ${convertDateReadability(date)}`}
             >
-              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              <Mail strokeWidth={1.25} color="black" size={24} />
             </a>
           </div>
-          <div className="attendee-message">
-            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
-          </div>
+          {attendee.message && (
+            <div className="attendee-message">
+              <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
+            </div>
+          )}
           <select
             className="form-element"
             value={status}
@@ -81,17 +78,31 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
             <option value="Refunded">Refunded</option>
           </select>
           {status === "Confirmed" && (
-            <select
-              className="form-element"
-              value={seats}
-              onChange={handleSeatsChange}
-            >
-              {[...Array(20)].map((_, i) => (
-                <option key={i} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select>
+            <>
+              <select
+                className="form-element"
+                value={seats}
+                onChange={(e) => setSeats(e.target.value)}
+              >
+                {[...Array(Number(event.seatsRemaining))].map((_, i) => (
+                  <option key={i} value={i + 1}>
+                    {i + 1} {i + 1 === 1 ? "seat" : "seats"}
+                  </option>
+                ))}
+              </select>
+              <select
+                className="form-element"
+                value={winePairings}
+                onChange={(e) => setWinePairings(Number(e.target.value))}
+              >
+                <option value={0}>0 wine pairings</option>
+                {[...Array(Number(seats))].map((_, i) => (
+                  <option key={i} value={i + 1}>
+                    {i + 1} {i + 1 === 1 ? "wine pairing" : "wine pairings"}
+                  </option>
+                ))}
+              </select>
+            </>
           )}
           <button className="button" onClick={handleSave}>
             Update
@@ -109,12 +120,14 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
                 attendee.email
               }?subject=Dinner ${convertDateReadability(date)}`}
             >
-              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              <Mail strokeWidth={1.25} color="black" size={24} />
             </a>
           </div>
-          <div className="attendee-message">
-            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
-          </div>
+          {attendee.message && (
+            <div className="attendee-message">
+              <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
+            </div>
+          )}
         </div>
       )}
     </div>

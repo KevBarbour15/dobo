@@ -16,6 +16,10 @@ router.post("/create-checkout-session", async (req, res) => {
 
     const eventName = "Dobo NYC " + attendee.date + " at " + attendee.time;
 
+    let totalPrice = event.price * 100 * attendee.seats;
+    const winePairingPrice = 40 * 100 * attendee.winePairings;
+    totalPrice = totalPrice + winePairingPrice;
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
@@ -25,15 +29,17 @@ router.post("/create-checkout-session", async (req, res) => {
             product_data: {
               name: eventName,
             },
-            unit_amount: event.price * 100 * attendee.seats,
+            unit_amount: totalPrice,
           },
           quantity: 1,
         },
       ],
       mode: "payment",
-      success_url: `${baseUrl}/attend`,
+      success_url: `${baseUrl}/success`,
       cancel_url: `${baseUrl}/attend`,
       metadata: {
+        eventPrice: event.price,
+        winePairing: attendee.winePairing,
         eventId: attendee.selectedEventId,
         firstName: attendee.firstName,
         lastName: attendee.lastName,
@@ -43,6 +49,8 @@ router.post("/create-checkout-session", async (req, res) => {
       },
       payment_intent_data: {
         metadata: {
+          eventPrice: event.price,
+          winePairing: attendee.winePairing,
           eventId: attendee.selectedEventId,
           firstName: attendee.firstName,
           lastName: attendee.lastName,

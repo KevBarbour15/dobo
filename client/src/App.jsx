@@ -8,6 +8,8 @@ import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";
 import Attend from "./pages/Attend/Attend";
 import ImageGallery from "./pages/ImageGallery/ImageGallery";
+import Success from "./pages/Success/Success";
+
 import ScrollToTop from "./components/ScrollToTop";
 
 // toastify
@@ -39,6 +41,7 @@ function App() {
               <Route path="faq" element={<FAQ />} />
               <Route path="attend" element={<Attend />} />
               <Route path="gallery" element={<ImageGallery />} />
+              <Route path="success" element={<Success />} />
             </Route>
             <Route path="/eventdash" element={<EventDash />} />
           </Routes>

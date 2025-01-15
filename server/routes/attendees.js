@@ -38,7 +38,7 @@ router.post("/get-by-ids", verifyToken, async (req, res) => {
 
 //
 router.put("/update-status", verifyToken, async (req, res) => {
-  let { status, ogStatus, attendeeId, eventId, seats } = req.body;
+  let { status, ogStatus, attendeeId, eventId, seats, winePairings } = req.body;
   seats = parseInt(seats, 10); // Ensure seats is an integer
 
   try {
@@ -55,7 +55,7 @@ router.put("/update-status", verifyToken, async (req, res) => {
       });
     }
 
-    await Attendee.findByIdAndUpdate(attendeeId, { status, seats });
+    await Attendee.findByIdAndUpdate(attendeeId, { status, seats, winePairings });
 
     if (status === "Confirmed" && ogStatus !== "Confirmed") {
       await Event.findByIdAndUpdate(eventId, {
@@ -91,8 +91,8 @@ router.post("/add", verifyToken, async (req, res) => {
     const seats = req.body.seats;
 
     await Event.findByIdAndUpdate(eventId, {
-      $push: { attendees: savedAttendee._id, },
-      $inc: { seatsRemaining: -seats }
+      $push: { attendees: savedAttendee._id },
+      $inc: { seatsRemaining: -seats },
     });
 
     res.status(201).json(savedAttendee);

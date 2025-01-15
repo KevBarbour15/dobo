@@ -8,6 +8,8 @@ import Attendance from "../Modal-Components/Attendance/Attendance.jsx";
 import AddGuest from "../Modal-Components/AddGuest/AddGuest.jsx";
 import ViewNotes from "../Modal-Components/Notes/ViewNotes.jsx";
 
+import { Check, CircleX } from "lucide-react";
+
 // helper function imports
 import {
   convertDateReadability,
@@ -82,16 +84,18 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
               <span>- {convertMilitaryTime(event.time)}</span>
             </li>
             <li>
-              <span>- {event.seats} seats total</span>
+              <span>- {event.seats} seats.</span>
             </li>
             {event.seatsRemaining >= 0 ? (
               <li>
-                <span>- {event.seatsRemaining} seats left</span>
+                <span>
+                  - {event.seats - event.seatsRemaining} seats filled.
+                </span>
               </li>
             ) : (
               <li>
                 <span className="negative-seats">
-                  {event.seatsRemaining} seats available (Overbooked)
+                  {event.seatsRemaining} seats available. (Overbooked)
                 </span>
               </li>
             )}
@@ -99,7 +103,15 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
               <span>- ${event.price}</span>
             </li>
             <li>
-              {event.isPublicEvent ? <span>- Public</span> : <span>- Private</span>}
+              {event.isPublicEvent ? (
+                <span className="flex gap-2 items-center">
+                  - Event is posted. <Check size={24} strokeWidth={1} />
+                </span>
+              ) : (
+                <span className="flex gap-2 items-center">
+                  - Event is not posted. <CircleX size={24} strokeWidth={1} />
+                </span>
+              )}
             </li>
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer } from "react";
+import { Link } from "react-router-dom";
 import "./attend.scss";
 
 // axios imports
@@ -34,9 +35,10 @@ let initialState = {
   email: "",
   selectedEventId: "",
   message: "",
-  seats: 1,
+  seats: 0,
   date: "",
   time: "",
+  winePairings: 0,
 };
 
 function reducer(state, action) {
@@ -57,6 +59,8 @@ function reducer(state, action) {
       return { ...state, time: action.payload };
     case "update_seats":
       return { ...state, seats: parseInt(action.payload) };
+    case "update_winePairings":
+      return { ...state, winePairings: parseInt(action.payload) };
     default:
       return state;
   }
@@ -160,7 +164,6 @@ const Attend = () => {
     });
   }, []);
 
-  // Add email validation function
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -200,16 +203,30 @@ const Attend = () => {
                     information.{" "}
                   </p>
                   <p className="attend-text-italic">
-                    Limited seating available. $160 per seat.
+                    Limited seating available. $160 per seat. An additional wine
+                    pairing can be added to a seat for $40.
+                  </p>
+                  <p>
+                    For additional information, please refer to our{" "}
+                    <Link className="faq-link" aria-label="FAQ page" to="/faq">
+                      FAQ page
+                    </Link>
+                    .
                   </p>
                 </div>
 
-                <div className="inquiry-form">
+                <div
+                  className="inquiry-form"
+                  role="form"
+                  aria-label="Event Registration Form"
+                >
                   <select
                     className="form-element"
                     value={state.selectedEventId}
                     onChange={handleSelectChange}
                     required
+                    aria-label="Select event date"
+                    aria-required="true"
                   >
                     <option className="default-option" value="" disabled hidden>
                       Select a date:
@@ -229,12 +246,14 @@ const Attend = () => {
                   </select>
 
                   <input
-                    aria-label="First Name"
                     className="form-element"
                     type="text"
-                    name="First Name"
+                    name="firstName"
+                    id="firstName"
                     value={state.firstName}
                     placeholder="First name:"
+                    aria-label="First name"
+                    aria-required="true"
                     onChange={(e) =>
                       dispatch({
                         type: "update_firstName",
@@ -247,9 +266,12 @@ const Attend = () => {
                   <input
                     className="form-element"
                     type="text"
-                    name="Last Name"
+                    name="lastName"
+                    id="lastName"
                     value={state.lastName}
                     placeholder="Last name:"
+                    aria-label="Last name"
+                    aria-required="true"
                     onChange={(e) =>
                       dispatch({
                         type: "update_lastName",
@@ -262,57 +284,85 @@ const Attend = () => {
                   <input
                     className="form-element"
                     type="email"
-                    Name="email"
-                    required
+                    name="email"
+                    id="email"
                     value={state.email}
                     placeholder="Email:"
+                    aria-label="Email address"
+                    aria-required="true"
                     onChange={(e) => {
                       dispatch({
                         type: "update_email",
                         payload: e.target.value,
                       });
                     }}
-                    onBlur={(e) => {
-                      if (
-                        !isValidEmail(e.target.value) &&
-                        e.target.value !== ""
-                      ) {
-                        e.target.setCustomValidity(
-                          "Please enter a valid email address"
-                        );
-                      } else {
-                        e.target.setCustomValidity("");
-                      }
-                    }}
+                    required
                   />
 
-                  <select
-                    className="form-element"
-                    value={state.seats}
-                    disabled={!state.selectedEventId}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "update_seats",
-                        payload: e.target.value,
-                      })
-                    }
-                  >
-                    {Array.from(
-                      { length: seatsRemaining },
-                      (_, i) => i + 1
-                    ).map((seat) => (
-                      <option key={seat} value={seat}>
-                        {seat} ticket{seat > 1 ? "s" : ""}
-                      </option>
-                    ))}
-                  </select>
+                  {state.selectedEventId && seatsRemaining > 0 ? (
+                    <select
+                      className="form-element"
+                      value={state.seats}
+                      disabled={!state.selectedEventId}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_seats",
+                          payload: e.target.value,
+                        })
+                      }
+                      aria-label="Number of guests"
+                      aria-required="true"
+                    >
+                      <option value={0}>0 guests</option>
+                      {Array.from(
+                        { length: seatsRemaining },
+                        (_, i) => i + 1
+                      ).map((seat) => (
+                        <option key={seat} value={seat}>
+                          {seat} guest{seat > 1 ? "s" : ""}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div className="select-disabled">
+                      Select a date to select the number of guests.
+                    </div>
+                  )}
+                  {state.selectedEventId && state.seats > 0 ? (
+                    <select
+                      className="form-element"
+                      value={state.winePairings}
+                      disabled={!state.selectedEventId && state.seats >= 1}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_winePairings",
+                          payload: e.target.value,
+                        })
+                      }
+                      aria-label="Wine pairing options"
+                    >
+                      <option value={0}>No wine pairing</option>
+                      {Array.from({ length: state.seats }, (_, i) => i + 1).map(
+                        (seat) => (
+                          <option key={seat} value={seat}>
+                            {seat} wine pairing{seat > 1 ? "s" : ""}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  ) : (
+                    <div className="select-disabled">
+                      Select number of guests to select wine pairings.
+                    </div>
+                  )}
 
                   <textarea
                     className="form-element"
-                    type="text"
-                    value={state.message}
                     name="message"
+                    id="message"
+                    value={state.message}
                     placeholder="Message (optional):"
+                    aria-label="Additional message"
                     onChange={(e) =>
                       dispatch({
                         type: "update_message",
@@ -331,7 +381,7 @@ const Attend = () => {
                   ) : (
                     <div className="form-element-container">
                       <div className="checkout-button-disabled">
-                        Purchase seat
+                        {seatsRemaining === 0 ? "Sold out" : "Checkout"}
                       </div>
                     </div>
                   )}

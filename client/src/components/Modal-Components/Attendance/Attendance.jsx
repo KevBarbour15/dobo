@@ -53,7 +53,8 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
     attendeeId,
     newStatus,
     ogStatus,
-    seats
+    seats,
+    winePairings
   ) => {
     if (newStatus === ogStatus && newStatus !== "Confirmed") return;
 
@@ -64,12 +65,18 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
         eventId: event._id,
         ogStatus: ogStatus,
         seats: seats,
+        winePairings: winePairings,
       });
 
       setAttendees(
         attendees.map((attendee) =>
           attendee._id === attendeeId
-            ? { ...attendee, status: newStatus, seats: seats }
+            ? {
+                ...attendee,
+                status: newStatus,
+                seats: seats,
+                winePairings: winePairings,
+              }
             : attendee
         )
       );

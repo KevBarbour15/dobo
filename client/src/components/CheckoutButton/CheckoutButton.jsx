@@ -44,7 +44,7 @@ const CheckoutButton = ({ attendee }) => {
 
   return (
     <button className="checkout-button" role="link" onClick={handleClick}>
-      Purchase seat
+      Checkout
     </button>
   );
 };
