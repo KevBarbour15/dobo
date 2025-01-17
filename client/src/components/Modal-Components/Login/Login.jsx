@@ -60,26 +60,30 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          className="form-element login"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username:"
-          id="username"
-          autoComplete="username"
-          required
-        />
-        <input
-          className="form-element login"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password:"
-          id="password"
-          autoComplete="current-password"
-          required
-        />
+        <span className="dash-info-line">
+          Username:
+          <input
+            className="form-element login"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            id="username"
+            autoComplete="username"
+            required
+          />
+        </span>
+        <span className="dash-info-line">
+          Password:
+          <input
+            className="form-element login"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            autoComplete="current-password"
+            required
+          />
+        </span>
         <button className="button login" type="submit">
           Login
         </button>

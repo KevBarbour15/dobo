@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react";
 import "./attendee.scss";
 
-// icon imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Mail } from "lucide-react";
 
 // helper function imports
 import { convertDateReadability } from "../../../../util/formatting.jsx";
 
 const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
   const [status, setStatus] = useState(attendee.status);
-  const [seats, setSeats] = useState(attendee.seats);
   const [ogStatus, setOgStatus] = useState("");
+  const [seats, setSeats] = useState(attendee.seats);
+  const [winePairings, setWinePairings] = useState(attendee.winePairings || 0);
+  const [totalPayment, setTotalPayment] = useState(attendee.totalPayment || 0);
 
   useEffect(() => {
     setOgStatus(attendee.status);
     setSeats(attendee.seats);
-  }, [attendee.status, attendee.seats, event]);
+    setWinePairings(attendee.winePairings);
+    setTotalPayment(attendee.totalPayment || 0);
+  }, [attendee.status, attendee.seats, attendee.totalPayment, event]);
 
   useEffect(() => {
     if (status !== "Confirmed") {
@@ -37,16 +39,16 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     }
   };
 
-  const handleSeatsChange = (e) => {
-    setSeats(e.target.value);
-  };
-
   const handleSave = () => {
-    console.log("Seats: ", seats);
-    onStatusChange(attendee._id, status, ogStatus, seats);
+    onStatusChange(
+      attendee._id,
+      status,
+      ogStatus,
+      seats,
+      winePairings,
+      totalPayment
+    );
   };
-
-  /// maybe make a past attendees component
 
   return (
     <div className="attendee-container">
@@ -57,40 +59,75 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               {attendee.firstName + " " + attendee.lastName}
             </span>
             <a
-              className="item email"
+              className="attendee-email"
               href={`mailto:${
                 attendee.email
               }?subject=Dinner ${convertDateReadability(date)}`}
             >
-              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              <Mail strokeWidth={1.25} color="black" size={32} />
             </a>
           </div>
-          <div className="attendee-message">
-            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
-          </div>
-          <select
-            className="form-element"
-            value={status}
-            onChange={handleStatusChange}
-          >
-            <option value="Confirmed">Confirmed</option>
-            <option value="Inquired">Inquired</option>
-            <option value="Contacted">Contacted</option>
-            <option value="Not Attending">Not Attending</option>
-            <option value="Waitlisted">Waitlisted</option>
-          </select>
-          {status === "Confirmed" && (
+          {attendee.message && (
+            <div className="attendee-message">
+              <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
+            </div>
+          )}
+          <span className="dash-info-line">
+            Payment: $
+            <input
+              className="form-element"
+              type="number"
+              value={totalPayment}
+              onChange={(e) => setTotalPayment(Number(e.target.value))}
+            />
+          </span>
+          <span className="dash-info-line">
+            Status:
             <select
               className="form-element"
-              value={seats}
-              onChange={handleSeatsChange}
+              value={status}
+              onChange={handleStatusChange}
             >
-              {[...Array(20)].map((_, i) => (
-                <option key={i} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
+              <option value="Confirmed">Confirmed</option>
+              <option value="Inquired">Inquired</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Not Attending">Not Attending</option>
+              <option value="Waitlisted">Waitlisted</option>
+              <option value="Refunded">Refunded</option>
             </select>
+          </span>
+          {status === "Confirmed" && (
+            <>
+              <span className="dash-info-line">
+                Seats:
+                <select
+                  className="form-element"
+                  value={seats}
+                  onChange={(e) => setSeats(e.target.value)}
+                >
+                  {[...Array(Number(event.seatsRemaining))].map((_, i) => (
+                    <option key={i} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </span>
+              <span className="dash-info-line">
+                Wine Pairings:
+                <select
+                  className="form-element"
+                  value={winePairings}
+                  onChange={(e) => setWinePairings(Number(e.target.value))}
+                >
+                  <option value={0}>0</option>
+                  {[...Array(Number(seats))].map((_, i) => (
+                    <option key={i} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </span>
+            </>
           )}
           <button className="button" onClick={handleSave}>
             Update
@@ -108,12 +145,14 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
                 attendee.email
               }?subject=Dinner ${convertDateReadability(date)}`}
             >
-              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              <Mail strokeWidth={1.25} color="black" size={24} />
             </a>
           </div>
-          <div className="attendee-message">
-            <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
-          </div>
+          {attendee.message && (
+            <div className="attendee-message">
+              <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
+            </div>
+          )}
         </div>
       )}
     </div>

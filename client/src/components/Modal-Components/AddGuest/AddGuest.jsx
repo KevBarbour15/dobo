@@ -12,14 +12,11 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [seats, setSeats] = useState(1);
+  const [winePairings, setWinePairings] = useState(0);
+  const [totalPayment, setTotalPayment] = useState(0);
   const toastMessage = "Guest added successfully!";
   const errorMessage = "Error adding guest. Please try again.";
-
-  const handleSeatsChange = (e) => {
-    setSeats(e.target.value);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,9 +25,10 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
       firstName,
       lastName,
       email,
-      message,
       seats,
+      winePairings,
       status: "Confirmed",
+      totalPayment,
       eventId: event._id,
     };
 
@@ -68,59 +66,84 @@ const AddGuest = ({ event, onClose, onUpdateEvent }) => {
   return (
     <div className="add-guest-container">
       <form className="add-guest-form" onSubmit={handleSubmit}>
-        <input
-          className="form-element"
-          type="text"
-          value={firstName}
-          placeholder="First name:"
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <input
-          className="form-element"
-          type="text"
-          value={lastName}
-          placeholder="Last name:"
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
+        <span className="dash-info-line">
+          First name:
+          <input
+            className="form-element"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </span>
+        <span className="dash-info-line">
+          Last name:
+          <input
+            className="form-element"
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </span>
 
-        <input
-          className="form-element"
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email:"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <span className="dash-info-line">
+          Payment: $
+          <input
+            className="form-element"
+            type="number"
+            value={totalPayment}
+            onChange={(e) => setTotalPayment(e.target.value)}
+          />
+        </span>
 
-        <textarea
-          className="form-element"
-          type="text"
-          value={message}
-          name="message"
-          required
-          placeholder="Add a message:"
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <div className="event-label">
-          <label>seats:</label>
+        <span className="dash-info-line">
+          Email:
+          <input
+            className="form-element"
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </span>
+        <span className="dash-info-line">
+          Seats:
           <select
             className="form-element"
             value={seats}
-            onChange={handleSeatsChange}
+            onChange={(e) => setSeats(Number(e.target.value))}
           >
-            {[...Array(20)].map((_, i) => (
+            {[...Array(event.seatsRemaining)].map((_, i) => (
               <option key={i} value={i + 1}>
                 {i + 1}
               </option>
             ))}
           </select>
-        </div>
-        <button className="button" type="submit">
-          Add Guest
-        </button>
+        </span>
+        <span className="dash-info-line">
+          Wine pairings:
+          <select
+            className="form-element"
+            value={winePairings}
+            onChange={(e) => setWinePairings(e.target.value)}
+          >
+            <option value={Number(0)}>0</option>
+            {[...Array(Number(seats))].map((_, i) => (
+              <option key={i} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+        </span>
+        {firstName && lastName && email && seats ? (
+          <button className="button" type="submit">
+            Add Guest
+          </button>
+        ) : (
+          <div className="checkout-button-disabled">Add guest</div>
+        )}
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import "./FAQ.scss";
+import { Link } from "react-router-dom";
 
 import {
   Accordion,
@@ -91,6 +92,17 @@ const FAQ = () => {
                 );
               })}
             </Accordion>
+            <p className="faq-footer faq-item">
+              For additional questions or information, you can contact us{" "}
+              <a
+                className="faq-link"
+                href="mailto:dobonyc@gmail.com"
+                aria-label="Send email to DOBO NYC"
+              >
+                here
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>

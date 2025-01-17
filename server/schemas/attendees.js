@@ -21,7 +21,14 @@ const AttendeeSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ["Confirmed", "Inquired", "Contacted", "Not Attending", "Waitlisted"],
+    enum: [
+      "Confirmed",
+      "Inquired",
+      "Contacted",
+      "Not Attending",
+      "Refunded",
+      "Waitlisted",
+    ],
   },
   inquiryDate: {
     type: Date,
@@ -29,9 +36,19 @@ const AttendeeSchema = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: true,
+    required: false,
   },
   seats: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  winePairings: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  totalPayment: {
     type: Number,
     required: true,
     default: 0,

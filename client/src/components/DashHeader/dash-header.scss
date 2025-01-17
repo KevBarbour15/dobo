@@ -7,9 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
   background-color: #f2f1f0;
-  box-shadow: 0 1.25px 1.75px rgba(0, 0, 0, 0.35);
   border-top: 1px solid black;
 }
 
@@ -32,7 +30,6 @@
   text-transform: uppercase;
   color: black;
   font-weight: 700;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .dash-header-links-container {
@@ -42,7 +39,6 @@
 .dash-header-links nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   height: 100%;
   width: 100%;
 }
@@ -65,7 +61,7 @@
   font-weight: 700;
   border: none;
   transition: all 0.25s ease-in-out;
-  text-shadow: 0 1.25px 1.5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .dash-link-container:hover {
@@ -75,7 +71,6 @@
 
 .dash-link-container:hover button {
   color: #f2f1f0;
-  cursor: pointer;
 }
 
 .dash-active-link {

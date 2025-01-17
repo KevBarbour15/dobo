@@ -23,14 +23,22 @@ const DoboEventSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: false,
+    required: true,
   },
   notes: {
     type: String,
     required: false,
   },
+  totalPayment: {
+    type: Number,
+    required: true,
+  },
   isPublicEvent: {
     type: Boolean,
+    required: true,
+  },
+  winePairings: {
+    type: Number,
     required: true,
   },
   attendees: [

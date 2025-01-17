@@ -47,6 +47,36 @@
 }
 
 /* For button styling */
+
+.checkout-button,
+.checkout-button-disabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px 20px;
+  font-size: 14px;
+  color: black;
+  background: #f2f1f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.checkout-button:hover {
+  cursor: pointer;
+  box-shadow: 0 3.25px 4.5px rgba(0, 0, 0, 0.65);
+}
+
+.checkout-button:active {
+  box-shadow: 0 0.75px 0.75px rgba(0, 0, 0, 0.5);
+}
+
+.checkout-button-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -59,6 +89,7 @@
   color: black;
   background: #f2f1f0;
   transition: all 0.3s ease-in-out;
+  width: 100%;
 }
 
 .button:hover {
@@ -77,6 +108,7 @@
 }
 
 .form-element {
+  display: flex;
   -webkit-appearance: none;
   appearance: none;
   opacity: 1;
@@ -87,6 +119,8 @@
   background-color: #f2f1f0;
   font-size: 14px;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-element:focus {
@@ -143,19 +177,14 @@ select {
   color: black;
   background-color: #f2f1f0;
   letter-spacing: 1px;
-}
-
-.select-option {
   color: black;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 16px;
 }
 
 /* for label styling */
 label {
   font-size: 16px;
   color: black;
-  margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: 500;
 }

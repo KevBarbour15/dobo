@@ -30,12 +30,9 @@
   font-size: 24px;
 }
 
-.attendee-email:hover {
-  color: black;
-}
-
-.attendee-email a {
+.attendee-email  {
   cursor: pointer;
+  margin: 8px 0;
 }
 
 .attendee-message p {

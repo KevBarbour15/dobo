@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./view-events.scss";
 
 // component imports
@@ -7,6 +7,8 @@ import EditEvent from "../Modal-Components/EditEvent/EditEvent.jsx";
 import Attendance from "../Modal-Components/Attendance/Attendance.jsx";
 import AddGuest from "../Modal-Components/AddGuest/AddGuest.jsx";
 import ViewNotes from "../Modal-Components/Notes/ViewNotes.jsx";
+
+import { Check, CircleX } from "lucide-react";
 
 // helper function imports
 import {
@@ -76,30 +78,46 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <div className="event-details-container">
           <ul className="event-details">
             <li>
-              <span>- {convertDateReadability(event.date)}</span>
+              <span>- Date: {convertDateReadability(event.date)}</span>
             </li>
             <li>
-              <span>- {convertMilitaryTime(event.time)}</span>
+              <span>- Time: {convertMilitaryTime(event.time)}</span>
             </li>
             <li>
-              <span>- {event.seats} seats total</span>
+              <span>- Seats: {event.seats} </span>
             </li>
             {event.seatsRemaining >= 0 ? (
               <li>
-                <span>- {event.seatsRemaining} seats left</span>
+                <span>
+                  - Seats filled: {event.seats - event.seatsRemaining}
+                </span>
               </li>
             ) : (
               <li>
                 <span className="negative-seats">
-                  {event.seatsRemaining} seats available (Overbooked)
+                  - Seats available: {event.seatsRemaining} (Overbooked)
                 </span>
               </li>
             )}
             <li>
-              <span>- ${event.price}</span>
+              <span>- Wine pairings: {event.winePairings || 0}</span>
             </li>
             <li>
-              {event.isPublicEvent ? <span>- Public</span> : <span>- Private</span>}
+              <span>- Event price: ${event.price}</span>
+            </li>
+            <li>
+              <span>- Total payment: ${event.totalPayment || 0}</span>
+            </li>
+            <li>
+              {event.isPublicEvent ? (
+                <span className="flex gap-2 items-center">
+                  - Event is posted. <Check size={24} strokeWidth={1} />
+                </span>
+              ) : (
+                <span className="flex gap-2 items-center">
+                  - Event is not posted. <CircleX size={24} strokeWidth={1} />
+                </span>
+              )}
             </li>
           </ul>
         </div>

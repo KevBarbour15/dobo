@@ -1,29 +1,17 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 16px;
+  padding: 8px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: none;
-}
-
-.login-form form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
 }
 
 @media (max-width: 768px) {
   .form-element.login {
-    width: 275px;
+    width: 100%;
   }
 }

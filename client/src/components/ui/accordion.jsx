@@ -28,8 +28,8 @@ const AccordionTrigger = React.forwardRef(
       >
         {children}
         <MoveDown
-          className="h-5 w-5 shrink-0 transition-transform duration-300"
-          strokeWidth={1.25}
+          className="h-6 w-6 shrink-0 transition-transform duration-300"
+          strokeWidth={1}
         />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -41,7 +41,7 @@ const AccordionContent = React.forwardRef(
   ({ className, children, ...props }, ref) => (
     <AccordionPrimitive.Content
       ref={ref}
-      className="overflow-hidden text-base transition-all md:text-lg data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down pr-6 text-pretty duration-300"
+      className="overflow-hidden text-base transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down pr-6 text-pretty duration-300"
       {...props}
     >
       <div className={cn("pb-4 pt-0", className)}>{children}</div>

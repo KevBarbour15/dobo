@@ -38,21 +38,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
-  font-size: 22px;
-  line-height: 1.5;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.15;
   text-wrap: pretty;
   margin-bottom: 16px;
 }
 
 .attend-text-italic {
   font-style: italic;
+  text-wrap: pretty;
+}
+
+.faq-link {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .inquiry-form {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.select-disabled {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 14px;
+  color: black;
+  background: #f2f1f0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
@@ -68,11 +87,6 @@
   .attend-info-container {
     flex-basis: 100%;
     padding: 0;
-  }
-
-  .attend-text {
-    width: 100%;
-    font-size: 18px;
   }
 
   .inquiry-form {

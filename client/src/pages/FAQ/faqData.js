@@ -28,11 +28,7 @@ const faqData = [
   {
     question: "What is the cost of the dinner?",
     answer:
-      "The dinner costs $160 per person. If you'd like to enjoy wine pairing with your meal, it's an additional $20.",
-  },
-  {
-    question: "Does the cost include a tip?",
-    answer: "Yes, the ticket price includes the tip.",
+      "The dinner costs $160 per person. If you'd like to enjoy wine pairing with your meal, it's an additional $40. You can purchase the wine pairing when you purchase your ticket(s) or at the event.",
   },
   {
     question: "Can I bring my own wine?",
@@ -40,8 +36,11 @@ const faqData = [
   },
   {
     question: "How can I reserve a seat?",
-    answer:
-      "To secure your seat, we require a $75 deposit. This helps cover the cost of ingredients and ensures your reservation on a first-come, first-served basis.",
+    answer: "To secure your seat, purchase a ticket through this website.",
+  },
+  {
+    question: "What if I don't drink alcohol?",
+    answer: "We will have non-alcoholic beverages at the event.",
   },
 ];
 

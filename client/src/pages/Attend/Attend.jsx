@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
+import { Link } from "react-router-dom";
 import "./attend.scss";
 
 // axios imports
@@ -15,7 +16,7 @@ import {
 } from "../../util/formatting.jsx";
 
 // component imports
-import Checkbox from "../../components/Checkbox/Checkbox.jsx";
+import CheckoutButton from "../../components/CheckoutButton/CheckoutButton.jsx";
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // animation imports
@@ -24,28 +25,51 @@ import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
-// notifications imports
-import { useForm, ValidationError } from "@formspree/react";
-
 import { MoveDown } from "lucide-react";
-
-import { toast } from "react-toastify";
-import Toast from "../../components/Toast/Toast.jsx";
 
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
+let initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  selectedEventId: "",
+  message: "",
+  seats: 1,
+  date: "",
+  time: "",
+  winePairings: 0,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "update_firstName":
+      return { ...state, firstName: action.payload };
+    case "update_lastName":
+      return { ...state, lastName: action.payload };
+    case "update_email":
+      return { ...state, email: action.payload };
+    case "update_selectedEventId":
+      return { ...state, selectedEventId: action.payload };
+    case "update_message":
+      return { ...state, message: action.payload };
+    case "update_date":
+      return { ...state, date: action.payload };
+    case "update_time":
+      return { ...state, time: action.payload };
+    case "update_seats":
+      return { ...state, seats: parseInt(action.payload) };
+    case "update_winePairings":
+      return { ...state, winePairings: parseInt(action.payload) };
+    default:
+      return state;
+  }
+}
+
 const Attend = () => {
   const [futureEvents, setFutureEvents] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [selectedEventId, setSelectedEventId] = useState("");
-  const [date, setDate] = useState("");
-  const [message, setMessage] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
-  const [state, handleSubmit] = useForm("xdoqpwrb");
-  const toastMessage =
-    "Thank you for inquiry. We will reach out with details shortly.";
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [seatsRemaining, setSeatsRemaining] = useState(1);
 
   // custom fade and parallax hooks
   useFadeIn(true, ".page-container", 1, 0);
@@ -79,115 +103,40 @@ const Attend = () => {
       (event) => event._id === e.target.value
     );
 
+    setSeatsRemaining(selectedEvent.seatsRemaining);
+
     if (selectedEvent) {
-      setSelectedEventId(selectedEvent._id);
-      setDate(selectedEvent.date);
+      // format date and time for readability in stripe display
+      const date = convertDateReadability(selectedEvent.date);
+      const time = convertMilitaryTime(selectedEvent.time);
+
+      dispatch({
+        type: "update_selectedEventId",
+        payload: selectedEvent._id,
+      });
+      dispatch({
+        type: "update_date",
+        payload: date,
+      });
+      dispatch({
+        type: "update_time",
+        payload: time,
+      });
+
       selectElement.classList.remove("default-option");
-      selectElement.classList.add("select-option");
+      selectElement.classList.add("selected-option");
     } else {
       selectElement.classList.add("default-option");
-      selectElement.classList.remove("select-option");
+      selectElement.classList.remove("selected-option");
     }
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!selectedEventId) return;
-
-    let convertedDate = convertDateReadability(date);
-
-    const attendeeData = {
-      firstName,
-      lastName,
-      email,
-      eventId: selectedEventId,
-      status: "Inquired",
-      message,
-      subscribe: isChecked,
-    };
-
-    const resetForm = () => {
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setIsChecked(false);
-      setSelectedEventId("");
-      setDate("");
-      setMessage("");
-    };
-
-    const postAttendeeData = async () => {
-      try {
-        const response = await axios.post("/attendees/new", attendeeData);
-        if (response.status === 200 || response.status === 201) {
-          // success notification
-          toast(<Toast message={toastMessage} />, {
-            position: "top-left",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-
-          const formData = {
-            "Name:": firstName + " " + lastName,
-            "Email:": email,
-            "Event date:": convertedDate,
-            "Message:": message,
-          };
-
-          handleSubmit(formData);
-
-          if (!isChecked) {
-            resetForm();
-          }
-        }
-      } catch (error) {
-        const errorData = error.response ? error.response.data : error.message;
-        console.error("There was an error sending the data:", errorData);
-      }
-    };
-
-    const postSubscriptionData = async () => {
-      if (isChecked) {
-        try {
-          const response = await axios.post("/subscribe/new", {
-            email,
-            firstName,
-            lastName,
-          });
-
-          if (response.status === 200 || response.status === 201) {
-            resetForm();
-          }
-        } catch (error) {
-          if (error.response.status === 400) {
-            console.log("User email already subscribed.");
-          } else {
-            console.error("There was an error subscribing the user: ", error);
-          }
-          resetForm();
-        }
-      }
-    };
-
-    await postAttendeeData();
-    await postSubscriptionData();
   };
 
   useEffect(() => {
     const selectElement = document.querySelector("select");
-    if (selectElement && selectedEventId === "") {
-      selectElement.classList.add("default-");
+    if (selectElement && state.selectedEventId === "") {
+      selectElement.classList.add("default-option");
     }
-  }, [selectedEventId]);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
+  }, [state.selectedEventId]);
 
   useGSAP(() => {
     gsap.set(".attend-image img", {
@@ -214,6 +163,11 @@ const Attend = () => {
       },
     });
   }, []);
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <>
@@ -244,131 +198,194 @@ const Attend = () => {
               <div className="attend-info-container">
                 <div className="attend-text">
                   <p>
-                    Please fill out the form to secure your place at a Dobo
-                    event. We’ll follow up with more information.{" "}
+                    Please fill out the form and complete the purchase to secure
+                    your place at a Dobo event. We will follow up with more
+                    information.{" "}
                   </p>
                   <p className="attend-text-italic">
-                    Limited seating available. $160 per seat.
+                    Limited seating available. $160 per seat. An additional wine
+                    pairing can be added to a seat for $40.
+                  </p>
+                  <p>
+                    For additional information, please refer to our{" "}
+                    <Link className="faq-link" aria-label="FAQ page" to="/faq">
+                      FAQ page
+                    </Link>
+                    .
                   </p>
                 </div>
 
-                <form
+                <div
                   className="inquiry-form"
-                  onSubmit={handleFormSubmit}
-                  acceptCharset="utf-8"
-                  action="https://formspree.io/f/xdoqpwrb"
-                  method="post"
+                  role="form"
+                  aria-label="Event Registration Form"
                 >
-                  <div className="form-element-container">
+                  <select
+                    className="form-element"
+                    value={state.selectedEventId}
+                    onChange={handleSelectChange}
+                    required
+                    aria-label="Select event date"
+                    aria-required="true"
+                  >
+                    <option className="default-option" value="" disabled hidden>
+                      Select a date:
+                    </option>
+                    {futureEvents.map((event) => (
+                      <option
+                        className="selected-option"
+                        key={event._id}
+                        value={event._id}
+                      >
+                        {convertDateReadability(event.date)}
+                        {event.seatsRemaining > 0
+                          ? " at " + convertMilitaryTime(event.time)
+                          : " - SOLD OUT"}
+                      </option>
+                    ))}
+                  </select>
+
+                  <input
+                    className="form-element"
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value={state.firstName}
+                    placeholder="First name:"
+                    aria-label="First name"
+                    aria-required="true"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_firstName",
+                        payload: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    className="form-element"
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    value={state.lastName}
+                    placeholder="Last name:"
+                    aria-label="Last name"
+                    aria-required="true"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_lastName",
+                        payload: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    className="form-element"
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={state.email}
+                    placeholder="Email:"
+                    aria-label="Email address"
+                    aria-required="true"
+                    onChange={(e) => {
+                      dispatch({
+                        type: "update_email",
+                        payload: e.target.value,
+                      });
+                    }}
+                    required
+                  />
+
+                  {state.selectedEventId && seatsRemaining > 0 ? (
                     <select
                       className="form-element"
-                      value={selectedEventId}
-                      onChange={handleSelectChange}
-                      required
+                      value={state.seats}
+                      disabled={!state.selectedEventId}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_seats",
+                          payload: e.target.value,
+                        })
+                      }
+                      aria-label="Number of guests"
+                      aria-required="true"
                     >
-                      <option
-                        className="default-option"
-                        value=""
-                        disabled
-                        hidden
-                      >
-                        Select a date:
-                      </option>
-                      {futureEvents.map((event) => (
-                        <option
-                          className="selected-option"
-                          key={event._id}
-                          value={event._id}
-                        >
-                          {convertDateReadability(event.date)}
-                          {event.seatsRemaining > 0
-                            ? " at " + convertMilitaryTime(event.time)
-                            : " - SOLD OUT"}
+                      {Array.from(
+                        { length: seatsRemaining },
+                        (_, i) => i + 1
+                      ).map((seat) => (
+                        <option key={seat} value={seat}>
+                          {seat} guest{seat > 1 ? "s" : ""}
                         </option>
                       ))}
                     </select>
-                  </div>
-                  <div className="form-element-container">
-                    <input
+                  ) : (
+                    <div className="select-disabled">
+                      Select a date to select the number of guests.
+                    </div>
+                  )}
+                  {state.selectedEventId && state.seats > 0 ? (
+                    <select
                       className="form-element"
-                      type="text"
-                      //name="First Name"
-                      value={firstName}
-                      placeholder="First name:"
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="firstName"
-                    field="firstName"
-                    errors={state.errors}
-                  />
-                  <div className="form-element-container">
-                    <input
-                      className="form-element"
-                      type="text"
-                      //name="Last Name"
-                      value={lastName}
-                      placeholder="Last name:"
-                      onChange={(e) => setLastName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="lastName"
-                    field="lastName"
-                    errors={state.errors}
-                  />
-                  <div className="form-element-container">
-                    <input
-                      className="form-element"
-                      type="email"
-                      name="email"
-                      value={email}
-                      placeholder="Email:"
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <ValidationError
-                    prefix="Email"
-                    field="email"
-                    errors={state.errors}
-                  />
-                  <div className="form-element-container">
-                    <textarea
-                      className="form-element"
-                      type="text"
-                      value={message}
-                      name="message"
-                      required
-                      placeholder="Please include number of guests, allergies and any other questions:"
-                      onChange={(e) => setMessage(e.target.value)}
-                    />
-                  </div>
-                  <input type="hidden" name="Date" />
-                  <div className="form-element-container checkbox-container">
-                    {
-                      <Checkbox
-                        text={
-                          "Subscribe to receive alerts when new events are posted."
-                        }
-                        isSelected={isChecked}
-                        onCheckboxChange={handleCheckboxChange}
-                      />
-                    }
-                  </div>
-                  <div className="form-element-container">
-                    <button
-                      className="button"
-                      type="submit"
-                      aria-label="Submit"
+                      value={state.winePairings}
+                      disabled={!state.selectedEventId && state.seats >= 1}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_winePairings",
+                          payload: e.target.value,
+                        })
+                      }
+                      aria-label="Wine pairing options"
                     >
-                      Submit
-                    </button>
-                  </div>
-                </form>
+                      <option value={0}>No wine pairing</option>
+                      {Array.from({ length: state.seats }, (_, i) => i + 1).map(
+                        (seat) => (
+                          <option key={seat} value={seat}>
+                            {seat} wine pairing{seat > 1 ? "s" : ""}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  ) : (
+                    <div className="select-disabled">
+                      Select number of guests to select wine pairings.
+                    </div>
+                  )}
+
+                  <textarea
+                    className="form-element"
+                    name="message"
+                    id="message"
+                    value={state.message}
+                    placeholder="Message (optional):"
+                    aria-label="Additional message"
+                    onChange={(e) =>
+                      dispatch({
+                        type: "update_message",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
+
+                  {state.selectedEventId &&
+                  state.firstName &&
+                  state.lastName &&
+                  isValidEmail(state.email) ? (
+                    <div className="form-element-container">
+                      <CheckoutButton attendee={state} />
+                    </div>
+                  ) : (
+                    <div className="form-element-container">
+                      <div className="checkout-button-disabled">
+                        {seatsRemaining === 0 ? "Sold out" : "Checkout"}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
               </div>
             </div>
           </div>

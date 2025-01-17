@@ -54,6 +54,8 @@ const CreateEvent = ({ onEventCreated }) => {
       price,
       notes,
       isPublicEvent,
+      totalPayment: 0,
+      winePairings: 0,
     };
 
     try {
@@ -91,10 +93,10 @@ const CreateEvent = ({ onEventCreated }) => {
 
   return (
     <div className="create-event-container">
-      <div className="create-event-form">
-        <form onSubmit={handleSubmit}>
-          <div className="form-element-container">
-            <label>event name:</label>
+      <div className="container">
+        <form className="create-event-form" onSubmit={handleSubmit}>
+          <span className="dash-info-line">
+            Event Name:
             <input
               className="form-element"
               type="text"
@@ -102,9 +104,9 @@ const CreateEvent = ({ onEventCreated }) => {
               onChange={(e) => setTitle(e.target.value)}
               required
             />
-          </div>
-          <div className="form-element-container">
-            <label>price:</label>
+          </span>
+          <span className="dash-info-line">
+            Price:
             <input
               className="form-element"
               type="number"
@@ -112,9 +114,9 @@ const CreateEvent = ({ onEventCreated }) => {
               onChange={(e) => setPrice(e.target.value)}
               required
             />
-          </div>
-          <div className="form-element-container">
-            <label>date:</label>
+          </span>
+          <span className="dash-info-line">
+            Date:
             <input
               className="form-element"
               type="date"
@@ -122,9 +124,9 @@ const CreateEvent = ({ onEventCreated }) => {
               onChange={(e) => setDate(e.target.value)}
               required
             />
-          </div>
-          <div className="form-element-container">
-            <label>time:</label>
+          </span>
+          <span className="dash-info-line">
+            Time:
             <input
               className="form-element"
               type="time"
@@ -132,9 +134,9 @@ const CreateEvent = ({ onEventCreated }) => {
               onChange={(e) => setTime(e.target.value)}
               required
             />
-          </div>
-          <div className="form-element-container">
-            <label>seats:</label>
+          </span>
+          <span className="dash-info-line">
+            Seats:
             <select
               className="form-element"
               placeholder="Seats"
@@ -148,7 +150,7 @@ const CreateEvent = ({ onEventCreated }) => {
                 </option>
               ))}
             </select>
-          </div>
+          </span>
           <div className="form-element-container">
             {
               <Checkbox
