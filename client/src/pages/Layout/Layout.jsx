@@ -5,7 +5,6 @@ import "./layout.scss";
 // component imports
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import AnimationOverlay from "../../components/AnimationOverlay/AnimationOverlay";
 
 const Layout = () => {
   return (

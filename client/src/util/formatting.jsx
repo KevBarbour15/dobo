@@ -27,17 +27,17 @@ export const formatDate = (date) => {
 
 export const convertDateReadability = (dateString) => {
   // remove the Z from the end of the date string if it's there
-  const adjustedDateString = dateString.endsWith('Z') ? dateString.slice(0, -1) : dateString;
-  
+  const adjustedDateString = dateString.endsWith("Z")
+    ? dateString.slice(0, -1)
+    : dateString;
+
   const date = new Date(adjustedDateString);
   const options = {
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: "America/New_York", 
+    timeZone: "America/New_York",
   };
 
   return new Intl.DateTimeFormat("en-US", options).format(date);
 };
-
-

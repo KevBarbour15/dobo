@@ -156,9 +156,9 @@ const Attend = () => {
     gsap.to(".scroll-down-container", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".scroll-down-container",
-        start: "bottom bottom",
-        end: "bottom center",
+        trigger: ".splash-image-container",
+        start: "bottom 80%",
+        end: "bottom 60%",
         scrub: 1,
       },
     });
@@ -385,6 +385,7 @@ const Attend = () => {
                     </div>
                   )}
                 </div>
+
               </div>
             </div>
           </div>

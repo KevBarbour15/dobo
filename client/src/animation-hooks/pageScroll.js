@@ -32,10 +32,6 @@ const usePageScroll = () => {
           });
 
           titleTl
-            .set(".title", {
-              position: "absolute",
-            })
-
             .to(".title-container", {
               borderBottom: "1px solid black",
               duration: 0.5,
@@ -43,17 +39,15 @@ const usePageScroll = () => {
             .to(
               ".title-dark",
               {
-                y: 0,
-                duration: 1,
+                opacity: 1,
+                duration: 0.5,
               },
               0
             )
-            .to(
+            .set(
               ".title",
               {
-                color: "black",
-                filter: "drop-shadow(0.03em 0.03em transparent)",
-                duration: 0.5,
+                opacity: 0,
               },
               0
             )
@@ -89,30 +83,27 @@ const usePageScroll = () => {
           });
           titleTl
             .set(
-              ".title",
-              {
-                position: "fixed",
-              },
-              0
-            )
-            .set(
               ".title-container",
               {
                 borderBottom: "1px solid transparent",
               },
               0
             )
-
             .to(
               ".title",
               {
-                filter: "drop-shadow(0.03em 0.03em black)",
-                color: "#f2f1f0",
+                opacity: 1,
                 duration: 0.5,
               },
               0
             )
-
+            .set(
+              ".title-dark",
+              {
+                opacity: 0,
+              },
+              0
+            )
             .to(
               ".header-container",
               {
