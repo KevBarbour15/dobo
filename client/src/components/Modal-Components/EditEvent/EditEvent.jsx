@@ -143,44 +143,44 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
   return (
     <div className="edit-event-container">
       <form onSubmit={handleSubmit} className="edit-event-form">
-        <div className="event-label">
-          <label>title:</label>
+        <span className="dash-info-line">
+          Name:
           <input
             className="form-element"
             type="text"
             value={title}
             onChange={handleTitleChange}
           />
-        </div>
-        <div className="event-label">
-          <label>price:</label>
+        </span>
+        <span className="dash-info-line">
+          Price:
           <input
             className="form-element"
             type="number"
             value={price}
             onChange={handlePriceChange}
           />
-        </div>
-        <div className="event-label">
-          <label>date:</label>
+        </span>
+        <span className="dash-info-line">
+          Date:
           <input
             className="form-element"
             type="date"
             value={date}
             onChange={handleDateChange}
           />
-        </div>
-        <div className="event-label">
-          <label>time:</label>
+        </span>
+        <span className="dash-info-line">
+          Time:
           <input
             className="form-element"
             type="time"
             value={time}
             onChange={handleTimeChange}
           />
-        </div>
-        <div className="event-label">
-          <label>seats:</label>
+        </span>
+        <span className="dash-info-line">
+          Seats:
           <select
             className="form-element"
             value={seats}
@@ -195,24 +195,24 @@ const EditEvent = ({ event, onClose, onUpdateEvent }) => {
               </option>
             ))}
           </select>
-        </div>
-        <label>attendees: {committed}</label>
+        </span>
+        <span className="dash-info-line">
+          Seats filled: <span>{committed}</span>
+        </span>
 
-        {
-          <Checkbox
-            text={"Make this event public?"}
-            isSelected={isPublicEvent}
-            onCheckboxChange={handlePublicEventChange}
-          />
-        }
+        <Checkbox
+          text={"Make this event public?"}
+          isSelected={isPublicEvent}
+          onCheckboxChange={handlePublicEventChange}
+        />
 
-        {
+        <div className="edit-event-form-delete">
           <Checkbox
-            text={"Delete event? This cannot be undone."}
+            text={"Delete event?"}
             isSelected={deleteEvent}
             onCheckboxChange={handleDeleteEventChange}
           />
-        }
+        </div>
         <button className="button" type="submit">
           Save
         </button>

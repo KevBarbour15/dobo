@@ -48,6 +48,11 @@ const AttendeeSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  totalPayment: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Attendees", AttendeeSchema);

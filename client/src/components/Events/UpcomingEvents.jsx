@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./view-events.scss";
 
 // component imports
@@ -78,29 +78,35 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
         <div className="event-details-container">
           <ul className="event-details">
             <li>
-              <span>- {convertDateReadability(event.date)}</span>
+              <span>- Date: {convertDateReadability(event.date)}</span>
             </li>
             <li>
-              <span>- {convertMilitaryTime(event.time)}</span>
+              <span>- Time: {convertMilitaryTime(event.time)}</span>
             </li>
             <li>
-              <span>- {event.seats} seats.</span>
+              <span>- Seats: {event.seats} </span>
             </li>
             {event.seatsRemaining >= 0 ? (
               <li>
                 <span>
-                  - {event.seats - event.seatsRemaining} seats filled.
+                  - Seats filled: {event.seats - event.seatsRemaining}
                 </span>
               </li>
             ) : (
               <li>
                 <span className="negative-seats">
-                  {event.seatsRemaining} seats available. (Overbooked)
+                  - Seats available: {event.seatsRemaining} (Overbooked)
                 </span>
               </li>
             )}
             <li>
-              <span>- ${event.price}</span>
+              <span>- Wine pairings: {event.winePairings || 0}</span>
+            </li>
+            <li>
+              <span>- Event price: ${event.price}</span>
+            </li>
+            <li>
+              <span>- Total payment: ${event.totalPayment || 0}</span>
             </li>
             <li>
               {event.isPublicEvent ? (

@@ -54,7 +54,8 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
     newStatus,
     ogStatus,
     seats,
-    winePairings
+    winePairings,
+    payment
   ) => {
     if (newStatus === ogStatus && newStatus !== "Confirmed") return;
 
@@ -66,6 +67,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
         ogStatus: ogStatus,
         seats: seats,
         winePairings: winePairings,
+        totalPayment: payment,
       });
 
       setAttendees(
@@ -76,6 +78,7 @@ const Attendance = ({ event, onUpdateEvent, eventTiming }) => {
                 status: newStatus,
                 seats: seats,
                 winePairings: winePairings,
+                totalPayment: payment,
               }
             : attendee
         )

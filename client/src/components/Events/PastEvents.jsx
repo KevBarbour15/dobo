@@ -64,7 +64,10 @@ const EventDetailsPast = ({ event, onUpdateEvent }) => {
               <span>- {event.seats - event.seatsRemaining} attendees</span>
             </li>
             <li>
-              <span>- ${event.price}</span>
+              <span>- Event price: ${event.price}</span>
+            </li>
+            <li>
+              <span>- Total payment: ${event.totalPayment || 0}</span>
             </li>
           </ul>
         </div>

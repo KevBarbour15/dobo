@@ -8,7 +8,15 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
+.edit-event-form-delete {
+  color: red;
+  text-transform: uppercase;
+
+  input[type="checkbox"].toggle:checked:after {
+    background: red;
+    border: 1px solid black;
+  }
 }

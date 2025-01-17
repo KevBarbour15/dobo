@@ -38,14 +38,27 @@ router.post("/get-by-ids", verifyToken, async (req, res) => {
 
 //
 router.put("/update-status", verifyToken, async (req, res) => {
-  let { status, ogStatus, attendeeId, eventId, seats, winePairings } = req.body;
-  seats = parseInt(seats, 10); // Ensure seats is an integer
+  let {
+    status,
+    ogStatus,
+    attendeeId,
+    eventId,
+    seats,
+    winePairings,
+    totalPayment,
+  } = req.body;
+  seats = parseInt(seats, 10);
+  winePairings = parseInt(winePairings, 10);
+  totalPayment = parseInt(totalPayment, 10);
+  console.log(totalPayment);
 
   try {
     const currentAttendee = await Attendee.findById(attendeeId);
     const currentSeats = currentAttendee.seats;
-    // Update attendee's status
+    const currentWinePairings = currentAttendee.winePairings;
+    const currentPayment = currentAttendee.totalPayment;
 
+    // Update attendee's status and information
     if (status === "Not Attending") {
       await Attendee.findByIdAndDelete(attendeeId);
 
@@ -55,20 +68,39 @@ router.put("/update-status", verifyToken, async (req, res) => {
       });
     }
 
-    await Attendee.findByIdAndUpdate(attendeeId, { status, seats, winePairings });
+    await Attendee.findByIdAndUpdate(attendeeId, {
+      status,
+      seats,
+      winePairings,
+      totalPayment,
+    });
 
     if (status === "Confirmed" && ogStatus !== "Confirmed") {
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: -seats },
+        $inc: {
+          seatsRemaining: -seats,
+          winePairings: winePairings,
+          totalPayment: totalPayment,
+        },
       });
     } else if (status === "Confirmed" && ogStatus === "Confirmed") {
       const seatDiff = seats - currentSeats;
+      const winePairingDiff = winePairings - currentWinePairings;
+      const paymentDiff = totalPayment - currentPayment;
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: -seatDiff },
+        $inc: {
+          seatsRemaining: -seatDiff,
+          winePairings: winePairingDiff,
+          totalPayment: paymentDiff,
+        },
       });
     } else if (status !== "Confirmed" && ogStatus === "Confirmed") {
       await Event.findByIdAndUpdate(eventId, {
-        $inc: { seatsRemaining: currentSeats },
+        $inc: {
+          seatsRemaining: currentSeats,
+          winePairings: -currentWinePairings,
+          totalPayment: -currentPayment,
+        },
       });
     }
 
@@ -89,10 +121,16 @@ router.post("/add", verifyToken, async (req, res) => {
 
     const eventId = req.body.eventId;
     const seats = req.body.seats;
+    const winePairings = req.body.winePairings;
+    const totalPayment = req.body.totalPayment;
 
     await Event.findByIdAndUpdate(eventId, {
       $push: { attendees: savedAttendee._id },
-      $inc: { seatsRemaining: -seats },
+      $inc: {
+        seatsRemaining: -seats,
+        winePairings: winePairings,
+        totalPayment: totalPayment,
+      },
     });
 
     res.status(201).json(savedAttendee);

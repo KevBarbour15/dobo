@@ -35,7 +35,7 @@ let initialState = {
   email: "",
   selectedEventId: "",
   message: "",
-  seats: 0,
+  seats: 1,
   date: "",
   time: "",
   winePairings: 0,
@@ -313,7 +313,6 @@ const Attend = () => {
                       aria-label="Number of guests"
                       aria-required="true"
                     >
-                      <option value={0}>0 guests</option>
                       {Array.from(
                         { length: seatsRemaining },
                         (_, i) => i + 1

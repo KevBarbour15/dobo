@@ -39,6 +39,8 @@ router.post("/update", (req, res) => {
         });
       break;
 
+    // not needed as of now
+    /*
     case "charge.refunded":
       break;
       const charge = event.data.object;
@@ -66,7 +68,7 @@ router.post("/update", (req, res) => {
           res.status(500).send("Error retrieving PaymentIntent");
         });
       break;
-
+*/
     default:
       //console.log(`Unhandled event type ${event.type}`);
       res.send();
@@ -92,6 +94,8 @@ async function updateEventSeats(type, eventMetadata, session) {
         seats: eventMetadata.seats,
         message: eventMetadata.message,
         status: "Confirmed",
+        winePairings: eventMetadata.winePairings,
+        totalPayment: eventMetadata.totalPrice,
       };
 
       const newAttendee = new Attendee(attendee);
@@ -106,6 +110,10 @@ async function updateEventSeats(type, eventMetadata, session) {
 
       await Event.findByIdAndUpdate(eventMetadata.eventId, {
         $push: { attendees: savedAttendee._id },
+        $inc: {
+          totalPayment: eventMetadata.totalPrice,
+          winePairings: eventMetadata.winePairings,
+        },
       });
     } else if (type === "refund") {
       const attendee = await Attendee.findOne({
