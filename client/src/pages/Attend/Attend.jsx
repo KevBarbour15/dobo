@@ -396,7 +396,6 @@ const Attend = () => {
                   {state.selectedEventId &&
                   state.firstName &&
                   state.lastName &&
-                  false &&
                   isValidEmail(state.email) ? (
                     <div className="form-element-container">
                       <CheckoutButton attendee={state} />
