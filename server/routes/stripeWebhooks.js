@@ -40,19 +40,20 @@ router.post("/update", (req, res) => {
         });
       break;
 
-    case "charge.refunded":
-      updatePaymentDetails(session)
-        .then(() => {
-          res.json({ received: true });
-        })
-        .catch((error) => {
-          if (error.message === "Refund already processed") {
+    case "charge.refund.updated":
+      // Only process if refund status is succeeded
+      if (session.status === "succeeded") {
+        updatePaymentDetails(session)
+          .then(() => {
             res.json({ received: true });
-          } else {
+          })
+          .catch((error) => {
             res.status(500).send();
             console.error("Error processing refund:", error);
-          }
-        });
+          });
+      } else {
+        res.json({ received: true }); // Acknowledge but don't process other statuses
+      }
       break;
 
     default:
@@ -107,6 +108,7 @@ async function updateEventSeats(eventMetadata, session) {
 // handle payment related updates
 async function updatePaymentDetails(session) {
   try {
+    // Add refund tracking to prevent double processing
     const paymentIntent = await stripe.paymentIntents.retrieve(
       session.payment_intent
     );
@@ -115,13 +117,6 @@ async function updatePaymentDetails(session) {
     const attendee = await Attendee.findById(paymentMetadata.attendeeId);
     if (!attendee) {
       throw new Error("Attendee not found");
-    }
-
-    if (
-      attendee.totalPayment <=
-      (paymentIntent.amount - session.amount) / 100
-    ) {
-      throw new Error("Refund already processed");
     }
 
     const event = await Event.findById(paymentMetadata.eventId);
