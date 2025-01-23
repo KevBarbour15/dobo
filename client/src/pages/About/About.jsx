@@ -16,12 +16,12 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 import { MoveDown } from "lucide-react";
 
 const About = () => {
-  useFadeIn(true, ".page-container", 1, 0);
+  useFadeIn(".page-container", 1, 0, aboutImage);
   usePageScroll();
 
   useGSAP(() => {
     gsap.set(".about-image img", {
-      yPercent: -65,
+      yPercent: -60,
     });
 
     gsap.to(".about-image img", {
@@ -34,15 +34,15 @@ const About = () => {
       },
     });
 
-    gsap.to(".scroll-down-container", {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".splash-image-container",
-        start: "bottom 85%",
-        end: "bottom 15%",
-        scrub: true,
-      },
-    });
+   gsap.to(".scroll-down-container", {
+     opacity: 0,
+     scrollTrigger: {
+       trigger: ".scroll-down-container",
+       start: "bottom bottom",
+       end: "bottom 55%",
+       scrub: 1,
+     },
+   });
   }, []);
 
   return (

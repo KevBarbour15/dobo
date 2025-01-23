@@ -14,7 +14,7 @@ import {
 import { filterPastEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+
 
 const EventDetailsPast = ({ event, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -107,7 +107,7 @@ const PastEvents = ({ events, onUpdateEvent }) => {
   const filterPublicEvents = false;
   const pastEvents = filterPastEventsNYC(events, filterPublicEvents);
 
-  useFadeIn(true, ".events-list", 0.5);
+
 
   return (
     <div className="events-list">

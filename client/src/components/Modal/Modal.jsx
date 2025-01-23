@@ -1,14 +1,12 @@
 import "./modal.scss";
 
-// animation imports
-import useFadeIn from "../../animation-hooks/fadeIn";
+
 
 // component imports
 import { X } from "lucide-react";
 
 const Modal = ({ isVisible, title, children, onClose }) => {
-  useFadeIn(isVisible, ".modal-content", 0.25);
-  useFadeIn(isVisible, ".modal-overlay", 0.5);
+
 
   if (!isVisible) return null;
 

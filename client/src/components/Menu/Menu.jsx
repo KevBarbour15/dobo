@@ -53,10 +53,14 @@ const Menu = ({ isOpen, onClose }) => {
 
         <div className="menu-links-container">
           {menuLinks.map(({ path, label }) => (
-            <Link key={path} className="menu-link" to={path} onClick={onClose}>
-              <div className="link-wrapper">
-                <span>{label}</span>
-              </div>
+            <Link
+              key={path}
+              className="menu-link"
+              to={path}
+              onClick={onClose}
+              rel={path === "/gallery" ? "preload" : undefined}
+            >
+              <div className="link-wrapper">{label}</div>
             </Link>
           ))}
         </div>

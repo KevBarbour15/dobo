@@ -56,11 +56,11 @@ const ImageGallery = () => {
       setTimeout(() => {
         gsap.set(".gallery-container img", {
           x: (i) => {
-            i = i % 2 === 0 ? 200 : -200;
+            i = i % 2 === 0 ? 150 : -150;
             return (Math.random() - 0.5) * i;
           },
           y: (i) => {
-            i = i % 2 === 0 ? 200 : -200;
+            i = i % 2 === 0 ? 150 : -150;
             return (Math.random() - 0.5) * i;
           },
           opacity: 0,

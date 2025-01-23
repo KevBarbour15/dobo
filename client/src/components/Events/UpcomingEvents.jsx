@@ -18,7 +18,7 @@ import {
 import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
 // animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
+
 
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -166,8 +166,6 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
 const UpcomingEvents = ({ events, onDeleteEvent, onUpdateEvent }) => {
   const filterPublicEvents = false;
   const futureEvents = filterAccessibleEventsNYC(events, filterPublicEvents);
-
-  useFadeIn(true, ".events-list", 0.3, 0.25);
 
   return (
     <div className="events-list">

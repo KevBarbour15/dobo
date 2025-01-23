@@ -24,7 +24,7 @@ import useFadeIn from "../../animation-hooks/fadeIn.js";
 const FAQ = () => {
   // custom parallax hook
   // custom fade and parallax hooks
-  useFadeIn(true, ".page-container", 1, 0);
+  useFadeIn(".page-container", 1, 0, faqImage);
   usePageScroll();
 
   useGSAP(() => {
@@ -56,7 +56,7 @@ const FAQ = () => {
       scrollTrigger: {
         trigger: ".scroll-down-container",
         start: "bottom bottom",
-        end: "bottom center",
+        end: "bottom 55%",
         scrub: 1,
       },
     });

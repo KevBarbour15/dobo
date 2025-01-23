@@ -71,10 +71,6 @@ const Attend = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [seatsRemaining, setSeatsRemaining] = useState(1);
 
-  // custom fade and parallax hooks
-  useFadeIn(true, ".page-container", 1, 0);
-  usePageScroll();
-
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -138,9 +134,13 @@ const Attend = () => {
     }
   }, [state.selectedEventId]);
 
+  // custom fade and parallax hooks
+  useFadeIn(".page-container", 1, 0, attendImage);
+  usePageScroll();
+
   useGSAP(() => {
     gsap.set(".attend-image img", {
-      yPercent: -65,
+      yPercent: -60,
     });
 
     gsap.to(".attend-image img", {
@@ -156,10 +156,10 @@ const Attend = () => {
     gsap.to(".scroll-down-container", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".splash-image-container",
-        start: "bottom 85%",
-        end: "bottom 15%",
-        scrub: true,
+        trigger: ".scroll-down-container",
+        start: "bottom bottom",
+        end: "bottom 55%",
+        scrub: 1,
       },
     });
   }, []);
