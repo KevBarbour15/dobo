@@ -26,9 +26,8 @@ router.post("/update", (req, res) => {
   }
 
   const session = event.data.object;
-  console.log("session", session);
   const eventMetadata = session.metadata;
-  console.log("eventMetadata", eventMetadata);
+
   switch (event.type) {
     case "checkout.session.completed":
       updateEventSeats(eventMetadata, session)
@@ -41,14 +40,18 @@ router.post("/update", (req, res) => {
         });
       break;
 
-    case "charge.refund.updated":
+    case "charge.refunded":
       updatePaymentDetails(session)
         .then(() => {
           res.json({ received: true });
         })
         .catch((error) => {
-          res.status(500).send();
-          console.error("Error decrementing payment:", error);
+          if (error.message === "Refund already processed") {
+            res.json({ received: true });
+          } else {
+            res.status(500).send();
+            console.error("Error processing refund:", error);
+          }
         });
       break;
 
@@ -109,16 +112,21 @@ async function updatePaymentDetails(session) {
     );
     const paymentMetadata = paymentIntent.metadata;
 
-    const event = await Event.findById(paymentMetadata.eventId);
-
-    if (!event) {
-      throw new Error("Event not found");
-    }
-
     const attendee = await Attendee.findById(paymentMetadata.attendeeId);
-
     if (!attendee) {
       throw new Error("Attendee not found");
+    }
+
+    if (
+      attendee.totalPayment <=
+      (paymentIntent.amount - session.amount) / 100
+    ) {
+      throw new Error("Refund already processed");
+    }
+
+    const event = await Event.findById(paymentMetadata.eventId);
+    if (!event) {
+      throw new Error("Event not found");
     }
 
     event.totalPayment -= session.amount / 100;
