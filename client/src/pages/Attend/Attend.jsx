@@ -157,9 +157,9 @@ const Attend = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".splash-image-container",
-        start: "bottom 80%",
-        end: "bottom 60%",
-        scrub: 1,
+        start: "bottom 85%",
+        end: "bottom 15%",
+        scrub: true,
       },
     });
   }, []);

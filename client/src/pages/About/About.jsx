@@ -37,10 +37,10 @@ const About = () => {
     gsap.to(".scroll-down-container", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".scroll-down-container",
-        start: "bottom bottom",
-        end: "bottom center",
-        scrub: 1,
+        trigger: ".splash-image-container",
+        start: "bottom 85%",
+        end: "bottom 15%",
+        scrub: true,
       },
     });
   }, []);
