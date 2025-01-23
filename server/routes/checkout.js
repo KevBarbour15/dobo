@@ -18,10 +18,9 @@ router.post("/create-checkout-session", async (req, res) => {
 
     let totalPrice = event.price * 100 * attendee.seats;
     const winePairingPrice = 40 * 100 * attendee.winePairings;
+
     // multiply by 100 to convert to cents for stripe
     totalPrice = totalPrice + winePairingPrice;
-
-    console.log("Total price:", totalPrice);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],

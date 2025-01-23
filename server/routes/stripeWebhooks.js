@@ -25,11 +25,12 @@ router.post("/update", (req, res) => {
   }
 
   const session = event.data.object;
+  console.log("session", session);
   const eventMetadata = session.metadata;
-
+  console.log("eventMetadata", eventMetadata);
   switch (event.type) {
     case "checkout.session.completed":
-      updateEventSeats("success", eventMetadata, session)
+      updateEventSeats(eventMetadata, session)
         .then(() => {
           res.json({ received: true });
         })
@@ -39,104 +40,91 @@ router.post("/update", (req, res) => {
         });
       break;
 
-    // not needed as of now
-    /*
-    case "charge.refunded":
-      break;
-      const charge = event.data.object;
-
-      stripe.paymentIntents
-        .retrieve(charge.payment_intent)
-        .then((paymentIntent) => {
-          if (eventMetadata.eventId) {
-            updateEventSeats("refund", eventMetadata, session)
-              .then(() => {
-                console.log("Seat incremented successfully due to refund!");
-                res.json({ received: true });
-              })
-              .catch((error) => {
-                console.error("Error incrementing seat:", error);
-                res.status(500).send();
-              });
-          } else {
-            console.error("Event ID not found in metadata.");
-            res.status(500).send("Metadata not found");
-          }
+    case "charge.refund.updated":
+      updatePaymentDetails(session)
+        .then(() => {
+          res.json({ received: true });
         })
-        .catch((err) => {
-          console.error("Error retrieving PaymentIntent:", err);
-          res.status(500).send("Error retrieving PaymentIntent");
+        .catch((error) => {
+          res.status(500).send();
+          console.error("Error decrementing payment:", error);
         });
       break;
-*/
+
     default:
       //console.log(`Unhandled event type ${event.type}`);
       res.send();
   }
 });
 
-// adjust event seats accordingly
-async function updateEventSeats(type, eventMetadata, session) {
+// adjust event seats and create attendee
+async function updateEventSeats(eventMetadata, session) {
   try {
     const event = await Event.findById(eventMetadata.eventId);
     if (!event) {
       throw new Error("Event not found");
     }
 
-    if (type === "success") {
-      event.seatsRemaining -= eventMetadata.seats;
+    const attendee = {
+      eventId: eventMetadata.eventId,
+      firstName: eventMetadata.firstName,
+      lastName: eventMetadata.lastName,
+      email: eventMetadata.email,
+      seats: eventMetadata.seats,
+      message: eventMetadata.message,
+      status: "Confirmed",
+      winePairings: eventMetadata.winePairings,
+      totalPayment: eventMetadata.totalPrice,
+    };
 
-      const attendee = {
-        eventId: eventMetadata.eventId,
-        firstName: eventMetadata.firstName,
-        lastName: eventMetadata.lastName,
-        email: eventMetadata.email,
-        seats: eventMetadata.seats,
-        message: eventMetadata.message,
-        status: "Confirmed",
-        winePairings: eventMetadata.winePairings,
+    const newAttendee = new Attendee(attendee);
+    const savedAttendee = await newAttendee.save();
+
+    await stripe.paymentIntents.update(session.payment_intent, {
+      metadata: {
+        ...eventMetadata,
+        attendeeId: savedAttendee._id.toString(),
+      },
+    });
+
+    await Event.findByIdAndUpdate(eventMetadata.eventId, {
+      $push: { attendees: savedAttendee._id },
+      $inc: {
         totalPayment: eventMetadata.totalPrice,
-      };
+        winePairings: eventMetadata.winePairings,
+        seatsRemaining: -eventMetadata.seats,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+}
 
-      const newAttendee = new Attendee(attendee);
-      const savedAttendee = await newAttendee.save();
+// handle payment related updates
+async function updatePaymentDetails(session) {
+  try {
+    const paymentIntent = await stripe.paymentIntents.retrieve(
+      session.payment_intent
+    );
+    const paymentMetadata = paymentIntent.metadata;
 
-      await stripe.paymentIntents.update(session.payment_intent, {
-        metadata: {
-          ...eventMetadata,
-          attendeeId: savedAttendee._id.toString(),
-        },
-      });
+    const event = await Event.findById(paymentMetadata.eventId);
 
-      await Event.findByIdAndUpdate(eventMetadata.eventId, {
-        $push: { attendees: savedAttendee._id },
-        $inc: {
-          totalPayment: eventMetadata.totalPrice,
-          winePairings: eventMetadata.winePairings,
-        },
-      });
-    } else if (type === "refund") {
-      const attendee = await Attendee.findOne({
-        eventId: eventMetadata.eventId,
-        status: "Confirmed",
-      });
-
-      if (!attendee) {
-        throw new Error("Attendee not found");
-      }
-
-      event.seatsRemaining += parseInt(attendee.seats);
-      console.log("Added " + attendee.seats + " seats back to event");
-
-      attendee.status = "Refunded";
-      await attendee.save();
-
-      await Event.findByIdAndUpdate(eventMetadata.eventId, {
-        $pull: { attendees: attendee._id },
-      });
+    if (!event) {
+      throw new Error("Event not found");
     }
 
+    const attendee = await Attendee.findById(paymentMetadata.attendeeId);
+
+    if (!attendee) {
+      throw new Error("Attendee not found");
+    }
+
+    event.totalPayment -= session.amount / 100;
+    attendee.totalPayment -= session.amount / 100;
+
     await event.save();
+    await attendee.save();
   } catch (error) {
     throw error;
   }

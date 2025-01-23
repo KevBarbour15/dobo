@@ -6,7 +6,6 @@ import { images } from "./imageArray.js";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import PageTransition from "../../components/PageTransition/PageTransition.jsx";
 import Loading from "../../components/Modal-Components/Loading/Loading.jsx";
 
 import Lightbox from "yet-another-react-lightbox";
@@ -50,7 +49,7 @@ const ImageGallery = () => {
 
     // Check initially in case some images are already cached
     checkImagesLoaded();
-  }, [images]);
+  }, []);
 
   useGSAP(() => {
     if (loaded) {
@@ -81,7 +80,6 @@ const ImageGallery = () => {
 
   return (
     <>
-      <PageTransition />
       {!loaded ? (
         <div className="loading">
           <Loading />

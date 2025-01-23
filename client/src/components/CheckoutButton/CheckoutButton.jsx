@@ -2,9 +2,7 @@ import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "../../axiosConfig.jsx";
 
-const stripePromise = loadStripe(
-  "pk_test_51O5vqNFi2BcJnxIL47ZUyAwJpQRJMyhiqXQjeqXfdxTA8dGBJ4ZtLmG6AHVrccjF3mlVYzIiEn13KjjmurFncbQI00xalBaqon"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 /*
   Stripe Test Card Numbers:
