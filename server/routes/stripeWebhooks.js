@@ -27,6 +27,7 @@ router.post("/update", (req, res) => {
 
   const session = event.data.object;
   const eventMetadata = session.metadata;
+  console.log("event: ", event.type);
 
   switch (event.type) {
     case "checkout.session.completed":
@@ -42,7 +43,9 @@ router.post("/update", (req, res) => {
 
     case "charge.refund.updated":
       // Only process if refund status is succeeded
+      console.log("session", session);
       if (session.status === "succeeded") {
+        console.log("refund succeeded");
         updatePaymentDetails(session)
           .then(() => {
             res.json({ received: true });
