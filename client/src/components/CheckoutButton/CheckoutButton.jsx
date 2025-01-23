@@ -2,6 +2,16 @@ import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "../../axiosConfig.jsx";
 
+// Remove or comment out this debug line
+// console.log(process.env.REACT_APP_STRIPE_KEY);
+
+// Add error handling for missing stripe key
+if (!process.env.REACT_APP_STRIPE_KEY) {
+  throw new Error(
+    "Stripe publishable key is missing. Make sure REACT_APP_STRIPE_KEY is set in your environment."
+  );
+}
+
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 /*
