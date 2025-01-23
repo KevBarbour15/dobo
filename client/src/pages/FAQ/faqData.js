@@ -23,12 +23,17 @@ const faqData = [
   {
     question: "What if I have dietary restrictions?",
     answer:
-      "We're happy to accommodate most allergies and no-pork preferences. Please note, our menu primarily features beef, chicken, and seafood, which makes vegan or vegetarian options challenging.",
+      "We're happy to accommodate many allergies and no-pork preferences. Please note, our menu primarily features beef, chicken, and seafood, which makes vegan or vegetarian options challenging.",
   },
   {
     question: "What is the cost of the dinner?",
     answer:
       "The dinner costs $160 per person. If you'd like to enjoy wine pairing with your meal, it's an additional $40. You can purchase the wine pairing when you purchase your ticket(s) or at the event.",
+  },
+  {
+    question: "What is the refund policy?",
+    answer:
+      "Deposits are returnable up to 7 days before the event.  "
   },
   {
     question: "Can I bring my own wine?",
@@ -40,7 +45,7 @@ const faqData = [
   },
   {
     question: "What if I don't drink alcohol?",
-    answer: "We will have non-alcoholic beverages at the event.",
+    answer: "We will have non-alcoholic beverages at the event "
   },
 ];
 

@@ -11,6 +11,7 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 
 // stripe trigger checkout.session.completed
 // stripe trigger charge.refunded
+const processedRefunds = new Set();
 
 router.post("/update", (req, res) => {
   console.log("stripe webhook hit");
@@ -42,10 +43,18 @@ router.post("/update", (req, res) => {
       break;
 
     case "charge.refund.updated":
-      // Only process if refund status is succeeded
-      console.log("session", session);
+      if (processedRefunds.has(session.id)) {
+        console.log("Refund already accounted for in database.");
+        return res.json({ received: true });
+      }
+      processedRefunds.add(session.id);
+
+      if (processedRefunds.size > 1000) {
+        console.log("Clearing processed refunds set.");
+        processedRefunds.clear();
+      }
+
       if (session.status === "succeeded") {
-        console.log("refund succeeded");
         updatePaymentDetails(session)
           .then(() => {
             res.json({ received: true });
@@ -55,7 +64,7 @@ router.post("/update", (req, res) => {
             console.error("Error processing refund:", error);
           });
       } else {
-        res.json({ received: true }); // Acknowledge but don't process other statuses
+        res.json({ received: true });
       }
       break;
 
