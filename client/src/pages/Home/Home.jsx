@@ -11,7 +11,7 @@ import homeImage from "../../assets/images/home-portrait.jpg";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
+
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [homeMedia, setHomeMedia] = useState(null);
@@ -24,30 +24,18 @@ const Home = () => {
       return;
     }
 
-    let splitText = new SplitText(".home-text", {
-      types: "words",
-    });
-
-    splitText.words.forEach((word) => {
-      gsap.set(word, {
-        x: (i) => {
-          i = i % 2 === 0 ? 50 : -50;
-          return (Math.random() - 0.5) * i;
-        },
-        y: (i) => {
-          i = i % 2 === 0 ? 50 : -50;
-          return (Math.random() - 0.5) * i;
-        },
-        opacity: 0,
-      });
-    });
-
     let tl = gsap.timeline({});
 
     tl.set(homeMedia, {
       opacity: 0,
     })
       .set(".home-logo img", {
+        opacity: 0,
+      })
+      .set(".home-text", {
+        opacity: 0,
+      })
+      .set(".home-button-wrapper", {
         opacity: 0,
       })
       .set(".home-text-container", {
@@ -70,12 +58,10 @@ const Home = () => {
         1
       )
       .to(
-        splitText.words,
+        ".home-text",
         {
           opacity: 1,
           duration: 1,
-          x: 0,
-          y: 0,
         },
         0.75
       )
