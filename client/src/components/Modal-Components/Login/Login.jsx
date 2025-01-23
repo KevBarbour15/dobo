@@ -42,7 +42,7 @@ const Login = () => {
         progress: undefined,
       });
       setTimeout(() => {
-        navigate("/EventDash");
+        navigate("/dashboard");
       }, 1500);
     } catch (error) {
       toast(<Toast message={errorMessage} />, {

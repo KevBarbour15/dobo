@@ -43,7 +43,7 @@ function App() {
               <Route path="gallery" element={<ImageGallery />} />
               <Route path="success" element={<Success />} />
             </Route>
-            <Route path="/eventdash" element={<EventDash />} />
+            <Route path="/dashboard" element={<EventDash />} />
           </Routes>
         </div>
       </Router>

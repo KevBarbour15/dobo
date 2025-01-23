@@ -46,7 +46,7 @@ const Home = () => {
         opacity: 1,
         duration: 1,
         scale: 1,
-      })
+      },0)
       .to(
         homeMedia,
         {
@@ -55,7 +55,7 @@ const Home = () => {
           opacity: 1,
           scale: 1,
         },
-        1
+        0.25
       )
       .to(
         ".home-text",
@@ -63,7 +63,7 @@ const Home = () => {
           opacity: 1,
           duration: 1,
         },
-        0.75
+        0.5
       )
       .to(
         ".home-button-wrapper",
@@ -71,7 +71,7 @@ const Home = () => {
           opacity: 1,
           duration: 1,
         },
-        0.75
+        0.5
       );
   }, [isMobile, homeMedia]);
 
