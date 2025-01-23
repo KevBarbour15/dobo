@@ -244,60 +244,74 @@ const Attend = () => {
                       </option>
                     ))}
                   </select>
+                  {state.selectedEventId && seatsRemaining > 0 ? (
+                    <input
+                      className="form-element"
+                      type="text"
+                      name="firstName"
+                      id="firstName"
+                      value={state.firstName}
+                      placeholder="First name:"
+                      aria-label="First name"
+                      aria-required="true"
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_firstName",
+                          payload: e.target.value,
+                        })
+                      }
+                      required
+                      disabled={seatsRemaining === 0}
+                    />
+                  ) : (
+                    <div className="form-element-disabled">First name</div>
+                  )}
 
-                  <input
-                    className="form-element"
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    value={state.firstName}
-                    placeholder="First name:"
-                    aria-label="First name"
-                    aria-required="true"
-                    onChange={(e) =>
-                      dispatch({
-                        type: "update_firstName",
-                        payload: e.target.value,
-                      })
-                    }
-                    required
-                  />
+                  {state.selectedEventId && seatsRemaining > 0 ? (
+                    <input
+                      className="form-element"
+                      type="text"
+                      name="lastName"
+                      id="lastName"
+                      value={state.lastName}
+                      placeholder="Last name:"
+                      aria-label="Last name"
+                      aria-required="true"
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_lastName",
+                          payload: e.target.value,
+                        })
+                      }
+                      required
+                      disabled={seatsRemaining === 0}
+                    />
+                  ) : (
+                    <div className="form-element-disabled">Last name</div>
+                  )}
 
-                  <input
-                    className="form-element"
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    value={state.lastName}
-                    placeholder="Last name:"
-                    aria-label="Last name"
-                    aria-required="true"
-                    onChange={(e) =>
-                      dispatch({
-                        type: "update_lastName",
-                        payload: e.target.value,
-                      })
-                    }
-                    required
-                  />
-
-                  <input
-                    className="form-element"
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={state.email}
-                    placeholder="Email:"
-                    aria-label="Email address"
-                    aria-required="true"
-                    onChange={(e) => {
-                      dispatch({
-                        type: "update_email",
-                        payload: e.target.value,
-                      });
-                    }}
-                    required
-                  />
+                  {state.selectedEventId && seatsRemaining > 0 ? (
+                    <input
+                      className="form-element"
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={state.email}
+                      placeholder="Email:"
+                      aria-label="Email address"
+                      aria-required="true"
+                      onChange={(e) => {
+                        dispatch({
+                          type: "update_email",
+                          payload: e.target.value,
+                        });
+                      }}
+                      required
+                      disabled={seatsRemaining === 0}
+                    />
+                  ) : (
+                    <div className="form-element-disabled">Email</div>
+                  )}
 
                   {state.selectedEventId && seatsRemaining > 0 ? (
                     <select
@@ -323,11 +337,13 @@ const Attend = () => {
                       ))}
                     </select>
                   ) : (
-                    <div className="select-disabled">
-                      Select a date to select the number of guests.
+                    <div className="form-element-disabled">
+                      {seatsRemaining === 0
+                        ? "Sold out"
+                        : "Select a date to select the number of guests."}
                     </div>
                   )}
-                  {state.selectedEventId && state.seats > 0 ? (
+                  {state.selectedEventId && seatsRemaining > 0 ? (
                     <select
                       className="form-element"
                       value={state.winePairings}
@@ -350,29 +366,37 @@ const Attend = () => {
                       )}
                     </select>
                   ) : (
-                    <div className="select-disabled">
-                      Select number of guests to select wine pairings.
+                    <div className="form-element-disabled">
+                      {seatsRemaining === 0
+                        ? "Sold out"
+                        : "Select number of guests to select wine pairings."}
                     </div>
                   )}
 
-                  <textarea
-                    className="form-element"
-                    name="message"
-                    id="message"
-                    value={state.message}
-                    placeholder="Message (optional):"
-                    aria-label="Additional message"
-                    onChange={(e) =>
-                      dispatch({
-                        type: "update_message",
-                        payload: e.target.value,
-                      })
-                    }
-                  />
+                  {state.selectedEventId && seatsRemaining > 0 ? (
+                    <textarea
+                      className="form-element"
+                      name="message"
+                      id="message"
+                      value={state.message}
+                      placeholder="Message (optional):"
+                      aria-label="Additional message"
+                      onChange={(e) =>
+                        dispatch({
+                          type: "update_message",
+                          payload: e.target.value,
+                        })
+                      }
+                      disabled={seatsRemaining === 0}
+                    />
+                  ) : (
+                    <div className="text-area-disabled">Message (optional)</div>
+                  )}
 
                   {state.selectedEventId &&
                   state.firstName &&
                   state.lastName &&
+                  false &&
                   isValidEmail(state.email) ? (
                     <div className="form-element-container">
                       <CheckoutButton attendee={state} />
@@ -380,12 +404,14 @@ const Attend = () => {
                   ) : (
                     <div className="form-element-container">
                       <div className="checkout-button-disabled">
-                        {seatsRemaining === 0 ? "Sold out" : "Checkout"}
+                        {
+                          /*seatsRemaining === 0 ? "Sold out" : "Checkout" */
+                          "Dobo will be back soon!"
+                        }
                       </div>
                     </div>
                   )}
                 </div>
-
               </div>
             </div>
           </div>

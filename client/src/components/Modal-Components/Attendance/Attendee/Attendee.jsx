@@ -18,7 +18,13 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     setSeats(attendee.seats);
     setWinePairings(attendee.winePairings);
     setTotalPayment(attendee.totalPayment || 0);
-  }, [attendee.status, attendee.seats, attendee.totalPayment, event]);
+  }, [
+    attendee.status,
+    attendee.seats,
+    attendee.totalPayment,
+    event,
+    attendee.winePairings,
+  ]);
 
   useEffect(() => {
     if (status !== "Confirmed") {
@@ -72,66 +78,68 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
               <p>{attendee.message ? `"` + attendee.message + `"` : ""}</p>
             </div>
           )}
-          <span className="dash-info-line">
-            Payment: $
-            <input
-              className="form-element"
-              type="number"
-              value={totalPayment}
-              onChange={(e) => setTotalPayment(Number(e.target.value))}
-            />
-          </span>
-          <span className="dash-info-line">
-            Status:
-            <select
-              className="form-element"
-              value={status}
-              onChange={handleStatusChange}
-            >
-              <option value="Confirmed">Confirmed</option>
-              <option value="Inquired">Inquired</option>
-              <option value="Contacted">Contacted</option>
-              <option value="Not Attending">Not Attending</option>
-              <option value="Waitlisted">Waitlisted</option>
-              <option value="Refunded">Refunded</option>
-            </select>
-          </span>
-          {status === "Confirmed" && (
-            <>
-              <span className="dash-info-line">
-                Seats:
-                <select
-                  className="form-element"
-                  value={seats}
-                  onChange={(e) => setSeats(e.target.value)}
-                >
-                  {[...Array(Number(event.seatsRemaining))].map((_, i) => (
-                    <option key={i} value={i + 1}>
-                      {i + 1}
-                    </option>
-                  ))}
-                </select>
-              </span>
-              <span className="dash-info-line">
-                Wine Pairings:
-                <select
-                  className="form-element"
-                  value={winePairings}
-                  onChange={(e) => setWinePairings(Number(e.target.value))}
-                >
-                  <option value={0}>0</option>
-                  {[...Array(Number(seats))].map((_, i) => (
-                    <option key={i} value={i + 1}>
-                      {i + 1}
-                    </option>
-                  ))}
-                </select>
-              </span>
-            </>
-          )}
-          <button className="button" onClick={handleSave}>
-            Update
-          </button>
+          <div className="attendee-info-right">
+            <span className="dash-info-line">
+              Payment: $
+              <input
+                className="form-element"
+                type="number"
+                value={totalPayment}
+                onChange={(e) => setTotalPayment(Number(e.target.value))}
+              />
+            </span>
+            <span className="dash-info-line">
+              Status:
+              <select
+                className="form-element"
+                value={status}
+                onChange={handleStatusChange}
+              >
+                <option value="Confirmed">Confirmed</option>
+                <option value="Inquired">Inquired</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Not Attending">Not Attending</option>
+                <option value="Waitlisted">Waitlisted</option>
+                <option value="Refunded">Refunded</option>
+              </select>
+            </span>
+            {status === "Confirmed" && (
+              <>
+                <span className="dash-info-line">
+                  Seats:
+                  <select
+                    className="form-element"
+                    value={seats}
+                    onChange={(e) => setSeats(e.target.value)}
+                  >
+                    {[...Array(Number(event.seatsRemaining))].map((_, i) => (
+                      <option key={i} value={i + 1}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </select>
+                </span>
+                <span className="dash-info-line">
+                  Wine Pairings:
+                  <select
+                    className="form-element"
+                    value={winePairings}
+                    onChange={(e) => setWinePairings(Number(e.target.value))}
+                  >
+                    <option value={0}>0</option>
+                    {[...Array(Number(seats))].map((_, i) => (
+                      <option key={i} value={i + 1}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </select>
+                </span>
+              </>
+            )}
+            <button className="button" onClick={handleSave}>
+              Update
+            </button>
+          </div>
         </div>
       ) : (
         <div className="attendee-info">

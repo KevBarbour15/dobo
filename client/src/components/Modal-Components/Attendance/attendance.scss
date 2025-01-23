@@ -7,9 +7,7 @@
 }
 
 .attendees-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
-  grid-gap: 1px;
+  display: block;
 }
 
 .no-attendees-container {
@@ -18,9 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.no-attendees-container p {
   font-size: 20px;
   color: black;
 }

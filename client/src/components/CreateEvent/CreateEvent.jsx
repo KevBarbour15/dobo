@@ -7,14 +7,9 @@ import "./create-event.scss";
 import { toast } from "react-toastify";
 import Toast from "../Toast/Toast.jsx";
 
-// component imports
-import PageTitle from "../PageTitle/PageTitle.jsx";
 import Checkbox from "../Checkbox/Checkbox.jsx";
 
-// animation imports
-import useFadeIn from "../../animation-hooks/fadeIn.js";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+const toastMessage = "Event created successfully!";
 
 const CreateEvent = ({ onEventCreated }) => {
   const [title, setTitle] = useState("");
@@ -23,22 +18,6 @@ const CreateEvent = ({ onEventCreated }) => {
   const [time, setTime] = useState("");
   const [price, setPrice] = useState(0);
   const [isPublicEvent, setIsPublicEvent] = useState(false);
-
-  // for toast notification
-  const toastMessage = "Event created successfully!";
-
-  useFadeIn(true, ".create-event-container", 0.25, 0.05, 0);
-
-  useGSAP(() => {
-    let tl = gsap.timeline({ delay: 0.25, ease: "sine.outOut" });
-
-    tl.from(".form-element-container", {
-      duration: 0.85,
-      opacity: 0,
-      stagger: 0.05,
-      rotationX: 45,
-    });
-  });
 
   //initialize empty notes
   const notes = "";

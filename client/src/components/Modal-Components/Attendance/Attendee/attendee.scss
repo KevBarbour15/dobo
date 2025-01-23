@@ -1,20 +1,24 @@
 .attendee-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   padding: 8px;
-  height: auto;
   border-bottom: 1px solid black;
+  max-width: 80vw;
 }
 
 .attendee-info {
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.attendee-info-right {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 8px;
+  justify-content: center;
   gap: 8px;
+  flex-basis: 33%;
 }
 
 .contact-icon {
@@ -22,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-basis: 33%;
 }
 
 .attendee-name {
@@ -30,12 +35,31 @@
   font-size: 24px;
 }
 
-.attendee-email  {
+.attendee-email {
   cursor: pointer;
   margin: 8px 0;
 }
 
-.attendee-message p {
+.attendee-message {
   font-size: 14px;
   text-align: center;
+  flex-basis: 33%;
+  padding: 0 8px;
+}
+
+@media (max-width: 768px) {
+  .attendee-container {
+    max-width: 100%;
+  }
+
+  .attendee-info {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+
+  .attendee-info-right {
+    flex-basis: 100%;
+    width: 100%;
+  }
 }
