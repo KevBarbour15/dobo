@@ -13,6 +13,7 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 // stripe trigger charge.refunded
 
 router.post("/update", (req, res) => {
+  console.log("stripe webhook hit");
   const sig = req.headers["stripe-signature"];
   let event;
 

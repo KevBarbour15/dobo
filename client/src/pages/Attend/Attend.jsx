@@ -403,10 +403,7 @@ const Attend = () => {
                   ) : (
                     <div className="form-element-container">
                       <div className="checkout-button-disabled">
-                        {
-                          /*seatsRemaining === 0 ? "Sold out" : "Checkout" */
-                          "Dobo will be back soon!"
-                        }
+                        {seatsRemaining === 0 ? "Sold out" : "Checkout"}
                       </div>
                     </div>
                   )}
