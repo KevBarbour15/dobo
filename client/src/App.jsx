@@ -1,4 +1,5 @@
 import "./App.scss";
+import { useEffect } from "react";
 
 // page imports
 import Layout from "./pages/Layout/Layout";
@@ -28,6 +29,24 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 
 function App() {
+  useEffect(() => {
+    const setVH = () => {
+      // Get the viewport height and multiply it by 1% to get a value for a vh unit
+      const vh = window.innerHeight * 0.01;
+      // Set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    // Set the value initially
+    setVH();
+
+    // Add event listener to update on resize
+    window.addEventListener("resize", setVH);
+
+    // Clean up
+    return () => window.removeEventListener("resize", setVH);
+  }, []);
+
   return (
     <AuthProvider>
       <Router>

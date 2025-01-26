@@ -14,10 +14,8 @@
 
 .splash-image-container {
   width: 100vw;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  will-change: transform;
+  height: 100vh; /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   position: relative;
 }

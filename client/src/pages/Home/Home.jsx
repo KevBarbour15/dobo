@@ -15,6 +15,7 @@ import { useGSAP } from "@gsap/react";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [homeMedia, setHomeMedia] = useState(null);
+  const [mediaReady, setMediaReady] = useState(false);
   const containerRef = useRef(null);
   const homeImageRef = useRef(null);
   const homeVideoRef = useRef(null);
@@ -41,21 +42,15 @@ const Home = () => {
       .set(".home-text-container", {
         opacity: 1,
       })
-      .to(".home-logo img", {
-        delay: 0.25,
-        opacity: 1,
-        duration: 1,
-        scale: 1,
-      },0)
       .to(
-        homeMedia,
+        ".home-logo img",
         {
-          //clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 0.5,
+          delay: 0.25,
           opacity: 1,
+          duration: 1,
           scale: 1,
         },
-        0.25
+        0
       )
       .to(
         ".home-text",
@@ -73,9 +68,30 @@ const Home = () => {
         },
         0.5
       );
-  }, [isMobile, homeMedia]);
+
+    if (mediaReady) {
+      tl.to(
+        homeMedia,
+        {
+          duration: 0.5,
+          opacity: 1,
+          scale: 1,
+        },
+        0.25
+      );
+    }
+  }, [isMobile, homeMedia, mediaReady]);
+
+  const handleVideoReady = () => {
+    setMediaReady(true);
+  };
+
+  const handleImageLoad = () => {
+    setMediaReady(true);
+  };
 
   useEffect(() => {
+    setMediaReady(false);
     if (isMobile) {
       setHomeMedia(homeImageRef.current);
     } else {
@@ -104,6 +120,7 @@ const Home = () => {
             src={homeImage}
             alt="DOBO NYC - Modern Filipino Food"
             className="home-image"
+            onLoad={handleImageLoad}
           />
         ) : (
           <video
@@ -115,6 +132,7 @@ const Home = () => {
             playsInline
             className="home-video"
             alt="DOBO NYC - Modern Filipino Food"
+            onLoadedData={handleVideoReady}
           />
         )}
         <div className="container">
