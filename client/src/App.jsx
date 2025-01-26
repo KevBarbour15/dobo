@@ -40,11 +40,34 @@ function App() {
     // Set the value initially
     setVH();
 
-    // Add event listener to update on resize
-    window.addEventListener("resize", setVH);
+    // Add event listener with a debounced resize handler
+    let timeoutId;
+    const handleResize = () => {
+      // Clear the timeout if it exists
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      // Set a new timeout
+      timeoutId = setTimeout(() => {
+        // Only update if the width changed (not just height)
+        // This prevents updates when mobile browsers show/hide their nav bars
+        if (window.innerWidth !== window.lastWidth) {
+          window.lastWidth = window.innerWidth;
+          setVH();
+        }
+      }, 250); // 250ms delay
+    };
+
+    window.lastWidth = window.innerWidth;
+    window.addEventListener("resize", handleResize);
 
     // Clean up
-    return () => window.removeEventListener("resize", setVH);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   return (
