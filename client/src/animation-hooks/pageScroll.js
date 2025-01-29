@@ -23,7 +23,7 @@ const usePageScroll = () => {
     }).to(".title", {
       scrollTrigger: {
         trigger: ".title-container",
-        start: "center bottom",
+        start: "center bottom+=100svh",
         end: "center center",
         scrub: 1,
         onLeave: function () {
