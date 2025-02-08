@@ -30,7 +30,7 @@ const Home = () => {
     // Set initial states
     tl.set(homeMedia, {
       opacity: 0,
-      scale: 0.95, // Add a slight scale effect
+      scale: 0.9,
     })
       .set(".home-logo img", {
         opacity: 0,
@@ -43,14 +43,7 @@ const Home = () => {
       })
       .set(".home-text-container", {
         opacity: 1,
-      });
-
-    // Create the animation sequence
-    const mainAnimation = gsap.timeline({
-      paused: true, // Start paused
-    });
-
-    mainAnimation
+      })
       .to(
         ".home-logo img",
         {
@@ -76,16 +69,22 @@ const Home = () => {
           duration: 1,
         },
         0.5
-      )
-      .to(
-        homeMedia,
-        {
-          duration: 0.5,
-          opacity: 1,
-          scale: 1,
-        },
-        0.25
       );
+
+    // Create the animation sequence
+    const mainAnimation = gsap.timeline({
+      paused: true,
+    });
+
+    mainAnimation.to(
+      homeMedia,
+      {
+        duration: 0.5,
+        opacity: 1,
+        scale: 1,
+      },
+      0.25
+    );
 
     // Only play the animation when media is ready
     if (mediaReady) {
