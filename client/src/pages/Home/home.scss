@@ -97,6 +97,8 @@
   position: relative;
   will-change: transform;
   max-height: 0;
+  height: auto !important;
+  overscroll-behavior: none;
 }
 
 .home-text-wrapper {
