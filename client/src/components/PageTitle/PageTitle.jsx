@@ -9,7 +9,7 @@ const PageTitle = ({ title }) => {
   const [iconSize, setIconSize] = useState(40);
 
   useEffect(() => {
-    setIconSize(window.innerWidth < 768 ? 32 : 40);
+    setIconSize(window.innerWidth < 768 ? 32 : 48);
   }, []);
 
   useGSAP(() => {
@@ -22,10 +22,10 @@ const PageTitle = ({ title }) => {
 
     tl.fromTo(
       ".scroll-down-icon",
-      { y: -125 },
+      { y: -100 },
       {
-        duration: 1.25,
-        y: 125,
+        duration: 1.5,
+        y: 115,
       }
     );
   }, []);
