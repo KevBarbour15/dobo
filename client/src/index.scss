@@ -77,20 +77,71 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.5;
   }
 }
 
 @font-face {
   font-family: "Laygrotesk";
-  src: url("./fonts/laygrotesk-black.otf") format("opentype");
-  src: url("./fonts/laygrotesk-bold.otf") format("opentype");
-  src: url("./fonts/laygrotesk-medium.otf") format("opentype");
   src: url("./fonts/laygrotesk-regular.otf") format("opentype");
-  src: url("./fonts/laygrotesk-semibold.otf") format("opentype");
-
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: "Laygrotesk";
+  src: url("./fonts/laygrotesk-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: "Laygrotesk";
+  src: url("./fonts/laygrotesk-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: "Laygrotesk";
+  src: url("./fonts/laygrotesk-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: "Laygrotesk";
+  src: url("./fonts/laygrotesk-black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: "Neuzeit Grotesk";
+  src: url("./fonts/neuzeit-grotesk.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  line-height: 1.2;
+}
+
+@font-face {
+  font-family: "Neuzeit Grotesk";
+  src: url("./fonts/neuzeit-grotesk-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  line-height: 1.2;
 }
 
 html {
@@ -106,11 +157,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   //font-family: "Playfair Display", serif;
-  font-family: "Laygrotesk", sans-serif;
-  letter-spacing: 0.025em;
+  font-family: "Neuzeit Grotesk", sans-serif;
+  font-weight: 400;
   background: black;
   scroll-behavior: smooth;
   text-wrap: pretty;
+  line-height: 1.5;
 }
 
 code {
@@ -143,7 +195,7 @@ img {
 // Better link underlines
 a {
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.3em;
   color: inherit;
 }
 
@@ -160,4 +212,13 @@ textarea {
 ul,
 ol {
   list-style: none;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.06em;
+}
+
+p {
+  letter-spacing: -0.02em;
 }

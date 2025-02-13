@@ -54,18 +54,18 @@ const ImageGallery = () => {
   useGSAP(() => {
     if (loaded) {
       setTimeout(() => {
-        gsap.set(".gallery-container img", {
+        let tl = gsap.timeline({ delay: 0.5 });
+        tl.set(".gallery-container img", {
           x: (i) => {
-            i = i % 2 === 0 ? 150 : -150;
+            i = i % 2 === 0 ? 250 : -250;
             return (Math.random() - 0.5) * i;
           },
           y: (i) => {
-            i = i % 2 === 0 ? 150 : -150;
-            return (Math.random() - 0.5) * i;
+            i = i % 2 === 0 ? 250 : -250;
+            return (Math.random() - 0.75) * i;
           },
           opacity: 0,
-        });
-        gsap.to(".gallery-container img", {
+        }).to(".gallery-container img", {
           opacity: 1,
           stagger: 0.1,
           delay: 0.15,

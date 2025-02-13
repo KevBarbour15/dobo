@@ -11,6 +11,9 @@ import { X, LogIn } from "lucide-react";
 // GSAP animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(SplitText);
 
 const menuLinks = [
   { path: "/", label: "Home" },
@@ -32,14 +35,26 @@ const Menu = ({ isOpen, onClose }) => {
   useGSAP(() => {
     const links = gsap.utils.toArray(".link-wrapper");
     if (isOpen) {
-      let tl = gsap.timeline();
-      tl.from(links, {
-        duration: 0.35,
+      let tl = gsap.timeline({
         delay: 0.125,
-        opacity: 0,
-        ease: "sine.inOut",
-        stagger: 0.075,
-        x: (i) => (i % 2 === 0 ? 50 : -50),
+      });
+
+      // Split each link text into characters
+      links.forEach((link, index) => {
+        const splitText = new SplitText(link, { type: "chars" });
+        const chars = splitText.chars;
+
+        tl.from(
+          chars,
+          {
+            duration: 0.3,
+            opacity: 0,
+            ease: "linear",
+            stagger: index % 2 === 0 ? -0.075 : 0.075,
+            x: index % 2 === 0 ? -40 : 40,
+          },
+          "<"
+        );
       });
     }
   }, [isOpen]);
@@ -53,15 +68,16 @@ const Menu = ({ isOpen, onClose }) => {
 
         <div className="menu-links-container">
           {menuLinks.map(({ path, label }) => (
-            <Link
-              key={path}
-              className="menu-link"
-              to={path}
-              onClick={onClose}
-              rel={path === "/gallery" ? "preload" : undefined}
-            >
-              <div className="link-wrapper">{label}</div>
-            </Link>
+            <div key={path} className="menu-link-wrapper">
+              <Link
+                className="menu-link"
+                to={path}
+                onClick={onClose}
+                rel={path === "/gallery" ? "preload" : undefined}
+              >
+                <div className="link-wrapper">{label}</div>
+              </Link>
+            </div>
           ))}
         </div>
 

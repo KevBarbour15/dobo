@@ -60,7 +60,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
     <div className="attendee-container">
       {eventTiming === "upcoming" ? (
         <div className="attendee-info">
-          <div className="contact-icon">
+          <div className="contact-info">
             <span className="attendee-name">
               {attendee.firstName + " " + attendee.lastName}
             </span>
@@ -143,7 +143,7 @@ const Attendee = ({ attendee, onStatusChange, date, eventTiming, event }) => {
         </div>
       ) : (
         <div className="attendee-info">
-          <div className="contact-icon">
+          <div className="contact-info">
             <span className="attendee-name">
               {attendee.firstName + " " + attendee.lastName}
             </span>

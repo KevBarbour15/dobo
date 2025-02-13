@@ -13,7 +13,7 @@ import faqImage from "../../assets/images/faq.jpg";
 
 // component imports
 import PageTitle from "../../components/PageTitle/PageTitle.jsx";
-import { MoveDown } from "lucide-react";
+import LogoAnimation from "../../components/LogoAnimation/LogoAnimation.jsx";
 
 // animation imports
 import gsap from "gsap";
@@ -22,8 +22,6 @@ import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
 
 const FAQ = () => {
-  // custom parallax hook
-  // custom fade and parallax hooks
   useFadeIn(".page-container", 1, 0, faqImage);
   usePageScroll();
 
@@ -39,7 +37,7 @@ const FAQ = () => {
 
     faqItems.forEach((item) => {
       gsap.to(item, {
-        delay: 0.15,
+        delay: 0.35,
         duration: 0.3,
         y: 0,
         opacity: 1,
@@ -50,34 +48,26 @@ const FAQ = () => {
         },
       });
     });
-
-    gsap.to(".scroll-down-container", {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".scroll-down-container",
-        start: "bottom bottom",
-        end: "bottom 55%",
-        scrub: 1,
-      },
-    });
   }, []);
 
   return (
     <>
       <div className="page-container">
-        <div className="splash-image-container">
-          <div
-            className="splash-image"
-            style={{ backgroundImage: `url(${faqImage})` }}
-          >
-            &nbsp;
-          </div>
+        <div className="page-title-container">
+          <div className="splash-image-container">
+            <div
+              className="splash-image"
+              style={{ backgroundImage: `url(${faqImage})` }}
+            >
+              &nbsp;
+            </div>
 
-          <div className="scroll-down-container">
-            <MoveDown strokeWidth={1.25} size={40} />
+            <div className="logo-animation-container">
+              <LogoAnimation />
+            </div>
           </div>
+          <PageTitle title={"FAQ"} />
         </div>
-        <PageTitle title={"FAQ"} />
         <div className="container">
           <div className="page-content">
             <Accordion type="single" collapsible defaultValue="">
@@ -94,13 +84,13 @@ const FAQ = () => {
             </Accordion>
             <p className="faq-footer faq-item">
               For additional questions or information, you can contact us{" "}
-              <a
+              <Link
                 className="faq-link"
                 href="mailto:dobonyc@gmail.com"
                 aria-label="Send email to DOBO NYC"
               >
                 here
-              </a>
+              </Link>
               .
             </p>
           </div>

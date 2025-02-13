@@ -21,11 +21,14 @@
   padding-left: 8px;
 }
 
-.contact-icon {
+.contact-info {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding-right: 8px;
+  border-right: 1px solid black;
+  flex-basis: 33%;
+  align-items: center;
 }
 
 .attendee-name {
@@ -37,6 +40,11 @@
 .attendee-email {
   cursor: pointer;
   margin: 8px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.attendee-email:hover {
+  transform: scale(1.25);
 }
 
 .attendee-message {

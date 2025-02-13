@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 
 // component imports
 import Header from "../../components/Header/Header.jsx";
-import logo from "../../assets/images/logo.png";
 import homeVideo from "../../assets/images/home-video.mp4";
 import homeImage from "../../assets/images/home-portrait.jpg";
+import Footer from "../../components/Footer/Footer.jsx";
+
+import LogoAnimation from "../../components/LogoAnimation/LogoAnimation.jsx";
 
 // animation imports
 import gsap from "gsap";
@@ -25,68 +27,64 @@ const Home = () => {
       return;
     }
 
-    let tl = gsap.timeline({});
+    const textContainer = document.querySelector(".home-text-container");
+    const textHeight = textContainer.scrollHeight;
+    console.log(textHeight);
+    // Create the animation sequence
+    const mainAnimation = gsap.timeline({
+      paused: true,
+      delay: 1,
+    });
 
-    // Set initial states
-    tl.set(homeMedia, {
-      opacity: 0,
-      scale: 0.9,
-    })
-      .set(".home-logo img", {
-        opacity: 0,
-      })
-      .set(".home-text", {
-        opacity: 0,
-      })
-      .set(".home-button-wrapper", {
-        opacity: 0,
-      })
-      .set(".home-text-container", {
-        opacity: 1,
-      })
+    mainAnimation
       .to(
-        ".home-logo img",
+        ".home-media-container",
         {
-          delay: 0.25,
-          opacity: 1,
-          duration: 1,
-          scale: 1,
+          minHeight: "0",
+          duration: 0.5,
         },
         0
       )
       .to(
-        ".home-text",
+        ".home-text-container",
         {
-          opacity: 1,
-          duration: 1,
+          height: textHeight,
+          duration: 0.5,
+          ease: "power4.out",
+          maxHeight: "100%",
         },
-        0.5
+        "<"
+      )
+      .to(
+        ".home-media-container",
+        {
+          height: `calc(100svh - ${textHeight}px)`,
+          duration: 0.5,
+        },
+        "<"
       )
       .to(
         ".home-button-wrapper",
         {
           opacity: 1,
-          duration: 1,
+          duration: 0.5,
         },
-        0.5
+        "<"
+      )
+      .to(".wrapper-line-top, .wrapper-line-bottom", {
+        width: () => (isMobile ? "50%" : "250px"),
+        duration: 0.5,
+      })
+      .to(
+        ".home-text",
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        "<"
       );
 
-    // Create the animation sequence
-    const mainAnimation = gsap.timeline({
-      paused: true,
-    });
-
-    mainAnimation.to(
-      homeMedia,
-      {
-        duration: 0.5,
-        opacity: 1,
-        scale: 1,
-      },
-      0.25
-    );
-
-    // Only play the animation when media is ready
+    // Only play the animation when media is ready to avoid bad animation
     if (mediaReady) {
       mainAnimation.play();
     }
@@ -121,53 +119,62 @@ const Home = () => {
   }, [isMobile]);
 
   return (
-    <>
+    <div>
       <Header />
       <div className="home-container" ref={containerRef}>
-        {isMobile ? (
-          <img
-            ref={homeImageRef}
-            src={homeImage}
-            alt="DOBO NYC - Modern Filipino Food"
-            className="home-image"
-            onLoad={handleImageLoad}
-          />
-        ) : (
-          <video
-            ref={homeVideoRef}
-            src={homeVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="home-video"
-            alt="DOBO NYC - Modern Filipino Food"
-            onLoadedData={handleVideoReady}
-          />
-        )}
-        <div className="container">
-          <div className="home-text-container">
-            <div className="home-logo">
-              <img src={logo} alt="DOBO NYC" />
-            </div>
-            <p className="home-text">
-              A unique Filipino dining experience, featuring time-honored
-              recipes elevated to new heights.
-            </p>
+        <div className="home-media-container">
+          {isMobile ? (
+            <img
+              ref={homeImageRef}
+              src={homeImage}
+              alt="DOBO NYC - Modern Filipino Food"
+              className="home-image"
+              onLoad={handleImageLoad}
+            />
+          ) : (
+            <video
+              ref={homeVideoRef}
+              src={homeVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="home-video"
+              alt="DOBO NYC - Modern Filipino Food"
+              onLoadedData={handleVideoReady}
+            />
+          )}
+          <div className="home-logo-container">
+            <LogoAnimation />
+
             <div className="home-button-wrapper">
               <Link to="/attend">
                 <button
                   className="home-button"
                   aria-label="Navigate to the Attend page"
                 >
-                  Join us
+                  BOOK NOW
                 </button>
               </Link>
             </div>
           </div>
         </div>
+
+        <div className="home-text-container">
+          <div className="container">
+            <div className="home-text-wrapper">
+              <div className="wrapper-line-top" />
+              <h2 className="home-text">
+                A unique Filipino dining experience, featuring time-honored
+                recipes elevated to new heights.
+              </h2>
+              <div className="wrapper-line-bottom" />
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

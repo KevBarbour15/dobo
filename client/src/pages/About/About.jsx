@@ -12,8 +12,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import usePageScroll from "../../animation-hooks/pageScroll.js";
 import useFadeIn from "../../animation-hooks/fadeIn.js";
-
-import { MoveDown } from "lucide-react";
+import LogoAnimation from "../../components/LogoAnimation/LogoAnimation.jsx";
 
 const About = () => {
   useFadeIn(".page-container", 1, 0, aboutImage);
@@ -21,46 +20,39 @@ const About = () => {
 
   useGSAP(() => {
     gsap.set(".about-image img", {
-      yPercent: -60,
+      yPercent: -50,
     });
 
     gsap.to(".about-image img", {
       yPercent: 0,
       scrollTrigger: {
-        trigger: ".about-image img",
-        start: "top bottom",
-        end: "bottom center",
-        scrub: 1,
+        trigger: ".page-title-container",
+        start: "bottom bottom",
+        end: "bottom top",
+        scrub: true,
       },
     });
-
-   gsap.to(".scroll-down-container", {
-     opacity: 0,
-     scrollTrigger: {
-       trigger: ".scroll-down-container",
-       start: "bottom bottom",
-       end: "bottom 55%",
-       scrub: 1,
-     },
-   });
   }, []);
 
   return (
     <>
       <div className="page-container">
-        <div className="splash-image-container">
-          <div
-            className="splash-image"
-            style={{ backgroundImage: `url(${aboutImage})` }}
-          >
-            &nbsp;
+        <div className="page-title-container">
+          <div className="splash-image-container">
+            <div
+              className="splash-image"
+              style={{ backgroundImage: `url(${aboutImage})` }}
+            >
+              &nbsp;
+            </div>
+
+            <div className="logo-animation-container">
+              <LogoAnimation />
+            </div>
           </div>
-          <div className="scroll-down-container">
-            <MoveDown strokeWidth={1.25} size={40} />
-          </div>
+          <PageTitle title={"About"} />
         </div>
 
-        <PageTitle title={"About"} />
         <div className="container">
           <div className="page-content">
             <div className="about-container">
@@ -71,7 +63,7 @@ const About = () => {
               </div>
               <div className="about-text">
                 <p>
-                  Sean’s culinary journey, inspired by his upbringing in NYC and
+                  Sean's culinary journey, inspired by his upbringing in NYC and
                   Texas, reflects a deep connection to Filipino traditions and a
                   passion for exceptional food. After cooking for 15 years and
                   experiencing the highs and lows of fine dining, Sean founded

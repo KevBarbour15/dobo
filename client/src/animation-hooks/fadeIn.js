@@ -31,12 +31,6 @@ const useFadeIn = (element, duration, delay, image) => {
         opacity: 1,
       },
       0
-    ).to(
-      ".title",
-      {
-        color: "#f2f1f0",
-      },
-      "<"
     );
   }, [imageLoaded, element, duration, delay]);
 };

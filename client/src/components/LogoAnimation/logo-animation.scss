@@ -1,0 +1,21 @@
+.logo-animation-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 16px;
+
+  gap: 2px;
+  img {
+    opacity: 0;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-animation-wrapper {
+    img {
+      height: 32px;
+    }
+  }
+}

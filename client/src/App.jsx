@@ -29,46 +29,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 
 function App() {
-  useEffect(() => {
-    const setVH = () => {
-      // Get the viewport height and multiply it by 1% to get a value for a vh unit
-      const vh = window.innerHeight * 0.01;
-      // Set the value in the --vh custom property to the root of the document
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    // Set the value initially
-    setVH();
-
-    // Add event listener with a debounced resize handler
-    let timeoutId;
-    const handleResize = () => {
-      // Clear the timeout if it exists
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      // Set a new timeout
-      timeoutId = setTimeout(() => {
-        // Only update if the width changed (not just height)
-        // This prevents updates when mobile browsers show/hide their nav bars
-        if (window.innerWidth !== window.lastWidth) {
-          window.lastWidth = window.innerWidth;
-          setVH();
-        }
-      }, 250); // 250ms delay
-    };
-
-    window.lastWidth = window.innerWidth;
-    window.addEventListener("resize", handleResize);
-
-    // Clean up
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, []);
+ 
 
   return (
     <AuthProvider>

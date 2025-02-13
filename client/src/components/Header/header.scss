@@ -10,13 +10,13 @@
   align-items: center;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
+  mix-blend-mode: difference;
 }
 
 .menu-button {
   display: flex;
-  padding-left: 14px;
+  padding-left: 16px;
   color: white;
-  text-shadow: 0 1.75px 2.75px rgba(0, 0, 0, 1);
 }
 
 .menu-button.open {
@@ -27,12 +27,12 @@
   cursor: pointer;
 }
 
-.header-title {
+.header-logo {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   height: 32px;
   width: auto;
-  opacity: 0;
+  filter: invert(1);
 }
