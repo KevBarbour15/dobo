@@ -68,7 +68,7 @@ const usePageScroll = () => {
         scrollTrigger: {
           trigger: ".page-container-scroll-trigger",
           start: "top top",
-          end: "center 25%",
+          end: "center 30%",
           scrub: 1,
         },
       })
@@ -78,7 +78,7 @@ const usePageScroll = () => {
         scrollTrigger: {
           trigger: ".page-container-scroll-trigger",
           start: "top top",
-          end: "center 25%",
+          end: "center 30%",
           scrub: 1,
         },
       })
@@ -89,7 +89,7 @@ const usePageScroll = () => {
           scrollTrigger: {
             trigger: ".page-container-scroll-trigger",
             start: "top top",
-            end: "center 25%",
+            end: "center 30%",
             scrub: 1,
           },
         },

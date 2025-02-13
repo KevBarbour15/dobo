@@ -38,9 +38,8 @@ const LogoAnimation = () => {
       scrollTrigger: {
         trigger: ".page-container-scroll-trigger",
         start: "top top",
-        end: "bottom center",
+        end: "center 30%",
         scrub: 1,
-    
       },
     });
   }, []);
