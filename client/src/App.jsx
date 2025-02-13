@@ -30,16 +30,18 @@ gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 
 function App() {
   useEffect(() => {
-    // Prevent browser's default scroll restoration
+    // Move scroll restoration to run as early as possible
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
+
+      // Add event listener to ensure it stays manual
+      window.addEventListener("load", () => {
+        window.history.scrollRestoration = "manual";
+      });
     }
 
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    // Ensure initial scroll position
+    window.scrollTo(0, 0);
   }, []);
 
   return (
