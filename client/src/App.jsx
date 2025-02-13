@@ -29,7 +29,18 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 
 function App() {
- 
+  useEffect(() => {
+    // Prevent browser's default scroll restoration
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, []);
 
   return (
     <AuthProvider>
