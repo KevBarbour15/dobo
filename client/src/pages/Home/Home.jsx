@@ -13,6 +13,10 @@ import LogoAnimation from "../../components/LogoAnimation/LogoAnimation.jsx";
 // animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+
+// Register the SplitText plugin
+gsap.registerPlugin(SplitText);
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -29,7 +33,14 @@ const Home = () => {
 
     const textContainer = document.querySelector(".home-text-container");
     const textHeight = textContainer.scrollHeight;
-    console.log(textHeight);
+
+    // Create SplitText instance
+    const splitText = new SplitText(".home-text", {
+      type: ["chars", "words"],
+      charsClass: "char",
+      wordsClass: "word",
+    });
+
     // Create the animation sequence
     const mainAnimation = gsap.timeline({
       paused: true,
@@ -37,6 +48,9 @@ const Home = () => {
     });
 
     mainAnimation
+      .set(splitText.chars, {
+        opacity: 0,
+      })
       .to(
         ".home-media-container",
         {
@@ -76,10 +90,11 @@ const Home = () => {
         duration: 0.5,
       })
       .to(
-        ".home-text",
+        splitText.chars,
         {
+          duration: 0.75,
+          stagger: { amount: 0.35, from: "random" },
           opacity: 1,
-          duration: 0.5,
         },
         "<"
       );

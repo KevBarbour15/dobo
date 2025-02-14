@@ -57,17 +57,17 @@ const ImageGallery = () => {
         let tl = gsap.timeline({ delay: 0.5 });
         tl.set(".gallery-container img", {
           x: (i) => {
-            i = i % 2 === 0 ? 250 : -250;
+            i = i % 2 === 0 ? 100 : -100;
             return (Math.random() - 0.5) * i;
           },
           y: (i) => {
-            i = i % 2 === 0 ? 250 : -250;
+            i = i % 2 === 0 ? 100 : -100;
             return (Math.random() - 0.75) * i;
           },
           opacity: 0,
         }).to(".gallery-container img", {
           opacity: 1,
-          stagger: 0.1,
+          stagger: { amount: 0.5, from: "center" },
           delay: 0.15,
           duration: 0.5,
           ease: "sine.out",

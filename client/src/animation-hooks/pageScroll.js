@@ -52,7 +52,7 @@ const usePageScroll = () => {
           duration: 0.5,
           opacity: 1,
           ease: "sine.inOut",
-          stagger: -0.05,
+          stagger: { amount: -0.15, from: "center" },
           y: 0,
           rotateX: 0,
         },

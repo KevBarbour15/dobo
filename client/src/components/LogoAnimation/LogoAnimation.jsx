@@ -20,11 +20,14 @@ const LogoAnimation = () => {
     const tl = gsap.timeline();
     const scrollTl = gsap.timeline();
 
-    tl.set(letters, { opacity: 0, y: 75 }).to(letters, {
+    tl.set(letters, {
+      opacity: 0,
+      y: () => (location.pathname === "/" ? -75 : 75),
+    }).to(letters, {
       delay: 0.5,
-      duration: 0.35,
+      duration: 0.75,
       ease: "sine.inOut",
-      stagger: 0.05,
+      stagger: { amount: 0.25, from: "random" },
       y: 0,
       opacity: 1,
     });
@@ -33,7 +36,7 @@ const LogoAnimation = () => {
     scrollTl.to(letters, {
       duration: 0.5,
       ease: "sine.inOut",
-      stagger: -0.025,
+      stagger: { amount: -0.15, from: "random" },
       y: 75,
       scrollTrigger: {
         trigger: ".page-container-scroll-trigger",
