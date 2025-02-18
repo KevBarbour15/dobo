@@ -17,22 +17,29 @@ const LogoAnimation = () => {
     const letters = container.current.querySelectorAll(
       ".logo-animation-letter"
     );
+    const html = document.querySelector("html");
+
     const tl = gsap.timeline();
     const scrollTl = gsap.timeline();
 
-    tl.set(letters, {
-      opacity: 0,
-      y: () => (location.pathname === "/" ? -75 : 75),
-    }).to(letters, {
-      delay: 0.5,
-      duration: 0.75,
-      ease: "sine.inOut",
-      stagger: { amount: 0.25, from: "random" },
-      y: 0,
-      opacity: 1,
-    });
+    tl.set(html, { overflowY: "hidden" })
+      .set(letters, {
+        opacity: 0,
+        y: () => (location.pathname === "/" ? 0 : 75),
+      })
+      .to(letters, {
+        delay: 0.5,
+        duration: 0.65,
+        ease: "sine.inOut",
+        stagger: { amount: 0.15, from: "random" },
+        y: 0,
+        opacity: 1,
+      })
+      .set(html, { overflowY: "auto" });
 
+    // Scroll shouldnt be triggered on home page
     if (location.pathname === "/") return;
+
     scrollTl.to(letters, {
       duration: 0.5,
       ease: "sine.inOut",
