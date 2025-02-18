@@ -2,13 +2,21 @@ import "./home.scss";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
+import logo from "../../assets/images/logo.png";
+
+import axios from "../../axiosConfig.jsx";
+import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
+
+import {
+  convertDateReadability,
+  convertMilitaryTime,
+} from "../../util/formatting.jsx";
+
 // component imports
 import Header from "../../components/Header/Header.jsx";
 import homeVideo from "../../assets/images/home-video.mp4";
 import homeImage from "../../assets/images/home-portrait.jpg";
 import Footer from "../../components/Footer/Footer.jsx";
-
-import LogoAnimation from "../../components/LogoAnimation/LogoAnimation.jsx";
 
 // animation imports
 import gsap from "gsap";
@@ -22,9 +30,34 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [homeMedia, setHomeMedia] = useState(null);
   const [mediaReady, setMediaReady] = useState(false);
+  const [futureEvents, setFutureEvents] = useState([]);
+  const [eventsLoaded, setEventsLoaded] = useState(false);
   const containerRef = useRef(null);
   const homeImageRef = useRef(null);
   const homeVideoRef = useRef(null);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("/events/get-all");
+        let events = response.data;
+
+        // filter events to only show future events that are set to public
+        const filterPublicEvents = true;
+        const futureEvents = filterAccessibleEventsNYC(
+          events,
+          filterPublicEvents
+        );
+
+        setFutureEvents(futureEvents);
+        setEventsLoaded(true);
+      } catch (error) {
+        const errorData = error.response ? error.response.data : error.message;
+        console.error("There was an error fetching the data:", errorData);
+      }
+    };
+    fetchEvents();
+  }, []);
 
   useGSAP(() => {
     if (!containerRef.current || !homeMedia) {
@@ -44,7 +77,7 @@ const Home = () => {
     // Create the animation sequence
     const mainAnimation = gsap.timeline({
       paused: true,
-      delay: 1,
+      delay: 0.25,
     });
 
     mainAnimation
@@ -58,6 +91,14 @@ const Home = () => {
           duration: 0.5,
         },
         0
+      )
+      .to(
+        ".home-logo-container img",
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        "<"
       )
       .to(
         ".home-text-container",
@@ -85,6 +126,14 @@ const Home = () => {
         },
         "<"
       )
+      .to(
+        ".home-event-container",
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        "<"
+      )
       .to(".wrapper-line-top, .wrapper-line-bottom", {
         width: () => (isMobile ? "50%" : "250px"),
         duration: 0.5,
@@ -100,10 +149,10 @@ const Home = () => {
       );
 
     // Only play the animation when media is ready to avoid bad animation
-    if (mediaReady) {
+    if (mediaReady && eventsLoaded) {
       mainAnimation.play();
     }
-  }, [isMobile, homeMedia, mediaReady]);
+  }, [isMobile, homeMedia, mediaReady, eventsLoaded]);
 
   const handleVideoReady = () => {
     setMediaReady(true);
@@ -160,18 +209,45 @@ const Home = () => {
             />
           )}
           <div className="home-logo-container">
-            <LogoAnimation />
+            <img src={logo} alt="DOBO NYC - Modern Filipino Food" />
 
-            <div className="home-button-wrapper">
-              <Link to="/attend">
-                <button
-                  className="home-button"
-                  aria-label="Navigate to the Attend page"
-                >
-                  BOOK NOW
-                </button>
-              </Link>
+            <div className="home-event-container">
+              {futureEvents.length > 0 ? (
+                <>
+                  <h2 className="home-event-title">Upcoming Events:</h2>
+                  <div className="home-event-list">
+                    {futureEvents.map((event, index) => (
+                      <div
+                        key={`event-${event.id}-${index}`}
+                        className="home-event-item"
+                      >
+                        <h3>
+                          {convertDateReadability(event.date)} at{" "}
+                          {convertMilitaryTime(event.time)}
+                          {event.seatsRemaining === 0 ? " - SOLD OUT" : ""}
+                        </h3>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <h2 className="home-event-title">
+                  Stay tuned for upcoming events!
+                </h2>
+              )}
             </div>
+            {futureEvents.length > 0 && (
+              <div className="home-button-wrapper">
+                <Link to="/attend">
+                  <button
+                    className="home-button"
+                    aria-label="Navigate to the Attend page"
+                  >
+                    BOOK NOW
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

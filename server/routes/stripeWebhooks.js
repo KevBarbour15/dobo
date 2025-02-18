@@ -5,6 +5,7 @@ const Event = require("../schemas/eventInfo");
 const Attendee = require("../schemas/attendees");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
+//const sgMail = require("@sendgrid/mail");
 
 // to test locally: stripe listen --forward-to localhost:3001/webhook/update
 // then update the endpoint in the .env file
@@ -12,6 +13,8 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 // stripe trigger checkout.session.completed
 // stripe trigger charge.refunded
 const processedRefunds = new Set();
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 router.post("/update", (req, res) => {
   console.log("stripe webhook hit");
@@ -112,6 +115,35 @@ async function updateEventSeats(eventMetadata, session) {
         seatsRemaining: -eventMetadata.seats,
       },
     });
+    /*
+    // Send confirmation email
+    try {
+      const msg = {
+        to: eventMetadata.email,
+        from: process.env.SENDGRID_FROM_EMAIL,
+        subject: `Confirmation for ${event.title}`,
+        text: `Thank you for your reservation, ${eventMetadata.firstName}! Your booking for ${eventMetadata.seats} seat(s) at ${event.title} has been confirmed.`,
+        html: `
+          <h2>Booking Confirmation</h2>
+          <p>Dear ${eventMetadata.firstName},</p>
+          <p>Thank you for your reservation! Your booking details:</p>
+          <ul>
+            <li>Event: ${event.title}</li>
+            <li>Seats: ${eventMetadata.seats}</li>
+            <li>Wine Pairings: ${eventMetadata.winePairings ? "Yes" : "No"}</li>
+            <li>Total Payment: $${eventMetadata.totalPrice}</li>
+          </ul>
+          <p>We look forward to seeing you!</p>
+        `,
+      };
+
+      const response = await sgMail.send(msg);
+      console.log("Email sent successfully:", response.body);
+    } catch (emailError) {
+      console.error("Error sending confirmation email:", emailError.response.body);
+      // Note: We don't throw the error here so the function can complete the rest of its tasks
+    }*/
+    
   } catch (error) {
     throw error;
   }
