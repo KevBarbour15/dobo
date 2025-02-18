@@ -231,7 +231,7 @@ const Home = () => {
                   </div>
                 </>
               ) : (
-                <h2 className="home-event-title">
+                <h2 className="home-event-no-events">
                   Stay tuned for upcoming events!
                 </h2>
               )}
