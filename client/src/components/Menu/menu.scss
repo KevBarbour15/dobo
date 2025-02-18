@@ -12,6 +12,7 @@
   align-items: center;
   top: 0;
   backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
 }
 
 .menu-container.open {
