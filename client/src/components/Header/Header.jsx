@@ -40,7 +40,7 @@ const Header = () => {
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <MenuIcon size={28} strokeWidth={2.25} />
+            <MenuIcon size={24} strokeWidth={2.25} />
           </button>
         </div>
         {showHeaderLogo && (
