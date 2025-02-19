@@ -3,7 +3,7 @@
   height: 100dvh;
   width: 350px;
   transition: clip-path 0.3s ease-in-out;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.85);
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
   z-index: 975;
   display: flex;
@@ -11,8 +11,6 @@
   justify-content: flex-start;
   align-items: center;
   top: 0;
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(25px);
 }
 
 .menu-container.open {
@@ -105,5 +103,11 @@
 
   .menu-link {
     font-size: 24px;
+  }
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+  .menu-container {
+    background: rgba(0, 0, 0, 0.85);
   }
 }

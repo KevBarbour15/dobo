@@ -58,7 +58,7 @@ const ImageGallery = () => {
         tl.set(".gallery-container img", {
           x: (i) => {
             i = i % 2 === 0 ? 100 : -100;
-            return (Math.random() - 0.5) * i;
+            return (Math.random() - 0.75) * i;
           },
           y: (i) => {
             i = i % 2 === 0 ? 100 : -100;
@@ -67,9 +67,9 @@ const ImageGallery = () => {
           opacity: 0,
         }).to(".gallery-container img", {
           opacity: 1,
-          stagger: { amount: 0.5, from: "center" },
+          stagger: { amount: 0.5, from: "random" },
           delay: 0.15,
-          duration: 0.5,
+          duration: 0.75,
           ease: "sine.out",
           x: 0,
           y: 0,

@@ -10,21 +10,20 @@
   align-items: center;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  mix-blend-mode: difference;
+  mix-blend-mode: exclusion;
 }
 
 .menu-button {
   display: flex;
   padding-left: 16px;
-  color: white;
+  color: #f2f1f0;
+
+  cursor: pointer;
 }
 
 .menu-button.open {
-  filter: blur(50px);
-}
-
-.menu-button:hover {
-  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .header-logo {
