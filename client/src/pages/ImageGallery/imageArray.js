@@ -11,13 +11,13 @@ import img9 from "../../assets/images/9.jpg";
 const images = [
   {
     src: img1,
-    height: 1688,
-    width: 3000,
+    height: 1336,
+    width: 2000,
   },
   {
     src: img2,
-    height: 2004,
-    width: 3000,
+    height: 1407,
+    width: 2500,
   },
   {
     src: img3,
