@@ -39,8 +39,8 @@
   overflow: hidden;
 
   img {
-    height: 72px;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.75));
+    height: 64px;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
     opacity: 0;
   }
 }
@@ -57,7 +57,7 @@
   font-size: 20px;
   font-weight: 400;
   color: #f2f1f0;
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.75);
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .home-event-list {
@@ -68,7 +68,7 @@
   color: #f2f1f0;
   gap: 4px;
   font-size: 18px;
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.75);
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .home-event-title {
@@ -76,7 +76,7 @@
   font-weight: 700;
   text-align: center;
   color: #f2f1f0;
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.75);
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .home-button-wrapper {
@@ -96,7 +96,7 @@
   cursor: pointer;
   text-decoration: none;
   color: #f2f1f0;
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
   padding: 8px 20px;
   border: #f2f1f0 1px solid;
   position: relative;
@@ -128,7 +128,7 @@
   }
 
   &:active {
-    box-shadow: 0 0.75px 1.75px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.5px 1.75px rgba(0, 0, 0, 0.5);
   }
 }
 

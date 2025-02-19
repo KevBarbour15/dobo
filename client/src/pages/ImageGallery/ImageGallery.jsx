@@ -86,24 +86,22 @@ const ImageGallery = () => {
         </div>
       ) : (
         <div className="gallery-container">
-          <div className="container">
-            <PhotoAlbum
-              photos={images}
-              onClick={({ index }) => setIndex(index)}
-              layout="rows"
-              rowConstraints={{
-                maxPhotos: maxPhotos,
-              }}
-            />
+          <PhotoAlbum
+            photos={images}
+            onClick={({ index }) => setIndex(index)}
+            layout="rows"
+            rowConstraints={{
+              maxPhotos: maxPhotos,
+            }}
+          />
 
-            <Lightbox
-              slides={images}
-              open={index >= 0}
-              index={index}
-              close={() => setIndex(-1)}
-              plugins={[Thumbnails]}
-            />
-          </div>
+          <Lightbox
+            slides={images}
+            open={index >= 0}
+            index={index}
+            close={() => setIndex(-1)}
+            plugins={[Thumbnails]}
+          />
         </div>
       )}
     </>

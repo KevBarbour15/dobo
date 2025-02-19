@@ -19,7 +19,6 @@ import { filterAccessibleEventsNYC } from "../../util/timeZoneFormatting.jsx";
 
 // animation imports
 
-
 const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
@@ -111,11 +110,12 @@ const EventDetails = ({ event, onDeleteEvent, onUpdateEvent }) => {
             <li>
               {event.isPublicEvent ? (
                 <span className="flex gap-2 items-center">
-                  - Event is posted. <Check size={24} strokeWidth={1} />
+                  - Event is posted. <Check size={24} strokeWidth={1.25} />
                 </span>
               ) : (
                 <span className="flex gap-2 items-center">
-                  - Event is not posted. <CircleX size={24} strokeWidth={1} />
+                  - Event is not posted.{" "}
+                  <CircleX size={24} strokeWidth={1.25} />
                 </span>
               )}
             </li>

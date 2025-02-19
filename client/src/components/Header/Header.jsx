@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -11,9 +11,15 @@ import Menu from "../Menu/Menu.jsx";
 import logo from "../../assets/images/logo-black.png";
 import { Menu as MenuIcon } from "lucide-react";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const Header = () => {
+  const containerRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHeaderLogo, setShowHeaderLogo] = useState(false);
+  const [color, setColor] = useState("");
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -24,23 +30,72 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  useGSAP(() => {
+    if (!containerRef.current || location.pathname === "/") return;
+
+    ScrollTrigger.create({
+      trigger: ".title-container",
+      start: "top top+=28",
+      end: "top top+=27",
+      scrub: true,
+      onUpdate: (self) => {
+        setColor(self.progress === 1 ? "black" : "#f2f1f0");
+      },
+    });
+
+    if (location.pathname === "/gallery") {
+      setColor("black");
+      let scrollTL = gsap.timeline();
+
+      scrollTL.to(".header-logo", {
+        scrollTrigger: {
+          trigger: ".header-logo",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          onEnter: () => {
+            gsap.to(".header-logo", {
+              filter: "invert(1)",
+              duration: 0.5,
+            });
+            setColor("#f2f1f0");
+          },
+          onLeaveBack: () => {
+            gsap.to(".header-logo", {
+              filter: "invert(0)",
+              duration: 0.15,
+            });
+            setColor("black");
+          },
+        },
+      });
+    }
+  }, [location.pathname]);
+
   useEffect(() => {
     // Define routes where the logo should be shown
     const routesToDisplayLogo = ["/gallery", "/success"];
     const shouldShowLogo = routesToDisplayLogo.includes(location.pathname);
     setShowHeaderLogo(shouldShowLogo);
+
+    // Set initial color based on route
+    if (location.pathname === "/gallery") {
+      setColor("black");
+    } else {
+      setColor("#f2f1f0");
+    }
   }, [location.pathname]);
 
   return (
     <>
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
-      <header className="header-container">
+      <header ref={containerRef} className="header-container">
         <div className="header-menu">
           <button
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <MenuIcon size={24} strokeWidth={2.25} />
+            <MenuIcon size={24} strokeWidth={1.25} color={color} />
           </button>
         </div>
         {showHeaderLogo && (

@@ -29,7 +29,7 @@ const AccordionTrigger = React.forwardRef(
         {children}
         <MoveDown
           className="h-6 w-6 shrink-0 transition-transform duration-300"
-          strokeWidth={1}
+          strokeWidth={1.25}
         />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

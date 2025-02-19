@@ -18,11 +18,12 @@ const LogoAnimation = () => {
       ".logo-animation-letter"
     );
     const html = document.querySelector("html");
+    const body = document.body;
 
     const tl = gsap.timeline();
     const scrollTl = gsap.timeline();
 
-    tl.set(html, { overflowY: "hidden" })
+    tl.set([html, body], { overflow: "hidden" })
       .set(letters, {
         opacity: 0,
         y: () => (location.pathname === "/" ? 0 : 75),
@@ -35,7 +36,7 @@ const LogoAnimation = () => {
         y: 0,
         opacity: 1,
       })
-      .set(html, { overflowY: "auto" });
+      .set([html, body], { overflow: "auto" });
 
     // Scroll shouldnt be triggered on home page
     if (location.pathname === "/") return;
