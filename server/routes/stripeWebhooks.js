@@ -14,7 +14,7 @@ const ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET;
 // stripe trigger charge.refunded
 const processedRefunds = new Set();
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 router.post("/update", (req, res) => {
   console.log("stripe webhook hit");
