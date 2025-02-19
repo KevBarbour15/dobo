@@ -35,6 +35,7 @@ const Home = () => {
   const containerRef = useRef(null);
   const homeImageRef = useRef(null);
   const homeVideoRef = useRef(null);
+  const timelineRef = useRef(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -60,8 +61,11 @@ const Home = () => {
   }, []);
 
   useGSAP(() => {
-    if (!containerRef.current || !homeMedia) {
-      return;
+    if (!containerRef.current) return;
+
+    // Clear any existing timeline to prevent multiple instances
+    if (timelineRef.current) {
+      timelineRef.current.kill();
     }
 
     const textContainer = document.querySelector(".home-text-container");
@@ -74,13 +78,14 @@ const Home = () => {
       wordsClass: "word",
     });
 
-    // Create the animation sequence
-    const mainAnimation = gsap.timeline({
+    // Store timeline reference
+    timelineRef.current = gsap.timeline({
       paused: true,
       delay: 0.25,
     });
 
-    mainAnimation
+    // Create the animation sequence
+    timelineRef.current
       .set(splitText.chars, {
         opacity: 0,
       })
@@ -96,7 +101,8 @@ const Home = () => {
         ".home-logo-container img",
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.75,
+          ease: "power4.out",
         },
         "<"
       )
@@ -118,22 +124,6 @@ const Home = () => {
         },
         "<"
       )
-      .to(
-        ".home-button-wrapper",
-        {
-          opacity: 1,
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to(
-        ".home-event-container",
-        {
-          opacity: 1,
-          duration: 0.5,
-        },
-        "<"
-      )
       .to(".wrapper-line-top, .wrapper-line-bottom", {
         width: () => (isMobile ? "50%" : "250px"),
         duration: 0.5,
@@ -146,12 +136,37 @@ const Home = () => {
           opacity: 1,
         },
         "<"
+      )
+      .to(
+        ".home-event-container",
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        1
+      )
+      .to(
+        ".home-button-wrapper",
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        1.25
       );
 
-    // Only play the animation when media is ready to avoid bad animation
     if (mediaReady && eventsLoaded) {
-      mainAnimation.play();
+      setTimeout(() => {
+        timelineRef.current?.play();
+      }, 100);
     }
+
+    // Cleanup function
+    return () => {
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+      }
+      splitText.revert();
+    };
   }, [isMobile, homeMedia, mediaReady, eventsLoaded]);
 
   const handleVideoReady = () => {
@@ -217,10 +232,7 @@ const Home = () => {
                   <h2 className="home-event-title">Upcoming Events:</h2>
                   <div className="home-event-list">
                     {futureEvents.map((event, index) => (
-                      <div
-                        key={`event-${event.id}-${index}`}
-                        className="home-event-item"
-                      >
+                      <div key={`event-${index}`} className="home-event-item">
                         <h3>
                           {convertDateReadability(event.date)} at{" "}
                           {convertMilitaryTime(event.time)}

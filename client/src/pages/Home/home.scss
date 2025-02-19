@@ -16,7 +16,7 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.75);
+  filter: brightness(0.85);
 }
 
 .home-image {
@@ -24,7 +24,7 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.8);
+  filter: brightness(0.85);
 }
 
 .home-logo-container {
@@ -161,7 +161,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 0px;
-    height: 2px;
+    height: 1px;
     background-color: black;
   }
 
@@ -171,7 +171,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 0px;
-    height: 2px;
+    height: 1px;
     background-color: black;
   }
 }
@@ -204,20 +204,17 @@
     text-wrap: nowrap;
   }
 
+  .home-button-wrapper {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
   .home-text-container {
     width: 100%;
   }
 
   .home-text-wrapper {
     padding: 16px 0;
-
-    .wrapper-line-top {
-      height: 1.5px;
-    }
-
-    .wrapper-line-bottom {
-      height: 1.5px;
-    }
   }
 
   .home-text {

@@ -1,7 +1,6 @@
 .title-container {
   width: 100%;
   overflow: hidden;
-  padding: 0;
   position: relative;
   display: flex;
   justify-content: end;
@@ -12,7 +11,6 @@
   width: fit-content;
   font-size: 120px;
   color: black;
-  padding: 0;
   font-weight: 700;
   position: absolute;
   left: 0;
@@ -20,16 +18,15 @@
   top: 32px;
   bottom: 0;
   text-align: center;
-  padding: 0 16px;
   line-height: 1;
+  padding: 0 16px;
 }
 
 .title-wrapper-line {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0px;
+  left: 0;
+  width: 0;
   height: 1px;
   background-color: black;
 }
