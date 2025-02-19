@@ -85,6 +85,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 }
 
 .home-button {
@@ -105,8 +107,6 @@
   font-size: 24px;
   font-weight: 700;
   border-radius: 3px;
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(100px);
 
   &::before {
     content: "";
