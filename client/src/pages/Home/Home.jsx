@@ -102,7 +102,7 @@ const Home = () => {
         {
           opacity: 1,
           duration: 0.75,
-          ease: "power4.out",
+          ease: "linear",
         },
         "<"
       )
@@ -111,7 +111,7 @@ const Home = () => {
         {
           height: textHeight,
           duration: 0.5,
-          ease: "power4.out",
+          ease: "linear",
           maxHeight: "100%",
         },
         "<"

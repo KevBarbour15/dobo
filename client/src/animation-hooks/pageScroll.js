@@ -35,7 +35,7 @@ const usePageScroll = () => {
         {
           height: titleHeight,
           duration: 0.75,
-          ease: "power4.out",
+          ease: "linear",
         },
         "<"
       )
