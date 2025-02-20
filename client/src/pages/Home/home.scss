@@ -85,8 +85,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 16px;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .home-button {
@@ -181,7 +181,6 @@
   line-height: 1.15;
   text-wrap: balance;
   text-align: center;
-  overflow: hidden;
   width: 80%;
 }
 

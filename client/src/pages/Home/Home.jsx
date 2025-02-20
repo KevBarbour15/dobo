@@ -36,6 +36,7 @@ const Home = () => {
   const homeImageRef = useRef(null);
   const homeVideoRef = useRef(null);
   const timelineRef = useRef(null);
+  const splitTextRef = useRef(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -61,18 +62,21 @@ const Home = () => {
   }, []);
 
   useGSAP(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !mediaReady || !eventsLoaded) return;
 
-    // Clear any existing timeline to prevent multiple instances
+    // Clear any existing timeline and SplitText
     if (timelineRef.current) {
       timelineRef.current.kill();
+    }
+    if (splitTextRef.current) {
+      splitTextRef.current.revert();
     }
 
     const textContainer = document.querySelector(".home-text-container");
     const textHeight = textContainer.scrollHeight;
 
-    // Create SplitText instance
-    const splitText = new SplitText(".home-text", {
+    // Create SplitText instance and store reference
+    splitTextRef.current = new SplitText(".home-text", {
       type: ["chars", "words"],
       charsClass: "char",
       wordsClass: "word",
@@ -80,13 +84,12 @@ const Home = () => {
 
     // Store timeline reference
     timelineRef.current = gsap.timeline({
-      paused: true,
       delay: 0.25,
     });
 
     // Create the animation sequence
     timelineRef.current
-      .set(splitText.chars, {
+      .set(splitTextRef.current.words, {
         opacity: 0,
       })
       .to(
@@ -101,8 +104,7 @@ const Home = () => {
         ".home-logo-container img",
         {
           opacity: 1,
-          duration: 0.75,
-          ease: "linear",
+          duration: 0.5,
         },
         "<"
       )
@@ -111,7 +113,6 @@ const Home = () => {
         {
           height: textHeight,
           duration: 0.5,
-          ease: "linear",
           maxHeight: "100%",
         },
         "<"
@@ -121,19 +122,21 @@ const Home = () => {
         {
           height: `calc(100svh - ${textHeight}px)`,
           duration: 0.5,
+          ease: "sine.out",
         },
         "<"
       )
       .to(".wrapper-line-top, .wrapper-line-bottom", {
-        width: () => (isMobile ? "50%" : "250px"),
+        width: () => (isMobile ? "50%" : "300px"),
         duration: 0.5,
       })
       .to(
-        splitText.chars,
+        splitTextRef.current.words,
         {
-          duration: 0.75,
-          stagger: { amount: 0.35, from: "random" },
+          duration: 1,
+          stagger: { amount: 0.15, from: "random" },
           opacity: 1,
+          ease: "sine.out",
         },
         "<"
       )
@@ -141,33 +144,32 @@ const Home = () => {
         ".home-event-container",
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.25,
         },
-        1
+        0.75
       )
       .to(
         ".home-button-wrapper",
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.25,
         },
-        1.25
+        1
       );
 
-    if (mediaReady && eventsLoaded) {
-      setTimeout(() => {
-        timelineRef.current?.play();
-      }, 100);
-    }
+    // Play immediately since we're already checking conditions at the start
+    timelineRef.current.play();
 
     // Cleanup function
     return () => {
       if (timelineRef.current) {
         timelineRef.current.kill();
       }
-      splitText.revert();
+      if (splitTextRef.current) {
+        splitTextRef.current.revert();
+      }
     };
-  }, [isMobile, homeMedia, mediaReady, eventsLoaded]);
+  }, [mediaReady, eventsLoaded]);
 
   const handleVideoReady = () => {
     setMediaReady(true);

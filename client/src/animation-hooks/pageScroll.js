@@ -7,7 +7,7 @@ const usePageScroll = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    let tl = gsap.timeline({ delay: 1, ease: "sine.in" });
+    let tl = gsap.timeline({ delay: 0.5, ease: "sine.in" });
 
     // Get the actual height of the title container
     const titleContainer = document.querySelector(".title-container");
@@ -34,16 +34,17 @@ const usePageScroll = () => {
         ".title-container",
         {
           height: titleHeight,
-          duration: 0.75,
-          ease: "linear",
+          duration: 0.5,
+          maxHeight: "100%",
         },
         "<"
       )
       .to(
         ".splash-image-container",
         {
-          height: `calc(100vh - ${titleHeight}px)`,
+          height: `calc(100svh - ${titleHeight}px)`,
           duration: 0.5,
+          ease: "sine.out",
         },
         "<"
       )
