@@ -15,7 +15,7 @@ import {
 // component imports
 import Header from "../../components/Header/Header.jsx";
 import homeVideo from "../../assets/images/home-video.mp4";
-import homeImage from "../../assets/images/home-portrait.jpg";
+import homeImage from "../../assets/images/home.jpg";
 import Footer from "../../components/Footer/Footer.jsx";
 
 // animation imports
