@@ -61,8 +61,29 @@ const Home = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    setMediaReady(false);
+    if (isMobile) {
+      setHomeMedia(homeImageRef.current);
+    } else {
+      setHomeMedia(homeVideoRef.current);
+    }
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
+
   useGSAP(() => {
-    if (!containerRef.current || !mediaReady || !eventsLoaded) return;
+    if (!containerRef.current || !mediaReady || !eventsLoaded || !homeMedia)
+      return;
 
     // Clear any existing timeline and SplitText
     if (timelineRef.current) {
@@ -92,14 +113,18 @@ const Home = () => {
       .set(splitTextRef.current.words, {
         opacity: 0,
       })
-      .to(
-        ".home-media-container",
-        {
-          minHeight: "0",
-          duration: 0.5,
-        },
-        0
-      )
+      .set(homeMedia, {
+        opacity: 0,
+      })
+      .to(homeMedia, {
+        opacity: 1,
+        duration: 0.25,
+      })
+      .to(".home-media-container", {
+        delay: 0.1,
+        minHeight: "0",
+        duration: 0.5,
+      })
       .to(
         ".home-logo-container img",
         {
@@ -169,7 +194,7 @@ const Home = () => {
         splitTextRef.current.revert();
       }
     };
-  }, [mediaReady, eventsLoaded]);
+  }, [mediaReady, eventsLoaded, homeMedia]);
 
   const handleVideoReady = () => {
     setMediaReady(true);
@@ -178,26 +203,6 @@ const Home = () => {
   const handleImageLoad = () => {
     setMediaReady(true);
   };
-
-  useEffect(() => {
-    setMediaReady(false);
-    if (isMobile) {
-      setHomeMedia(homeImageRef.current);
-    } else {
-      setHomeMedia(homeVideoRef.current);
-    }
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener when component unmounts
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobile]);
 
   return (
     <div>

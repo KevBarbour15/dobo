@@ -29,6 +29,7 @@ const useFadeIn = (element, duration, delay, image) => {
       element,
       {
         opacity: 1,
+        duration: 0.25,
       },
       0
     );
