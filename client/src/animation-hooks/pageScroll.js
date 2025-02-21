@@ -68,10 +68,10 @@ const usePageScroll = () => {
         transformOrigin: "center",
         transform: "translate(-50%, -50%)",
         scrollTrigger: {
-          trigger: ".page-container-scroll-trigger",
+          trigger: ".splash-image",
           start: "top top",
-          end: "center 30%",
-          scrub: 1,
+          end: "bottom center",
+          scrub: 1.5,
         },
       })
       .to(".title-wrapper-line", {
@@ -79,10 +79,10 @@ const usePageScroll = () => {
         left: "0",
         ease: "sine.inOut",
         scrollTrigger: {
-          trigger: ".page-container-scroll-trigger",
+          trigger: ".splash-image",
           start: "top top",
-          end: "center 30%",
-          scrub: 1,
+          end: "bottom center",
+          scrub: 1.5,
         },
       })
       .to(
@@ -90,10 +90,10 @@ const usePageScroll = () => {
         {
           opacity: 0,
           scrollTrigger: {
-            trigger: ".page-container-scroll-trigger",
+            trigger: ".splash-image",
             start: "top top",
-            end: "center 30%",
-            scrub: 1,
+            end: "bottom center",
+            scrub: 1.5,
           },
         },
         "<"

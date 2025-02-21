@@ -159,7 +159,6 @@ const Attend = () => {
 
   return (
     <div className="page-container">
-      <div className="page-container-scroll-trigger" />
       <div className="page-title-container">
         <div className="splash-image-container">
           <div

@@ -34,9 +34,9 @@ const Header = () => {
     if (!containerRef.current || location.pathname === "/") return;
 
     ScrollTrigger.create({
-      trigger: ".title-container",
-      start: "top top+=28",
-      end: "top top+=27",
+      trigger: ".splash-image",
+      start: "bottom bottom",
+      end: "bottom top+=28",
       scrub: true,
       onUpdate: (self) => {
         setColor(self.progress === 1 ? "black" : "#f2f1f0");

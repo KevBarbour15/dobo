@@ -47,10 +47,10 @@ const LogoAnimation = () => {
       stagger: { amount: -0.15, from: "random" },
       y: 75,
       scrollTrigger: {
-        trigger: ".page-container-scroll-trigger",
+        trigger: ".splash-image",
         start: "top top",
-        end: "center 30%",
-        scrub: 1,
+        end: "bottom center",
+        scrub: 1.5,
       },
     });
   }, []);
