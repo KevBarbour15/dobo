@@ -5,7 +5,7 @@ import PageTitle from "../../components/PageTitle/PageTitle.jsx";
 
 // image imports
 import aboutImage from "../../assets/images/about.jpg";
-import aboutVert from "../../assets/images/about-vert.jpg";
+import aboutVert from "../../assets/images/about-2.jpg";
 
 // animation imports
 import gsap from "gsap";
@@ -61,8 +61,17 @@ const About = () => {
                   <img src={aboutVert} alt="about" />
                 </div>
               </div>
-              <div className="about-text">
-                <p>
+              <div className="about-text-container">
+                <h3>
+                  "Filipino food is a cuisine of contrasts-bold yet subtle, rich
+                  yet delicate, familiar yet surprising."{" "}
+                  <span>- Claude Tayag</span>
+                </h3>
+                <div className="about-text-image-wrapper">
+                  <img src={aboutImage} alt="about" />
+                </div>
+
+                <p className="about-text">
                   Sean's culinary journey, inspired by his upbringing in NYC and
                   Texas, reflects a deep connection to Filipino traditions and a
                   passion for exceptional food. After cooking for 15 years and
