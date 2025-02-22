@@ -132,7 +132,7 @@ const Attend = () => {
     }
   }, [state.selectedEventId]);
 
-  // custom fade and parallax hooks
+  // custom fade and scroll hooks
   useFadeIn(".page-container", 1, 0, attendImage);
   usePageScroll();
 
