@@ -33,11 +33,12 @@ const Header = () => {
   useGSAP(() => {
     if (!containerRef.current || location.pathname === "/") return;
 
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       trigger: ".splash-image",
       start: "bottom bottom",
       end: "bottom top+=28",
       scrub: true,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
         setColor(self.progress === 1 ? "black" : "#f2f1f0");
       },
@@ -53,10 +54,11 @@ const Header = () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
+          invalidateOnRefresh: true,
           onEnter: () => {
             gsap.to(".header-logo", {
               filter: "invert(1)",
-              duration: 0.5,
+              duration: 0.3,
             });
             setColor("#f2f1f0");
           },
@@ -70,6 +72,18 @@ const Header = () => {
         },
       });
     }
+
+    // Add event listener for viewport changes
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
+
+    // Cleanup
+    return () => {
+      trigger.kill();
+      window.removeEventListener("resize", ScrollTrigger.refresh);
+      ScrollTrigger.refresh();
+    };
   }, [location.pathname]);
 
   useEffect(() => {
