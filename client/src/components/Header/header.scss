@@ -8,8 +8,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
+  mix-blend-mode: difference;
 }
 
 .menu-button {
@@ -31,4 +30,5 @@
   transform: translate(-50%, -50%);
   height: 32px;
   width: auto;
+  filter: invert(1);
 }

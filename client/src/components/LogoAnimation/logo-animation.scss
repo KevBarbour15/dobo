@@ -4,8 +4,11 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 16px;
-
   gap: 2px;
+  -webkit-filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.75));
+  padding-right: 16px;
+
   img {
     opacity: 0;
     height: 48px;

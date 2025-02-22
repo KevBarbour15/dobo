@@ -11,15 +11,10 @@ import Menu from "../Menu/Menu.jsx";
 import logo from "../../assets/images/logo-black.png";
 import { Menu as MenuIcon } from "lucide-react";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const Header = () => {
   const containerRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHeaderLogo, setShowHeaderLogo] = useState(false);
-  const [color, setColor] = useState("");
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -30,74 +25,11 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  useGSAP(() => {
-    if (!containerRef.current || location.pathname === "/") return;
-
-    const trigger = ScrollTrigger.create({
-      trigger: ".splash-image",
-      start: "bottom bottom",
-      end: "bottom top+=28",
-      scrub: true,
-      invalidateOnRefresh: true,
-      onUpdate: (self) => {
-        setColor(self.progress === 1 ? "black" : "#f2f1f0");
-      },
-    });
-
-    if (location.pathname === "/gallery") {
-      setColor("black");
-      let scrollTL = gsap.timeline();
-
-      scrollTL.to(".header-logo", {
-        scrollTrigger: {
-          trigger: ".header-logo",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          invalidateOnRefresh: true,
-          onEnter: () => {
-            gsap.to(".header-logo", {
-              filter: "invert(1)",
-              duration: 0.3,
-            });
-            setColor("#f2f1f0");
-          },
-          onLeaveBack: () => {
-            gsap.to(".header-logo", {
-              filter: "invert(0)",
-              duration: 0.15,
-            });
-            setColor("black");
-          },
-        },
-      });
-    }
-
-    // Add event listener for viewport changes
-    window.addEventListener("resize", () => {
-      ScrollTrigger.refresh();
-    });
-
-    // Cleanup
-    return () => {
-      trigger.kill();
-      window.removeEventListener("resize", ScrollTrigger.refresh);
-      ScrollTrigger.refresh();
-    };
-  }, [location.pathname]);
-
   useEffect(() => {
     // Define routes where the logo should be shown
     const routesToDisplayLogo = ["/gallery", "/success"];
     const shouldShowLogo = routesToDisplayLogo.includes(location.pathname);
     setShowHeaderLogo(shouldShowLogo);
-
-    // Set initial color based on route
-    if (location.pathname === "/gallery") {
-      setColor("black");
-    } else {
-      setColor("#f2f1f0");
-    }
   }, [location.pathname]);
 
   return (
@@ -109,7 +41,7 @@ const Header = () => {
             onClick={toggleMenu}
             className={`menu-button ${isMenuOpen ? "open" : ""}`}
           >
-            <MenuIcon size={24} strokeWidth={1.25} color={color} />
+            <MenuIcon size={26} strokeWidth={1.5} />
           </button>
         </div>
         {showHeaderLogo && (

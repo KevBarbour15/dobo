@@ -29,7 +29,7 @@ const LogoAnimation = () => {
         y: () => (location.pathname === "/" ? 0 : 75),
       })
       .to(letters, {
-        delay: 0.5,
+        delay: 0.25,
         duration: 0.65,
         ease: "sine.inOut",
         stagger: { amount: 0.15, from: "random" },
@@ -50,7 +50,7 @@ const LogoAnimation = () => {
         trigger: ".splash-image",
         start: "top top",
         end: "bottom center",
-        scrub: 1.5,
+        scrub: 2,
       },
     });
   }, []);
